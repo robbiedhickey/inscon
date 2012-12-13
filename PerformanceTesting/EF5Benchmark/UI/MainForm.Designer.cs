@@ -44,13 +44,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.chk_EL = new System.Windows.Forms.CheckBox();
             this.chk_SP = new System.Windows.Forms.CheckBox();
+            this.chk_ELI = new System.Windows.Forms.CheckBox();
+            this.txt_ELIStart = new System.Windows.Forms.TextBox();
+            this.txt_ELIEnd = new System.Windows.Forms.TextBox();
+            this.txt_ELIElapsed = new System.Windows.Forms.TextBox();
             this.grp_TestSelection.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Go
             // 
             this.btn_Go.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Go.Location = new System.Drawing.Point(437, 163);
+            this.btn_Go.Location = new System.Drawing.Point(437, 177);
             this.btn_Go.Name = "btn_Go";
             this.btn_Go.Size = new System.Drawing.Size(75, 23);
             this.btn_Go.TabIndex = 0;
@@ -61,7 +65,7 @@
             // btn_Exit
             // 
             this.btn_Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Exit.Location = new System.Drawing.Point(437, 192);
+            this.btn_Exit.Location = new System.Drawing.Point(437, 206);
             this.btn_Exit.Name = "btn_Exit";
             this.btn_Exit.Size = new System.Drawing.Size(75, 23);
             this.btn_Exit.TabIndex = 1;
@@ -95,6 +99,10 @@
             // 
             // grp_TestSelection
             // 
+            this.grp_TestSelection.Controls.Add(this.txt_ELIElapsed);
+            this.grp_TestSelection.Controls.Add(this.txt_ELIEnd);
+            this.grp_TestSelection.Controls.Add(this.txt_ELIStart);
+            this.grp_TestSelection.Controls.Add(this.chk_ELI);
             this.grp_TestSelection.Controls.Add(this.txt_SPElapsed);
             this.grp_TestSelection.Controls.Add(this.txt_ELElapsed);
             this.grp_TestSelection.Controls.Add(this.txt_SPEnd);
@@ -108,7 +116,7 @@
             this.grp_TestSelection.Controls.Add(this.chk_SP);
             this.grp_TestSelection.Location = new System.Drawing.Point(12, 38);
             this.grp_TestSelection.Name = "grp_TestSelection";
-            this.grp_TestSelection.Size = new System.Drawing.Size(500, 111);
+            this.grp_TestSelection.Size = new System.Drawing.Size(500, 127);
             this.grp_TestSelection.TabIndex = 6;
             this.grp_TestSelection.TabStop = false;
             this.grp_TestSelection.Text = "Test Selection";
@@ -203,7 +211,7 @@
             // chk_EL
             // 
             this.chk_EL.AutoSize = true;
-            this.chk_EL.Location = new System.Drawing.Point(7, 59);
+            this.chk_EL.Location = new System.Drawing.Point(7, 63);
             this.chk_EL.Name = "chk_EL";
             this.chk_EL.Size = new System.Drawing.Size(94, 17);
             this.chk_EL.TabIndex = 1;
@@ -214,7 +222,7 @@
             // chk_SP
             // 
             this.chk_SP.AutoSize = true;
-            this.chk_SP.Location = new System.Drawing.Point(7, 35);
+            this.chk_SP.Location = new System.Drawing.Point(7, 37);
             this.chk_SP.Name = "chk_SP";
             this.chk_SP.Size = new System.Drawing.Size(131, 17);
             this.chk_SP.TabIndex = 0;
@@ -222,11 +230,42 @@
             this.chk_SP.UseVisualStyleBackColor = true;
             this.chk_SP.CheckedChanged += new System.EventHandler(this.chk_SP_CheckedChanged);
             // 
+            // chk_ELI
+            // 
+            this.chk_ELI.AutoSize = true;
+            this.chk_ELI.Location = new System.Drawing.Point(7, 89);
+            this.chk_ELI.Name = "chk_ELI";
+            this.chk_ELI.Size = new System.Drawing.Size(121, 17);
+            this.chk_ELI.TabIndex = 13;
+            this.chk_ELI.Text = "EF5 - LINQ - Int chk";
+            this.chk_ELI.UseVisualStyleBackColor = true;
+            // 
+            // txt_ELIStart
+            // 
+            this.txt_ELIStart.Location = new System.Drawing.Point(144, 87);
+            this.txt_ELIStart.Name = "txt_ELIStart";
+            this.txt_ELIStart.Size = new System.Drawing.Size(100, 20);
+            this.txt_ELIStart.TabIndex = 14;
+            // 
+            // txt_ELIEnd
+            // 
+            this.txt_ELIEnd.Location = new System.Drawing.Point(250, 87);
+            this.txt_ELIEnd.Name = "txt_ELIEnd";
+            this.txt_ELIEnd.Size = new System.Drawing.Size(100, 20);
+            this.txt_ELIEnd.TabIndex = 15;
+            // 
+            // txt_ELIElapsed
+            // 
+            this.txt_ELIElapsed.Location = new System.Drawing.Point(356, 87);
+            this.txt_ELIElapsed.Name = "txt_ELIElapsed";
+            this.txt_ELIElapsed.Size = new System.Drawing.Size(100, 20);
+            this.txt_ELIElapsed.TabIndex = 16;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 227);
+            this.ClientSize = new System.Drawing.Size(524, 241);
             this.Controls.Add(this.grp_TestSelection);
             this.Controls.Add(this.btn_SelectFile);
             this.Controls.Add(this.txt_FileName);
@@ -261,6 +300,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chk_EL;
         private System.Windows.Forms.CheckBox chk_SP;
+        private System.Windows.Forms.TextBox txt_ELIElapsed;
+        private System.Windows.Forms.TextBox txt_ELIEnd;
+        private System.Windows.Forms.TextBox txt_ELIStart;
+        private System.Windows.Forms.CheckBox chk_ELI;
     }
 }
 

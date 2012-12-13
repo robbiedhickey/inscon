@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using LinqToExcel;
 
 namespace MSI.EF5Benchmark.DAL
@@ -121,6 +122,89 @@ namespace MSI.EF5Benchmark.DAL
             }
 
             return retValue;
+        }
+
+        public bool LoadUsingLinqWithIntermediateCommit(string fileName)
+        {
+            bool retValue = false;
+
+            var excel = new ExcelQueryFactory();
+            excel.FileName = fileName;
+            excel.StrictMapping = true;
+            var people = from c in excel.Worksheet<Person>("5010264") select c;
+
+            using (TransactionScope scope = new TransactionScope())
+            {
+                PatrickTestEntities db = null;
+
+                try
+                {
+                    db = new PatrickTestEntities();
+                    db.Configuration.AutoDetectChangesEnabled = false;
+
+                    int count = 0;
+
+                    foreach (Person item in people)
+                    {
+                        ++count;
+                        TestPeople tp = new TestPeople()
+                            {
+                                Number = item.Number,
+                                Gender = item.Gender,
+                                GivenName = item.GivenName,
+                                MiddleInitial = item.MiddleInitial,
+                                Surname = item.Surname,
+                                StreetAddress = item.StreetAddress,
+                                City = item.City,
+                                State = item.State,
+                                ZipCode = item.ZipCode,
+                                Country = item.Country,
+                                EmailAddress = item.EmailAddress,
+                                TelephoneNumber = item.TelephoneNumber,
+                                MothersMaiden = item.MothersMaiden,
+                                Birthday = item.Birthday,
+                                CCType = item.CCType,
+                                CCNumber = item.CCNumber,
+                                CVV2 = item.CVV2,
+                                CCExpires = item.CCExpires,
+                                NationalID = item.NationalID
+                            };
+
+                        db = AddToContext(db, tp, count, 100, true);
+                    }
+
+                    db.SaveChanges();
+                }
+                finally
+                {
+                    if (db != null)
+                        db.Dispose();
+                }
+
+                scope.Complete();
+            }
+
+            return retValue;
+        }
+
+        private PatrickTestEntities AddToContext(PatrickTestEntities context, TestPeople tp, int count, int commitCount,
+                                                 bool recreateContext)
+        {
+            context.Set<TestPeople>().Add(tp);
+
+            if (count%commitCount == 0)
+            {
+                context.SaveChanges();
+
+                if (recreateContext)
+                {
+                    context.Dispose();
+                    context = new PatrickTestEntities();
+                    context.Configuration.AutoDetectChangesEnabled = false;
+                }
+            }
+
+            return context;
         }
     }
 }

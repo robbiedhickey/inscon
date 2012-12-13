@@ -18,6 +18,8 @@ namespace MSI.EF5Benchmark.UI
         private DateTime _spEndTime;
         private DateTime _elStartTime;
         private DateTime _elEndTime ;
+        private DateTime _eliStartTime;
+        private DateTime _eliEndTime;
 
         public MainForm()
         {
@@ -69,7 +71,7 @@ namespace MSI.EF5Benchmark.UI
 
         private void SetGoState()
         {
-            btn_Go.Enabled = (chk_EL.Checked || chk_SP.Checked) && _fileOK;
+            btn_Go.Enabled = (chk_EL.Checked || chk_SP.Checked || chk_ELI.Checked) && _fileOK;
         }
 
         private void RunTests()
@@ -113,6 +115,26 @@ namespace MSI.EF5Benchmark.UI
                 else
                 {
                     txt_ELElapsed.Text = "Error";
+                }
+            }
+
+            if (chk_ELI.Checked)
+            {
+                bool cleared = rep.ClearTable();
+
+                _eliStartTime = DateTime.Now;
+                txt_ELIStart.Text = _eliStartTime.ToString("HH:mm:ss");
+
+                if (rep.LoadUsingLinq(txt_FileName.Text))
+                {
+                    _eliEndTime = DateTime.Now;
+                    txt_ELIEnd.Text = _eliEndTime.ToString("HH:mm:ss");
+
+                    txt_ELIElapsed.Text = (_eliEndTime - _eliStartTime).ToString();
+                }
+                else
+                {
+                    txt_ELIElapsed.Text = "Error";
                 }
             }
         }
