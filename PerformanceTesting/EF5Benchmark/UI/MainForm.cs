@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DapperRunner.Model;
 using MSI.EF5Benchmark.DAL;
+using DapperRunner;
 
 namespace MSI.EF5Benchmark.UI
 {
@@ -20,6 +22,9 @@ namespace MSI.EF5Benchmark.UI
         private DateTime _elEndTime ;
         private DateTime _eliStartTime;
         private DateTime _eliEndTime;
+
+        private DateTime _dapperStartTime;
+        private DateTime _dapperEndTime;
 
         public MainForm()
         {
@@ -42,6 +47,11 @@ namespace MSI.EF5Benchmark.UI
         }
 
         private void chk_EL_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGoState();
+        }
+
+        private void chk_dapperSp_CheckedChanged(object sender, EventArgs e)
         {
             SetGoState();
         }
@@ -71,7 +81,7 @@ namespace MSI.EF5Benchmark.UI
 
         private void SetGoState()
         {
-            btn_Go.Enabled = (chk_EL.Checked || chk_SP.Checked || chk_ELI.Checked) && _fileOK;
+            btn_Go.Enabled = (chk_EL.Checked || chk_SP.Checked || chk_ELI.Checked || chk_dapperSp.Checked) && _fileOK;
         }
 
         private void RunTests()
@@ -135,6 +145,26 @@ namespace MSI.EF5Benchmark.UI
                 else
                 {
                     txt_ELIElapsed.Text = "Error";
+                }
+            }
+
+            if (chk_dapperSp.Checked)
+            {
+                bool cleared = rep.ClearTable();
+
+                _dapperStartTime = DateTime.Now;
+                txt_DapperSp_Start.Text = _dapperStartTime.ToString("HH:mm:ss");
+
+                if (TestSuite.ExecuteWriteTest<People>(Constants.ConnectionString, txt_FileName.Text))
+                {
+                    _dapperEndTime = DateTime.Now;
+                    txt_DapperSp_Stop.Text = _dapperEndTime.ToString("HH:mm:ss");
+
+                    txt_DapperSp_Elapsed.Text = (_dapperEndTime - _dapperStartTime).ToString();
+                }
+                else
+                {
+                    txt_DapperSp_Elapsed.Text = "Error";
                 }
             }
         }
