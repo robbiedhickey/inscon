@@ -1,0 +1,14 @@
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\MSI.EF5Benchmark.DAL.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\MSI.EF5Benchmark.DAL.pdb
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\EntityFramework.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\EntityFramework.xml
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\obj\Debug\MSI.EF5Benchmark.DAL.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\obj\Debug\MSI.EF5Benchmark.DAL.pdb
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\LinqToExcel.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\log4net.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Remotion.Data.Linq.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Remotion.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Remotion.Interfaces.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\LinqToExcel.xml
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\MSI.EF5Benchmark.DAL.dll.config

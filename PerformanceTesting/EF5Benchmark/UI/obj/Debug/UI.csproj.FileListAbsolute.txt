@@ -1,0 +1,17 @@
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\obj\Debug\UI.csprojResolveAssemblyReference.cache
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\obj\Debug\UI.csproj.GenerateResource.Cache
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\MSI.EF5Benchmark.DAL.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\MSI.EF5Benchmark.DAL.pdb
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\MSI.EF5Benchmark.UI.exe.config
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\MSI.EF5Benchmark.UI.exe
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\MSI.EF5Benchmark.UI.pdb
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\obj\Debug\MSI.EF5Benchmark.UI.MainForm.resources
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\obj\Debug\MSI.EF5Benchmark.UI.Properties.Resources.resources
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\obj\Debug\MSI.EF5Benchmark.UI.exe
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\obj\Debug\MSI.EF5Benchmark.UI.pdb
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\LinqToExcel.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\Remotion.Data.Linq.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\log4net.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\LinqToExcel.xml
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\EntityFramework.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\UI\bin\Debug\EntityFramework.xml

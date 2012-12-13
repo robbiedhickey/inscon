@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PatrickTestModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PatrickTestEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="TestPeoples" EntityType="PatrickTestModel.TestPeople" />
+    <FunctionImport Name="ClearTestPeople" />
+    <FunctionImport Name="Delete_TestPeopleByID">
+      <Parameter Name="prm_Number" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_TestPeople">
+      <Parameter Name="prm_Number" Mode="In" Type="Int32" />
+      <Parameter Name="prm_Gender" Mode="In" Type="String" />
+      <Parameter Name="prm_GivenName" Mode="In" Type="String" />
+      <Parameter Name="prm_MiddleInitial" Mode="In" Type="String" />
+      <Parameter Name="prm_Surname" Mode="In" Type="String" />
+      <Parameter Name="prm_StreetAddress" Mode="In" Type="String" />
+      <Parameter Name="prm_City" Mode="In" Type="String" />
+      <Parameter Name="prm_State" Mode="In" Type="String" />
+      <Parameter Name="prm_ZipCode" Mode="In" Type="String" />
+      <Parameter Name="prm_Country" Mode="In" Type="String" />
+      <Parameter Name="prm_EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="prm_TelephoneNumber" Mode="In" Type="String" />
+      <Parameter Name="prm_MothersMaiden" Mode="In" Type="String" />
+      <Parameter Name="prm_Birthday" Mode="In" Type="DateTime" />
+      <Parameter Name="prm_CCType" Mode="In" Type="String" />
+      <Parameter Name="prm_CCNumber" Mode="In" Type="Decimal" />
+      <Parameter Name="prm_CVV2" Mode="In" Type="Int32" />
+      <Parameter Name="prm_CCExpires" Mode="In" Type="String" />
+      <Parameter Name="prm_NationalID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Select_TestPeople" ReturnType="Collection(PatrickTestModel.Select_TestPeople_Result)" />
+    <FunctionImport Name="Select_TestPeopleByID" ReturnType="Collection(PatrickTestModel.Select_TestPeopleByID_Result)">
+      <Parameter Name="prm_Number" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Update_TestPeople">
+      <Parameter Name="prm_Number" Mode="In" Type="Int32" />
+      <Parameter Name="prm_Gender" Mode="In" Type="String" />
+      <Parameter Name="prm_GivenName" Mode="In" Type="String" />
+      <Parameter Name="prm_MiddleInitial" Mode="In" Type="String" />
+      <Parameter Name="prm_Surname" Mode="In" Type="String" />
+      <Parameter Name="prm_StreetAddress" Mode="In" Type="String" />
+      <Parameter Name="prm_City" Mode="In" Type="String" />
+      <Parameter Name="prm_State" Mode="In" Type="String" />
+      <Parameter Name="prm_ZipCode" Mode="In" Type="String" />
+      <Parameter Name="prm_Country" Mode="In" Type="String" />
+      <Parameter Name="prm_EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="prm_TelephoneNumber" Mode="In" Type="String" />
+      <Parameter Name="prm_MothersMaiden" Mode="In" Type="String" />
+      <Parameter Name="prm_Birthday" Mode="In" Type="DateTime" />
+      <Parameter Name="prm_CCType" Mode="In" Type="String" />
+      <Parameter Name="prm_CCNumber" Mode="In" Type="Decimal" />
+      <Parameter Name="prm_CVV2" Mode="In" Type="Int32" />
+      <Parameter Name="prm_CCExpires" Mode="In" Type="String" />
+      <Parameter Name="prm_NationalID" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="TestPeople">
+    <Key>
+      <PropertyRef Name="Number" />
+    </Key>
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="GivenName" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="MiddleInitial" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Surname" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="StreetAddress" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="City" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="State" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Country" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="TelephoneNumber" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="MothersMaiden" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="Birthday" Type="DateTime" Precision="3" />
+    <Property Name="CCType" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="CCNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CVV2" Type="Int32" />
+    <Property Name="CCExpires" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+    <Property Name="NationalID" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <ComplexType Name="Select_TestPeople_Result">
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="GivenName" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="MiddleInitial" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Surname" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="StreetAddress" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="TelephoneNumber" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="MothersMaiden" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="Birthday" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CCType" Nullable="true" MaxLength="64" />
+    <Property Type="Decimal" Name="CCNumber" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="CVV2" Nullable="true" />
+    <Property Type="String" Name="CCExpires" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="NationalID" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="Select_TestPeopleByID_Result">
+    <Property Type="Int32" Name="Number" Nullable="false" />
+    <Property Type="String" Name="Gender" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="GivenName" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="MiddleInitial" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Surname" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="StreetAddress" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="State" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="TelephoneNumber" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="MothersMaiden" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="Birthday" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CCType" Nullable="true" MaxLength="64" />
+    <Property Type="Decimal" Name="CCNumber" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="CVV2" Nullable="true" />
+    <Property Type="String" Name="CCExpires" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="NationalID" Nullable="true" MaxLength="64" />
+  </ComplexType>
+</Schema>

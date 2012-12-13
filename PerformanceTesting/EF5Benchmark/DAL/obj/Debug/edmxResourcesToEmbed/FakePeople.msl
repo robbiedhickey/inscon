@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PatrickTestModelStoreContainer" CdmEntityContainer="PatrickTestEntities">
+    <EntitySetMapping Name="TestPeoples">
+      <EntityTypeMapping TypeName="PatrickTestModel.TestPeople">
+        <MappingFragment StoreEntitySet="TestPeople">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="GivenName" ColumnName="GivenName" />
+          <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+          <ScalarProperty Name="MothersMaiden" ColumnName="MothersMaiden" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="CCType" ColumnName="CCType" />
+          <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
+          <ScalarProperty Name="CVV2" ColumnName="CVV2" />
+          <ScalarProperty Name="CCExpires" ColumnName="CCExpires" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ClearTestPeople" FunctionName="PatrickTestModel.Store.ClearTestPeople" />
+    <FunctionImportMapping FunctionImportName="Delete_TestPeopleByID" FunctionName="PatrickTestModel.Store.Delete_TestPeopleByID" />
+    <FunctionImportMapping FunctionImportName="Insert_TestPeople" FunctionName="PatrickTestModel.Store.Insert_TestPeople" />
+    <FunctionImportMapping FunctionImportName="Select_TestPeople" FunctionName="PatrickTestModel.Store.Select_TestPeople">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PatrickTestModel.Select_TestPeople_Result">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="GivenName" ColumnName="GivenName" />
+          <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+          <ScalarProperty Name="MothersMaiden" ColumnName="MothersMaiden" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="CCType" ColumnName="CCType" />
+          <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
+          <ScalarProperty Name="CVV2" ColumnName="CVV2" />
+          <ScalarProperty Name="CCExpires" ColumnName="CCExpires" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Select_TestPeopleByID" FunctionName="PatrickTestModel.Store.Select_TestPeopleByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PatrickTestModel.Select_TestPeopleByID_Result">
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="GivenName" ColumnName="GivenName" />
+          <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+          <ScalarProperty Name="MothersMaiden" ColumnName="MothersMaiden" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="CCType" ColumnName="CCType" />
+          <ScalarProperty Name="CCNumber" ColumnName="CCNumber" />
+          <ScalarProperty Name="CVV2" ColumnName="CVV2" />
+          <ScalarProperty Name="CCExpires" ColumnName="CCExpires" />
+          <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Update_TestPeople" FunctionName="PatrickTestModel.Store.Update_TestPeople" />
+  </EntityContainerMapping>
+</Mapping>
