@@ -1,0 +1,15 @@
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\DapperConsole.exe.config
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\DapperConsole.exe
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\DapperConsole.pdb
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\DapperRunner.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\Dapper.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\LinqToExcel.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\Remotion.Data.Linq.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\log4net.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\DapperRunner.pdb
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\Dapper.pdb
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\Dapper.xml
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Release\LinqToExcel.xml
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\obj\Release\Dapper.Console.csprojResolveAssemblyReference.cache
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\obj\Release\DapperConsole.exe
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\obj\Release\DapperConsole.pdb

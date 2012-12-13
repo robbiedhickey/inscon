@@ -1,0 +1,15 @@
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\DapperRunner.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\DapperRunner.pdb
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\Dapper.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\LinqToExcel.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\log4net.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\Remotion.Data.Linq.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\Remotion.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\Remotion.Interfaces.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\Dapper.pdb
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\Dapper.xml
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\LinqToExcel.xml
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\obj\Release\DapperRunner.dll
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\obj\Release\DapperRunner.pdb
