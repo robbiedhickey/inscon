@@ -26,6 +26,9 @@ namespace MSI.EF5Benchmark.UI
         private DateTime _dapperStartTime;
         private DateTime _dapperEndTime;
 
+        private DateTime _llblStartTime;
+        private DateTime _llblEndTime;
+
         public MainForm()
         {
             InitializeComponent();
@@ -47,6 +50,11 @@ namespace MSI.EF5Benchmark.UI
         }
 
         private void chk_EL_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGoState();
+        }
+
+        private void chk_llblAdapter_CheckedChanged(object sender, EventArgs e)
         {
             SetGoState();
         }
@@ -81,7 +89,7 @@ namespace MSI.EF5Benchmark.UI
 
         private void SetGoState()
         {
-            btn_Go.Enabled = (chk_EL.Checked || chk_SP.Checked || chk_ELI.Checked || chk_dapperSp.Checked) && _fileOK;
+            btn_Go.Enabled = (chk_EL.Checked || chk_SP.Checked || chk_ELI.Checked || chk_dapperSp.Checked || chk_llblAdapter.Checked) && _fileOK;
         }
 
         private void RunTests()
@@ -167,6 +175,32 @@ namespace MSI.EF5Benchmark.UI
                     txt_DapperSp_Elapsed.Text = "Error";
                 }
             }
+
+            if (chk_llblAdapter.Checked)
+            {
+                bool cleared = rep.ClearTable();
+
+                _llblStartTime = DateTime.Now;
+                txt_Llbl_Start.Text = _llblStartTime.ToString("HH:mm:ss");
+
+                if (new LLBLTestSuite().ExecuteWriteTest<People>(Constants.ConnectionString, txt_FileName.Text))
+                {
+                    _llblEndTime = DateTime.Now;
+
+                    txt_Llbl_Stop.Text = _llblEndTime.ToString("HH:mm:ss");
+
+                    txt_Llbl_Elapsed.Text = (_llblEndTime - _llblStartTime).ToString();
+                }
+                else
+                {
+                    txt_Llbl_Elapsed.Text = "Error";
+                }
+            }
+
         }
+
+        
+
+        
     }
 }

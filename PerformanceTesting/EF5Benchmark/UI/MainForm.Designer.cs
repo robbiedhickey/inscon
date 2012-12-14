@@ -33,6 +33,10 @@
             this.txt_FileName = new System.Windows.Forms.TextBox();
             this.btn_SelectFile = new System.Windows.Forms.Button();
             this.grp_TestSelection = new System.Windows.Forms.GroupBox();
+            this.txt_DapperSp_Elapsed = new System.Windows.Forms.TextBox();
+            this.txt_DapperSp_Stop = new System.Windows.Forms.TextBox();
+            this.txt_DapperSp_Start = new System.Windows.Forms.TextBox();
+            this.chk_dapperSp = new System.Windows.Forms.CheckBox();
             this.txt_ELIElapsed = new System.Windows.Forms.TextBox();
             this.txt_ELIEnd = new System.Windows.Forms.TextBox();
             this.txt_ELIStart = new System.Windows.Forms.TextBox();
@@ -48,10 +52,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.chk_EL = new System.Windows.Forms.CheckBox();
             this.chk_SP = new System.Windows.Forms.CheckBox();
-            this.txt_DapperSp_Elapsed = new System.Windows.Forms.TextBox();
-            this.txt_DapperSp_Stop = new System.Windows.Forms.TextBox();
-            this.txt_DapperSp_Start = new System.Windows.Forms.TextBox();
-            this.chk_dapperSp = new System.Windows.Forms.CheckBox();
+            this.txt_Llbl_Elapsed = new System.Windows.Forms.TextBox();
+            this.txt_Llbl_Stop = new System.Windows.Forms.TextBox();
+            this.txt_Llbl_Start = new System.Windows.Forms.TextBox();
+            this.chk_llblAdapter = new System.Windows.Forms.CheckBox();
             this.grp_TestSelection.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +107,10 @@
             // 
             // grp_TestSelection
             // 
+            this.grp_TestSelection.Controls.Add(this.txt_Llbl_Elapsed);
+            this.grp_TestSelection.Controls.Add(this.txt_Llbl_Stop);
+            this.grp_TestSelection.Controls.Add(this.txt_Llbl_Start);
+            this.grp_TestSelection.Controls.Add(this.chk_llblAdapter);
             this.grp_TestSelection.Controls.Add(this.txt_DapperSp_Elapsed);
             this.grp_TestSelection.Controls.Add(this.txt_DapperSp_Stop);
             this.grp_TestSelection.Controls.Add(this.txt_DapperSp_Start);
@@ -128,6 +136,39 @@
             this.grp_TestSelection.TabIndex = 6;
             this.grp_TestSelection.TabStop = false;
             this.grp_TestSelection.Text = "Test Selection";
+            // 
+            // txt_DapperSp_Elapsed
+            // 
+            this.txt_DapperSp_Elapsed.Location = new System.Drawing.Point(356, 113);
+            this.txt_DapperSp_Elapsed.Name = "txt_DapperSp_Elapsed";
+            this.txt_DapperSp_Elapsed.Size = new System.Drawing.Size(100, 20);
+            this.txt_DapperSp_Elapsed.TabIndex = 20;
+            // 
+            // txt_DapperSp_Stop
+            // 
+            this.txt_DapperSp_Stop.Location = new System.Drawing.Point(250, 113);
+            this.txt_DapperSp_Stop.Name = "txt_DapperSp_Stop";
+            this.txt_DapperSp_Stop.Size = new System.Drawing.Size(100, 20);
+            this.txt_DapperSp_Stop.TabIndex = 19;
+            // 
+            // txt_DapperSp_Start
+            // 
+            this.txt_DapperSp_Start.Location = new System.Drawing.Point(144, 113);
+            this.txt_DapperSp_Start.Name = "txt_DapperSp_Start";
+            this.txt_DapperSp_Start.Size = new System.Drawing.Size(100, 20);
+            this.txt_DapperSp_Start.TabIndex = 18;
+            // 
+            // chk_dapperSp
+            // 
+            this.chk_dapperSp.AutoSize = true;
+            this.chk_dapperSp.Location = new System.Drawing.Point(6, 115);
+            this.chk_dapperSp.Name = "chk_dapperSp";
+            this.chk_dapperSp.Size = new System.Drawing.Size(126, 17);
+            this.chk_dapperSp.TabIndex = 17;
+            this.chk_dapperSp.Text = "Dapper - Stored Proc";
+            this.chk_dapperSp.UseVisualStyleBackColor = true;
+            this.chk_dapperSp.UseWaitCursor = true;
+            this.chk_dapperSp.CheckedChanged += new System.EventHandler(this.chk_dapperSp_CheckedChanged);
             // 
             // txt_ELIElapsed
             // 
@@ -269,37 +310,38 @@
             this.chk_SP.UseVisualStyleBackColor = true;
             this.chk_SP.CheckedChanged += new System.EventHandler(this.chk_SP_CheckedChanged);
             // 
-            // txt_DapperSp_Elapsed
+            // txt_Llbl_Elapsed
             // 
-            this.txt_DapperSp_Elapsed.Location = new System.Drawing.Point(356, 113);
-            this.txt_DapperSp_Elapsed.Name = "txt_DapperSp_Elapsed";
-            this.txt_DapperSp_Elapsed.Size = new System.Drawing.Size(100, 20);
-            this.txt_DapperSp_Elapsed.TabIndex = 20;
+            this.txt_Llbl_Elapsed.Location = new System.Drawing.Point(356, 139);
+            this.txt_Llbl_Elapsed.Name = "txt_Llbl_Elapsed";
+            this.txt_Llbl_Elapsed.Size = new System.Drawing.Size(100, 20);
+            this.txt_Llbl_Elapsed.TabIndex = 24;
             // 
-            // txt_DapperSp_Stop
+            // txt_Llbl_Stop
             // 
-            this.txt_DapperSp_Stop.Location = new System.Drawing.Point(250, 113);
-            this.txt_DapperSp_Stop.Name = "txt_DapperSp_Stop";
-            this.txt_DapperSp_Stop.Size = new System.Drawing.Size(100, 20);
-            this.txt_DapperSp_Stop.TabIndex = 19;
+            this.txt_Llbl_Stop.Location = new System.Drawing.Point(250, 139);
+            this.txt_Llbl_Stop.Name = "txt_Llbl_Stop";
+            this.txt_Llbl_Stop.Size = new System.Drawing.Size(100, 20);
+            this.txt_Llbl_Stop.TabIndex = 23;
             // 
-            // txt_DapperSp_Start
+            // txt_Llbl_Start
             // 
-            this.txt_DapperSp_Start.Location = new System.Drawing.Point(144, 113);
-            this.txt_DapperSp_Start.Name = "txt_DapperSp_Start";
-            this.txt_DapperSp_Start.Size = new System.Drawing.Size(100, 20);
-            this.txt_DapperSp_Start.TabIndex = 18;
+            this.txt_Llbl_Start.Location = new System.Drawing.Point(144, 139);
+            this.txt_Llbl_Start.Name = "txt_Llbl_Start";
+            this.txt_Llbl_Start.Size = new System.Drawing.Size(100, 20);
+            this.txt_Llbl_Start.TabIndex = 22;
             // 
-            // chk_dapperSp
+            // chk_llblAdapter
             // 
-            this.chk_dapperSp.AutoSize = true;
-            this.chk_dapperSp.Location = new System.Drawing.Point(6, 115);
-            this.chk_dapperSp.Name = "chk_dapperSp";
-            this.chk_dapperSp.Size = new System.Drawing.Size(126, 17);
-            this.chk_dapperSp.TabIndex = 17;
-            this.chk_dapperSp.Text = "Dapper - Stored Proc";
-            this.chk_dapperSp.UseVisualStyleBackColor = true;
-            this.chk_dapperSp.UseWaitCursor = true;
+            this.chk_llblAdapter.AutoSize = true;
+            this.chk_llblAdapter.Location = new System.Drawing.Point(6, 141);
+            this.chk_llblAdapter.Name = "chk_llblAdapter";
+            this.chk_llblAdapter.Size = new System.Drawing.Size(111, 17);
+            this.chk_llblAdapter.TabIndex = 21;
+            this.chk_llblAdapter.Text = "LLBLGen Adapter";
+            this.chk_llblAdapter.UseVisualStyleBackColor = true;
+            this.chk_llblAdapter.UseWaitCursor = true;
+            this.chk_llblAdapter.CheckedChanged += new System.EventHandler(this.chk_llblAdapter_CheckedChanged);
             // 
             // MainForm
             // 
@@ -348,6 +390,10 @@
         private System.Windows.Forms.TextBox txt_DapperSp_Stop;
         private System.Windows.Forms.TextBox txt_DapperSp_Start;
         private System.Windows.Forms.CheckBox chk_dapperSp;
+        private System.Windows.Forms.TextBox txt_Llbl_Elapsed;
+        private System.Windows.Forms.TextBox txt_Llbl_Stop;
+        private System.Windows.Forms.TextBox txt_Llbl_Start;
+        private System.Windows.Forms.CheckBox chk_llblAdapter;
     }
 }
 
