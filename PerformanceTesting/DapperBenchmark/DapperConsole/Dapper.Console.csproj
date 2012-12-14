@@ -45,12 +45,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DapperRunner\Dapper.Runner.csproj">
+    <ProjectReference Include="..\DapperRunner\TestRunner.csproj">
       <Project>{b95dba38-d917-418a-a984-2eefb1d23aeb}</Project>
-      <Name>Dapper.Runner</Name>
+      <Name>TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

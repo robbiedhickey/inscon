@@ -3,7 +3,7 @@
     public class Constants
     {
         public static readonly string ConnectionString = "M2M";
-        public static readonly string FilePath = "FilePath";
+        public static readonly string FilePath = @"C:\5010264.csv";
     }
 
     public class StoredProcs

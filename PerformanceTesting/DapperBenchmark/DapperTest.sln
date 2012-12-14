@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper.Console", "DapperConsole\Dapper.Console.csproj", "{1AC93A0B-0C5B-43F3-894A-14A8DA5FE9BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper.Runner", "DapperRunner\Dapper.Runner.csproj", "{B95DBA38-D917-418A-A984-2EEFB1D23AEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner", "DapperRunner\TestRunner.csproj", "{B95DBA38-D917-418A-A984-2EEFB1D23AEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LLBL.DALDBSpecific", "..\LLBL\LLBL.DALDBSpecific.csproj", "{20346900-CBF0-4EAE-A1C6-685F597E363B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LLBL.DAL", "..\LLBL\LLBL.DAL.csproj", "{5D77107A-03D9-42EF-B583-61FC94256FBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +23,14 @@ Global
 		{B95DBA38-D917-418A-A984-2EEFB1D23AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B95DBA38-D917-418A-A984-2EEFB1D23AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B95DBA38-D917-418A-A984-2EEFB1D23AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20346900-CBF0-4EAE-A1C6-685F597E363B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20346900-CBF0-4EAE-A1C6-685F597E363B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20346900-CBF0-4EAE-A1C6-685F597E363B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20346900-CBF0-4EAE-A1C6-685F597E363B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D77107A-03D9-42EF-B583-61FC94256FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D77107A-03D9-42EF-B583-61FC94256FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D77107A-03D9-42EF-B583-61FC94256FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D77107A-03D9-42EF-B583-61FC94256FBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

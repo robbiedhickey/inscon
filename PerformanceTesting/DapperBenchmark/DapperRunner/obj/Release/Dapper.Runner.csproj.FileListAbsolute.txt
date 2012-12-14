@@ -13,3 +13,4 @@ C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release
 C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\bin\Release\Microsoft.Practices.ServiceLocation.pdb
 C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\obj\Release\DapperRunner.dll
 C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\obj\Release\DapperRunner.pdb
+C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperRunner\obj\Release\Dapper.Runner.csprojResolveAssemblyReference.cache

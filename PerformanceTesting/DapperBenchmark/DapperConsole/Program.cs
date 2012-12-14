@@ -8,7 +8,7 @@ namespace DapperConsole
     {
         static void Main(string[] args)
         {
-            PerformanceTimer.Wrap("Dapper", () => TestSuite.ExecuteWriteTest<People>(Constants.ConnectionString, Constants.FilePath));
+            PerformanceTimer.Wrap("Dapper", () => new LLBLTestSuite().ExecuteWriteTest<People>(Constants.ConnectionString, Constants.FilePath));
 
             PerformanceTimer.GetSummary();
 

@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{9018
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{9775067A-01C1-4203-976B-B6873091F14E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper.Runner", "..\DapperBenchmark\DapperRunner\Dapper.Runner.csproj", "{B95DBA38-D917-418A-A984-2EEFB1D23AEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner", "..\DapperBenchmark\DapperRunner\TestRunner.csproj", "{B95DBA38-D917-418A-A984-2EEFB1D23AEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

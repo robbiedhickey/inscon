@@ -1,0 +1,10 @@
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\DatabaseSpecific\bin\Debug\LLBL.DALDBSpecific.dll.config
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\DatabaseSpecific\bin\Debug\LLBL.DALDBSpecific.dll
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\DatabaseSpecific\bin\Debug\LLBL.DALDBSpecific.pdb
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\DatabaseSpecific\bin\Debug\SD.LLBLGen.Pro.DQE.SqlServer.NET20.dll
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\DatabaseSpecific\bin\Debug\SD.LLBLGen.Pro.ORMSupportClasses.NET20.dll
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\DatabaseSpecific\bin\Debug\SD.LLBLGen.Pro.ORMSupportClasses.NET20.pdb
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\DatabaseSpecific\bin\Debug\SD.LLBLGen.Pro.ORMSupportClasses.NET20.xml
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\DatabaseSpecific\bin\Debug\SD.LLBLGen.Pro.DQE.SqlServer.NET20.pdb
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\obj\Debug\LLBL.DALDBSpecific.dll
+C:\Work\DALBenchmark\PerformanceTesting\LLBL\obj\Debug\LLBL.DALDBSpecific.pdb

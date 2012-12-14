@@ -81,9 +81,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DapperBenchmark\DapperRunner\Dapper.Runner.csproj">
+    <ProjectReference Include="..\..\DapperBenchmark\DapperRunner\TestRunner.csproj">
       <Project>{b95dba38-d917-418a-a984-2eefb1d23aeb}</Project>
-      <Name>Dapper.Runner</Name>
+      <Name>TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{9775067a-01c1-4203-976b-b6873091f14e}</Project>

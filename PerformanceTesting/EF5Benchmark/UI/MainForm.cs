@@ -155,7 +155,7 @@ namespace MSI.EF5Benchmark.UI
                 _dapperStartTime = DateTime.Now;
                 txt_DapperSp_Start.Text = _dapperStartTime.ToString("HH:mm:ss");
 
-                if (TestSuite.ExecuteWriteTest<People>(Constants.ConnectionString, txt_FileName.Text))
+                if (new DapperTestSuite().ExecuteWriteTest<People>(Constants.ConnectionString, txt_FileName.Text))
                 {
                     _dapperEndTime = DateTime.Now;
                     txt_DapperSp_Stop.Text = _dapperEndTime.ToString("HH:mm:ss");

@@ -1,7 +1,10 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using Dapper.Contrib.Extensions;
 
 namespace DapperRunner.Model
 {
+    [Table("TestPeople1")]
     public class People
     {
         public int Number { get; set; }
