@@ -38,3 +38,6 @@ C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Debug\
 C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Debug\LLBL.DAL.pdb
 C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Debug\LLBL.DALDBSpecific.pdb
 C:\Work\DALBenchmark\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Debug\SD.LLBLGen.Pro.DQE.SqlServer.NET20.pdb
+C:\code\InsightConcept\trunk\PerformanceTesting\DapperBenchmark\DapperConsole\bin\Debug\DapperConsole.exe.config
+C:\code\InsightConcept\trunk\PerformanceTesting\DapperBenchmark\DapperConsole\obj\Debug\DapperConsole.exe
+C:\code\InsightConcept\trunk\PerformanceTesting\DapperBenchmark\DapperConsole\obj\Debug\DapperConsole.pdb

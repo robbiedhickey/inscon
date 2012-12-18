@@ -18,7 +18,8 @@ namespace MSI.EF5Benchmark.DAL
     
     public partial class PatrickTestEntities : DbContext
     {
-        public PatrickTestEntities()
+        public 
+            PatrickTestEntities()
             : base("name=PatrickTestEntities")
         {
         }

@@ -30,7 +30,7 @@ namespace DapperRunner
             {
                 var connection = SqlConnectionFactory.CreateOpenConnection(connectionStringName);
                 var tran = connection.BeginTransaction();
-                int count = 1;
+        
                 people.ForEach(p =>
                     {
 
@@ -38,8 +38,7 @@ namespace DapperRunner
                         //var args = GetParamListStatic(p);
 
                         connection.CommandProc(StoredProcs.InsertPerson, args, tran);
-                        
-                        Console.WriteLine(count++);
+           
                     });
 
                 tran.Commit();

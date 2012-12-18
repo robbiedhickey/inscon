@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DapperRunner.Model;
+using LinqToExcel;
 using MSI.EF5Benchmark.DAL;
 using DapperRunner;
+
+using iData.Core;
 
 namespace MSI.EF5Benchmark.UI
 {
@@ -63,11 +61,15 @@ namespace MSI.EF5Benchmark.UI
         {
             SetGoState();
         }
+        private void chkInfintyDAL_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGoState();
+        }
 
         private void btn_SelectFile_Click(object sender, EventArgs e)
         {
             FileDialog fd = new OpenFileDialog();
-            fd.Title = "Select File to Load";
+            fd.Title = @"Select File to Load";
             DialogResult dr = fd.ShowDialog();
             if (dr.Equals(DialogResult.OK))
             {
@@ -89,16 +91,16 @@ namespace MSI.EF5Benchmark.UI
 
         private void SetGoState()
         {
-            btn_Go.Enabled = (chk_EL.Checked || chk_SP.Checked || chk_ELI.Checked || chk_dapperSp.Checked || chk_llblAdapter.Checked) && _fileOK;
+            btn_Go.Enabled = (chk_EL.Checked || chk_SP.Checked || chk_ELI.Checked || chk_dapperSp.Checked || chk_llblAdapter.Checked || chkInfintyDAL.Checked) && _fileOK;
         }
 
         private void RunTests()
         {
-            Repository rep = new Repository();
+            var rep = new Repository();
 
             if (chk_SP.Checked)
             {
-                bool cleared = rep.ClearTable();
+                var cleared = rep.ClearTable();
 
                 _spStartTime = DateTime.Now;
                 txt_SPStart.Text = _spStartTime.ToString("HH:mm:ss");
@@ -112,7 +114,7 @@ namespace MSI.EF5Benchmark.UI
                 }
                 else
                 {
-                    txt_SPElapsed.Text = "Error";
+                    txt_SPElapsed.Text = @"Error";
                 }
             }
 
@@ -132,7 +134,7 @@ namespace MSI.EF5Benchmark.UI
                 }
                 else
                 {
-                    txt_ELElapsed.Text = "Error";
+                    txt_ELElapsed.Text = @"Error";
                 }
             }
 
@@ -152,18 +154,20 @@ namespace MSI.EF5Benchmark.UI
                 }
                 else
                 {
-                    txt_ELIElapsed.Text = "Error";
+                    txt_ELIElapsed.Text = @"Error";
                 }
             }
 
             if (chk_dapperSp.Checked)
             {
+                // Clear Table
                 bool cleared = rep.ClearTable();
 
                 _dapperStartTime = DateTime.Now;
                 txt_DapperSp_Start.Text = _dapperStartTime.ToString("HH:mm:ss");
 
-                if (new DapperTestSuite().ExecuteWriteTest<People>(Constants.ConnectionString, txt_FileName.Text))
+                if (new DapperTestSuite().ExecuteWriteTest<DapperRunner.Model.People>(Constants.ConnectionString,
+                                                                                        txt_FileName.Text))
                 {
                     _dapperEndTime = DateTime.Now;
                     txt_DapperSp_Stop.Text = _dapperEndTime.ToString("HH:mm:ss");
@@ -172,8 +176,8 @@ namespace MSI.EF5Benchmark.UI
                 }
                 else
                 {
-                    txt_DapperSp_Elapsed.Text = "Error";
-                }
+                    txt_DapperSp_Elapsed.Text = @"Error";
+                }  
             }
 
             if (chk_llblAdapter.Checked)
@@ -183,7 +187,7 @@ namespace MSI.EF5Benchmark.UI
                 _llblStartTime = DateTime.Now;
                 txt_Llbl_Start.Text = _llblStartTime.ToString("HH:mm:ss");
 
-                if (new LLBLTestSuite().ExecuteWriteTest<People>(Constants.ConnectionString, txt_FileName.Text))
+                if (new LLBLTestSuite().ExecuteWriteTest<DapperRunner.Model.People>(Constants.ConnectionString, txt_FileName.Text))
                 {
                     _llblEndTime = DateTime.Now;
 
@@ -193,11 +197,52 @@ namespace MSI.EF5Benchmark.UI
                 }
                 else
                 {
-                    txt_Llbl_Elapsed.Text = "Error";
+                    txt_Llbl_Elapsed.Text = @"Error";
                 }
             }
 
+            if (chkInfintyDAL.Checked)
+            {
+               
+                // Clear Database Table
+                var genService = new iData.Core.Service.GenericService();
+                genService.RunProc(iData.Core.Type.Database.patrickTest, "ClearTestPeople");
+
+                try
+                {
+
+
+                    // Set Start Time
+                    var starttime = DateTime.Now;
+                    txtInfinityStart.Text = starttime.ToString(CultureInfo.InvariantCulture);
+
+                    // Read Excel File
+                    var excel = new ExcelQueryFactory {FileName = txt_FileName.Text};
+                    var output = from x in excel.Worksheet<iData.Core.People>(0)
+                                 select x;
+
+                    // Insert Data
+                    foreach (var people in output)
+                    {
+                        people.InsertRecord();
+                    }
+
+                    // Set End Time
+                    var endtime = DateTime.Now;
+                    txtInfinityStop.Text = endtime.ToString(CultureInfo.InvariantCulture);
+
+                    // Set Elapsed Time
+                    txtInfinityElapsed.Text = (endtime - starttime).ToString();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(@"Infinity DAL Error\n" + ex.Message);
+                }
+            }
         }
+
+       
 
         
 
