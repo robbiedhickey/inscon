@@ -124,6 +124,18 @@ namespace MSI.EF5Benchmark.DAL
             return retValue;
         }
 
+        public bool LoadUsingDAB(string fileName)
+        {
+            bool retValue = false;
+
+            var excel = new ExcelQueryFactory();
+            excel.FileName = fileName;
+            excel.StrictMapping = true;
+            var people = from c in excel.Worksheet<Person>("5010264") select c;
+            
+            return retValue;
+        }
+
         public bool LoadUsingLinqWithIntermediateCommit(string fileName)
         {
             bool retValue = false;

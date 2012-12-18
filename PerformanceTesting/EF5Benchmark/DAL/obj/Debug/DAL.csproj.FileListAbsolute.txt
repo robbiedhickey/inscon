@@ -28,3 +28,5 @@ C:\Work\DALBenchmark\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Pra
 C:\Work\DALBenchmark\PerformanceTesting\EF5Benchmark\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Work\DALBenchmark\PerformanceTesting\EF5Benchmark\DAL\obj\Debug\MSI.EF5Benchmark.DAL.dll
 C:\Work\DALBenchmark\PerformanceTesting\EF5Benchmark\DAL\obj\Debug\MSI.EF5Benchmark.DAL.pdb
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.ServiceLocation.pdb

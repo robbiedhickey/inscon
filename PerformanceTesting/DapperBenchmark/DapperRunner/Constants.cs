@@ -9,6 +9,6 @@
     public class StoredProcs
     {
         public static readonly string GetCommonSetting = "dbo.GetCommonSetting";
-        public static readonly string InsertPerson = "dbo.Insert_TestPeople1";
+        public static readonly string InsertPerson = "dbo.Insert_TestPeople";
     }
 }
