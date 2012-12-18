@@ -11,7 +11,6 @@ C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Remotion.Data.L
 C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Remotion.dll
 C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Remotion.Interfaces.dll
 C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\LinqToExcel.xml
-C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\MSI.EF5Benchmark.DAL.dll.config
 C:\Work\DALBenchmark\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\MSI.EF5Benchmark.DAL.dll.config
 C:\Work\DALBenchmark\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\MSI.EF5Benchmark.DAL.dll
 C:\Work\DALBenchmark\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\MSI.EF5Benchmark.DAL.pdb
@@ -30,3 +29,16 @@ C:\Work\DALBenchmark\PerformanceTesting\EF5Benchmark\DAL\obj\Debug\MSI.EF5Benchm
 C:\Work\DALBenchmark\PerformanceTesting\EF5Benchmark\DAL\obj\Debug\MSI.EF5Benchmark.DAL.pdb
 C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.xml
+C:\Work\MSISystem2\PerformanceTesting\EF5Benchmark\DAL\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.xml
