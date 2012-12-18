@@ -29,19 +29,16 @@ namespace DapperRunner
             try
             {
                 var connection = SqlConnectionFactory.CreateOpenConnection(connectionStringName);
-                var tran = connection.BeginTransaction();
-        
-                people.ForEach(p =>
-                    {
+                var tran = connection.BeginTransaction(IsolationLevel.ReadCommitted);
 
-                        var args = GetParamListReflection(p);
-                        //var args = GetParamListStatic(p);
-
-                        connection.CommandProc(StoredProcs.InsertPerson, args, tran);
-           
-                    });
+                foreach (var person in people)
+                {
+                    var args = GetParamListStatic(person); //GetParamListReflection(person);
+                    connection.CommandProc(StoredProcs.InsertPerson, args, tran);
+                }
 
                 tran.Commit();
+
                 connection.Close();
             }
             catch (Exception e)

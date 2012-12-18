@@ -34,9 +34,9 @@ namespace DapperRunner
             throw new NotImplementedException();
         }
 
-        private TestPeople1Entity ToTestPeopleEntity(People person)
+        private TestPeopleEntity ToTestPeopleEntity(People person)
         {
-            var entity = new TestPeople1Entity();
+            var entity = new TestPeopleEntity();
             entity.Birthday = person.Birthday;
             entity.Ccexpires = person.CCExpires;
             entity.Ccnumber = person.CCNumber;

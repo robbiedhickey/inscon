@@ -123,7 +123,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FakePeople.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.config" />
     <None Include="FakePeople.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FakePeople.edmx</DependentUpon>

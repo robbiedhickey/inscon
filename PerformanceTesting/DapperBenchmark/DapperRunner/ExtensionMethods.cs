@@ -7,13 +7,14 @@ namespace DapperRunner
 {
     public static class ExtensionMethods
     {
-        public static int CommandProc(this IDbConnection connection, string storedProcedureName, DynamicParameters parameters, IDbTransaction tran )
+        public static int CommandProc(this IDbConnection connection, string storedProcedureName, DynamicParameters parameters, IDbTransaction tran = null )
         {
             if (connection.State != ConnectionState.Open)
             {
                 connection.Open();
             }
 
+            
             var retVal = connection.Execute(storedProcedureName, parameters, commandType: CommandType.StoredProcedure, transaction: tran);
             return retVal;
         }
