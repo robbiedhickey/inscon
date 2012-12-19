@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 using LinqToExcel;
 
 namespace MSI.EF5Benchmark.DAL
@@ -17,8 +14,7 @@ namespace MSI.EF5Benchmark.DAL
 
         public bool LoadUsingSproc(string fileName)
         {
-            bool retValue = false;
-            string peopleSheet = string.Empty;
+            bool retValue;
 
             var excel = new ExcelQueryFactory();
             excel.FileName = fileName;
@@ -27,7 +23,7 @@ namespace MSI.EF5Benchmark.DAL
 
             try
             {
-                using (PatrickTestEntities db = new PatrickTestEntities())
+                using (var db = new PatrickTestEntities())
                 {
                     foreach (Person item in people)
                     {
@@ -53,21 +49,14 @@ namespace MSI.EF5Benchmark.DAL
         {
             bool retValue = false;
 
-            try
+            using (var db = new PatrickTestEntities())
             {
-                using (PatrickTestEntities db = new PatrickTestEntities())
-                {
-                    db.ClearTestPeople();
+                db.ClearTestPeople();
 
-                    var qty = (from x in db.TestPeoples select x).Count();
+                var qty = (from x in db.TestPeoples select x).Count();
 
-                    if(qty == 0)
-                        retValue = true;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
+                if(qty == 0)
+                    retValue = true;
             }
 
             return retValue;
@@ -82,43 +71,36 @@ namespace MSI.EF5Benchmark.DAL
             excel.StrictMapping = true;
             var people = from c in excel.Worksheet<Person>("5010264") select c;
 
-            try
+            using (var db = new PatrickTestEntities())
             {
-                using (PatrickTestEntities db = new PatrickTestEntities())
+                foreach (Person item in people)
                 {
-                    foreach (Person item in people)
-                    {
-                        db.TestPeoples.Add(new TestPeople()
-                            {
-                                Number = item.Number,
-                                Gender = item.Gender,
-                                GivenName = item.GivenName,
-                                MiddleInitial = item.MiddleInitial,
-                                Surname = item.Surname,
-                                StreetAddress = item.StreetAddress,
-                                City = item.City,
-                                State = item.State,
-                                ZipCode = item.ZipCode,
-                                Country = item.Country,
-                                EmailAddress = item.EmailAddress,
-                                TelephoneNumber = item.TelephoneNumber,
-                                MothersMaiden = item.MothersMaiden,
-                                Birthday = item.Birthday,
-                                CCType = item.CCType,
-                                CCNumber = item.CCNumber,
-                                CVV2 = item.CVV2,
-                                CCExpires = item.CCExpires,
-                                NationalID = item.NationalID
-                            });
-                    }
-
-                    retValue = db.SaveChanges() == 10000;
-
+                    db.TestPeoples.Add(new TestPeople()
+                        {
+                            Number = item.Number,
+                            Gender = item.Gender,
+                            GivenName = item.GivenName,
+                            MiddleInitial = item.MiddleInitial,
+                            Surname = item.Surname,
+                            StreetAddress = item.StreetAddress,
+                            City = item.City,
+                            State = item.State,
+                            ZipCode = item.ZipCode,
+                            Country = item.Country,
+                            EmailAddress = item.EmailAddress,
+                            TelephoneNumber = item.TelephoneNumber,
+                            MothersMaiden = item.MothersMaiden,
+                            Birthday = item.Birthday,
+                            CCType = item.CCType,
+                            CCNumber = item.CCNumber,
+                            CVV2 = item.CVV2,
+                            CCExpires = item.CCExpires,
+                            NationalID = item.NationalID
+                        });
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+
+                retValue = db.SaveChanges() == 10000;
+
             }
 
             return retValue;
@@ -136,87 +118,77 @@ namespace MSI.EF5Benchmark.DAL
             return retValue;
         }
 
-        public bool LoadUsingLinqWithIntermediateCommit(string fileName)
+        public bool GetUsingEFStoredProc()
         {
-            bool retValue = false;
+            var retValue = new List<Person>();
 
-            var excel = new ExcelQueryFactory();
-            excel.FileName = fileName;
-            excel.StrictMapping = true;
-            var people = from c in excel.Worksheet<Person>("5010264") select c;
-
-            using (TransactionScope scope = new TransactionScope())
+            using (var db = new PatrickTestEntities())
             {
-                PatrickTestEntities db = null;
+                var results = db.Select_TestPeople().ToList();
 
-                try
-                {
-                    db = new PatrickTestEntities();
-                    db.Configuration.AutoDetectChangesEnabled = false;
-
-                    int count = 0;
-
-                    foreach (Person item in people)
+                retValue.AddRange(results.Select(result => new Person
                     {
-                        ++count;
-                        TestPeople tp = new TestPeople()
-                            {
-                                Number = item.Number,
-                                Gender = item.Gender,
-                                GivenName = item.GivenName,
-                                MiddleInitial = item.MiddleInitial,
-                                Surname = item.Surname,
-                                StreetAddress = item.StreetAddress,
-                                City = item.City,
-                                State = item.State,
-                                ZipCode = item.ZipCode,
-                                Country = item.Country,
-                                EmailAddress = item.EmailAddress,
-                                TelephoneNumber = item.TelephoneNumber,
-                                MothersMaiden = item.MothersMaiden,
-                                Birthday = item.Birthday,
-                                CCType = item.CCType,
-                                CCNumber = item.CCNumber,
-                                CVV2 = item.CVV2,
-                                CCExpires = item.CCExpires,
-                                NationalID = item.NationalID
-                            };
-
-                        db = AddToContext(db, tp, count, 100, true);
-                    }
-
-                    db.SaveChanges();
-                }
-                finally
-                {
-                    if (db != null)
-                        db.Dispose();
-                }
-
-                scope.Complete();
+                        Number = result.Number,
+                        Gender = result.Gender,
+                        GivenName = result.GivenName,
+                        MiddleInitial = result.MiddleInitial,
+                        Surname = result.Surname,
+                        StreetAddress = result.StreetAddress,
+                        City = result.City,
+                        State = result.State,
+                        ZipCode = result.ZipCode,
+                        Country = result.Country,
+                        EmailAddress = result.EmailAddress,
+                        TelephoneNumber = result.TelephoneNumber,
+                        MothersMaiden = result.MothersMaiden,
+                        Birthday = Convert.ToDateTime(result.Birthday),
+                        CCType = result.CCType,
+                        CCNumber = Convert.ToDecimal(result.CCNumber),
+                        CVV2 = Convert.ToInt32(result.CVV2),
+                        CCExpires = result.CCExpires,
+                        NationalID = result.NationalID
+                    }));
             }
 
-            return retValue;
+            return retValue.Count.Equals(1000);
         }
 
-        private PatrickTestEntities AddToContext(PatrickTestEntities context, TestPeople tp, int count, int commitCount,
-                                                 bool recreateContext)
+        public bool GetOneUsingEFStoredProc()
         {
-            context.Set<TestPeople>().Add(tp);
+            var retValue = new Person();
 
-            if (count%commitCount == 0)
+            using (var db = new PatrickTestEntities())
             {
-                context.SaveChanges();
+                var result = db.Select_TestPeopleByID(1).FirstOrDefault();
 
-                if (recreateContext)
+                if (result != null)
                 {
-                    context.Dispose();
-                    context = new PatrickTestEntities();
-                    context.Configuration.AutoDetectChangesEnabled = false;
+                    retValue = new Person
+                        {
+                            Number = result.Number,
+                            Gender = result.Gender,
+                            GivenName = result.GivenName,
+                            MiddleInitial = result.MiddleInitial,
+                            Surname = result.Surname,
+                            StreetAddress = result.StreetAddress,
+                            City = result.City,
+                            State = result.State,
+                            ZipCode = result.ZipCode,
+                            Country = result.Country,
+                            EmailAddress = result.EmailAddress,
+                            TelephoneNumber = result.TelephoneNumber,
+                            MothersMaiden = result.MothersMaiden,
+                            Birthday = Convert.ToDateTime(result.Birthday),
+                            CCType = result.CCType,
+                            CCNumber = Convert.ToDecimal(result.CCNumber),
+                            CVV2 = Convert.ToInt32(result.CVV2),
+                            CCExpires = result.CCExpires,
+                            NationalID = result.NationalID
+                        };
                 }
             }
 
-            return context;
+            return retValue.Number.Equals(1);
         }
     }
 }

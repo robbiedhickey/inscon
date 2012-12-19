@@ -16,16 +16,12 @@ namespace MSI.EF5Benchmark.UI
         private bool _fileOK = false;
         private DateTime _spStartTime;
         private DateTime _spEndTime;
-        private DateTime _elStartTime;
-        private DateTime _elEndTime ;
-        private DateTime _eliStartTime;
-        private DateTime _eliEndTime;
-
+        private DateTime _spRead1000StartTime;
+        private DateTime _spRead1000EndTime;
+        private DateTime _spRead1StartTime;
+        private DateTime _spRead1EndTime;
         private DateTime _dapperStartTime;
         private DateTime _dapperEndTime;
-
-        private DateTime _llblStartTime;
-        private DateTime _llblEndTime;
 
         public MainForm()
         {
@@ -47,21 +43,21 @@ namespace MSI.EF5Benchmark.UI
             SetGoState();
         }
 
-        private void chk_EL_CheckedChanged(object sender, EventArgs e)
-        {
-            SetGoState();
-        }
-
-        private void chk_llblAdapter_CheckedChanged(object sender, EventArgs e)
-        {
-            SetGoState();
-        }
-
         private void chk_dapperSp_CheckedChanged(object sender, EventArgs e)
         {
             SetGoState();
         }
         private void chkInfintyDAL_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGoState();
+        }
+
+        private void chk_Read1000SP_CheckedChanged(object sender, EventArgs e)
+        {
+            SetGoState();
+        }
+
+        private void chk_Read1SP_CheckedChanged(object sender, EventArgs e)
         {
             SetGoState();
         }
@@ -91,7 +87,11 @@ namespace MSI.EF5Benchmark.UI
 
         private void SetGoState()
         {
-            btn_Go.Enabled = (chk_EL.Checked || chk_SP.Checked || chk_ELI.Checked || chk_dapperSp.Checked || chk_llblAdapter.Checked || chkInfintyDAL.Checked) && _fileOK;
+            btn_Go.Enabled = (  chk_SP.Checked || 
+                                chk_dapperSp.Checked || 
+                                chkInfintyDAL.Checked || 
+                                chk_Read1000SP.Checked || 
+                                chk_Read1SP.Checked) && _fileOK;
         }
 
         private void RunTests()
@@ -118,46 +118,6 @@ namespace MSI.EF5Benchmark.UI
                 }
             }
 
-            if (chk_EL.Checked)
-            {
-                bool cleared = rep.ClearTable();
-
-                _elStartTime = DateTime.Now;
-                txt_ELStart.Text = _elStartTime.ToString("HH:mm:ss");
-
-                if (rep.LoadUsingLinq(txt_FileName.Text))
-                {
-                    _elEndTime = DateTime.Now;
-                    txt_ELEnd.Text = _elEndTime.ToString("HH:mm:ss");
-
-                    txt_ELElapsed.Text = (_elEndTime - _elStartTime).ToString();
-                }
-                else
-                {
-                    txt_ELElapsed.Text = @"Error";
-                }
-            }
-
-            if (chk_ELI.Checked)
-            {
-                bool cleared = rep.ClearTable();
-
-                _eliStartTime = DateTime.Now;
-                txt_ELIStart.Text = _eliStartTime.ToString("HH:mm:ss");
-
-                if (rep.LoadUsingLinq(txt_FileName.Text))
-                {
-                    _eliEndTime = DateTime.Now;
-                    txt_ELIEnd.Text = _eliEndTime.ToString("HH:mm:ss");
-
-                    txt_ELIElapsed.Text = (_eliEndTime - _eliStartTime).ToString();
-                }
-                else
-                {
-                    txt_ELIElapsed.Text = @"Error";
-                }
-            }
-
             if (chk_dapperSp.Checked)
             {
                 // Clear Table
@@ -178,27 +138,6 @@ namespace MSI.EF5Benchmark.UI
                 {
                     txt_DapperSp_Elapsed.Text = @"Error";
                 }  
-            }
-
-            if (chk_llblAdapter.Checked)
-            {
-                bool cleared = rep.ClearTable();
-
-                _llblStartTime = DateTime.Now;
-                txt_Llbl_Start.Text = _llblStartTime.ToString("HH:mm:ss");
-
-                if (new LLBLTestSuite().ExecuteWriteTest<DapperRunner.Model.People>(Constants.ConnectionString, txt_FileName.Text))
-                {
-                    _llblEndTime = DateTime.Now;
-
-                    txt_Llbl_Stop.Text = _llblEndTime.ToString("HH:mm:ss");
-
-                    txt_Llbl_Elapsed.Text = (_llblEndTime - _llblStartTime).ToString();
-                }
-                else
-                {
-                    txt_Llbl_Elapsed.Text = @"Error";
-                }
             }
 
             if (chkInfintyDAL.Checked)
@@ -240,12 +179,42 @@ namespace MSI.EF5Benchmark.UI
                     MessageBox.Show(@"Infinity DAL Error\n" + ex.Message);
                 }
             }
+
+            if (chk_Read1000SP.Checked)
+            {
+                _spRead1000StartTime = DateTime.Now;
+                txt_Read1000SP_Start.Text = _spRead1000StartTime.ToString("HH:mm:ss");
+
+                if (rep.GetUsingEFStoredProc())
+                {
+                    _spRead1000EndTime = DateTime.Now;
+                    txt_Read1000SP_End.Text = _spRead1000EndTime.ToString("HH:mm:ss");
+
+                    txt_Read1000SP_Elapsed.Text = (_spRead1000EndTime - _spRead1000StartTime).ToString();
+                }
+                else
+                {
+                    txt_Read1000SP_Elapsed.Text = @"Error";
+                }
+            }
+
+            if (chk_Read1SP.Checked)
+            {
+                _spRead1StartTime = DateTime.Now;
+                txt_Read1SP_Start.Text = _spRead1StartTime.ToString("HH:mm:ss");
+
+                if (rep.GetOneUsingEFStoredProc())
+                {
+                    _spRead1EndTime = DateTime.Now;
+                    txt_Read1SP_End.Text = _spRead1EndTime.ToString("HH:mm:ss");
+
+                    txt_Read1SP_Elapsed.Text = (_spRead1EndTime - _spRead1StartTime).ToString();
+                }
+                else
+                {
+                    txt_Read1SP_Elapsed.Text = @"Error";
+                }
+            }
         }
-
-       
-
-        
-
-        
     }
 }
