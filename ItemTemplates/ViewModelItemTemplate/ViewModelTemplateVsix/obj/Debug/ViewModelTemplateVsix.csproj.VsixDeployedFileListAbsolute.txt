@@ -1,0 +1,2 @@
+C:\Users\robert.hickey\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Robbie Hickey\ViewModel Template\1.0\\extension.vsixmanifest
+C:\Users\robert.hickey\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Robbie Hickey\ViewModel Template\1.0\ItemTemplates\CSharp\\1033\ViewModelItemTemplate.zip

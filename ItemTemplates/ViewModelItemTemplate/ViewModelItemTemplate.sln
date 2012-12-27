@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelItemTemplate", "ViewModelItemTemplate\ViewModelItemTemplate.csproj", "{B6F48C62-1BAE-4291-9B31-5120A9153F2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelTemplateVsix", "ViewModelTemplateVsix\ViewModelTemplateVsix.csproj", "{81D37B42-99D3-44C8-B7A3-76C08F51032E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6F48C62-1BAE-4291-9B31-5120A9153F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6F48C62-1BAE-4291-9B31-5120A9153F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6F48C62-1BAE-4291-9B31-5120A9153F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6F48C62-1BAE-4291-9B31-5120A9153F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D37B42-99D3-44C8-B7A3-76C08F51032E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D37B42-99D3-44C8-B7A3-76C08F51032E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D37B42-99D3-44C8-B7A3-76C08F51032E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D37B42-99D3-44C8-B7A3-76C08F51032E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
