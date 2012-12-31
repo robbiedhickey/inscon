@@ -1,0 +1,9 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\CachingStore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\CachingStore\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.Configuration.DesignResources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\CachingStore\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\CachingStore\obj\Debug\Security.Cache.CachingStore.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\CachingStore\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\CachingStore\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.pdb

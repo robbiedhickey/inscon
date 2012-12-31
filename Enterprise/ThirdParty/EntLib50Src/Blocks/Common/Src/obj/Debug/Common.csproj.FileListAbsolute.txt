@@ -1,0 +1,10 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Common\Src\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Common\Src\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Common.Configuration.DesignResources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Common\Src\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Common\Src\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Common.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Common\Src\obj\Debug\Common.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Common\Src\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Common\Src\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb

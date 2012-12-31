@@ -1,0 +1,9 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\DatabaseTraceListener\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\DatabaseTraceListener\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.Configuration.DesignResources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\DatabaseTraceListener\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.Configuration.Manageability.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\DatabaseTraceListener\obj\Debug\Logging.Database.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\DatabaseTraceListener\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\DatabaseTraceListener\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.pdb

@@ -1,0 +1,10 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\ExceptionHandling\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\ExceptionHandling\obj\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Configuration.DesignResources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\ExceptionHandling\obj\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Configuration.Manageability.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\ExceptionHandling\obj\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\ExceptionHandling\obj\Debug\ExceptionHandling.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\ExceptionHandling\obj\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\ExceptionHandling\obj\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.pdb

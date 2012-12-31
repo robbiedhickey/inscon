@@ -1,0 +1,9 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Database.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Database.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Database.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Caching\Src\Database\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Caching\Src\Database\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Caching\Src\Database\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Caching\Src\Database\obj\Debug\Caching.Database.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Caching\Src\Database\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Database.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Caching\Src\Database\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Database.pdb

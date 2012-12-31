@@ -1,0 +1,12 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\App.config
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\MsmqDistributor.exe.config
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\MsmqDistributor.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\MsmqDistributor.exe
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\MsmqDistributor.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.MsmqDistributor.DistributorService.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.MsmqDistributor.ProjectInstaller.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.MsmqDistributor.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\Logging.MsmqDistributor.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\MsmqDistributor.exe
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\MsmqDistributor.pdb

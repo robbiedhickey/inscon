@@ -1,0 +1,9 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\Logging\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\Logging\obj\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.Configuration.DesignResources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\Logging\obj\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\Logging\obj\Debug\ExceptionHandling.Logging.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\Logging\obj\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\ExceptionHandling\Src\Logging\obj\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.pdb

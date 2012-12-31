@@ -1,0 +1,10 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\Logging\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\Logging\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.DesignResources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\Logging\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.Manageability.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\Logging\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\Logging\obj\Debug\Logging.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\Logging\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Logging\Src\Logging\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.pdb

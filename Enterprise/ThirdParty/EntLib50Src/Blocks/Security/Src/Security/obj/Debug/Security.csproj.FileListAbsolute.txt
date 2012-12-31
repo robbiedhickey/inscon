@@ -1,0 +1,10 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\Security\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\Security\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\Security\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\Security\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\Security\obj\Debug\Security.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\Security\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Security\Src\Security\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.pdb

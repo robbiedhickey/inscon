@@ -1,0 +1,8 @@
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.xml
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.pdb
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Validation\Src\Validation.WCF\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Validation\Src\Validation.WCF\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.Properties.Resources.resources
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Validation\Src\Validation.WCF\obj\Debug\Validation.Integration.WCF.csproj.GenerateResource.Cache
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Validation\Src\Validation.WCF\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.dll
+C:\Users\patrick.wimberly\Documents\EntLib50Src\Blocks\Validation\Src\Validation.WCF\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF.pdb
