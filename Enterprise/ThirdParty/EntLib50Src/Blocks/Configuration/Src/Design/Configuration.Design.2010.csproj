@@ -36,6 +36,12 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>618</NoWarn>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>EnterpriseKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Configuration.Design.HostAdapter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -467,7 +473,8 @@
     <Compile Include="Hosting\SectionView.xaml.cs">
       <DependentUpon>SectionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Hosting\SingleHierarchyConfigurationUIHostAdapter.cs"></Compile>
+    <Compile Include="Hosting\SingleHierarchyConfigurationUIHostAdapter.cs">
+    </Compile>
     <Compile Include="ConfigurationLogWriter.cs" />
     <Compile Include="Hosting\WaitDialog.xaml.cs">
       <DependentUpon>WaitDialog.xaml</DependentUpon>
@@ -748,6 +755,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="EnterpriseKey.snk" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
