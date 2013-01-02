@@ -31,7 +31,7 @@
     <FunctionImportMapping FunctionImportName="Insert_TestPeople" FunctionName="PatrickTestModel.Store.Insert_TestPeople" />
     <FunctionImportMapping FunctionImportName="Select_TestPeople" FunctionName="PatrickTestModel.Store.Select_TestPeople">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="PatrickTestModel.Select_TestPeople_Result">
+        <ComplexTypeMapping TypeName="PatrickTestModel.Person">
           <ScalarProperty Name="Number" ColumnName="Number" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="GivenName" ColumnName="GivenName" />

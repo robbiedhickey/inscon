@@ -18,8 +18,7 @@ namespace MSI.EF5Benchmark.DAL
     
     public partial class PatrickTestEntities : DbContext
     {
-        public 
-            PatrickTestEntities()
+        public PatrickTestEntities()
             : base("name=PatrickTestEntities")
         {
         }
@@ -126,9 +125,9 @@ namespace MSI.EF5Benchmark.DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Insert_TestPeople", prm_NumberParameter, prm_GenderParameter, prm_GivenNameParameter, prm_MiddleInitialParameter, prm_SurnameParameter, prm_StreetAddressParameter, prm_CityParameter, prm_StateParameter, prm_ZipCodeParameter, prm_CountryParameter, prm_EmailAddressParameter, prm_TelephoneNumberParameter, prm_MothersMaidenParameter, prm_BirthdayParameter, prm_CCTypeParameter, prm_CCNumberParameter, prm_CVV2Parameter, prm_CCExpiresParameter, prm_NationalIDParameter);
         }
     
-        public virtual ObjectResult<Select_TestPeople_Result> Select_TestPeople()
+        public virtual ObjectResult<Person> Select_TestPeople()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Select_TestPeople_Result>("Select_TestPeople");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Person>("Select_TestPeople");
         }
     
         public virtual ObjectResult<Select_TestPeopleByID_Result> Select_TestPeopleByID(Nullable<int> prm_Number)
