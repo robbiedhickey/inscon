@@ -1,0 +1,11 @@
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\App.config
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\MsmqDistributor.exe.config
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\MsmqDistributor.exe
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\MsmqDistributor.pdb
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\Logging.MsmqDistributor.2010.csprojResolveAssemblyReference.cache
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.MsmqDistributor.DistributorService.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.MsmqDistributor.ProjectInstaller.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.MsmqDistributor.Properties.Resources.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\Logging.MsmqDistributor.2010.csproj.GenerateResource.Cache
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\MsmqDistributor.exe
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Logging\Src\MsmqDistributor\obj\Debug\MsmqDistributor.pdb

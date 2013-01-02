@@ -1,0 +1,7 @@
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.dll
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.pdb
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Data\Src\SqlCe\obj\Debug\Data.SqlCe.2010.csprojResolveAssemblyReference.cache
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Data\Src\SqlCe\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.Properties.Resources.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Data\Src\SqlCe\obj\Debug\Data.SqlCe.2010.csproj.GenerateResource.Cache
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Data\Src\SqlCe\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.dll
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Data\Src\SqlCe\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.pdb

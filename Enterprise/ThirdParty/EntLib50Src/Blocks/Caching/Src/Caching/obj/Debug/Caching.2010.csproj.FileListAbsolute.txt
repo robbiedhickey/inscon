@@ -1,0 +1,9 @@
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.pdb
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Caching\Src\Caching\obj\Debug\Caching.2010.csprojResolveAssemblyReference.cache
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Caching\Src\Caching\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Configuration.DesignResources.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Caching\Src\Caching\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Configuration.Manageability.Properties.Resources.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Caching\Src\Caching\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Properties.Resources.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Caching\Src\Caching\obj\Debug\Caching.2010.csproj.GenerateResource.Cache
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Caching\Src\Caching\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Caching\Src\Caching\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.pdb

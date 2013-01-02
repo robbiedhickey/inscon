@@ -1,0 +1,9 @@
+C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\Enterprise.WindowsServices.MaintenanceSchedulerSvc.exe.config
+C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\Enterprise.WindowsServices.MaintenanceSchedulerSvc.exe
+C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\Enterprise.WindowsServices.MaintenanceSchedulerSvc.pdb
+C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\obj\Debug\Enterprise.WindowsServices.MaintenanceSchedulerSvc.exe
+C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\obj\Debug\Enterprise.WindowsServices.MaintenanceSchedulerSvc.pdb
+C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\obj\Debug\MaintenanceSchedulerSvc.csprojResolveAssemblyReference.cache
+C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\obj\Debug\Enterprise.WindowsServices.MaintenanceSchedulerSvc.ProjectInstaller.resources
+C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\obj\Debug\Enterprise.WindowsServices.MaintenanceSchedulerSvc.MaintenanceSchedulerService.resources
+C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\obj\Debug\MaintenanceSchedulerSvc.csproj.GenerateResource.Cache

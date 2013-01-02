@@ -1,0 +1,9 @@
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.pdb
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Security.Cryptography\Src\Cryptography\obj\Debug\Security.Cryptography.2010.csprojResolveAssemblyReference.cache
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Security.Cryptography\Src\Cryptography\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.Configuration.DesignResources.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Security.Cryptography\Src\Cryptography\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.Configuration.Manageability.Properties.Resources.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Security.Cryptography\Src\Cryptography\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.Properties.Resources.resources
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Security.Cryptography\Src\Cryptography\obj\Debug\Security.Cryptography.2010.csproj.GenerateResource.Cache
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Security.Cryptography\Src\Cryptography\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll
+C:\Work\MSISystem2\Enterprise\ThirdParty\EntLib50Src\Blocks\Security.Cryptography\Src\Cryptography\obj\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.pdb

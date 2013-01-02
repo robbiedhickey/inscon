@@ -1,0 +1,34 @@
+﻿Installing assembly 'C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.InstallLog
+   assemblypath = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe
+Installing service MaintenanceSchedulerService...
+Service MaintenanceSchedulerService has been successfully installed.
+Creating EventLog source MaintenanceSchedulerService in log Application...
+Committing assembly 'C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.InstallLog
+   assemblypath = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe
+Installing assembly 'C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.InstallLog
+   assemblypath = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe
+Installing service MaintenanceSchedulerService...
+Creating EventLog source MaintenanceSchedulerService in log Application...
+Rolling back assembly 'C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.InstallLog
+   assemblypath = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe
+Restoring event log to previous state for source MaintenanceSchedulerService.
+Uninstalling assembly 'C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.InstallLog
+   assemblypath = C:\Work\MSISystem2\Enterprise\WindowsServices\MaintenanceSchedulerSvc\bin\Debug\enterprise.windowsservices.maintenanceschedulersvc.exe
+Removing EventLog source MaintenanceSchedulerService.
+Service MaintenanceSchedulerService is being removed from the system...
+Service MaintenanceSchedulerService was successfully removed from the system.

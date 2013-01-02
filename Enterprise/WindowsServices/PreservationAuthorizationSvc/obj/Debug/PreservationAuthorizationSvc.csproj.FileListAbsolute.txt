@@ -1,0 +1,5 @@
+C:\Work\MSISystem2\Enterprise\WindowsServices\PreservationAuthorizationSvc\bin\Debug\Enterprise.WindowsServices.PreservationAuthorizationSvc.exe.config
+C:\Work\MSISystem2\Enterprise\WindowsServices\PreservationAuthorizationSvc\bin\Debug\Enterprise.WindowsServices.PreservationAuthorizationSvc.exe
+C:\Work\MSISystem2\Enterprise\WindowsServices\PreservationAuthorizationSvc\bin\Debug\Enterprise.WindowsServices.PreservationAuthorizationSvc.pdb
+C:\Work\MSISystem2\Enterprise\WindowsServices\PreservationAuthorizationSvc\obj\Debug\Enterprise.WindowsServices.PreservationAuthorizationSvc.exe
+C:\Work\MSISystem2\Enterprise\WindowsServices\PreservationAuthorizationSvc\obj\Debug\Enterprise.WindowsServices.PreservationAuthorizationSvc.pdb
