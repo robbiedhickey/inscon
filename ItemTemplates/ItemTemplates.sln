@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseClass", "EnterpriseClass\EnterpriseClass.csproj", "{107521E0-5F2B-48A7-B37E-2D574B0BC44B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseTemplatePack", "EnterpriseTemplatePack\EnterpriseTemplatePack.csproj", "{3767F96D-19D2-4110-998E-3112F30AB00A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{107521E0-5F2B-48A7-B37E-2D574B0BC44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{107521E0-5F2B-48A7-B37E-2D574B0BC44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{107521E0-5F2B-48A7-B37E-2D574B0BC44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{107521E0-5F2B-48A7-B37E-2D574B0BC44B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3767F96D-19D2-4110-998E-3112F30AB00A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3767F96D-19D2-4110-998E-3112F30AB00A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3767F96D-19D2-4110-998E-3112F30AB00A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3767F96D-19D2-4110-998E-3112F30AB00A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

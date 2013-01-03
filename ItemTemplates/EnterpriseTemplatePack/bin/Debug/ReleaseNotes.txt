@@ -1,0 +1,11 @@
+﻿The templates have some external dependencies.
+
+You need to add the following references to your project:
+
+1) From the rootdirectory\ThirdParty\EntLib50Src\bin add the following:
+Microsoft.Practices.EnterpriseLibrary.Common
+Microsoft.Practices.EnterpriseLibrary.Validation
+Microsoft.Practices.EnterpriseLibrary.Validation.Integration.AspNet
+Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WCF
+Microsoft.Practices.EnterpriseLibrary.Validation.Integration.WinForms
+Microsoft.Practices.ServiceLocation
