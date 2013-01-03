@@ -111,5 +111,19 @@ namespace RawEnterpriseClass.Test
             Assert.AreEqual(1,tester.Changes.Count,"Change count was wrong.");
             tester.AssertChange(0, "ID");
         }
+
+        [TestMethod]
+        public void DidExplicitNotifyFire()
+        {
+            var tester = new NotifyPropertyChangedTester(testObj);
+            testObj.BeginEdit();
+            testObj.ID = 3;
+            testObj.CancelEdit();
+            
+            Assert.AreEqual(-1, testObj.ID, "Value did not change.");
+
+            Assert.AreEqual(2, tester.Changes.Count, "Change count was wrong.");
+            tester.AssertChange(0, "ID");
+        }
     }
 }

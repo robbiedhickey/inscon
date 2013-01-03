@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.Validation;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
@@ -151,13 +147,31 @@ namespace RawEnterpriseClass
         /// <summary>
         /// Notifies the property changed.
         /// </summary>
-        /// <param name="info">The info.</param>
         private void NotifyPropertyChanged([CallerMemberName] String caller = null)
         {
             var handler = PropertyChanged;
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(caller));
+            }
+        }
+
+        /// <summary>
+        /// Sends the NotifyPropertyChanged event for each property.  This 
+        /// should only be called when you are doing a CancelEdit() so that 
+        /// the UI can update itself when the internal ClassData struct is 
+        /// filled with the backup data.
+        /// </summary>
+        private void ExplicitNotifyPropertyChanged()
+        {
+            var handler = PropertyChanged;
+
+            foreach (var prop in this.GetType().GetProperties())
+            {
+                if (handler != null)
+                {
+                    handler(this, new PropertyChangedEventArgs(prop.Name));
+                }
             }
         }
 
@@ -234,6 +248,7 @@ namespace RawEnterpriseClass
             {
                 _liveData = _backData;
                 _backData = new ClassData();
+                ExplicitNotifyPropertyChanged();
                 _inTxn = false;
             }
         }
