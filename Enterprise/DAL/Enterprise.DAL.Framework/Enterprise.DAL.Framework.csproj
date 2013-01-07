@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CACA9B92-DC2A-4751-9266-0F9544B308BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Enterprise.DAL.Framework</RootNamespace>
+    <AssemblyName>Enterprise.DAL.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\ThirdParty\SharedBin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Cache\AbstractCacheFactory.cs" />
+    <Compile Include="Cache\AggregateCacheFactory.cs" />
+    <Compile Include="Cache\CacheConfiguration.cs" />
+    <Compile Include="Cache\CacheFactoryCreator.cs" />
+    <Compile Include="Cache\CacheItem.cs" />
+    <Compile Include="Cache\CacheLocator.cs" />
+    <Compile Include="Cache\EnterpriseCache.cs" />
+    <Compile Include="Cache\EnterpriseCacheConfiguration.cs" />
+    <Compile Include="Cache\EnterpriseCacheFactory.cs" />
+    <Compile Include="Cache\ICache.cs" />
+    <Compile Include="Cache\ICacheConfiguration.cs" />
+    <Compile Include="Cache\ICacheDecorator.cs" />
+    <Compile Include="Cache\ICacheFactory.cs" />
+    <Compile Include="Cache\ICacheMetrics.cs" />
+    <Compile Include="Cache\InstrumentedCache.cs" />
+    <Compile Include="Cache\NullCache.cs" />
+    <Compile Include="Cache\NullCacheFactory.cs" />
+    <Compile Include="Cache\NullCacheMetrics.cs" />
+    <Compile Include="Cache\SimpleCache.cs" />
+    <Compile Include="Cache\SimpleCacheFactory.cs" />
+    <Compile Include="Cache\SwitchableCache.cs" />
+    <Compile Include="Configuration\ConfigurationUtils.cs" />
+    <Compile Include="Converter.cs" />
+    <Compile Include="Data\CacheAccessor.cs" />
+    <Compile Include="Data\DataAccessor.cs" />
+    <Compile Include="Data\DataClassInitializer.cs" />
+    <Compile Include="Data\DataFormat.cs" />
+    <Compile Include="Data\DataHelper.cs" />
+    <Compile Include="Data\DataRecord.cs" />
+    <Compile Include="Data\IDataAccessor.cs" />
+    <Compile Include="Data\IDataContext.cs" />
+    <Compile Include="Data\IDataModifier.cs" />
+    <Compile Include="Data\IDataRecord.cs" />
+    <Compile Include="Data\ITypeReader.cs" />
+    <Compile Include="Data\ListMapReader.cs" />
+    <Compile Include="Data\MemoryCommand.cs" />
+    <Compile Include="Data\MemoryContext.cs" />
+    <Compile Include="Data\NullHandler.cs" />
+    <Compile Include="Data\Service\CommonDataService.cs" />
+    <Compile Include="Data\Service\DataService.cs" />
+    <Compile Include="Data\SqlDataAccessor.cs" />
+    <Compile Include="Data\SqlDataContext.cs" />
+    <Compile Include="Data\SqlDataExecutor.cs" />
+    <Compile Include="Data\SqlDataRecord.cs" />
+    <Compile Include="Data\TypeConvertingReader.cs" />
+    <Compile Include="ITypeConverter.cs" />
+    <Compile Include="StandardTypeConverter.cs" />
+    <Compile Include="ValidationError.cs" />
+    <Compile Include="ValidationException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching">
+      <HintPath>..\..\ThirdParty\EntLib50Src\bin\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\ThirdParty\EntLib50Src\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\ThirdParty\EntLib50Src\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

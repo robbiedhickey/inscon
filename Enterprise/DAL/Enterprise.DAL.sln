@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enterprise.DAL.Framework", "Enterprise.DAL.Framework\Enterprise.DAL.Framework.csproj", "{CACA9B92-DC2A-4751-9266-0F9544B308BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enterprise.DAL.Core", "Enterprise.DAL.Core\Enterprise.DAL.Core.csproj", "{E420CD35-096A-4159-9B57-5735E9375287}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CACA9B92-DC2A-4751-9266-0F9544B308BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CACA9B92-DC2A-4751-9266-0F9544B308BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CACA9B92-DC2A-4751-9266-0F9544B308BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CACA9B92-DC2A-4751-9266-0F9544B308BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E420CD35-096A-4159-9B57-5735E9375287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E420CD35-096A-4159-9B57-5735E9375287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E420CD35-096A-4159-9B57-5735E9375287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E420CD35-096A-4159-9B57-5735E9375287}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
