@@ -1,7 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDashboard", "CDashboard\CDashboard.csproj", "{2A313922-2DB5-44A7-A110-979848519119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDashboard.Tests", "CDashboard.Tests\CDashboard.Tests.csproj", "{27EA7377-1849-41F2-8E66-A09A185CDA0C}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A313922-2DB5-44A7-A110-979848519119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A313922-2DB5-44A7-A110-979848519119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A313922-2DB5-44A7-A110-979848519119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A313922-2DB5-44A7-A110-979848519119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27EA7377-1849-41F2-8E66-A09A185CDA0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27EA7377-1849-41F2-8E66-A09A185CDA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27EA7377-1849-41F2-8E66-A09A185CDA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27EA7377-1849-41F2-8E66-A09A185CDA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
