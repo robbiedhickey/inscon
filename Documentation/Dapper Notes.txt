@@ -1,1 +1,0 @@
-Wrapping inserts in a transaction will improve Dapper performance: http://blog.staticvoid.co.nz/2012/04/making-dapper-faster-with-transactions.html
