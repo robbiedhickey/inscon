@@ -34,6 +34,12 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>EnterpriseKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Cache\AbstractCacheFactory.cs" />
     <Compile Include="Cache\AggregateCacheFactory.cs" />
@@ -106,6 +112,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="EnterpriseKey.snk" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
