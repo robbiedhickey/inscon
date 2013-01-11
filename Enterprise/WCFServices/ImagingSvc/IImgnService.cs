@@ -5,11 +5,11 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace Enterprise.Services.AuthorizationSvc
+namespace Enterprise.Services.ImagingSvc
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IAuthService" in both code and config file together.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IImgnService" in both code and config file together.
     [ServiceContract]
-    public interface IAuthService
+    public interface IImgnService
     {
         [OperationContract]
         string GetData(int value);
@@ -21,7 +21,7 @@ namespace Enterprise.Services.AuthorizationSvc
     }
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "AuthorizationSvc.ContractType".
+    // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "ImagingSvc.ContractType".
     [DataContract]
     public class CompositeType
     {

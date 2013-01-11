@@ -5,10 +5,10 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace Enterprise.Services.WorkAssignmentSvc
+namespace Enterprise.Services.LogonSvc
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "WorkService" in both code and config file together.
-    public class WorkService : IWorkService
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "LognService" in both code and config file together.
+    public class LognService : ILognService
     {
         public string GetData(int value)
         {

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace RatingSvc
+namespace Enterprise.Services.RatingSvc
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "RateService" in both code and config file together.
     public class RateService : IRateService
