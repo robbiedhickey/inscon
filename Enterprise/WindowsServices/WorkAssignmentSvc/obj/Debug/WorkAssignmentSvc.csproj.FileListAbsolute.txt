@@ -1,6 +1,0 @@
-C:\Work\MSISystem2\Enterprise\WindowsServices\WorkAssignmentSvc\bin\Debug\Enterprise.WindowsServices.WorkAssignmentSvc.exe.config
-C:\Work\MSISystem2\Enterprise\WindowsServices\WorkAssignmentSvc\bin\Debug\Enterprise.WindowsServices.WorkAssignmentSvc.exe
-C:\Work\MSISystem2\Enterprise\WindowsServices\WorkAssignmentSvc\bin\Debug\Enterprise.WindowsServices.WorkAssignmentSvc.pdb
-C:\Work\MSISystem2\Enterprise\WindowsServices\WorkAssignmentSvc\obj\Debug\WorkAssignmentSvc.csprojResolveAssemblyReference.cache
-C:\Work\MSISystem2\Enterprise\WindowsServices\WorkAssignmentSvc\obj\Debug\Enterprise.WindowsServices.WorkAssignmentSvc.exe
-C:\Work\MSISystem2\Enterprise\WindowsServices\WorkAssignmentSvc\obj\Debug\Enterprise.WindowsServices.WorkAssignmentSvc.pdb
