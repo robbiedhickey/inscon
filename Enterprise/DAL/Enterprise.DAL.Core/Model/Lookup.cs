@@ -130,7 +130,7 @@ namespace Enterprise.DAL.Core.Model
                 if (IsChanged())
                 {
                     // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupUpdate
+                    Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Update
                                         , _idLookup
                                         , _idLookupGroup
                                         , _code
@@ -145,7 +145,7 @@ namespace Enterprise.DAL.Core.Model
             else
             {
                 // Insert
-                _idLookup = Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupInsert
+                _idLookup = Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Insert
                                         , _idLookupGroup
                                         , _code
                                         , _abreviation
@@ -162,7 +162,7 @@ namespace Enterprise.DAL.Core.Model
         ///  </summary>
         public void Remove()
         {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupDelete, _idLookup));
+            Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Delete, _idLookup));
             CacheItem.Clear<Lookup>();
         }
 

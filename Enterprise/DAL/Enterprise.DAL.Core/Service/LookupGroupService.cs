@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Data.Service;
 
 namespace Enterprise.DAL.Core.Service
 {
-    public class LookupGroupService
+    public class LookupGroupService : ServiceBase
     {
         private readonly int _cacheMinutesToExpire;
         private readonly string _sqlDatabase;
@@ -25,7 +24,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<LookupGroup> GetAllLookupGroups()
         {
-            return DataService.GetDataObjectList<LookupGroup>(_sqlDatabase, Procedure.LookupGroupSelect, _cacheMinutesToExpire, _isCached);
+            return QueryAll(_sqlDatabase, Procedure.LookupGroup_Select, LookupGroup.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>
@@ -40,7 +39,8 @@ namespace Enterprise.DAL.Core.Service
                 Predicate<LookupGroup> h = h2 => h2.idLookupGroup == idLookupGroup;
                 return GetAllLookupGroups().Find(h) ?? new LookupGroup();
             }
-            return DataService.GetDataObject<LookupGroup>(_sqlDatabase, Procedure.LookupGroupSelectById, idLookupGroup);
+
+            return Query(_sqlDatabase, Procedure.LookupGroup_SelectById, LookupGroup.Build, _cacheMinutesToExpire, _isCached, idLookupGroup);
         }
     }
 }

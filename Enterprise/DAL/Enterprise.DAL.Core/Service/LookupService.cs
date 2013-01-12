@@ -6,7 +6,7 @@ using Enterprise.DAL.Framework.Data.Service;
 
 namespace Enterprise.DAL.Core.Service
 {
-    public class LookupService : IDataService
+    public class LookupService : ServiceBase
     {
         private readonly int _cacheMinutesToExpire;
         private readonly string _sqlDatabase;
@@ -25,7 +25,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<Lookup> GetAllLookups()
         {
-            return DataService.GetDataObjectList<Lookup>(_sqlDatabase, Procedure.LookupSelect, _cacheMinutesToExpire, _isCached);
+            return QueryAll(_sqlDatabase, Procedure.Lookup_Select, Lookup.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Enterprise.DAL.Core.Service
                 Predicate<Lookup> h = h2 => h2.idLookup == idLookup;
                 return GetAllLookups().Find(h) ?? new Lookup();
             }
-            return DataService.GetDataObject<Lookup>(_sqlDatabase, Procedure.LookupSelectById, idLookup);
+            return Query(_sqlDatabase, Procedure.Lookup_SelectById, Lookup.Build, _cacheMinutesToExpire, _isCached, idLookup);
         }
 
         /// <summary>
@@ -55,7 +55,8 @@ namespace Enterprise.DAL.Core.Service
                 Predicate<Lookup> l = l2 => l2.idLookupGroup == idLookupGroup;
                 return GetAllLookups().FindAll(l);
             }
-            return DataService.GetDataObjectList<Lookup>(_sqlDatabase, Procedure.LookupSelectByGroupId, _cacheMinutesToExpire, _isCached, idLookupGroup);
+
+            return QueryAll(_sqlDatabase, Procedure.Lookup_SelectByGroupId, Lookup.Build, _cacheMinutesToExpire, _isCached, idLookupGroup);
         }
     }
 }

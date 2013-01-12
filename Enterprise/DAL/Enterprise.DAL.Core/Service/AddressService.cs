@@ -25,7 +25,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<Address> GetAllAddresses()
         {
-            return QueryAll(Database.EnterpriseDb, Procedure.AddressSelect, Address.Build, _cacheMinutesToExpire, _isCached);
+            return QueryAll(_sqlDatabase, Procedure.Address_Select, Address.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddresses().Find(h) ?? new Address();
             }
 
-            return DataService.GetDataObject<Address>(_sqlDatabase, Procedure.AddressSelectById, idAddress);
+            return Query(_sqlDatabase, Procedure.Address_SelectById, Address.Build, _cacheMinutesToExpire, _isCached, idAddress);
         }
     }
 }

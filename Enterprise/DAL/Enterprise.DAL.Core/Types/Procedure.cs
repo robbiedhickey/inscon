@@ -1,178 +1,154 @@
-﻿namespace Enterprise.DAL.Core.Types
-{
+﻿using System;
 
+namespace Enterprise.DAL.Core.Types
+{
     /// <summary>
-    /// Static values that point to Stored Procedures
-    /// To update this list run the procedure named: sp_CoreProcs
+    ///     Static values that point to Stored Procedures
+    ///     To update this list run the procedure named: sp_CoreProcs
     /// </summary>
     public static class Procedure
     {
         #region public variables
 
         // Address
-        public const string AddressDelete = @"[dbo].[cspAddress_Delete]";
-        public const string AddressInsert = @"[dbo].[cspAddress_Insert]";
-        public const string AddressSelect = @"[dbo].[cspAddress_Select]";
-        public const string AddressSelectById = @"[dbo].[cspAddress_Select_ById]";
-        public const string AddressUpdate = @"[dbo].[cspAddress_Update]";
+        public const String Address_Delete = @"[crud].[Address_Delete]";
+        public const String Address_Insert = @"[crud].[Address_Insert]";
+        public const String Address_Select = @"[crud].[Address_Select]";
+        public const String Address_SelectById = @"[crud].[Address_SelectById]";
+        public const String Address_Update = @"[crud].[Address_Update]";
+        // AddressLocation
+        public const String AddressLocation_Delete = @"[crud].[AddressLocation_Delete]";
+        public const String AddressLocation_Insert = @"[crud].[AddressLocation_Insert]";
+        public const String AddressLocation_Select = @"[crud].[AddressLocation_Select]";
+        public const String AddressLocation_SelectById = @"[crud].[AddressLocation_SelectById]";
+        public const String AddressLocation_Update = @"[crud].[AddressLocation_Update]";
         // AddressUse
-        public const string AddressUseDelete = @"[dbo].[cspAddressUse_Delete]";
-        public const string AddressUseInsert = @"[dbo].[cspAddressUse_Insert]";
-        public const string AddressUseSelect = @"[dbo].[cspAddressUse_Select]";
-        public const string AddressUseSelectById = @"[dbo].[cspAddressUse_Select_ById]";
-        public const string AddressUseSelectByAddressId = @"[dbo].[cspAddressUse_SelectByAddressId]";
-        public const string AddressUseSelectByAddressIdAndType = @"[dbo].[cspAddressUse_SelectByAddressIdAndType]";
-        public const string AddressUseUpdate = @"[dbo].[cspAddressUse_Update]";
         // Comment
-        public const string CommentDelete = @"[dbo].[cspComment_Delete]";
-        public const string CommentInsert = @"[dbo].[cspComment_Insert]";
-        public const string CommentSelect = @"[dbo].[cspComment_Select]";
-        public const string CommentSelectById = @"[dbo].[cspComment_Select_ById]";
-        public const string CommentUpdate = @"[dbo].[cspComment_Update]";
-        // CommentUse
-        public const string CommentUseDelete = @"[dbo].[cspCommentUse_Delete]";
-        public const string CommentUseInsert = @"[dbo].[cspCommentUse_Insert]";
-        public const string CommentUseSelect = @"[dbo].[cspCommentUse_Select]";
-        public const string CommentUseSelectById = @"[dbo].[cspCommentUse_Select_ById]";
-        public const string CommentUseUpdate = @"[dbo].[cspCommentUse_Update]";
-        // Country
-        public const string CountryDelete = @"[dbo].[cspCountry_Delete]";
-        public const string CountryInsert = @"[dbo].[cspCountry_Insert]";
-        public const string CountrySelect = @"[dbo].[cspCountry_Select]";
-        public const string CountrySelectById = @"[dbo].[cspCountry_Select_ById]";
-        public const string CountryUpdate = @"[dbo].[cspCountry_Update]";
+        public const String Comment_Delete = @"[crud].[Comment_Delete]";
+        public const String Comment_Insert = @"[crud].[Comment_Insert]";
+        public const String Comment_Select = @"[crud].[Comment_Select]";
+        public const String Comment_SelectById = @"[crud].[Comment_SelectById]";
+        public const String Comment_Update = @"[crud].[Comment_Update]";
+        // Event
+        public const String Event_Delete = @"[crud].[Event_Delete]";
+        public const String Event_Insert = @"[crud].[Event_Insert]";
+        public const String Event_Select = @"[crud].[Event_Select]";
+        public const String Event_SelectById = @"[crud].[Event_SelectById]";
+        public const String Event_Update = @"[crud].[Event_Update]";
+        // File
+        public const String File_Delete = @"[crud].[File_Delete]";
+        public const String File_Insert = @"[crud].[File_Insert]";
+        public const String File_Select = @"[crud].[File_Select]";
+        public const String File_SelectById = @"[crud].[File_SelectById]";
+        public const String File_Update = @"[crud].[File_Update]";
         // Loan
-        public const string LoanDelete = @"[dbo].[cspLoan_Delete]";
-        public const string LoanInsert = @"[dbo].[cspLoan_Insert]";
-        public const string LoanSelect = @"[dbo].[cspLoan_Select]";
-        public const string LoanSelectById = @"[dbo].[cspLoan_Select_ById]";
-        public const string LoanUpdate = @"[dbo].[cspLoan_Update]";
-        // LoanMortgagor
-        public const string LoanMortgagorDelete = @"[dbo].[cspLoanMortgagor_Delete]";
-        public const string LoanMortgagorInsert = @"[dbo].[cspLoanMortgagor_Insert]";
-        public const string LoanMortgagorSelect = @"[dbo].[cspLoanMortgagor_Select]";
-        public const string LoanMortgagorSelectById = @"[dbo].[cspLoanMortgagor_Select_ById]";
-        public const string LoanMortgagorUpdate = @"[dbo].[cspLoanMortgagor_Update]";
+        public const String Loan_Delete = @"[crud].[Loan_Delete]";
+        public const String Loan_Insert = @"[crud].[Loan_Insert]";
+        public const String Loan_Select = @"[crud].[Loan_Select]";
+        public const String Loan_SelectById = @"[crud].[Loan_SelectById]";
+        public const String Loan_Update = @"[crud].[Loan_Update]";
+        // Location
+        public const String Location_Delete = @"[crud].[Location_Delete]";
+        public const String Location_Insert = @"[crud].[Location_Insert]";
+        public const String Location_Select = @"[crud].[Location_Select]";
+        public const String Location_SelectById = @"[crud].[Location_SelectById]";
+        public const String Location_Update = @"[crud].[Location_Update]";
         // Lookup
-        public const string LookupDelete = @"[dbo].[cspLookup_Delete]";
-        public const string LookupInsert = @"[dbo].[cspLookup_Insert]";
-        public const string LookupSelect = @"[dbo].[cspLookup_Select]";
-        public const string LookupSelectById = @"[dbo].[cspLookup_Select_ById]";
-        public const string LookupSelectByGroupId = @"[dbo].[cspLookup_SelectByGroupId]";
-        public const string LookupUpdate = @"[dbo].[cspLookup_Update]";
+        public const String Lookup_Delete = @"[crud].[Lookup_Delete]";
+        public const String Lookup_Insert = @"[crud].[Lookup_Insert]";
+        public const String Lookup_Select = @"[crud].[Lookup_Select]";
+        public const String Lookup_SelectByGroupId = @"[crud].[Lookup_SelectByGroupId]";
+        public const String Lookup_SelectById = @"[crud].[Lookup_SelectById]";
+        public const String Lookup_Update = @"[crud].[Lookup_Update]";
         // LookupGroup
-        public const string LookupGroupDelete = @"[dbo].[cspLookupGroup_Delete]";
-        public const string LookupGroupInsert = @"[dbo].[cspLookupGroup_Insert]";
-        public const string LookupGroupSelect = @"[dbo].[cspLookupGroup_Select]";
-        public const string LookupGroupSelectById = @"[dbo].[cspLookupGroup_Select_ById]";
-        public const string LookupGroupUpdate = @"[dbo].[cspLookupGroup_Update]";
+        public const String LookupGroup_Delete = @"[crud].[LookupGroup_Delete]";
+        public const String LookupGroup_Insert = @"[crud].[LookupGroup_Insert]";
+        public const String LookupGroup_Select = @"[crud].[LookupGroup_Select]";
+        public const String LookupGroup_SelectById = @"[crud].[LookupGroup_SelectById]";
+        public const String LookupGroup_Update = @"[crud].[LookupGroup_Update]";
+        // Mortgagor
+        public const String Mortgagor_Delete = @"[crud].[Mortgagor_Delete]";
+        public const String Mortgagor_Insert = @"[crud].[Mortgagor_Insert]";
+        public const String Mortgagor_Select = @"[crud].[Mortgagor_Select]";
+        public const String Mortgagor_SelectById = @"[crud].[Mortgagor_SelectById]";
+        public const String Mortgagor_Update = @"[crud].[Mortgagor_Update]";
         // Organization
-        public const string OrganizationDelete = @"[dbo].[cspOrganization_Delete]";
-        public const string OrganizationInsert = @"[dbo].[cspOrganization_Insert]";
-        public const string OrganizationSelect = @"[dbo].[cspOrganization_Select]";
-        public const string OrganizationSelectById = @"[dbo].[cspOrganization_Select_ById]";
-        public const string OrganizationSelectByTypeId = @"[dbo].[cspOrganization_SelectByTypeId]";
-        public const string OrganizationUpdate = @"[dbo].[cspOrganization_Update]";
-        // OrganizationLocation
-        public const string OrganizationLocationDelete = @"[dbo].[cspOrganizationLocation_Delete]";
-        public const string OrganizationLocationInsert = @"[dbo].[cspOrganizationLocation_Insert]";
-        public const string OrganizationLocationSelect = @"[dbo].[cspOrganizationLocation_Select]";
-        public const string OrganizationLocationSelectById = @"[dbo].[cspOrganizationLocation_Select_ById]";
-        public const string OrganizationLocationSelectByOrganizationId = @"[dbo].[cspOrganizationLocation_SelectByOrganizationId]";
-        public const string OrganizationLocationUpdate = @"[dbo].[cspOrganizationLocation_Update]";
-        // OrganizationLocationSetting
-        public const string OrganizationLocationSettingDelete = @"[dbo].[cspOrganizationLocationSetting_Delete]";
-        public const string OrganizationLocationSettingInsert = @"[dbo].[cspOrganizationLocationSetting_Insert]";
-        public const string OrganizationLocationSettingSelect = @"[dbo].[cspOrganizationLocationSetting_Select]";
-        public const string OrganizationLocationSettingSelectById = @"[dbo].[cspOrganizationLocationSetting_Select_ById]";
-        public const string OrganizationLocationSettingUpdate = @"[dbo].[cspOrganizationLocationSetting_Update]";
-        // OrganizationProduct
-        public const string OrganizationProductDelete = @"[dbo].[cspOrganizationProduct_Delete]";
-        public const string OrganizationProductInsert = @"[dbo].[cspOrganizationProduct_Insert]";
-        public const string OrganizationProductSelect = @"[dbo].[cspOrganizationProduct_Select]";
-        public const string OrganizationProductSelectById = @"[dbo].[cspOrganizationProduct_Select_ById]";
-        public const string OrganizationProductUpdate = @"[dbo].[cspOrganizationProduct_Update]";
-        // OrganizationSetting
-        public const string OrganizationSettingDelete = @"[dbo].[cspOrganizationSetting_Delete]";
-        public const string OrganizationSettingInsert = @"[dbo].[cspOrganizationSetting_Insert]";
-        public const string OrganizationSettingSelect = @"[dbo].[cspOrganizationSetting_Select]";
-        public const string OrganizationSettingSelectById = @"[dbo].[cspOrganizationSetting_Select_ById]";
-        public const string OrganizationSettingSelectByOrganizationId = @"[dbo].[cspOrganizationSetting_SelectByOrganizationId]";
-        public const string OrganizationSettingUpdate = @"[dbo].[cspOrganizationSetting_Update]";
+        public const String Organization_Delete = @"[crud].[Organization_Delete]";
+        public const String Organization_Insert = @"[crud].[Organization_Insert]";
+        public const String Organization_Select = @"[crud].[Organization_Select]";
+        public const String Organization_SelectById = @"[crud].[Organization_SelectById]";
+        public const String Organization_SelectByTypeId = @"[crud].[Organization_SelectByTypeId]";
+        public const String Organization_Update = @"[crud].[Organization_Update]";
         // Product
-        public const string ProductDelete = @"[dbo].[cspProduct_Delete]";
-        public const string ProductInsert = @"[dbo].[cspProduct_Insert]";
-        public const string ProductSelect = @"[dbo].[cspProduct_Select]";
-        public const string ProductSelectById = @"[dbo].[cspProduct_Select_ById]";
-        public const string ProductUpdate = @"[dbo].[cspProduct_Update]";
+        public const String Product_Delete = @"[crud].[Product_Delete]";
+        public const String Product_Insert = @"[crud].[Product_Insert]";
+        public const String Product_Select = @"[crud].[Product_Select]";
+        public const String Product_SelectAll = @"[crud].[Product_SelectAll]";
+        public const String Product_SelectById = @"[crud].[Product_SelectById]";
+        public const String Product_Update = @"[crud].[Product_Update]";
+        // ProductCategory
+        public const String ProductCategory_Delete = @"[crud].[ProductCategory_Delete]";
+        public const String ProductCategory_Insert = @"[crud].[ProductCategory_Insert]";
+        public const String ProductCategory_Select = @"[crud].[ProductCategory_Select]";
+        public const String ProductCategory_SelectById = @"[crud].[ProductCategory_SelectById]";
+        public const String ProductCategory_Update = @"[crud].[ProductCategory_Update]";
+        // Request
+        public const String Request_Delete = @"[crud].[Request_Delete]";
+        public const String Request_Insert = @"[crud].[Request_Insert]";
+        public const String Request_Select = @"[crud].[Request_Select]";
+        public const String Request_SelectById = @"[crud].[Request_SelectById]";
+        public const String Request_Update = @"[crud].[Request_Update]";
         // User
-        public const string UserDelete = @"[dbo].[cspUser_Delete]";
-        public const string UserInsert = @"[dbo].[cspUser_Insert]";
-        public const string UserSelect = @"[dbo].[cspUser_Select]";
-        public const string UserSelectById = @"[dbo].[cspUser_Select_ById]";
-        public const string UserSelectByOrganizationId = @"[dbo].[cspUser_SelectByOrganizationId]";
-        public const string UserSelectByOrganizationIdAndIsActive = @"[dbo].[cspUser_SelectByOrganizationIdAndIsActive]";
-        public const string UserUpdate = @"[dbo].[cspUser_Update]";
-        // UserArea
-        public const string UserAreaDelete = @"[dbo].[cspUserArea_Delete]";
-        public const string UserAreaInsert = @"[dbo].[cspUserArea_Insert]";
-        public const string UserAreaSelect = @"[dbo].[cspUserArea_Select]";
-        public const string UserAreaSelectById = @"[dbo].[cspUserArea_Select_ById]";
-        public const string UserAreaUpdate = @"[dbo].[cspUserArea_Update]";
+        public const String User_Delete = @"[crud].[User_Delete]";
+        public const String User_Insert = @"[crud].[User_Insert]";
+        public const String User_Select = @"[crud].[User_Select]";
+        public const String User_SelectById = @"[crud].[User_SelectById]";
+        public const String User_SelectByOrganizationId = @"[crud].[User_SelectByOrganizationId]";
+        public const String User_SelectByOrganizationIdAndStatusId = @"[crud].[User_SelectByOrganizationIdAndStatusId]";
+        public const String User_Update = @"[crud].[User_Update]";
+        // UserAreaCoverage
+        public const String UserAreaCoverage_Delete = @"[crud].[UserAreaCoverage_Delete]";
+        public const String UserAreaCoverage_Insert = @"[crud].[UserAreaCoverage_Insert]";
+        public const String UserAreaCoverage_Select = @"[crud].[UserAreaCoverage_Select]";
+        public const String UserAreaCoverage_SelectById = @"[crud].[UserAreaCoverage_SelectById]";
+        public const String UserAreaCoverage_Update = @"[crud].[UserAreaCoverage_Update]";
         // UserContact
-        public const string UserContactDelete = @"[dbo].[cspUserContact_Delete]";
-        public const string UserContactInsert = @"[dbo].[cspUserContact_Insert]";
-        public const string UserContactSelect = @"[dbo].[cspUserContact_Select]";
-        public const string UserContactSelectById = @"[dbo].[cspUserContact_Select_ById]";
-        public const string UserContactUpdate = @"[dbo].[cspUserContact_Update]";
-        // UserDocument
-        public const string UserDocumentDelete = @"[dbo].[cspUserDocument_Delete]";
-        public const string UserDocumentInsert = @"[dbo].[cspUserDocument_Insert]";
-        public const string UserDocumentSelect = @"[dbo].[cspUserDocument_Select]";
-        public const string UserDocumentSelectById = @"[dbo].[cspUserDocument_Select_ById]";
-        public const string UserDocumentUpdate = @"[dbo].[cspUserDocument_Update]";
-        // UserDocumentNotification
-        public const string UserDocumentNotificationDelete = @"[dbo].[cspUserDocumentNotification_Delete]";
-        public const string UserDocumentNotificationInsert = @"[dbo].[cspUserDocumentNotification_Insert]";
-        public const string UserDocumentNotificationSelect = @"[dbo].[cspUserDocumentNotification_Select]";
-        public const string UserDocumentNotificationSelectById = @"[dbo].[cspUserDocumentNotification_Select_ById]";
-        public const string UserDocumentNotificationUpdate = @"[dbo].[cspUserDocumentNotification_Update]";
-        // UserEmail
-        public const string UserEmailDelete = @"[dbo].[cspUserEmail_Delete]";
-        public const string UserEmailInsert = @"[dbo].[cspUserEmail_Insert]";
-        public const string UserEmailSelect = @"[dbo].[cspUserEmail_Select]";
-        public const string UserEmailSelectById = @"[dbo].[cspUserEmail_Select_ById]";
-        public const string UserEmailSelectByUserId = @"[dbo].[cspUserEmail_SelectByUserId]";
-        public const string UserEmailUpdate = @"[dbo].[cspUserEmail_Update]";
-        // UserEvent
-        public const string UserEventDelete = @"[dbo].[cspUserEvent_Delete]";
-        public const string UserEventInsert = @"[dbo].[cspUserEvent_Insert]";
-        public const string UserEventSelect = @"[dbo].[cspUserEvent_Select]";
-        public const string UserEventSelectById = @"[dbo].[cspUserEvent_Select_ById]";
-        public const string UserEventSelectByUserId = @"[dbo].[cspUserEvent_SelectByUserId]";
-        public const string UserEventSelectByUserIdAndTableId = @"[dbo].[cspUserEvent_SelectByUserIdAndTableId]";
-        public const string UserEventUpdate = @"[dbo].[cspUserEvent_Update]";
-        // UserIdentifier
-        public const string UserIdentifierDelete = @"[dbo].[cspUserIdentifier_Delete]";
-        public const string UserIdentifierInsert = @"[dbo].[cspUserIdentifier_Insert]";
-        public const string UserIdentifierSelect = @"[dbo].[cspUserIdentifier_Select]";
-        public const string UserIdentifierSelectById = @"[dbo].[cspUserIdentifier_Select_ById]";
-        public const string UserIdentifierSelectByUserId = @"[dbo].[cspUserIdentifier_SelectByUserId]";
-        public const string UserIdentifierSelectByUserIdAndTypeId = @"[dbo].[cspUserIdentifier_SelectByUserIdAndTypeId]";
-        public const string UserIdentifierUpdate = @"[dbo].[cspUserIdentifier_Update]";
-        // UserLocation
-        public const string UserLocationDelete = @"[dbo].[cspUserLocation_Delete]";
-        public const string UserLocationInsert = @"[dbo].[cspUserLocation_Insert]";
-        public const string UserLocationSelect = @"[dbo].[cspUserLocation_Select]";
-        public const string UserLocationSelectById = @"[dbo].[cspUserLocation_Select_ById]";
-        public const string UserLocationUpdate = @"[dbo].[cspUserLocation_Update]";
+        public const String UserContact_Delete = @"[crud].[UserContact_Delete]";
+        public const String UserContact_Insert = @"[crud].[UserContact_Insert]";
+        public const String UserContact_Select = @"[crud].[UserContact_Select]";
+        public const String UserContact_SelectById = @"[crud].[UserContact_SelectById]";
+        public const String UserContact_Update = @"[crud].[UserContact_Update]";
+        // UserNotification
+        public const String UserNotification_Delete = @"[crud].[UserNotification_Delete]";
+        public const String UserNotification_Insert = @"[crud].[UserNotification_Insert]";
+        public const String UserNotification_Select = @"[crud].[UserNotification_Select]";
+        public const String UserNotification_SelectById = @"[crud].[UserNotification_SelectById]";
+        public const String UserNotification_Update = @"[crud].[UserNotification_Update]";
         // WorkOrder
-        public const string WorkOrderDelete = @"[dbo].[cspWorkOrder_Delete]";
-        public const string WorkOrderInsert = @"[dbo].[cspWorkOrder_Insert]";
-        public const string WorkOrderSelect = @"[dbo].[cspWorkOrder_Select]";
-        public const string WorkOrderSelectById = @"[dbo].[cspWorkOrder_Select_ById]";
-        public const string WorkOrderUpdate = @"[dbo].[cspWorkOrder_Update]";
-
+        public const String WorkOrder_Delete = @"[crud].[WorkOrder_Delete]";
+        public const String WorkOrder_Insert = @"[crud].[WorkOrder_Insert]";
+        public const String WorkOrder_Select = @"[crud].[WorkOrder_Select]";
+        public const String WorkOrder_SelectById = @"[crud].[WorkOrder_SelectById]";
+        public const String WorkOrder_Update = @"[crud].[WorkOrder_Update]";
+        // WorkOrderAssignment
+        public const String WorkOrderAssignment_Delete = @"[crud].[WorkOrderAssignment_Delete]";
+        public const String WorkOrderAssignment_Insert = @"[crud].[WorkOrderAssignment_Insert]";
+        public const String WorkOrderAssignment_Select = @"[crud].[WorkOrderAssignment_Select]";
+        public const String WorkOrderAssignment_SelectById = @"[crud].[WorkOrderAssignment_SelectById]";
+        public const String WorkOrderAssignment_Update = @"[crud].[WorkOrderAssignment_Update]";
+        // WorkOrderItem
+        public const String WorkOrderItem_Delete = @"[crud].[WorkOrderItem_Delete]";
+        public const String WorkOrderItem_Insert = @"[crud].[WorkOrderItem_Insert]";
+        public const String WorkOrderItem_Select = @"[crud].[WorkOrderItem_Select]";
+        public const String WorkOrderItem_SelectById = @"[crud].[WorkOrderItem_SelectById]";
+        public const String WorkOrderItem_Update = @"[crud].[WorkOrderItem_Update]";
+        // WorkOrderItemDetail
+        public const String WorkOrderItemDetail_Delete = @"[crud].[WorkOrderItemDetail_Delete]";
+        public const String WorkOrderItemDetail_Insert = @"[crud].[WorkOrderItemDetail_Insert]";
+        public const String WorkOrderItemDetail_Select = @"[crud].[WorkOrderItemDetail_Select]";
+        public const String WorkOrderItemDetail_SelectById = @"[crud].[WorkOrderItemDetail_SelectById]";
+        public const String WorkOrderItemDetail_Update = @"[crud].[WorkOrderItemDetail_Update]";
+        
         #endregion
     }
 }

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Data.Service;
 
 namespace Enterprise.DAL.Core.Service
 {
-    public class OrganizationService : IDataService
+    public class OrganizationService : ServiceBase
     {
         private readonly int _cacheMinutesToExpire;
         private readonly string _sqlDatabase;
@@ -25,7 +24,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<Organization> GetAllOrganizations()
         {
-            return DataService.GetDataObjectList<Organization>(_sqlDatabase, Procedure.OrganizationSelect, _cacheMinutesToExpire, _isCached);
+            return QueryAll(_sqlDatabase, Procedure.Organization_Select, Organization.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>
@@ -41,7 +40,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllOrganizations().Find(h) ?? new Organization();
             }
 
-            return DataService.GetDataObject<Organization>(_sqlDatabase, Procedure.OrganizationSelectById, idOrganization);
+            return Query(_sqlDatabase, Procedure.Organization_SelectById, Organization.Build, _cacheMinutesToExpire, _isCached, idOrganization);
         }
 
         /// <summary>
@@ -61,7 +60,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllOrganizations().FindAll(d);
             }
 
-            return DataService.GetDataObjectList<Organization>(_sqlDatabase, Procedure.OrganizationSelectByTypeId, _cacheMinutesToExpire, _isCached, idType);
+            return QueryAll(_sqlDatabase, Procedure.Organization_SelectByTypeId, Organization.Build, _cacheMinutesToExpire, _isCached);
         }
     }
 }

@@ -71,7 +71,7 @@ namespace Enterprise.DAL.Core.Model
                 if (IsChanged())
                 {
                     // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupGroupUpdate
+                    Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupGroup_Update
                                        , _idLookupGroup
                                        , _name
                                        , _objectID));
@@ -81,7 +81,7 @@ namespace Enterprise.DAL.Core.Model
             else
             {
                 // Insert
-                _idLookupGroup = Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupGroupInsert
+                _idLookupGroup = Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupGroup_Insert
                                         , _name
                                         , _objectID), Convert.ToInt32);
                 CacheItem.Clear<LookupGroup>();
@@ -93,7 +93,7 @@ namespace Enterprise.DAL.Core.Model
         ///  </summary>
         public void Remove()
         {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupGroupDelete, _idLookupGroup));
+            Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupGroup_Delete, _idLookupGroup));
             CacheItem.Clear<LookupGroup>();
         }
 

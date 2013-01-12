@@ -114,7 +114,7 @@ namespace Enterprise.DAL.Core.Model
                 if (IsChanged())
                 {
                     // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.UserUpdate
+                    Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Update
                                        , _idUser
                                        , _idOrganization
                                        , _firstName
@@ -128,7 +128,7 @@ namespace Enterprise.DAL.Core.Model
             else
             {
                 // Insert
-                _idUser = Execute(GetCommand(Database.EnterpriseDb, Procedure.UserInsert
+                _idUser = Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Insert
                                        , _idOrganization
                                        , _firstName
                                        , _lastName
@@ -144,7 +144,7 @@ namespace Enterprise.DAL.Core.Model
         ///  </summary>
         public void Remove()
         {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.UserDelete, _idUser));
+            Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Delete, _idUser));
             CacheItem.Clear<User>();
         }
 

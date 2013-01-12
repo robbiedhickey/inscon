@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Data.Service;
 
 namespace Enterprise.DAL.Core.Service
 {
-    public class UserService : IDataService
+    public class UserService : ServiceBase
     {
 
         private readonly int _cacheMinutesToExpire;
@@ -26,7 +25,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<User> GetAllUsers()
         {
-            return DataService.GetDataObjectList<User>(_sqlDatabase, Procedure.UserSelect, _cacheMinutesToExpire, _isCached);
+            return QueryAll(_sqlDatabase, Procedure.User_Select, User.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>
@@ -41,7 +40,7 @@ namespace Enterprise.DAL.Core.Service
                 Predicate<User> h = h2 => h2.idUser == idUser;
                 return GetAllUsers().Find(h) ?? new User();
             }
-            return DataService.GetDataObject<User>(_sqlDatabase, Procedure.UserSelectById, idUser);
+            return Query(_sqlDatabase, Procedure.User_SelectById, User.Build, _cacheMinutesToExpire, _isCached, idUser);
         }
 
         /// <summary>
@@ -49,14 +48,15 @@ namespace Enterprise.DAL.Core.Service
         /// </summary>
         /// <param name="idOrganization"></param>
         /// <returns></returns>
-        public List<User> GetUserByOrganizationId(int idOrganization)
+        public List<User> GetUsersByOrganizationId(int idOrganization)
         {
             if (_isCached)
             {
                 Predicate<User> h = h2 => h2.idOrganization == idOrganization;
                 return GetAllUsers().FindAll(h);
             }
-            return DataService.GetDataObjectList<User>(_sqlDatabase, Procedure.UserSelectByOrganizationId, _cacheMinutesToExpire, _isCached, idOrganization);
+
+            return QueryAll(_sqlDatabase, Procedure.User_SelectByOrganizationId, User.Build, _cacheMinutesToExpire, _isCached, idOrganization);
         }
 
         /// <summary>
@@ -65,14 +65,15 @@ namespace Enterprise.DAL.Core.Service
         /// <param name="idOrganization"></param>
         /// <param name="idStatus"></param>
         /// <returns></returns>
-        public List<User> GetUserByOrganizationIdAndIsActive(int idOrganization, int idStatus)
+        public List<User> GetUsersByOrganizationIdAndIsActive(int idOrganization, int idStatus)
         {
             if (_isCached)
             {
                 Predicate<User> h = h2 => h2.idOrganization == idOrganization && h2.idStatus == idStatus;
                 return GetAllUsers().FindAll(h);
             }
-            return DataService.GetDataObjectList<User>(_sqlDatabase, Procedure.UserSelectByOrganizationIdAndIsActive, _cacheMinutesToExpire, _isCached, idOrganization, idStatus);
+
+            return QueryAll(_sqlDatabase, Procedure.User_SelectByOrganizationIdAndStatusId, User.Build, _cacheMinutesToExpire, _isCached, idOrganization, idStatus);
         }
 
     }

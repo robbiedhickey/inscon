@@ -101,7 +101,7 @@ namespace Enterprise.DAL.Core.Model
                 if (IsChanged())
                 {
                     // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.AddressUpdate
+                    Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Update
                                        , _idAddress
                                        , _idAddressLocation
                                        , _objectID
@@ -116,7 +116,7 @@ namespace Enterprise.DAL.Core.Model
             else
             {
                 // Insert
-                _idAddress = Execute(GetCommand(Database.EnterpriseDb, Procedure.AddressInsert
+                _idAddress = Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Insert
                                        , _idAddressLocation
                                        , _objectID
                                        , _street
@@ -132,7 +132,7 @@ namespace Enterprise.DAL.Core.Model
         ///  </summary>
         public void Remove()
         {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.AddressDelete, _idAddress));
+            Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Delete, _idAddress));
         }
 
         #endregion

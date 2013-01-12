@@ -79,7 +79,7 @@ namespace Enterprise.DAL.Core.Model
                 {
                     return _users;
                 }
-                _users = new UserService().GetUserByOrganizationId(_idOrganization);
+                _users = new UserService().GetUsersByOrganizationId(_idOrganization);
                 return _users;
             }
         }
@@ -115,7 +115,7 @@ namespace Enterprise.DAL.Core.Model
                 if (IsChanged())
                 {
                     // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.OrganizationUpdate
+                    Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Update
                                        , _idOrganization
                                        , _organizationName
                                        , _organizationCode
@@ -128,7 +128,7 @@ namespace Enterprise.DAL.Core.Model
             else
             {
                 // Insert
-                _idOrganization = Execute(GetCommand(Database.EnterpriseDb, Procedure.OrganizationInsert
+                _idOrganization = Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Insert
                                        , _organizationName
                                        , _organizationCode
                                        , _idType
@@ -143,7 +143,7 @@ namespace Enterprise.DAL.Core.Model
         ///  </summary>
         public void Remove()
         {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.OrganizationDelete, _idOrganization));
+            Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Delete, _idOrganization));
             CacheItem.Clear<Organization>();
         }
 
