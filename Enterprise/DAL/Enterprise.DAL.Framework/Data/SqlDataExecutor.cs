@@ -6,7 +6,7 @@ namespace Enterprise.DAL.Framework.Data
 	/// <summary>
 	/// Summary description for SqlDataExecutor.
 	/// </summary>
-	/// <author>Fred Fulcher</author>
+	
 	public class SqlDataExecutor : SqlDataAccessor, IDataModifier
 	{
 		/// <summary>

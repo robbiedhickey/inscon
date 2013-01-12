@@ -16,24 +16,86 @@ namespace Enterprise.DAL.Framework
 			get { return _converter; }
 		}
 
-		public static int ToInt(object source)
-		{
-			return _converter.ToInt(source);
-		}
-
-		public static int ToInt(object source, int defaultValue)
-		{
-			return _converter.ToInt(source, defaultValue);
-		}
-
-        public static int? ToNullInt(object source)
+        public static float ToFloat(object source)
         {
-            return _converter.ToNullInt(source);
+            return _converter.ToFloat(source);
+        }
+        public static float ToFloat(object source, float defaultValue)
+        {
+            return _converter.ToFloat(source, defaultValue);
         }
 
-        public static int? ToNullInt(object source, int? defaultValue)
+   
+
+        public static float? ToNullFloat(object source)
         {
-            return _converter.ToNullInt(source, defaultValue);
+            return _converter.ToNullFloat(source);
+        }
+
+        public static float? ToNullFloat(object source, float? defaultValue)
+        {
+            return _converter.ToNullFloat(source, defaultValue);
+        }
+
+
+        public static Int64 ToInt64(object source)
+        {
+            return _converter.ToInt64(source);
+        }
+
+        public static Int64 ToInt64(object source, Int64 defaultValue)
+        {
+            return _converter.ToInt64(source, defaultValue);
+        }
+
+        public static Int64? ToNullInt64(object source)
+        {
+            return _converter.ToNullInt64(source);
+        }
+
+        public static Int64? ToNullInt64(object source, Int64? defaultValue)
+        {
+            return _converter.ToNullInt64(source, defaultValue);
+        }
+
+        public static Int16 ToInt16(object source)
+        {
+            return _converter.ToInt16(source);
+        }
+
+        public static Int16 ToInt16(object source, Int16 defaultValue)
+        {
+            return _converter.ToInt16(source, defaultValue);
+        }
+
+        public static Int16? ToNullInt16(object source)
+        {
+            return _converter.ToNullInt16(source);
+        }
+
+        public static Int16? ToNullInt16(object source, Int16? defaultValue)
+        {
+            return _converter.ToNullInt16(source, defaultValue);
+        }
+
+        public static Int32 ToInt32(object source)
+		{
+            return _converter.ToInt32(source);
+		}
+
+        public static Int32 ToInt32(object source, Int32 defaultValue)
+		{
+            return _converter.ToInt32(source, defaultValue);
+		}
+
+        public static Int32? ToNullInt32(object source)
+        {
+            return _converter.ToNullInt32(source);
+        }
+
+        public static Int32? ToNullInt32(object source, Int32? defaultValue)
+        {
+            return _converter.ToNullInt32(source, defaultValue);
         }
 
 		public static double ToDouble(object source)
@@ -56,15 +118,25 @@ namespace Enterprise.DAL.Framework
             return _converter.ToNullDouble(source, defaultValue);
         }
 
-		public static DateTime? ToDate(object source)
+		public static DateTime ToDate(object source)
 		{
 			return _converter.ToDate(source);
 		}
 
-		public static DateTime? ToDate(object source, DateTime defaultValue)
+		public static DateTime ToDate(object source, DateTime defaultValue)
 		{
 			return _converter.ToDate(source, defaultValue);
 		}
+
+        public static DateTime? ToNullDate(object source)
+        {
+            return _converter.ToNullDate(source);
+        }
+
+        public static DateTime? ToNullDate(object source, DateTime? defaultValue)
+        {
+            return _converter.ToNullDate(source, defaultValue);
+        }
 
 		public static bool ToBool(object source)
 		{
@@ -114,6 +186,16 @@ namespace Enterprise.DAL.Framework
         public static Guid ToGuid( object source, Guid defaultValue)
         {
             return _converter.ToGuid(source, defaultValue);
+        }
+
+        public static Guid? ToNullGuid(object source)
+        {
+            return _converter.ToGuid(source);
+        }
+
+        public static Guid? ToNullGuid(object source, Guid? defaultValue)
+        {
+            return _converter.ToNullGuid(source, defaultValue);
         }
 
         public static Decimal ToDecimal(object source)

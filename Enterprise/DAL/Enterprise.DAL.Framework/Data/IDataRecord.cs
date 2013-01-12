@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Data;
-
 namespace Enterprise.DAL.Framework.Data
 {
     public interface IDataRecord

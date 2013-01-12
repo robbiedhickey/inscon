@@ -2,7 +2,6 @@
 using System.Data;
 using System.Collections.Generic;
 using System.Runtime.Caching;
-using Enterprise.DAL.Framework.Data;
 
 
 namespace Enterprise.DAL.Framework.Data

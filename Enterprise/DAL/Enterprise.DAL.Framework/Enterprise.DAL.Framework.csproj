@@ -41,30 +41,9 @@
     <AssemblyOriginatorKeyFile>EnterpriseKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Cache\AbstractCacheFactory.cs" />
-    <Compile Include="Cache\AggregateCacheFactory.cs" />
-    <Compile Include="Cache\CacheConfiguration.cs" />
-    <Compile Include="Cache\CacheFactoryCreator.cs" />
     <Compile Include="Cache\CacheItem.cs" />
-    <Compile Include="Cache\CacheLocator.cs" />
-    <Compile Include="Cache\EnterpriseCache.cs" />
-    <Compile Include="Cache\EnterpriseCacheConfiguration.cs" />
-    <Compile Include="Cache\EnterpriseCacheFactory.cs" />
-    <Compile Include="Cache\ICache.cs" />
-    <Compile Include="Cache\ICacheConfiguration.cs" />
-    <Compile Include="Cache\ICacheDecorator.cs" />
-    <Compile Include="Cache\ICacheFactory.cs" />
-    <Compile Include="Cache\ICacheMetrics.cs" />
-    <Compile Include="Cache\InstrumentedCache.cs" />
-    <Compile Include="Cache\NullCache.cs" />
-    <Compile Include="Cache\NullCacheFactory.cs" />
-    <Compile Include="Cache\NullCacheMetrics.cs" />
-    <Compile Include="Cache\SimpleCache.cs" />
-    <Compile Include="Cache\SimpleCacheFactory.cs" />
-    <Compile Include="Cache\SwitchableCache.cs" />
     <Compile Include="Configuration\ConfigurationUtils.cs" />
     <Compile Include="Converter.cs" />
-    <Compile Include="Data\CacheAccessor.cs" />
     <Compile Include="Data\DataAccessor.cs" />
     <Compile Include="Data\DataClassInitializer.cs" />
     <Compile Include="Data\DataFormat.cs" />
@@ -94,9 +73,6 @@
   <ItemGroup>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching">
-      <HintPath>..\..\ThirdParty\EntLib50Src\bin\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\..\ThirdParty\EntLib50Src\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>

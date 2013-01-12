@@ -61,9 +61,7 @@
     <Compile Include="Types\Groups.cs" />
     <Compile Include="Types\Procedure.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mapper\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Enterprise.DAL.Framework\Enterprise.DAL.Framework.csproj">
       <Project>{caca9b92-dc2a-4751-9266-0f9544b308be}</Project>

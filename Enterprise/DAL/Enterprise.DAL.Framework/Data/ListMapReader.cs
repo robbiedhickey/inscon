@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace Enterprise.DAL.Framework.Data
 {
@@ -43,16 +44,9 @@ namespace Enterprise.DAL.Framework.Data
 
         private static void NormalizeKeys( IDictionary<string, object> data )
         {
-            var keys = new List<string>();
-            foreach( string key in data.Keys )
-            {
-                if( ! data.ContainsKey(key.ToLower()) )
-                {
-                    keys.Add( key );
-                }
-            }
+            var keys = data.Keys.Where(key => ! data.ContainsKey(key.ToLower())).ToList();
 
-            foreach( string key in keys )
+            foreach( var key in keys )
             {
                 data[key.ToLower()] = data[key];
             }
@@ -98,6 +92,223 @@ namespace Enterprise.DAL.Framework.Data
         public int RecordsAffected
         {
             get { return _data.Count; }
+        }
+
+        public Guid GetGuid(string name)
+        {
+            return Converter.ToGuid(GetValue(name));
+        }
+
+        public Guid GetGuid(string name, Guid defaultValue)
+        {
+            return Converter.ToGuid(GetValue(name), defaultValue);
+        }
+
+        public Guid? GetNullGuid(string name)
+        {
+            return Converter.ToGuid(GetValue(name));
+        }
+
+        public Guid? GetNullGuid(string name, Guid? defaultValue)
+        {
+            return Converter.ToNullGuid(GetValue(name), defaultValue);
+        }
+
+        public Decimal GetDecimal(string name)
+        {
+            return Converter.ToDecimal(name);
+        }
+
+        public Decimal GetDecimal(string name, Decimal defaultValue)
+        {
+            return Converter.ToDecimal(name, defaultValue);
+        }
+
+        public Decimal? GetNullDecimal(string name)
+        {
+            return Converter.ToNullDecimal(name);
+        }
+
+        public Decimal? GetNullDecimal(string name, Decimal? defaultValue)
+        {
+            return Converter.ToNullDecimal(name, defaultValue);
+        }
+
+        public Int16 GetInt16(string name)
+        {
+            return Converter.ToInt16(GetValue(name));
+        }
+
+        public Int16 GetInt16(string name, Int16 defaultValue)
+        {
+            return Converter.ToInt16(GetValue(name), defaultValue);
+        }
+
+        public Int16? GetNullInt16(string name)
+        {
+            return Converter.ToNullInt16(GetValue(name));
+        }
+
+        public Int16? GetNullInt16(string name, Int16? defaultValue)
+        {
+            return Converter.ToNullInt16(GetValue(name), defaultValue);
+        }
+
+        public Int32 GetInt32(string name)
+        {
+            return Converter.ToInt32(GetValue(name));
+        }
+
+        public Int32 GetInt32(string name, Int32 defaultValue)
+        {
+            return Converter.ToInt32(GetValue(name), defaultValue);
+        }
+
+        public Int32? GetNullInt32(string name)
+        {
+            return Converter.ToNullInt32(GetValue(name));
+        }
+
+        public Int32? GetNullInt32(string name, Int32? defaultValue)
+        {
+            return Converter.ToNullInt32(GetValue(name), defaultValue);
+        }
+
+        public Int64 GetInt64(string name)
+        {
+            return Converter.ToInt64(GetValue(name));
+        }
+
+        public Int64 GetInt64(string name, Int64 defaultValue)
+        {
+            return Converter.ToInt64(GetValue(name), defaultValue);
+        }
+
+        public Int64? GetNullInt64(string name)
+        {
+            return Converter.ToNullInt64(GetValue(name));
+        }
+
+        public Int64? GetNullInt64(string name, Int64? defaultValue)
+        {
+            return Converter.ToNullInt64(GetValue(name), defaultValue);
+        }
+
+    	public double GetDouble( string name )
+    	{
+    		return Converter.ToDouble( GetValue( name ) );
+    	}
+
+    	public double GetDouble( string name, double defaultValue )
+    	{
+    		return Converter.ToDouble( GetValue( name ), defaultValue );
+    	}
+
+        public double? GetNullDouble(string name)
+        {
+            return Converter.ToNullDouble(GetValue(name));
+        }
+
+        public double? GetNullDouble(string name, double? defaultValue)
+        {
+            return Converter.ToNullDouble(GetValue(name), defaultValue);
+        }
+
+    	public bool GetBool(string name)
+        {
+            return Converter.ToBool(GetValue(name));
+        }
+
+        public bool GetBool(string name, bool defaultValue)
+        {
+            return Converter.ToBool(GetValue(name), defaultValue);
+        }
+
+        public bool? GetNullBool(string name)
+        {
+            return Converter.ToNullBool(GetValue(name));
+        }
+
+        public bool? GetNullBool(string name, bool? defaultValue)
+        {
+            return Converter.ToNullBool(GetValue(name), defaultValue);
+        }
+
+        public DateTime GetDate(string name)
+        {
+            return Converter.ToDate(GetValue(name));
+        }
+
+        public DateTime GetDate(string name, DateTime defaultValue)
+        {
+            return Converter.ToDate(GetValue(name), defaultValue);
+        }
+
+        public DateTime? GetNullDate(string name)
+        {
+            return Converter.ToNullDate(GetValue(name));
+        }
+
+        public DateTime? GetNullDate(string name, DateTime? defaultValue)
+        {
+            return Converter.ToNullDate(GetValue(name), defaultValue);
+        }
+
+        public float GetFloat(string name)
+        {
+            return Converter.ToFloat(GetValue(name));
+        }
+
+        public float GetFloat(string name, float defaultValue)
+        {
+            return Converter.ToFloat(GetValue(name), defaultValue);
+        }
+
+        public float? GetNullFloat(string name)
+        {
+            return Converter.ToNullFloat(GetValue(name));
+        }
+
+        public float? GetNullFloat(string name, float? defaultValue)
+        {
+            return Converter.ToNullFloat(GetValue(name), defaultValue);
+        }
+
+        public string GetString(string name)
+        {
+            return Converter.ToString( GetValue(name));
+        }
+
+        public string GetString(string name, string defaultValue)
+        {
+            return Converter.ToString(GetValue(name), defaultValue);
+        }
+
+
+    	public char GetChar( string name )
+    	{
+    		return Converter.ToChar( GetValue( name ) );
+    	}
+
+    	public char GetChar( string name, char defaultValue )
+    	{
+    		return Converter.ToChar( GetValue( name ), defaultValue );
+    	}
+
+        T ITypeReader.GetEnum<T>(string name)
+        {
+            throw new NotImplementedException();
+        }
+        public T GetEnum<T>(string name, T defaultValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        private object GetValue(string name)
+        {
+            string key = name.ToLower();
+
+            return _data[_position].ContainsKey(key) ? _data[_position][key] : DBNull.Value;
         }
 
         public string GetName(int i)
@@ -160,16 +371,6 @@ namespace Enterprise.DAL.Framework.Data
             throw new NotImplementedException();
         }
 
-        public Guid GetGuid(string name)
-        {
-            return Converter.ToGuid(GetValue(name));
-        }
-
-        public Guid GetGuid(string name, Guid defaultValue)
-        {
-            return Converter.ToGuid(GetValue(name), defaultValue);
-        }
-
         public short GetInt16(int i)
         {
             throw new NotImplementedException();
@@ -205,136 +406,9 @@ namespace Enterprise.DAL.Framework.Data
             throw new NotImplementedException();
         }
 
-        public decimal GetDecimal(string name)
-        {
-            return Converter.ToDecimal(name);
-        }
-
-        public decimal GetDecimal(string name, decimal defaultValue)
-        {
-            return Converter.ToDecimal(name, defaultValue);
-        }
-
-        public decimal? GetNullDecimal(string name)
-        {
-            return Converter.ToNullDecimal(name);
-        }
-
-        public decimal? GetNullDecimal(string name, decimal? defaultValue)
-        {
-            return Converter.ToNullDecimal(name, defaultValue);
-        }
-
         public DateTime GetDateTime(int i)
         {
             throw new NotImplementedException();
-        }
-
-        public int GetInt(string name)
-        {
-            return Converter.ToInt(GetValue(name));
-        }
-
-        public int GetInt(string name, int defaultValue)
-        {
-            return Converter.ToInt(GetValue(name), defaultValue);
-        }
-
-        public int? GetNullInt(string name)
-        {
-            return Converter.ToNullInt(GetValue(name));
-        }
-
-        public int? GetNullInt(string name, int? defaultValue)
-        {
-            return Converter.ToNullInt(GetValue(name), defaultValue);
-        }
-
-    	public double GetDouble( string name )
-    	{
-    		return Converter.ToDouble( GetValue( name ) );
-    	}
-
-    	public double GetDouble( string name, double defaultValue )
-    	{
-    		return Converter.ToDouble( GetValue( name ), defaultValue );
-    	}
-
-        public double? GetNullDouble(string name)
-        {
-            return Converter.ToNullDouble(GetValue(name));
-        }
-
-        public double? GetNullDouble(string name, double? defaultValue)
-        {
-            return Converter.ToNullDouble(GetValue(name), defaultValue);
-        }
-
-    	public bool GetBool(string name)
-        {
-            return Converter.ToBool(GetValue(name));
-        }
-
-        public bool GetBool(string name, bool defaultValue)
-        {
-            return Converter.ToBool(GetValue(name), defaultValue);
-        }
-
-        public bool? GetNullBool(string name)
-        {
-            return Converter.ToNullBool(GetValue(name));
-        }
-
-        public bool? GetNullBool(string name, bool? defaultValue)
-        {
-            return Converter.ToNullBool(GetValue(name), defaultValue);
-        }
-
-        public DateTime? GetDate(string name)
-        {
-            return Converter.ToDate(GetValue(name));
-        }
-
-        public DateTime? GetDate(string name, DateTime defaultValue)
-        {
-            return Converter.ToDate(GetValue(name), defaultValue);
-        }
-
-        public string GetString(string name)
-        {
-            return Converter.ToString( GetValue(name) );
-        }
-
-    	public char GetChar( string name )
-    	{
-    		return Converter.ToChar( GetValue( name ) );
-    	}
-
-    	public char GetChar( string name, char defaultValue )
-    	{
-    		return Converter.ToChar( GetValue( name ), defaultValue );
-    	}
-
-    	public string GetString(string name, string defaultValue)
-        {
-            return Converter.ToString( GetValue(name), defaultValue);
-        }
-
-    	public T GetEnum<T>( string name )
-    	{
-    		throw new NotImplementedException();
-    	}
-
-    	public T GetEnum<T>( string name, T defaultValue )
-    	{
-    		throw new NotImplementedException();
-    	}
-
-    	private object GetValue(string name)
-        {
-            string key = name.ToLower();
-
-            return _data[_position].ContainsKey(key) ? _data[_position][key] : DBNull.Value;
         }
 
         public IDataReader GetData(int i)
@@ -347,12 +421,9 @@ namespace Enterprise.DAL.Framework.Data
             throw new NotImplementedException();
         }
 
-        public int FieldCount
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public int FieldCount { get; set; }
 
-        public object this[int i]
+        object System.Data.IDataRecord.this[int i]
         {
             get { throw new NotImplementedException(); }
         }
@@ -361,5 +432,7 @@ namespace Enterprise.DAL.Framework.Data
         {
             get { return GetValue(name); }
         }
+
+        
     }
 }

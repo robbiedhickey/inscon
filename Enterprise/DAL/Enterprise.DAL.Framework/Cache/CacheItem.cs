@@ -1,4 +1,5 @@
-﻿using System.Runtime.Caching;
+﻿using System;
+using System.Runtime.Caching;
 
 namespace Enterprise.DAL.Framework.Cache
 {
@@ -6,10 +7,10 @@ namespace Enterprise.DAL.Framework.Cache
     {
         public static void Clear<T>()
         {
-            var type = typeof (T);
-            var dataObjectName = type.Name;
-            var cache = MemoryCache.Default;
-            var cacheItem = cache.GetCacheItem(dataObjectName);
+            Type type = typeof (T);
+            string dataObjectName = type.Name;
+            MemoryCache cache = MemoryCache.Default;
+            System.Runtime.Caching.CacheItem cacheItem = cache.GetCacheItem(dataObjectName);
 
             // Reset cache if requested and cache exists
             if (cacheItem != null)

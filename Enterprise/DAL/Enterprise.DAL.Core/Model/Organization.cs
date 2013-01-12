@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System;
 using Enterprise.DAL.Core.Service;
+using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Data;
 using Enterprise.DAL.Framework.Cache;
-using Enterprise.DAL.Core.Type;
 
 
 namespace Enterprise.DAL.Core.Model
@@ -92,11 +92,11 @@ namespace Enterprise.DAL.Core.Model
         {
             var record = new Organization
                 {
-                    idOrganization = reader.GetInt("idOrganization"),
+                    idOrganization = reader.GetInt32("idOrganization"),
                     Name = reader.GetString("Name"),
                     Code = reader.GetString("Code"),
-                    idType = reader.GetInt("idType"),
-                    idStatus = reader.GetInt("idStatus"),
+                    idType = reader.GetInt32("idType"),
+                    idStatus = reader.GetInt32("idStatus"),
                     ObjectID = reader.GetGuid("ObjectID")
                 };
 

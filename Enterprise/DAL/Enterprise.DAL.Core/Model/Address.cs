@@ -1,5 +1,5 @@
 ﻿using System;
-using Enterprise.DAL.Core.Type;
+using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
@@ -79,8 +79,8 @@ namespace Enterprise.DAL.Core.Model
         {
             var record = new Address
                 {
-                    idAddress = reader.GetInt("idAddress"),
-                    idAddressLocation = reader.GetInt("idAddressLocation"),
+                    idAddress = reader.GetInt32("idAddress"),
+                    idAddressLocation = reader.GetInt32("idAddressLocation"),
                     Street = reader.GetString("Address"),
                     Suite = reader.GetString("Suite"),
                     City = reader.GetString("City"),

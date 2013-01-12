@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.Caching;
 
 namespace Enterprise.DAL.Framework.Data
 {
@@ -9,9 +10,9 @@ namespace Enterprise.DAL.Framework.Data
 	/// Implementation of a data accessor for MSSQL, with conveniences for the
 	/// client database structure.
 	/// </summary>
-	/// <author>Fred Fulcher</author>
 	public class SqlDataAccessor : DataAccessor
 	{
+
 		public ITypeReader QueryReader(String database, String procedure, params Object[] args)
 		{
 			var command = GetCommand(database, procedure, args);
@@ -48,28 +49,6 @@ namespace Enterprise.DAL.Framework.Data
 		}
 
 		/// <summary>
-		/// Same as Query, but caches the result.
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="database"></param>
-		/// <param name="procedure"></param>
-		/// <param name="builder"></param>
-		/// <param name="cacher"></param>
-		/// <param name="args"></param>
-		/// <returns></returns>
-		public T CachedQuery<T>( string database, string procedure, Build<T> builder, CacheAccessor cacher, params object[] args )
-		{
-			if( cacher.HasCacheResult() )
-			{
-				return cacher.GetCacheResult<T>();
-			}
-
-			var command = GetCommand( database, procedure, args );
-
-			return Find( command, builder, cacher );
-		}
-
-		/// <summary>
 		/// Returns a list of items of the given type as a result of the invocation
 		/// of a stored procedure on the specified database.
 		/// </summary>
@@ -85,27 +64,40 @@ namespace Enterprise.DAL.Framework.Data
 			return FindAll( command, builder );
 		}
 
-		/// <summary>
-		/// Same as QueryAll but cached.
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="database"></param>
-		/// <param name="procedure"></param>
-		/// <param name="builder"></param>
-		/// <param name="cacher"></param>
-		/// <param name="args"></param>
-		/// <returns></returns>
-		protected List<T> CachedQueryAll<T>( string database, string procedure, Build<T> builder, CacheAccessor cacher, params object[] args )
-		{
-			if( cacher.HasCacheResult() )
-			{
-				return cacher.GetCacheListResult<T>();
-			}
+        protected List<T> QueryAll<T>(string database, string procedure, Build<T> builder, Int32 cacheMinutesToExpire, Boolean isCached, params object[] args)
+        {
+            var cache = MemoryCache.Default;
+            var retval = new List<T>();
+            var dataObjectName = typeof(T).Name;
 
-			var command = GetCommand( database, procedure, args );
+            // Look for object in Cache
+            if (isCached)
+            {
+                if (cache.GetCacheItem(dataObjectName) == null)
+                {
+                    var policy = new CacheItemPolicy
+                    {
+                        AbsoluteExpiration = DateTime.Now.AddMinutes(cacheMinutesToExpire)
+                    };
 
-			return FindAll( command, builder, cacher );
-		}
+                    // Add to cache
+                    cache.Add(dataObjectName, QueryAll(database, procedure, builder, args), policy);
+                }
+
+                // Read from Cache
+                var cacheItem = cache.GetCacheItem(dataObjectName);
+                if (cacheItem != null)
+                {
+                    retval = (List<T>) cacheItem.Value;
+                }
+            }
+            else
+            {
+                retval = QueryAll(database, procedure, builder, args);
+            }
+
+            return retval;
+         }
 
 		/// <summary>
 		/// Executes a stored procedure that returns multiple result sets, applying 
@@ -123,17 +115,6 @@ namespace Enterprise.DAL.Framework.Data
 			return FindAll( command, builders );
 		}
 
-		public IList CachedQueryAll( string database, string procedure, List<Build> builders, CacheAccessor cacher, params object[] args )
-		{
-			if( cacher.HasCacheResult() )
-			{
-				return cacher.GetCacheResult<IList>();
-			}
-
-			var command = GetCommand( database, procedure, args );
-
-			return FindAll( command, builders, cacher );
-		}
 
 		/// <summary>
 		/// Returns a dictionary based on the invocation of a stored procedure.
@@ -151,18 +132,6 @@ namespace Enterprise.DAL.Framework.Data
 			var command = GetCommand( database, procedure, args );
 
 			return FindAll( command, builder, keyBuilder );
-		}
-
-		public Dictionary<TK,TV> CachedQueryAll<TK,TV>( string database, string procedure, Build<TV> builder, Build<TK> keyBuilder, CacheAccessor cacher, params object[] args )
-		{
-			if( cacher.HasCacheResult() )
-			{
-				return cacher.GetCacheDictionaryResult<TK,TV>();
-			}
-
-			var command = GetCommand( database, procedure, args );
-
-			return FindAll( command, builder, keyBuilder, cacher );
 		}
 
 		/// <summary>

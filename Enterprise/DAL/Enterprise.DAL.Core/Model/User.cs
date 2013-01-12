@@ -1,6 +1,6 @@
 ﻿using System;
 using Enterprise.DAL.Core.Service;
-using Enterprise.DAL.Core.Type;
+using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Cache;
 using Enterprise.DAL.Framework.Data;
 
@@ -90,11 +90,11 @@ namespace Enterprise.DAL.Core.Model
 
             var record = new User
                 {
-                    idUser = reader.GetInt("idUser"),
-                    idOrganization = reader.GetInt("idOrganization"),
+                    idUser = reader.GetInt32("idUser"),
+                    idOrganization = reader.GetInt32("idOrganization"),
                     FirstName = reader.GetString("FirstName"),
                     LastName = reader.GetString("LastName"),
-                    idStatus = reader.GetInt("idStatus"),
+                    idStatus = reader.GetInt32("idStatus"),
                     ObjectID = reader.GetGuid("ObjectID")
                 };
 

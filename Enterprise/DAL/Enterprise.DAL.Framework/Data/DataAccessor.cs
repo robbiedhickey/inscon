@@ -39,7 +39,17 @@ namespace Enterprise.DAL.Framework.Data
 
     	public T Find<T>( IDbCommand finder, Build<T> builder )
         {
-    		return Find( finder, builder, null );
+            using (ITypeReader reader = new TypeConvertingReader(_context.ExecuteReader(finder), Converter.ConverterInstance))
+            {
+                T item = default(T);
+
+                if (reader.Read())
+                {
+                    item = builder(reader);
+                }
+
+                return item;
+            }
         }
 
         protected ITypeReader FindReader(IDbCommand finder)
@@ -66,76 +76,34 @@ namespace Enterprise.DAL.Framework.Data
                 return results;
             }     
         }
-		/// <summary>
-		/// Queries for and returns a single item of the given type, or the default
-		/// for the type if the command has no result.
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="finder"></param>
-		/// <param name="builder"></param>
-		/// <param name="cacher"></param>
-		/// <returns></returns>
-    	public T Find<T>( IDbCommand finder, Build<T> builder, CacheAccessor cacher )
-        {
-            using( ITypeReader reader = new TypeConvertingReader( _context.ExecuteReader( finder ), Converter.ConverterInstance ) )
-            {
-            	T item = default( T );
-
-				if( reader.Read() )
-				{
-					item = builder( reader );
-
-					if( cacher != null )
-					{
-						cacher.PutCacheResult( item );
-					}
-				}
-
-            	return item;
-            }
-        }
 
 		public List<T> FindAll<T>( IDbCommand finder, Build<T> builder )
 		{
-			return FindAll( finder, builder, null );
-		}
+			//return FindAll( finder, builder, null );
 
-		/// <summary>
-		/// Queries for and returns a list of the given type, or an empty list
-		/// if the command has no result.
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="finder"></param>
-		/// <param name="builder"></param>
-		/// <param name="cacher"></param>
-		/// <returns></returns>
-        public List<T> FindAll<T>( IDbCommand finder, Build<T> builder, CacheAccessor cacher )
-        {
-            using( ITypeReader reader = new TypeConvertingReader(
-				_context.ExecuteReader(finder), Converter.ConverterInstance ) )
+
+            using (ITypeReader reader = new TypeConvertingReader(
+                _context.ExecuteReader(finder), Converter.ConverterInstance))
             {
                 var results = new List<T>();
 
-                while( reader.Read() )
+                while (reader.Read())
                 {
-                	T item = builder( reader );
+                    var item = builder(reader);
 
-					if( cacher != null && ! cacher.IsGroupCache )
-					{
-						cacher.PutCacheResult( reader.GetString( cacher.Key ), item );
-					}
+                    var commit = item.GetType().GetMethod("CommitChanges");
 
-                    results.Add( item );
+                    if (commit != null)
+                    {
+                        commit.Invoke(item, null);
+                    }
+
+                    results.Add(item);
                 }
 
-				if( cacher != null && cacher.IsGroupCache )
-				{
-					cacher.PutCacheListResult( results );
-				}
-
                 return results;
-            }     
-        }
+            }   
+		}
 
 		/// <summary>
 		/// Finds all records from a given multi-set query and applies a
@@ -146,41 +114,31 @@ namespace Enterprise.DAL.Framework.Data
 		/// <returns></returns>
 		protected IList FindAll( IDbCommand finder, List<Build> builders )
 		{
-			return FindAll( finder, builders, null );
-		}
-
-        protected IList FindAll( IDbCommand finder, List<Build> builders, CacheAccessor cacher )
-        {
-            using( ITypeReader reader = new TypeConvertingReader(
-				_context.ExecuteReader(finder), Converter.ConverterInstance ) )
+            using (ITypeReader reader = new TypeConvertingReader(
+                _context.ExecuteReader(finder), Converter.ConverterInstance))
             {
                 IList results = new ArrayList();
 
-				for( int i = 0; i < builders.Count; i++ )
-				{
-					var rowList = new ArrayList();
+                for (var i = 0; i < builders.Count; i++)
+                {
+                    var rowList = new ArrayList();
 
-					while( reader.Read() )
-					{
-						rowList.Add( builders[i](reader) );
-					}
-					
-					results.Add( rowList );
-					
-					if( i < ( builders.Count - 1 ) )
-					{
-						reader.NextResult();
-					}
-				}
+                    while (reader.Read())
+                    {
+                        rowList.Add(builders[i](reader));
+                    }
 
-				if( cacher != null && cacher.IsGroupCache )
-				{
-					cacher.PutCacheResult( results );
-				}
+                    results.Add(rowList);
+
+                    if (i < (builders.Count - 1))
+                    {
+                        reader.NextResult();
+                    }
+                }
 
                 return results;
-            }     
-        }
+            }    
+		}
 
 		/// <summary>
 		/// Creates a dictionary of given key and value type from a command, using 
@@ -194,33 +152,18 @@ namespace Enterprise.DAL.Framework.Data
 		/// <returns></returns>
 		public Dictionary<TK, TV> FindAll<TK, TV>( IDbCommand finder, Build<TV> builder, Build<TK> keyBuilder )
 		{
-			return FindAll( finder, builder, keyBuilder, null );
-		}
-
-		public Dictionary<TK, TV> FindAll<TK, TV>( IDbCommand finder, Build<TV> builder, Build<TK> keyBuilder, CacheAccessor cacher )
-		{
-            using( ITypeReader reader = new TypeConvertingReader(
-				_context.ExecuteReader(finder), Converter.ConverterInstance ) )
+            using (ITypeReader reader = new TypeConvertingReader(
+                _context.ExecuteReader(finder), Converter.ConverterInstance))
             {
                 var results = new Dictionary<TK, TV>();
 
-                while( reader.Read() )
+                while (reader.Read())
                 {
-                	TV item = builder( reader );
-                	TK key = keyBuilder( reader );
+                    TV item = builder(reader);
+                    TK key = keyBuilder(reader);
 
-					if( cacher != null && ! cacher.IsGroupCache )
-					{
-						cacher.PutCacheResult( reader.GetString( cacher.Key ), item );
-					}
-
-                    results.Add( key, item );
+                    results.Add(key, item);
                 }
-
-				if( cacher != null && cacher.IsGroupCache )
-				{
-					cacher.PutCacheResult( results );
-				}
 
                 return results;
             }			
@@ -233,7 +176,7 @@ namespace Enterprise.DAL.Framework.Data
 		/// <returns></returns>
 		protected static int FirstInt( ITypeReader reader )
 		{
-			return Converter.ConverterInstance.ToInt( reader[0] );
+			return Converter.ConverterInstance.ToInt32( reader[0] );
 		}
 
 		/// <summary>

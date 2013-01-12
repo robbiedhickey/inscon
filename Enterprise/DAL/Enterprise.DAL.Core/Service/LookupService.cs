@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
-using Enterprise.DAL.Core.Type;
+using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Data.Service;
 
 namespace Enterprise.DAL.Core.Service

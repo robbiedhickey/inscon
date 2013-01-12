@@ -2,7 +2,7 @@ using System.Data;
 
 namespace Enterprise.DAL.Framework.Data
 {
-	public delegate T Convert<T>( object scalar );
+	public delegate T Convert<out T>( object scalar );
 
 	public interface IDataModifier
 	{

@@ -1,8 +1,7 @@
 ﻿using System;
-
+using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Data;
 using Enterprise.DAL.Framework.Cache;
-using Enterprise.DAL.Core.Type;
 
 namespace Enterprise.DAL.Core.Model
 {
@@ -53,7 +52,7 @@ namespace Enterprise.DAL.Core.Model
         {
             var record = new LookupGroup
                 {
-                    idLookupGroup = reader.GetInt("idLookupGroup"),
+                    idLookupGroup = reader.GetInt32("idLookupGroup"),
                     Name = reader.GetString("GroupName"),
                     ObjectID = reader.GetGuid("ObjectID")
                 };

@@ -53,7 +53,7 @@ namespace Enterprise.DAL.Framework.Configuration
 
         public static int GetConfigInt(string key, int defaultValue)
         {
-            return Converter.ToInt(ConfigurationManager.AppSettings[key], defaultValue);
+            return Converter.ToInt32(ConfigurationManager.AppSettings[key], defaultValue);
         }
 
         public static double GetConfigDouble(string key)

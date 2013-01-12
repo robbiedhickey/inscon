@@ -1,4 +1,4 @@
-﻿namespace Enterprise.DAL.Core.Type
+﻿namespace Enterprise.DAL.Core.Types
 {
     public static class Database
     {

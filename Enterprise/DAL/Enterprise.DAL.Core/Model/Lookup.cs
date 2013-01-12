@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Enterprise.DAL.Core.Service;
-using Enterprise.DAL.Core.Type;
+using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Cache;
 using Enterprise.DAL.Framework.Data;
 
@@ -107,12 +107,12 @@ namespace Enterprise.DAL.Core.Model
         {
             var record = new Lookup
                 {
-                    idLookup = reader.GetInt("idLookup"),
-                    idLookupGroup = reader.GetInt("idLookupGroup"),
+                    idLookup = reader.GetInt32("idLookup"),
+                    idLookupGroup = reader.GetInt32("idLookupGroup"),
                     Code = reader.GetString("code"),
                     Abreviation = reader.GetString("Abreviation"),
                     Caption = reader.GetString("Caption"),
-                    Sort = reader.GetInt("Sort"),
+                    Sort = reader.GetInt32("Sort"),
                     Note = reader.GetString("Note"),
                     ObjectID = reader.GetGuid("ObjectID")
                 };

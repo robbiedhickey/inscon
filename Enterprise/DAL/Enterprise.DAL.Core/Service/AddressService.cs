@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
-using Enterprise.DAL.Core.Type;
+using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Data.Service;
 
 namespace Enterprise.DAL.Core.Service
 {
     public class AddressService : ServiceBase
     {
-        private readonly int _cacheMinutesToExpire;
-        private readonly string _sqlDatabase;
-        private readonly bool _isCached;
+        private readonly Int32 _cacheMinutesToExpire;
+        private readonly String _sqlDatabase;
+        private readonly Boolean _isCached;
 
         public AddressService()
         {
@@ -25,8 +25,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<Address> GetAllAddresses()
         {
-            return QueryAll<Address>(Database.EnterpriseDb, Procedure.AddressSelect, Address.Build);
-            // return DataService.GetDataObjectList<Address>(_sqlDatabase, Procedure.AddressSelect, _cacheMinutesToExpire, _isCached);
+            return QueryAll(Database.EnterpriseDb, Procedure.AddressSelect, Address.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>

@@ -132,6 +132,17 @@ namespace Enterprise.DAL.Framework.Data
             return _converter.ToGuid(_reader[name], defaultValue);
         }
 
+        public Guid? GetNullGuid(string name)
+        {
+            return _converter.ToNullGuid(_reader[name]);
+        }
+
+        public Guid? GetNullGuid(string name, Guid? defaultValue)
+        {
+            return _converter.ToNullGuid(_reader[name], defaultValue);
+        }
+
+
         public short GetInt16(int i)
         {
             return _reader.GetInt16(i);
@@ -139,7 +150,7 @@ namespace Enterprise.DAL.Framework.Data
 
         public int GetInt32(int i)
         {
-            return _converter.ToInt(_reader.GetInt32(i));
+            return _converter.ToInt32(_reader.GetInt32(i));
         }
 
         public long GetInt64(int i)
@@ -151,6 +162,26 @@ namespace Enterprise.DAL.Framework.Data
         {
             return _reader.GetFloat(i);
         }
+        public float GetFloat(string name)
+        {
+            return _converter.ToFloat( _reader[name] );
+        }
+        public float GetFloat(string name, float defaultValue)
+        {
+            return _converter.ToFloat(_reader[name], defaultValue);
+        }
+
+        public float? GetNullFloat(string name)
+        {
+            return _converter.ToNullFloat(_reader[name]);
+        }
+
+        public float? GetNullFloat(string name, float? defaultValue)
+        {
+            return _converter.ToNullFloat(_reader[name], defaultValue);
+        }
+
+
 
         public double GetDouble(int i)
         {
@@ -192,24 +223,66 @@ namespace Enterprise.DAL.Framework.Data
             throw new NotImplementedException();
         }
 
-        public int GetInt(string name)
+
+
+        public Int16 GetInt16(string name)
         {
-             return _converter.ToInt(_reader[name]);
+            return _converter.ToInt16(_reader[name]);
         }
 
-        public int GetInt(string name, int defaultValue)
+        public Int16 GetInt16(string name, Int16 defaultValue)
         {
-            return _converter.ToInt(_reader[name], defaultValue);
+            return _converter.ToInt16(_reader[name], defaultValue);
         }
 
-        public int? GetNullInt(string name)
+        public Int16? GetNullInt16(string name)
         {
-            return _converter.ToNullInt(_reader[name]);
+            return _converter.ToNullInt16(_reader[name]);
         }
 
-        public int? GetNullInt(string name, int? defaultValue)
+        public Int16? GetNullInt16(string name, Int16? defaultValue)
         {
-            return _converter.ToNullInt(_reader[name], defaultValue);
+            return _converter.ToNullInt16(_reader[name], defaultValue);
+        }
+
+        public int GetInt32(string name)
+        {
+             return _converter.ToInt32(_reader[name]);
+        }
+
+        public int GetInt32(string name, int defaultValue)
+        {
+            return _converter.ToInt32(_reader[name], defaultValue);
+        }
+
+        public int? GetNullInt32(string name)
+        {
+            return _converter.ToNullInt32(_reader[name]);
+        }
+
+        public int? GetNullInt32(string name, int? defaultValue)
+        {
+            return _converter.ToNullInt32(_reader[name], defaultValue);
+        }
+
+        public Int64 GetInt64(string name)
+        {
+            return _converter.ToInt64(_reader[name]);
+        }
+
+        public Int64 GetInt64(string name, Int64 defaultValue)
+        {
+            return _converter.ToInt64(_reader[name], defaultValue);
+        }
+
+        public Int64? GetNullInt64(string name)
+        {
+            return _converter.ToNullInt64(_reader[name]);
+        }
+
+        public Int64? GetNullInt64(string name, Int64? defaultValue)
+        {
+            return _converter.ToNullInt64(_reader[name], defaultValue);
         }
 
     	public double GetDouble( string name )
@@ -252,12 +325,22 @@ namespace Enterprise.DAL.Framework.Data
             return _converter.ToNullBool(_reader[name], defaultValue);
         }
 
-        public DateTime? GetDate(string name)
+        public DateTime? GetNullDate(string name)
+        {
+            return _converter.ToNullDate(_reader[name]);
+        }
+
+        public DateTime? GetNullDate(string name, DateTime? defaultValue)
+        {
+            return _converter.ToNullDate(_reader[name], defaultValue);
+        }
+
+        public DateTime GetDate(string name)
         {
             return _converter.ToDate(_reader[name]);
         }
 
-        public DateTime? GetDate(string name, DateTime defaultValue)
+        public DateTime GetDate(string name, DateTime defaultValue)
         {
             return _converter.ToDate(_reader[name], defaultValue);
         }
