@@ -9,29 +9,35 @@ namespace Enterprise.DAL.Core.Model
     {
         #region private variables
 
-        private int _idAddress;
-        private int _idAddressLocation;
+        private int _addressID;
+        private int _parentID;
+        private Int16 _entityID;
         private string _street;
         private string _suite;
         private string _city;
         private string _state;
-        private string _zipCode;
-        private Guid _objectID;
+        private string _zip;
 
         #endregion
 
         #region public properties
 
-        public int idAddress
+        public int AddressID
         {
-            get { return _idAddress; }
-            set { SetProperty(ref _idAddress, value); }
+            get { return _addressID; }
+            set { SetProperty(ref _addressID, value); }
         }
 
-        public int idAddressLocation
+        public int ParentID
         {
-            get { return _idAddressLocation; }
-            set { SetProperty(ref _idAddressLocation, value); }
+            get { return _parentID; } 
+            set { SetProperty(ref _parentID, value); }
+        }
+
+        public Int16 EntityID
+        {
+            get { return _entityID; } 
+            set { SetProperty(ref _entityID, value); }
         }
 
         public string Street
@@ -60,16 +66,10 @@ namespace Enterprise.DAL.Core.Model
 
         public string ZipCode
         {
-            get { return _zipCode; }
-            set { SetProperty(ref _zipCode, value); }
+            get { return _zip; }
+            set { SetProperty(ref _zip, value); }
         }
-
-        public Guid ObjectID
-        {
-            get { return _objectID; }
-            set { SetProperty(ref _objectID, value); }
-        }
-
+     
         #endregion
 
         #region public methods
@@ -79,8 +79,9 @@ namespace Enterprise.DAL.Core.Model
         {
             var record = new Address
                 {
-                    idAddress = reader.GetInt32("idAddress"),
-                    idAddressLocation = reader.GetInt32("idAddressLocation"),
+                    AddressID = reader.GetInt32("AddressID"),
+                    ParentID = reader.GetInt32("ParentID"),
+                    EntityID = reader.GetInt16("EntityID"),
                     Street = reader.GetString("Address"),
                     Suite = reader.GetString("Suite"),
                     City = reader.GetString("City"),
@@ -96,34 +97,34 @@ namespace Enterprise.DAL.Core.Model
         /// </summary>
         public void Save()
         {
-            if (idAddress != 0)
+            if (AddressID != 0)
             {
                 if (IsChanged())
                 {
                     // Update
                     Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Update
-                                       , _idAddress
-                                       , _idAddressLocation
-                                       , _objectID
+                                       , _addressID
+                                       , _parentID
+                                       , _entityID
                                        , _street
                                        , _suite
                                        , _city
                                        , _state
-                                       , _zipCode));
+                                       , _zip));
                     CommitChanges();
                 }
             }
             else
             {
                 // Insert
-                _idAddress = Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Insert
-                                       , _idAddressLocation
-                                       , _objectID
+                _addressID = Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Insert
+                                       , _parentID
+                                       , _entityID
                                        , _street
                                        , _suite
                                        , _city
                                        , _state
-                                       , _zipCode), Convert.ToInt32);
+                                       , _zip), Convert.ToInt32);
             }
         }
 
@@ -132,7 +133,7 @@ namespace Enterprise.DAL.Core.Model
         ///  </summary>
         public void Remove()
         {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Delete, _idAddress));
+            Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Delete, _addressID));
         }
 
         #endregion

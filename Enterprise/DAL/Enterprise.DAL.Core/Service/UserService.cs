@@ -25,7 +25,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<User> GetAllUsers()
         {
-            return QueryAll(_sqlDatabase, Procedure.User_Select, User.Build, _cacheMinutesToExpire, _isCached);
+            return QueryAll(_sqlDatabase, Procedure.User_SelectAll, User.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (_isCached)
             {
-                Predicate<User> h = h2 => h2.idUser == idUser;
+                Predicate<User> h = h2 => h2.UserID == idUser;
                 return GetAllUsers().Find(h) ?? new User();
             }
             return Query(_sqlDatabase, Procedure.User_SelectById, User.Build, _cacheMinutesToExpire, _isCached, idUser);
@@ -52,7 +52,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (_isCached)
             {
-                Predicate<User> h = h2 => h2.idOrganization == idOrganization;
+                Predicate<User> h = h2 => h2.OrganizationID == idOrganization;
                 return GetAllUsers().FindAll(h);
             }
 
@@ -69,7 +69,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (_isCached)
             {
-                Predicate<User> h = h2 => h2.idOrganization == idOrganization && h2.idStatus == idStatus;
+                Predicate<User> h = h2 => h2.OrganizationID == idOrganization && h2.StatusID == idStatus;
                 return GetAllUsers().FindAll(h);
             }
 

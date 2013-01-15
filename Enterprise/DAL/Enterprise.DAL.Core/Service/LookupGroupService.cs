@@ -24,23 +24,23 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<LookupGroup> GetAllLookupGroups()
         {
-            return QueryAll(_sqlDatabase, Procedure.LookupGroup_Select, LookupGroup.Build, _cacheMinutesToExpire, _isCached);
+            return QueryAll(_sqlDatabase, Procedure.LookupGroup_SelectAll, LookupGroup.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>
         /// Get LookupGroup record by ID
         /// </summary>
-        /// <param name="idLookupGroup"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public LookupGroup GetLookupGroupById(int idLookupGroup)
+        public LookupGroup GetLookupGroupById(int id)
         {
             if (_isCached)
             {
-                Predicate<LookupGroup> h = h2 => h2.idLookupGroup == idLookupGroup;
+                Predicate<LookupGroup> h = h2 => h2.LookupGroupID == id;
                 return GetAllLookupGroups().Find(h) ?? new LookupGroup();
             }
 
-            return Query(_sqlDatabase, Procedure.LookupGroup_SelectById, LookupGroup.Build, _cacheMinutesToExpire, _isCached, idLookupGroup);
+            return Query(_sqlDatabase, Procedure.LookupGroup_SelectById, LookupGroup.Build, _cacheMinutesToExpire, _isCached, id);
         }
     }
 }

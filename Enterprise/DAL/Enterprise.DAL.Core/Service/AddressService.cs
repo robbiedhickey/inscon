@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Data.Service;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -25,23 +24,40 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<Address> GetAllAddresses()
         {
-            return QueryAll(_sqlDatabase, Procedure.Address_Select, Address.Build, _cacheMinutesToExpire, _isCached);
+            return QueryAll(_sqlDatabase, Procedure.Address_SelectAll, Address.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>
         /// Get Address record by ID
         /// </summary>
-        /// <param name="idAddress"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public Address GetAddressById(int idAddress)
+        public Address GetAddressByParentId(int id)
         {
             if (_isCached)
             {
-                Predicate<Address> h = h2 => h2.idAddress == idAddress;
+                Predicate<Address> h = h2 => h2.AddressID == id;
                 return GetAllAddresses().Find(h) ?? new Address();
             }
 
-            return Query(_sqlDatabase, Procedure.Address_SelectById, Address.Build, _cacheMinutesToExpire, _isCached, idAddress);
+            return Query(_sqlDatabase, Procedure.Address_SelectById, Address.Build, _cacheMinutesToExpire, _isCached, id);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parentID"></param>
+        /// <param name="entityID"></param>
+        /// <returns></returns>
+        public Address GetAddressByParentIdAndEntityID(int parentID, Int16 entityID)
+        {
+            if (_isCached)
+            {
+                Predicate<Address> h = h2 => h2.ParentID == parentID && h2.EntityID == entityID;
+                return GetAllAddresses().Find(h) ?? new Address();
+            }
+
+            return Query(_sqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Address.Build, _cacheMinutesToExpire, _isCached, parentID, entityID);
         }
     }
 }

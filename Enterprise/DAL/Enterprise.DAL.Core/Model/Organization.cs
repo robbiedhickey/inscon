@@ -14,12 +14,12 @@ namespace Enterprise.DAL.Core.Model
 
         #region private variables
 
-        private int _idOrganization;
-        private string _organizationName;
-        private string _organizationCode;
-        private int _idType;
-        private int _idStatus;
-        private Guid _objectID;
+        private int _organizationID;
+        private string _name;
+        private string _code;
+        private int _typeID;
+        private int _statusID;
+      
 
         private List<User> _users;
 
@@ -28,46 +28,47 @@ namespace Enterprise.DAL.Core.Model
         #region public properties
 
 
-        public int idOrganization
+        public int OrganizationID
         {
-            get { return _idOrganization; }
-            set { SetProperty(ref _idOrganization, value); }
+            get { return _organizationID; }
+            set { SetProperty(ref _organizationID, value); }
         }
 
 
         public string Name
         {
-            get { return _organizationName; }
-            set { SetProperty(ref _organizationName, value); }
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
         }
 
         public string Code
         {
-            get { return _organizationCode; }
-            set { SetProperty(ref _organizationCode, value); }
+            get { return _code; }
+            set { SetProperty(ref _code, value); }
         }
 
-        public int idType
+        public int TypeID
         {
-            get { return _idType; }
-            set { SetProperty(ref _idType, value); }
+            get { return _typeID; }
+            set { SetProperty(ref _typeID, value); }
         }
 
-        public int idStatus
+        public int StatusID
         {
-            get { return _idStatus; }
-            set { SetProperty(ref _idStatus, value); }
+            get { return _statusID; }
+            set { SetProperty(ref _statusID, value); }
         }
 
-        public Guid ObjectID
+        public string Status
         {
-            get { return _objectID; }
-            set { SetProperty(ref _objectID, value); }
+            // Read only lookup value
+            get { return new LookupService().GetLookupById(_statusID).Value; }
         }
 
         public string Type
         {
-            get { return new LookupService().GetLookupById(_idType).Caption; }
+            // Read only lookup value
+            get { return new LookupService().GetLookupById(_typeID).Value; }
         }
       
 
@@ -79,7 +80,7 @@ namespace Enterprise.DAL.Core.Model
                 {
                     return _users;
                 }
-                _users = new UserService().GetUsersByOrganizationId(_idOrganization);
+                _users = new UserService().GetUsersByOrganizationId(_organizationID);
                 return _users;
             }
         }
@@ -92,12 +93,11 @@ namespace Enterprise.DAL.Core.Model
         {
             var record = new Organization
                 {
-                    idOrganization = reader.GetInt32("idOrganization"),
+                    OrganizationID = reader.GetInt32("OrganizationID"),
                     Name = reader.GetString("Name"),
                     Code = reader.GetString("Code"),
-                    idType = reader.GetInt32("idType"),
-                    idStatus = reader.GetInt32("idStatus"),
-                    ObjectID = reader.GetGuid("ObjectID")
+                    TypeID = reader.GetInt32("TypeID"),
+                    StatusID = reader.GetInt32("StatusID")
                 };
 
             return record;
@@ -110,30 +110,28 @@ namespace Enterprise.DAL.Core.Model
         /// </summary>
         public void Save()
         {
-            if (_idOrganization != 0)
+            if (_organizationID != 0)
             {
                 if (IsChanged())
                 {
                     // Update
                     Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Update
-                                       , _idOrganization
-                                       , _organizationName
-                                       , _organizationCode
-                                       , _idType
-                                       , _idStatus
-                                       , _objectID));
+                                       , _organizationID
+                                       , _name
+                                       , _code
+                                       , _typeID
+                                       , _statusID));
                     CommitChanges();
                 }
             }
             else
             {
                 // Insert
-                _idOrganization = Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Insert
-                                       , _organizationName
-                                       , _organizationCode
-                                       , _idType
-                                       , _idStatus
-                                       , _objectID), Convert.ToInt32);
+                _organizationID = Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Insert
+                                       , _name
+                                       , _code
+                                       , _typeID
+                                       , _statusID), Convert.ToInt32);
                 CacheItem.Clear<Organization>();
             }
         }
@@ -143,7 +141,7 @@ namespace Enterprise.DAL.Core.Model
         ///  </summary>
         public void Remove()
         {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Delete, _idOrganization));
+            Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Delete, _organizationID));
             CacheItem.Clear<Organization>();
         }
 

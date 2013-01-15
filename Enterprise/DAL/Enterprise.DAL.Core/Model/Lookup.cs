@@ -14,19 +14,14 @@ namespace Enterprise.DAL.Core.Model
         public Lookup()
         {
             TrackChanges = true;
-            idLookup = 0;
+            LookupID = 0;
         }
 
         #region private variables
 
-        private int _idLookup;
-        private int _idLookupGroup;
-        private string _code;
-        private string _abreviation;
-        private string _caption;
-        private decimal _sort;
-        private string _note;
-        private Guid _objectID;
+        private Int32 _lookupID;
+        private Int16 _lookupGroupID;
+        private String _value;
         private LookupGroup _lookupGroup;
 
         #endregion
@@ -34,54 +29,23 @@ namespace Enterprise.DAL.Core.Model
         #region public properties
 
       
-        public int idLookup
+        public int LookupID
         {
-            get { return _idLookup; }
-            set { SetProperty(ref _idLookup, value); }
+            get { return _lookupID; }
+            set { SetProperty(ref _lookupID, value); }
         }
 
 
-        public int idLookupGroup
+        public Int16 LookupGroupID
         {
-            get { return _idLookupGroup; }
-            set { SetProperty(ref _idLookupGroup,  value); }
+            get { return _lookupGroupID; }
+            set { SetProperty(ref _lookupGroupID,  value); }
         }
-
-        public string Code
+        
+        public string Value
         {
-            get { return _code; }
-            set { SetProperty(ref _code, value); }
-        }
-
-        public string Abreviation
-        {
-            get { return _abreviation; }
-            set { SetProperty(ref _abreviation, value); }
-        }
-
-   
-        public string Caption
-        {
-            get { return _caption; }
-            set { SetProperty(ref _caption, value); }
-        }
-
-        public decimal Sort
-        {
-            get { return _sort; }
-            set { SetProperty(ref _sort, value); }
-        }
-
-        public string Note
-        {
-            get { return _note; }
-            set { SetProperty(ref _note, value); }
-        }
-
-        public Guid ObjectID
-        {
-            get { return _objectID; }
-            set { SetProperty(ref _objectID, value); }
+            get { return _value; }
+            set { SetProperty(ref _value, value); }
         }
 
         public LookupGroup Group
@@ -94,7 +58,7 @@ namespace Enterprise.DAL.Core.Model
                 }
 
                 var grp = new LookupGroupService();
-                _lookupGroup = grp.GetLookupGroupById(_idLookupGroup);
+                _lookupGroup = grp.GetLookupGroupById(_lookupGroupID);
                 return _lookupGroup;
             }
         }
@@ -107,14 +71,9 @@ namespace Enterprise.DAL.Core.Model
         {
             var record = new Lookup
                 {
-                    idLookup = reader.GetInt32("idLookup"),
-                    idLookupGroup = reader.GetInt32("idLookupGroup"),
-                    Code = reader.GetString("code"),
-                    Abreviation = reader.GetString("Abreviation"),
-                    Caption = reader.GetString("Caption"),
-                    Sort = reader.GetInt32("Sort"),
-                    Note = reader.GetString("Note"),
-                    ObjectID = reader.GetGuid("ObjectID")
+                    LookupID = reader.GetInt32("idLookup"),
+                    LookupGroupID = reader.GetInt16("idLookupGroup"),
+                    Value = reader.GetString("Caption")
                 };
 
             return record;
@@ -125,34 +84,24 @@ namespace Enterprise.DAL.Core.Model
         /// </summary>
         public void Save()
         {
-            if (_idLookup != 0)
+            if (_lookupID != 0)
             {
                 if (IsChanged())
                 {
                     // Update
                     Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Update
-                                        , _idLookup
-                                        , _idLookupGroup
-                                        , _code
-                                        , _abreviation
-                                        , _caption
-                                        , _sort
-                                        , _note
-                                        , _objectID));
+                                        , _lookupID
+                                        , _lookupGroupID
+                                        , _value));
                     CommitChanges();
                 }
             }
             else
             {
                 // Insert
-                _idLookup = Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Insert
-                                        , _idLookupGroup
-                                        , _code
-                                        , _abreviation
-                                        , _caption
-                                        , _sort
-                                        , _note
-                                        , _objectID), Convert.ToInt32);
+                _lookupID = Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Insert
+                                        , _lookupGroupID
+                                        , _value), Convert.ToInt32);
                 CacheItem.Clear<Lookup>();
             }
         }
@@ -162,7 +111,7 @@ namespace Enterprise.DAL.Core.Model
         ///  </summary>
         public void Remove()
         {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Delete, _idLookup));
+            Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Delete, _lookupID));
             CacheItem.Clear<Lookup>();
         }
 

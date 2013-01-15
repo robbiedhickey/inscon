@@ -9,26 +9,25 @@ namespace Enterprise.DAL.Core.Model
   
     public class User : SqlDataRecord
     {
-        private int _idUser;
-        private int _idOrganization;
+        private int _userID;
+        private int _organizationID;
         private string _firstName;
         private string _lastName;
         private string _title;
-        private int _idStatus;
-        private Guid _objectID;
+        private int _statusID;
         private Organization _organization;
 
        
-        public int idUser
+        public int UserID
         {
-            get { return _idUser; }
-            set { SetProperty(ref _idUser, value); }
+            get { return _userID; }
+            set { SetProperty(ref _userID, value); }
         }
 
-        public int idOrganization
+        public int OrganizationID
         {
-            get { return _idOrganization; }
-            set { SetProperty(ref _idOrganization, value); }
+            get { return _organizationID; }
+            set { SetProperty(ref _organizationID, value); }
         }
        
         public string FirstName
@@ -50,17 +49,16 @@ namespace Enterprise.DAL.Core.Model
             set { SetProperty(ref _title, value); }
         }
        
-        public int idStatus
+        public int StatusID
         {
-            get { return _idStatus; }
-            set { SetProperty(ref _idStatus, value); }
+            get { return _statusID; }
+            set { SetProperty(ref _statusID, value); }
         }
 
-        public Guid ObjectID
+        public string Status
         {
-            get { return _objectID; }
-            set { SetProperty(ref _objectID, value); }
-
+            // Read only lookup value
+            get { return new LookupService().GetLookupById(_statusID).Value; }
         }
 
         public string FullName
@@ -76,7 +74,7 @@ namespace Enterprise.DAL.Core.Model
                 {
                     return _organization;
                 }
-                _organization = new OrganizationService().GetOrganizationById(_idOrganization);
+                _organization = new OrganizationService().GetOrganizationById(_organizationID);
                 return _organization;
             }
         }
@@ -90,12 +88,11 @@ namespace Enterprise.DAL.Core.Model
 
             var record = new User
                 {
-                    idUser = reader.GetInt32("idUser"),
-                    idOrganization = reader.GetInt32("idOrganization"),
+                    UserID = reader.GetInt32("UserID"),
+                    OrganizationID = reader.GetInt32("OrganizationID"),
                     FirstName = reader.GetString("FirstName"),
                     LastName = reader.GetString("LastName"),
-                    idStatus = reader.GetInt32("idStatus"),
-                    ObjectID = reader.GetGuid("ObjectID")
+                    StatusID = reader.GetInt32("StatusID")
                 };
 
             return record;
@@ -109,32 +106,30 @@ namespace Enterprise.DAL.Core.Model
         /// </summary>
         public void Save()
         {
-            if (_idUser != 0)
+            if (_userID != 0)
             {
                 if (IsChanged())
                 {
                     // Update
                     Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Update
-                                       , _idUser
-                                       , _idOrganization
+                                       , _userID
+                                       , _organizationID
                                        , _firstName
                                        , _lastName
                                        , _title
-                                       , _idStatus
-                                       , _objectID));
+                                       , _statusID));
                     CommitChanges();
                 }
             }
             else
             {
                 // Insert
-                _idUser = Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Insert
-                                       , _idOrganization
+                _userID = Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Insert
+                                       , _organizationID
                                        , _firstName
                                        , _lastName
                                        , _title
-                                       , _idStatus
-                                       , _objectID), Convert.ToInt32);
+                                       , _statusID), Convert.ToInt32);
                 CacheItem.Clear<User>();
             }
         }
@@ -144,7 +139,7 @@ namespace Enterprise.DAL.Core.Model
         ///  </summary>
         public void Remove()
         {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Delete, _idUser));
+            Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Delete, _userID));
             CacheItem.Clear<User>();
         }
 

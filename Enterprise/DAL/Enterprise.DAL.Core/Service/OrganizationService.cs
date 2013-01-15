@@ -24,39 +24,39 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<Organization> GetAllOrganizations()
         {
-            return QueryAll(_sqlDatabase, Procedure.Organization_Select, Organization.Build, _cacheMinutesToExpire, _isCached);
+            return QueryAll(_sqlDatabase, Procedure.Organization_SelectAll, Organization.Build, _cacheMinutesToExpire, _isCached);
         }
 
         /// <summary>
         /// Get Organization record by ID
         /// </summary>
-        /// <param name="idOrganization"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public Organization GetOrganizationById(int idOrganization)
+        public Organization GetOrganizationById(int id)
         {
             if (_isCached)
             {
-                Predicate<Organization> h = h2 => h2.idOrganization == idOrganization;
+                Predicate<Organization> h = h2 => h2.OrganizationID == id;
                 return GetAllOrganizations().Find(h) ?? new Organization();
             }
 
-            return Query(_sqlDatabase, Procedure.Organization_SelectById, Organization.Build, _cacheMinutesToExpire, _isCached, idOrganization);
+            return Query(_sqlDatabase, Procedure.Organization_SelectById, Organization.Build, _cacheMinutesToExpire, _isCached, id);
         }
 
         /// <summary>
         /// Get all Organization reocrds by TypeID
         /// </summary>
-        /// <param name="idType"></param>
+        /// <param name="typeID"></param>
         /// <returns></returns>
-        public List<Organization> GetOrganizationsByTypeId(int? idType)
+        public List<Organization> GetOrganizationsByTypeId(int? typeID)
         {
-            if (idType == null)
+            if (typeID == null)
             {
                 return GetAllOrganizations();
             }
             if (_isCached)
             {
-                Predicate<Organization> d = d2 => d2.idType == idType;
+                Predicate<Organization> d = d2 => d2.TypeID == typeID;
                 return GetAllOrganizations().FindAll(d);
             }
 
