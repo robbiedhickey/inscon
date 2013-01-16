@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Enterprise.DAL.Core.Service;
 using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Cache;

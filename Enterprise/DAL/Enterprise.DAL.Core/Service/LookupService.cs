@@ -34,7 +34,7 @@ namespace Enterprise.DAL.Core.Service
                 Predicate<Lookup> h = h2 => h2.LookupID == id;
                 return GetAllLookups().Find(h) ?? new Lookup();
             }
-            return Query(SqlDatabase, Procedure.Lookup_SelectById, Lookup.Build, CacheMinutesToExpire, IsCached, id);
+            return Query(SqlDatabase, Procedure.Lookup_SelectById, Lookup.Build, id);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllLookups().FindAll(l);
             }
 
-            return QueryAll(SqlDatabase, Procedure.Lookup_SelectByGroupId, Lookup.Build, CacheMinutesToExpire, IsCached, groupID);
+            return QueryAll(SqlDatabase, Procedure.Lookup_SelectByGroupId, Lookup.Build, groupID);
         }
     }
 }

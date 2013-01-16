@@ -30,7 +30,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddresses().Find(h) ?? new Address();
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectById, Address.Build, CacheMinutesToExpire, IsCached, id);
+            return Query(SqlDatabase, Procedure.Address_SelectById, Address.Build, id);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddresses().Find(h) ?? new Address();
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Address.Build, CacheMinutesToExpire, IsCached, parentID, entityID);
+            return Query(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Address.Build, parentID, entityID);
         }
     }
 }

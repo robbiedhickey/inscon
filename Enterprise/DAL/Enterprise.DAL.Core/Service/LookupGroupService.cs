@@ -36,7 +36,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllLookupGroups().Find(h) ?? new LookupGroup();
             }
 
-            return Query(SqlDatabase, Procedure.LookupGroup_SelectById, LookupGroup.Build, CacheMinutesToExpire, IsCached, id);
+            return Query(SqlDatabase, Procedure.LookupGroup_SelectById, LookupGroup.Build, id);
         }
     }
 }

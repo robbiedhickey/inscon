@@ -19,7 +19,7 @@ namespace Enterprise.DAL.Core.Service
             var type = typeof(T);
 
             EntityName = type.Name;
-            CacheMinutesToExpire = 15;
+            CacheMinutesToExpire = 30;
             SqlDatabase = Types.Database.EnterpriseDb;
             IsCached = false;
         }

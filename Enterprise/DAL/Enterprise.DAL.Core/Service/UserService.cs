@@ -34,7 +34,7 @@ namespace Enterprise.DAL.Core.Service
                 Predicate<User> h = h2 => h2.UserID == idUser;
                 return GetAllUsers().Find(h) ?? new User();
             }
-            return Query(SqlDatabase, Procedure.User_SelectById, User.Build, CacheMinutesToExpire, IsCached, idUser);
+            return Query(SqlDatabase, Procedure.User_SelectById, User.Build, idUser);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUsers().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationId, User.Build, CacheMinutesToExpire, IsCached, idOrganization);
+            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationId, User.Build, idOrganization);
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUsers().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationIdAndStatusId, User.Build, CacheMinutesToExpire, IsCached, idOrganization, idStatus);
+            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationIdAndStatusId, User.Build, idOrganization, idStatus);
         }
 
     }

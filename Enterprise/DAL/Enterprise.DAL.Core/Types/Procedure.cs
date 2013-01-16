@@ -104,6 +104,7 @@ namespace Enterprise.DAL.Core.Types
         public const String Product_Delete = @"[crud].[Product_Delete]";
         public const String Product_Insert = @"[crud].[Product_Insert]";
         public const String Product_SelectAll = @"[crud].[Product_SelectAll]";
+        public const String Product_SelectByCategoryId = @"[crud].[Product_SelectByCategoryId]";
         public const String Product_SelectById = @"[crud].[Product_SelectById]";
         public const String Product_Update = @"[crud].[Product_Update]";
         // ProductCategory
@@ -131,36 +132,43 @@ namespace Enterprise.DAL.Core.Types
         public const String UserAreaCoverage_Insert = @"[crud].[UserAreaCoverage_Insert]";
         public const String UserAreaCoverage_SelectAll = @"[crud].[UserAreaCoverage_SelectAll]";
         public const String UserAreaCoverage_SelectById = @"[crud].[UserAreaCoverage_SelectById]";
+        public const String UserAreaCoverage_SelectByUserIdAndServiceId = @"[crud].[UserAreaCoverage_SelectByUserIdAndServiceId]";
         public const String UserAreaCoverage_Update = @"[crud].[UserAreaCoverage_Update]";
         // UserContact
         public const String UserContact_Delete = @"[crud].[UserContact_Delete]";
         public const String UserContact_Insert = @"[crud].[UserContact_Insert]";
         public const String UserContact_SelectAll = @"[crud].[UserContact_SelectAll]";
         public const String UserContact_SelectById = @"[crud].[UserContact_SelectById]";
+        public const String UserContact_SelectByUserId = @"[crud].[UserContact_SelectByUserId]";
+        public const String UserContact_SelectByUserIdAndTypeId = @"[crud].[UserContact_SelectByUserIdAndTypeId]";
         public const String UserContact_Update = @"[crud].[UserContact_Update]";
         // UserNotification
         public const String UserNotification_Delete = @"[crud].[UserNotification_Delete]";
         public const String UserNotification_Insert = @"[crud].[UserNotification_Insert]";
         public const String UserNotification_SelectAll = @"[crud].[UserNotification_SelectAll]";
         public const String UserNotification_SelectById = @"[crud].[UserNotification_SelectById]";
+        public const String UserNotification_SelectByUserId = @"[crud].[UserNotification_SelectByUserId]";
         public const String UserNotification_Update = @"[crud].[UserNotification_Update]";
         // WorkOrder
         public const String WorkOrder_Delete = @"[crud].[WorkOrder_Delete]";
         public const String WorkOrder_Insert = @"[crud].[WorkOrder_Insert]";
         public const String WorkOrder_SelectAll = @"[crud].[WorkOrder_SelectAll]";
         public const String WorkOrder_SelectById = @"[crud].[WorkOrder_SelectById]";
+        public const String WorkOrder_SelectByRequestId = @"[crud].[WorkOrder_SelectByRequestId]";
         public const String WorkOrder_Update = @"[crud].[WorkOrder_Update]";
         // WorkOrderAssignment
         public const String WorkOrderAssignment_Delete = @"[crud].[WorkOrderAssignment_Delete]";
         public const String WorkOrderAssignment_Insert = @"[crud].[WorkOrderAssignment_Insert]";
         public const String WorkOrderAssignment_SelectAll = @"[crud].[WorkOrderAssignment_SelectAll]";
         public const String WorkOrderAssignment_SelectById = @"[crud].[WorkOrderAssignment_SelectById]";
+        public const String WorkOrderAssignment_SelectByWorkOrderId = @"[crud].[WorkOrderAssignment_SelectByWorkOrderId]";
         public const String WorkOrderAssignment_Update = @"[crud].[WorkOrderAssignment_Update]";
         // WorkOrderItem
         public const String WorkOrderItem_Delete = @"[crud].[WorkOrderItem_Delete]";
         public const String WorkOrderItem_Insert = @"[crud].[WorkOrderItem_Insert]";
         public const String WorkOrderItem_SelectAll = @"[crud].[WorkOrderItem_SelectAll]";
         public const String WorkOrderItem_SelectById = @"[crud].[WorkOrderItem_SelectById]";
+        public const String WorkOrderItem_SelectByWorkorderId = @"[crud].[WorkOrderItem_SelectByWorkorderId]";
         public const String WorkOrderItem_Update = @"[crud].[WorkOrderItem_Update]";
         
         #endregion
