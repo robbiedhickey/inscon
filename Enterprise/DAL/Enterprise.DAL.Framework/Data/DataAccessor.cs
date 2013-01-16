@@ -46,6 +46,12 @@ namespace Enterprise.DAL.Framework.Data
                 if (reader.Read())
                 {
                     item = builder(reader);
+
+                    var commit = item.GetType().GetMethod("CommitChanges");
+                    if (commit != null)
+                    {
+                        commit.Invoke(item, null);
+                    }
                 }
 
                 return item;
@@ -79,9 +85,7 @@ namespace Enterprise.DAL.Framework.Data
 
 		public List<T> FindAll<T>( IDbCommand finder, Build<T> builder )
 		{
-			//return FindAll( finder, builder, null );
-
-
+		
             using (ITypeReader reader = new TypeConvertingReader(
                 _context.ExecuteReader(finder), Converter.ConverterInstance))
             {
@@ -90,7 +94,6 @@ namespace Enterprise.DAL.Framework.Data
                 while (reader.Read())
                 {
                     var item = builder(reader);
-
                     var commit = item.GetType().GetMethod("CommitChanges");
 
                     if (commit != null)
@@ -125,7 +128,16 @@ namespace Enterprise.DAL.Framework.Data
 
                     while (reader.Read())
                     {
-                        rowList.Add(builders[i](reader));
+                        var item = builders[i](reader);
+                        
+                        
+                        var commit = item.GetType().GetMethod("CommitChanges");
+                        if (commit != null)
+                        {
+                            commit.Invoke(item, null);
+                        }
+
+                        rowList.Add(item);
                     }
 
                     results.Add(rowList);
@@ -161,6 +173,12 @@ namespace Enterprise.DAL.Framework.Data
                 {
                     TV item = builder(reader);
                     TK key = keyBuilder(reader);
+
+                    var commit = item.GetType().GetMethod("CommitChanges");
+                    if (commit != null)
+                    {
+                        commit.Invoke(item, null);
+                    }
 
                     results.Add(key, item);
                 }

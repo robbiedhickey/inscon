@@ -6,18 +6,17 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-  
     public class User : SqlDataRecord
     {
-        private int _userID;
-        private int _organizationID;
         private string _firstName;
         private string _lastName;
-        private string _title;
-        private int _statusID;
         private Organization _organization;
+        private int _organizationID;
+        private int _statusID;
+        private string _title;
+        private int _userID;
 
-       
+
         public int UserID
         {
             get { return _userID; }
@@ -29,14 +28,14 @@ namespace Enterprise.DAL.Core.Model
             get { return _organizationID; }
             set { SetProperty(ref _organizationID, value); }
         }
-       
+
         public string FirstName
         {
             get { return _firstName; }
             set { SetProperty(ref _firstName, value); }
         }
 
-      
+
         public string LastName
         {
             get { return _lastName; }
@@ -48,7 +47,7 @@ namespace Enterprise.DAL.Core.Model
             get { return _title; }
             set { SetProperty(ref _title, value); }
         }
-       
+
         public int StatusID
         {
             get { return _statusID; }
@@ -78,14 +77,16 @@ namespace Enterprise.DAL.Core.Model
                 return _organization;
             }
         }
-  
 
         #region public methods
-        
-        
+
+        public User()
+        {
+            EntityNumber = 15;
+        }
+
         public static User Build(ITypeReader reader)
         {
-
             var record = new User
                 {
                     UserID = reader.GetInt32("UserID"),
@@ -96,13 +97,11 @@ namespace Enterprise.DAL.Core.Model
                 };
 
             return record;
-
-
         }
 
 
         /// <summary>
-        /// Insert a new record, or update the current record using ID
+        ///     Insert a new record, or update the current record using ID
         /// </summary>
         public void Save()
         {
@@ -125,18 +124,18 @@ namespace Enterprise.DAL.Core.Model
             {
                 // Insert
                 _userID = Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Insert
-                                       , _organizationID
-                                       , _firstName
-                                       , _lastName
-                                       , _title
-                                       , _statusID), Convert.ToInt32);
+                                             , _organizationID
+                                             , _firstName
+                                             , _lastName
+                                             , _title
+                                             , _statusID), Convert.ToInt32);
                 CacheItem.Clear<User>();
             }
         }
 
         /// <summary>
-        /// Removes current record using ID
-        ///  </summary>
+        ///     Removes current record using ID
+        /// </summary>
         public void Remove()
         {
             Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Delete, _userID));

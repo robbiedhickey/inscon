@@ -27,6 +27,8 @@ namespace Enterprise.DAL.Core.Types
         public const String AddressUse_Delete = @"[crud].[AddressUse_Delete]";
         public const String AddressUse_Insert = @"[crud].[AddressUse_Insert]";
         public const String AddressUse_SelectAll = @"[crud].[AddressUse_SelectAll]";
+        public const String AddressUse_SelectByAddressId = @"[crud].[AddressUse_SelectByAddressId]";
+        public const String AddressUse_SelectByAddressIdAndTypeId = @"[crud].[AddressUse_SelectByAddressIdAndTypeId]";
         public const String AddressUse_SelectById = @"[crud].[AddressUse_SelectById]";
         public const String AddressUse_Update = @"[crud].[AddressUse_Update]";
         // Comment
@@ -34,6 +36,7 @@ namespace Enterprise.DAL.Core.Types
         public const String Comment_Insert = @"[crud].[Comment_Insert]";
         public const String Comment_SelectAll = @"[crud].[Comment_SelectAll]";
         public const String Comment_SelectById = @"[crud].[Comment_SelectById]";
+        public const String Comment_SelectByParentIdAndEntityId = @"[crud].[Comment_SelectByParentIdAndEntityId]";
         public const String Comment_Update = @"[crud].[Comment_Update]";
         // Entity
         public const String Entity_Delete = @"[crud].[Entity_Delete]";
@@ -46,12 +49,14 @@ namespace Enterprise.DAL.Core.Types
         public const String Event_Insert = @"[crud].[Event_Insert]";
         public const String Event_SelectAll = @"[crud].[Event_SelectAll]";
         public const String Event_SelectById = @"[crud].[Event_SelectById]";
+        public const String Event_SelectByParentIdAndEntityId = @"[crud].[Event_SelectByParentIdAndEntityId]";
         public const String Event_Update = @"[crud].[Event_Update]";
         // File
         public const String File_Delete = @"[crud].[File_Delete]";
         public const String File_Insert = @"[crud].[File_Insert]";
         public const String File_SelectAll = @"[crud].[File_SelectAll]";
         public const String File_SelectById = @"[crud].[File_SelectById]";
+        public const String File_SelectByParentIdAndEntityId = @"[crud].[File_SelectByParentIdAndEntityId]";
         public const String File_Update = @"[crud].[File_Update]";
         // Loan
         public const String Loan_Delete = @"[crud].[Loan_Delete]";
@@ -64,6 +69,8 @@ namespace Enterprise.DAL.Core.Types
         public const String Location_Insert = @"[crud].[Location_Insert]";
         public const String Location_SelectAll = @"[crud].[Location_SelectAll]";
         public const String Location_SelectById = @"[crud].[Location_SelectById]";
+        public const String Location_SelectByOrganizationId = @"[crud].[Location_SelectByOrganizationId]";
+        public const String Location_SelectByOrganizationIdAndTypeId = @"[crud].[Location_SelectByOrganizationIdAndTypeId]";
         public const String Location_Update = @"[crud].[Location_Update]";
         // Lookup
         public const String Lookup_Delete = @"[crud].[Lookup_Delete]";
@@ -83,6 +90,8 @@ namespace Enterprise.DAL.Core.Types
         public const String Mortgagor_Insert = @"[crud].[Mortgagor_Insert]";
         public const String Mortgagor_SelectAll = @"[crud].[Mortgagor_SelectAll]";
         public const String Mortgagor_SelectById = @"[crud].[Mortgagor_SelectById]";
+        public const String Mortgagor_SelectByLoanId = @"[crud].[Mortgagor_SelectByLoanId]";
+        public const String Mortgagor_SelectByLoanIdAndTypeId = @"[crud].[Mortgagor_SelectByLoanIdAndTypeId]";
         public const String Mortgagor_Update = @"[crud].[Mortgagor_Update]";
         // Organization
         public const String Organization_Delete = @"[crud].[Organization_Delete]";

@@ -23,7 +23,7 @@ namespace Enterprise.DAL.Core.Model
 
         private List<User> _users;
 
-            #endregion
+        #endregion
 
         #region public properties
 
@@ -71,7 +71,11 @@ namespace Enterprise.DAL.Core.Model
             get { return new LookupService().GetLookupById(_typeID).Value; }
         }
       
-
+        // Constructor
+        public Organization()
+        {
+            EntityNumber = 14;
+        }
         public List<User> Users
         {
             get

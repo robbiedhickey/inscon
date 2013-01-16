@@ -10,13 +10,6 @@ namespace Enterprise.DAL.Core.Model
 
     public class Lookup : SqlDataRecord
     {
-        // Constructor
-        public Lookup()
-        {
-            TrackChanges = true;
-            LookupID = 0;
-        }
-
         #region private variables
 
         private Int32 _lookupID;
@@ -66,6 +59,12 @@ namespace Enterprise.DAL.Core.Model
         #endregion
 
         #region public methods
+
+        // Constructor
+        public Lookup()
+        {
+            EntityNumber = 8;
+        }
 
         public static Lookup Build(ITypeReader reader)
         {

@@ -5,17 +5,14 @@ using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
-    public class OrganizationService : ServiceBase
+    public class OrganizationService : ServiceBase<Organization>
     {
-        private readonly int _cacheMinutesToExpire;
-        private readonly string _sqlDatabase;
-        private readonly bool _isCached;
+        
 
         public OrganizationService()
         {
-            _cacheMinutesToExpire = 15;
-            _sqlDatabase = Database.EnterpriseDb;
-            _isCached = true;
+            IsCached = true;
+
         }
 
         /// <summary>
@@ -24,7 +21,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<Organization> GetAllOrganizations()
         {
-            return QueryAll(_sqlDatabase, Procedure.Organization_SelectAll, Organization.Build, _cacheMinutesToExpire, _isCached);
+            return QueryAll(SqlDatabase, Procedure.Organization_SelectAll, Organization.Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -34,13 +31,13 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public Organization GetOrganizationById(int id)
         {
-            if (_isCached)
+            if (IsCached)
             {
                 Predicate<Organization> h = h2 => h2.OrganizationID == id;
                 return GetAllOrganizations().Find(h) ?? new Organization();
             }
 
-            return Query(_sqlDatabase, Procedure.Organization_SelectById, Organization.Build, _cacheMinutesToExpire, _isCached, id);
+            return Query(SqlDatabase, Procedure.Organization_SelectById, Organization.Build, id);
         }
 
         /// <summary>
@@ -54,13 +51,13 @@ namespace Enterprise.DAL.Core.Service
             {
                 return GetAllOrganizations();
             }
-            if (_isCached)
+            if (IsCached)
             {
                 Predicate<Organization> d = d2 => d2.TypeID == typeID;
                 return GetAllOrganizations().FindAll(d);
             }
 
-            return QueryAll(_sqlDatabase, Procedure.Organization_SelectByTypeId, Organization.Build, _cacheMinutesToExpire, _isCached);
+            return QueryAll(SqlDatabase, Procedure.Organization_SelectByTypeId, Organization.Build, typeID);
         }
     }
 }

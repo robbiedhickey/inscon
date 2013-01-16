@@ -7,12 +7,6 @@ namespace Enterprise.DAL.Core.Model
 {
     public class LookupGroup : SqlDataRecord
     {
-        // Constructor
-        public LookupGroup()
-        {
-            TrackChanges = true;
-            _lookupGroupID = 0;
-        }
 
         #region private variables
 
@@ -40,6 +34,12 @@ namespace Enterprise.DAL.Core.Model
         #endregion
 
         #region public methods
+
+       // Constructor
+        public LookupGroup()
+        {
+            EntityNumber = 4;
+        }
 
         public static LookupGroup Build(ITypeReader reader)
         {

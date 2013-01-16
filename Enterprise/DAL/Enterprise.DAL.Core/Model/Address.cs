@@ -1,21 +1,21 @@
 ﻿using System;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Cache;
 using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-
     public class Address : SqlDataRecord
     {
         #region private variables
 
         private int _addressID;
-        private int _parentID;
+        private string _city;
         private Int16 _entityID;
+        private int _parentID;
+        private string _state;
         private string _street;
         private string _suite;
-        private string _city;
-        private string _state;
         private string _zip;
 
         #endregion
@@ -30,13 +30,13 @@ namespace Enterprise.DAL.Core.Model
 
         public int ParentID
         {
-            get { return _parentID; } 
+            get { return _parentID; }
             set { SetProperty(ref _parentID, value); }
         }
 
         public Int16 EntityID
         {
-            get { return _entityID; } 
+            get { return _entityID; }
             set { SetProperty(ref _entityID, value); }
         }
 
@@ -69,11 +69,16 @@ namespace Enterprise.DAL.Core.Model
             get { return _zip; }
             set { SetProperty(ref _zip, value); }
         }
-     
+
         #endregion
 
         #region public methods
 
+        // Constructor
+        public Address()
+        {
+            EntityNumber = 6;
+        }
 
         public static Address Build(ITypeReader reader)
         {
@@ -93,7 +98,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Insert a new record, or update the current record using ID
+        ///     Insert a new record, or update the current record using ID
         /// </summary>
         public void Save()
         {
@@ -118,24 +123,29 @@ namespace Enterprise.DAL.Core.Model
             {
                 // Insert
                 _addressID = Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Insert
-                                       , _parentID
-                                       , _entityID
-                                       , _street
-                                       , _suite
-                                       , _city
-                                       , _state
-                                       , _zip), Convert.ToInt32);
+                                                , _parentID
+                                                , _entityID
+                                                , _street
+                                                , _suite
+                                                , _city
+                                                , _state
+                                                , _zip), Convert.ToInt32);
+                CacheItem.Clear<Address>();
             }
         }
 
         /// <summary>
-        /// Removes current record using ID
-        ///  </summary>
+        ///     Removes current record using ID
+        /// </summary>
         public void Remove()
         {
             Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Delete, _addressID));
+            CacheItem.Clear<Address>();
         }
 
-        #endregion
+        #endregion'
+
+
+
     }
 }

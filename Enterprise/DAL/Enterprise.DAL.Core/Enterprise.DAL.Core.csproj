@@ -41,19 +41,46 @@
     <AssemblyOriginatorKeyFile>EnterpriseKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\AddressLocation.cs" />
+    <Compile Include="Model\AddressUse.cs" />
+    <Compile Include="Model\Comment.cs" />
+    <Compile Include="Model\Event.cs" />
+    <Compile Include="Model\File.cs" />
+    <Compile Include="Model\Loan.cs" />
+    <Compile Include="Model\Location.cs" />
     <Compile Include="Model\Lookup.cs" />
     <Compile Include="Model\LookupGroup.cs" />
+    <Compile Include="Model\Mortgagor.cs" />
     <Compile Include="Model\Organization.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductCategory.cs" />
+    <Compile Include="Model\Request.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserAreaCoverage.cs" />
+    <Compile Include="Model\UserContact.cs" />
+    <Compile Include="Model\UserNotification.cs" />
+    <Compile Include="Model\WorkOrder.cs" />
+    <Compile Include="Model\WorkOrderAssignment.cs" />
+    <Compile Include="Model\WorkOrderItem.cs" />
+    <Compile Include="Service\AddressLocationService.cs" />
     <Compile Include="Service\AddressService.cs" />
+    <Compile Include="Service\AddressUseService.cs" />
+    <Compile Include="Service\CommentService.cs" />
+    <Compile Include="Service\EventService.cs" />
+    <Compile Include="Service\FileService.cs" />
     <Compile Include="Service\GenericService.cs" />
     <Compile Include="Service\IDataService.cs" />
+    <Compile Include="Service\LoanService.cs" />
+    <Compile Include="Service\LocationService.cs" />
     <Compile Include="Service\LookupGroupService.cs" />
     <Compile Include="Service\LookupService.cs" />
+    <Compile Include="Service\MortgagorService.cs" />
     <Compile Include="Service\OrganizationService.cs" />
     <Compile Include="Service\ServiceBase.cs" />
     <Compile Include="Service\UserService.cs" />

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,6 +11,10 @@ namespace Enterprise.DAL.Framework.Data
     {
         private Dictionary<string, bool> _dirtyTable;
         private bool _trackChanges;
+
+
+        public Int16 EntityNumber { get; set; }
+
 
         /// <summary>
         /// Determines if any member of this listing has changed.

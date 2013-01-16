@@ -5,17 +5,13 @@ using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
-    public class LookupGroupService : ServiceBase
+    public class LookupGroupService : ServiceBase<LookupGroup>
     {
-        private readonly int _cacheMinutesToExpire;
-        private readonly string _sqlDatabase;
-        private readonly bool _isCached;
+       
 
         public LookupGroupService()
         {
-            _cacheMinutesToExpire = 15;
-            _sqlDatabase = Database.EnterpriseDb;
-            _isCached = true;
+            IsCached = true;
         }
 
         /// <summary>
@@ -24,7 +20,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public List<LookupGroup> GetAllLookupGroups()
         {
-            return QueryAll(_sqlDatabase, Procedure.LookupGroup_SelectAll, LookupGroup.Build, _cacheMinutesToExpire, _isCached);
+            return QueryAll(SqlDatabase, Procedure.LookupGroup_SelectAll, LookupGroup.Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -34,13 +30,13 @@ namespace Enterprise.DAL.Core.Service
         /// <returns></returns>
         public LookupGroup GetLookupGroupById(int id)
         {
-            if (_isCached)
+            if (IsCached)
             {
                 Predicate<LookupGroup> h = h2 => h2.LookupGroupID == id;
                 return GetAllLookupGroups().Find(h) ?? new LookupGroup();
             }
 
-            return Query(_sqlDatabase, Procedure.LookupGroup_SelectById, LookupGroup.Build, _cacheMinutesToExpire, _isCached, id);
+            return Query(SqlDatabase, Procedure.LookupGroup_SelectById, LookupGroup.Build, CacheMinutesToExpire, IsCached, id);
         }
     }
 }
