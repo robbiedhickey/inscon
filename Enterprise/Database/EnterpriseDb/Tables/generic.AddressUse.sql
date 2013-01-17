@@ -4,6 +4,8 @@ CREATE TABLE [generic].[AddressUse]
 [AddressID] [int] NOT NULL,
 [TypeID] [int] NOT NULL
 ) ON [PRIMARY]
+ALTER TABLE [generic].[AddressUse] ADD
+CONSTRAINT [FK_AddressUse_Address1] FOREIGN KEY ([AddressID]) REFERENCES [generic].[Address] ([AddressID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [generic].[AddressUse] ADD CONSTRAINT [PK_AddressUse] PRIMARY KEY CLUSTERED  ([AddressUserID]) ON [PRIMARY]
 GO
