@@ -33,6 +33,14 @@ table
 	color: #666666;
 }
 
+@media (max-width: 979px)
+{
+    body
+    {
+        padding-top: 0 !important;
+    }
+}
+
 
 
 
