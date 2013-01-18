@@ -29,7 +29,7 @@
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
-        <div class="navbar navbar navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <img src='http://dev.msionline.local/images/msilogo2010.gif' class="pull-left" style="height:40px;"/>
+                    <!--<img src='http://dev.msionline.local/images/msilogo2010.gif' class="pull-left" style="height:40px;"/> -->
                     <a class="brand" href="#">Enterprise</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
@@ -79,21 +79,16 @@
                                 </ul>
                             </li>
                         </ul>
-                        <form class="navbar-form pull-right">
-                            <input class="span2" type="text" placeholder="Email">
-                            <input class="span2" type="password" placeholder="Password">
-                            <button type="submit" class="btn">Sign in</button>
-                        </form>
+                        
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
         </div>
 
         <div class="container-fluid">
-
             <div class="row-fluid">
                 <div class="span2">
-                    <div class="well" >
+                    <div class="well well-small" >
                       <ul class="nav nav-list">
                         <li class="nav-header">Claim Statuses</li>
                         <li class="active"><a href="#">File Opened</a></li>
@@ -115,8 +110,9 @@
                       </ul>
                     </div>
                 </div>
-                <div class="span10">
-                    <table style="text-align:left;width:100%;">
+
+                <div class="span10 well well-small">
+                    <table style="text-align:left;width:100%;font-size:12px;">
                         <tbody><tr>
                             <th>Claim ID:</th>
                             <td><span id="ctl00_cp_lblClaimId">11081</span></td>
@@ -148,44 +144,177 @@
                             <td><span id="ctl00_cp_lblStatus">OPEN-ACTIVE/Complete EOB</span></td>
                         </tr>
                     </tbody></table>
-
-                    <hr/>
                 </div>
 
-                
-
-                <div class="span10">
-
-                        <fieldset>Loan/Investor Information</fieldset>
-
+                <div class="span5">
+                    <h4 class="header">Loan Investor Information</h4>
+                            <table class="table table-bordered table-hover table-condensed">
+                                <tbody><tr>
+                                    <th style="width:160px;">Loan #:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblLoanNum">00024955</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Loan Type:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblLoanType">CONVENTIONAL</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Mortgagor:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblMortgagor">CHRISTOPHER B WILLIAMS</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Unpaid Balance:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblUnpaidBalance">6582.51</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Proj. Conveyance Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblConveyanceDateProj"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Act. Conveyance Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblConveyanceDateAct"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Proj. Foreclosure Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblForclosureSaleDateProj"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Act. Foreclosure Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblForclosureSaleDateAct"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Vacancy Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblVacancyDate">12/28/2012</span></td>
+                                </tr>
+                            </tbody></table>
                 </div>
-            </div>
+                <div class="span5">
+                        <h4 class="header">Claim Information</h4>
+                            <table class="table table-bordered table-hover table-condensed">
+                                <tbody><tr>
+                                    <th style="width:160px;">Loan #:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblLoanNum">00024955</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Loan Type:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblLoanType">CONVENTIONAL</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Mortgagor:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblMortgagor">CHRISTOPHER B WILLIAMS</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Unpaid Balance:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblUnpaidBalance">6582.51</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Proj. Conveyance Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblConveyanceDateProj"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Act. Conveyance Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblConveyanceDateAct"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Proj. Foreclosure Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblForclosureSaleDateProj"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Act. Foreclosure Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblForclosureSaleDateAct"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Vacancy Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblVacancyDate">12/28/2012</span></td>
+                                </tr>
+                            </tbody></table>
+                </div>
 
-            <br/>
-            <hr/>
-            
-            <div class="row-fluid">
-                <div class="tabbable tabs-left">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#lA" data-toggle="tab">File Opened</a></li>
-                        <li class=""><a href="#lB" data-toggle="tab">Assign Processor</a></li>
-                        <li class=""><a href="#lC" data-toggle="tab">File Insurance Claim</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="lA">
-                          <p>File Opened Screen.</p>
-                        </div>
-                        <div class="tab-pane" id="lB">
-                          <p>Assign Processor Screen.</p>
-                        </div>
-                        <div class="tab-pane" id="lC">
-                          <p>File Insurance Claim Screen.</p>
-                        </div>
-                  </div>
+                    <div class="span5">
+                        <h4 class="header">Loan/Investor Information</h4>
+                            <table class="table table-bordered table-hover table-condensed">
+                                <tbody><tr>
+                                    <th style="width:160px;">Loan #:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblLoanNum">00024955</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Loan Type:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblLoanType">CONVENTIONAL</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Mortgagor:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblMortgagor">CHRISTOPHER B WILLIAMS</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Unpaid Balance:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblUnpaidBalance">6582.51</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Proj. Conveyance Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblConveyanceDateProj"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Act. Conveyance Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblConveyanceDateAct"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Proj. Foreclosure Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblForclosureSaleDateProj"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Act. Foreclosure Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblForclosureSaleDateAct"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Vacancy Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblVacancyDate">12/28/2012</span></td>
+                                </tr>
+                            </tbody></table>
+                </div>
+                <div class="span5">
+                        <h4 class="header">Claim Information</h4>
+                            <table class="table table-bordered table-hover table-condensed">
+                                <tbody><tr>
+                                    <th style="width:160px;">Loan #:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblLoanNum">00024955</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Loan Type:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblLoanType">CONVENTIONAL</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Mortgagor:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblMortgagor">CHRISTOPHER B WILLIAMS</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Unpaid Balance:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblUnpaidBalance">6582.51</span></td>
+                                </tr>
+                                <tr>
+                                    <th>Proj. Conveyance Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblConveyanceDateProj"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Act. Conveyance Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblConveyanceDateAct"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Proj. Foreclosure Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblForclosureSaleDateProj"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Act. Foreclosure Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblForclosureSaleDateAct"></span></td>
+                                </tr>
+                                <tr>
+                                    <th>Vacancy Date:</th>
+                                    <td><span id="ctl00_cp_ctl00_lblVacancyDate">12/28/2012</span></td>
+                                </tr>
+                            </tbody></table>
                 </div>
             </div>
 
             <hr>
+
 
             <footer>
                 <p>&copy; MSI 2013</p>
