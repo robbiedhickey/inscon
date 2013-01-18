@@ -29,22 +29,45 @@
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar navbar-fixed-top">
             <div class="navbar-inner">
-                <div class="container">
+                <div class="container-fluid">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Project name</a>
+                    <img src='http://dev.msionline.local/images/msilogo2010.gif' class="pull-left" style="height:40px;"/>
+                    <a class="brand" href="#">Enterprise</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#">Home</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inspections <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header">Nav header</li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Claims <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header">Nav header</li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Preservation <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Action</a></li>
                                     <li><a href="#">Another action</a></li>
@@ -66,38 +89,106 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container-fluid">
 
-            <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit">
-                <h1>Hello, world!</h1>
-                <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-                <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            <div class="row-fluid">
+                <div class="span2">
+                    <div class="well" >
+                      <ul class="nav nav-list">
+                        <li class="nav-header">Claim Statuses</li>
+                        <li class="active"><a href="#">File Opened</a></li>
+                        <li><a href="#">Assign Processor</a></li>
+                        <li><a href="#">File Insurance Claim</a></li>
+                        <li><a href="#">Adjuster Access</a></li>
+                        <li><a href="#">Complete EOB</a></li>
+                        <li><a href="#">Repairs</a></li>
+                        <li><a href="#">Recoverables</a></li>
+                        <li><a href="#">Closing</a></li>
+                        <li class="nav-header">Claim Actions</li>
+                        <li><a href="#">Edit Claim</a></li>
+                        <li><a href="#">Edit Comments</a></li>
+                        <li><a href="#">Edit Insurance</a></li>
+                        <li><a href="#">Edit Billing</a></li>
+                        <li><a href="#">File Extension</a></li>
+                        <li><a href="#">Edit Repairs</a></li>
+                        <li><a href="#">Edit Comments</a></li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="span10">
+                    <table style="text-align:left;width:100%;">
+                        <tbody><tr>
+                            <th>Claim ID:</th>
+                            <td><span id="ctl00_cp_lblClaimId">11081</span></td>
+                            <th>Insurance Claim #:</th>
+                            <td><span id="ctl00_cp_lblClaimNumber"></span></td>
+                            <th >Adjuster Name:</th>
+                            <td><span id="ctl00_cp_lblAdjusterName">WESLY VINCENT</span></td>
+                        </tr>
+                        <tr>
+                            <th >Loan Number:</th>
+                            <td><span id="ctl00_cp_lblLoanNumber">00024955</span></td>
+                            <th >Insurance Carrier:</th>
+                            <td><span id="ctl00_cp_lblCarrierName">,FLORIDA FAMILY INS.-STANDARD LINE</span></td>
+                            <th >Adjuster Phone:</th>
+                            <td><span id="ctl00_cp_lblAdjusterPhone">(407) 883-7191</span></td>
+                        </tr>
+                        <tr>
+                            <th >Client:</th>
+                            <td><span id="ctl00_cp_lblInvestor">COLONIAL SAVINGS F.A.                                            </span></td>
+                            <th >Conveyance Date:</th>
+                            <td><span id="ctl00_cp_lblConveyance"></span></td>
+                            <th >Adjuster Email:</th>
+                            <td><span id="ctl00_cp_lblAdjusterEmail"><span><a class="smarterwiki-linkify" href="mailto:CLAIMSDEPARTMENT@FLFAMILY.COM">CLAIMSDEPARTMENT@FLFAMILY.COM</a></span></span></td>
+                        </tr>
+                        <tr>
+                            <th >Address:</th>
+                            <td colspan="3"><span id="ctl00_cp_lblAddress">7720 ACAPULCO RD  FORT WORTH TX 76112</span></td>
+                            <th >Status:</th>
+                            <td><span id="ctl00_cp_lblStatus">OPEN-ACTIVE/Complete EOB</span></td>
+                        </tr>
+                    </tbody></table>
+
+                    <hr/>
+                </div>
+
+                
+
+                <div class="span10">
+
+                        <fieldset>Loan/Investor Information</fieldset>
+
+                </div>
             </div>
 
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-               </div>
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
+            <br/>
+            <hr/>
+            
+            <div class="row-fluid">
+                <div class="tabbable tabs-left">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#lA" data-toggle="tab">File Opened</a></li>
+                        <li class=""><a href="#lB" data-toggle="tab">Assign Processor</a></li>
+                        <li class=""><a href="#lC" data-toggle="tab">File Insurance Claim</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="lA">
+                          <p>File Opened Screen.</p>
+                        </div>
+                        <div class="tab-pane" id="lB">
+                          <p>Assign Processor Screen.</p>
+                        </div>
+                        <div class="tab-pane" id="lC">
+                          <p>File Insurance Claim Screen.</p>
+                        </div>
+                  </div>
                 </div>
             </div>
 
             <hr>
 
             <footer>
-                <p>&copy; Company 2012</p>
+                <p>&copy; MSI 2013</p>
             </footer>
 
         </div> <!-- /container -->
