@@ -1,0 +1,60 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body
+{
+	font-size: 14px;
+    background-color: #ffffff;
+}
+
+table
+{
+	text-align: left;
+    line-height: 15px;
+}
+
+.table-extracondensed
+{
+	padding:1px;
+}
+
+.table td, .table th
+{
+	line-height: 12px;
+}
+
+.header
+{
+	color: #9c0001;
+}
+
+.nav-header
+{
+	color: #666666;
+}
+
+@media (max-width: 979px)
+{
+    body
+    {
+        padding-top: 0 !important;
+    }
+}
+
+.navbar {
+    margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
