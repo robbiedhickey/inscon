@@ -79,13 +79,8 @@
         </div>
    
     <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
-                @RenderSection("featured", required:false)
-                @RenderBody()
-            </div>
-        </div>
-        
+        @RenderSection("featured", required:false)
+        @RenderBody()
     </div>
     <footer>
         <p>&copy; @DateTime.Now.Year - MSI Enterprise</p>
