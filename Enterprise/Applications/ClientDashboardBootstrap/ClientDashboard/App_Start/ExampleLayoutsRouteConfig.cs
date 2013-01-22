@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using BootstrapMvcSample.Controllers;
 using ClientDashboard.Controllers;
+using Microsoft.Web.Mvc.Resources;
 using NavigationRoutes;
 
 namespace BootstrapMvcSample
@@ -14,16 +15,14 @@ namespace BootstrapMvcSample
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.MapNavigationRoute<HomeController>("Automatic Scaffolding", c => c.Index());
+            routes.MapNavigationRoute<ClaimsController>("Hazard Claims", c => c.Empty()) 
+                   .AddChildRoute<ClaimsController>("View Scaffolding", c => c.Index())
+                   .AddChildRoute<ClaimsController>("View Claim", c => c.ReadOnly());
 
             routes.MapNavigationRoute<ExampleLayoutsController>("Example Layouts", c => c.Starter())
                   .AddChildRoute<ExampleLayoutsController>("Marketing", c => c.Marketing())
                   .AddChildRoute<ExampleLayoutsController>("Fluid", c => c.Fluid())
                   .AddChildRoute<ExampleLayoutsController>("Sign In", c => c.SignIn())
-                ;
-
-            routes.MapNavigationRoute<ClaimsController>("Hazard Claims", c => c.Index())
-                  .AddChildRoute<ClaimsController>("View Claim", c => c.ReadOnly())
                 ;
         }
     }
