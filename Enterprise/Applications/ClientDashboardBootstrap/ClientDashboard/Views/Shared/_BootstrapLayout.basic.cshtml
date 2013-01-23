@@ -27,6 +27,18 @@
                         <ul class="nav">
                             @Html.Navigation()
                         </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a href="/">Welcome, @User.Identity.Name</a>
+                                }
+                                else
+                                {
+                                    <a href="/"><i class="icon-user icon-white"></i>Login</a>
+                                }
+                            </li>
+                        </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </div>
