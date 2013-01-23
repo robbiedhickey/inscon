@@ -28,16 +28,16 @@
                             @Html.Navigation()
                         </ul>
                         <ul class="nav pull-right">
-                            <li>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <a href="/">Welcome, @User.Identity.Name</a>
+                                    <li><a href="/">Welcome, @User.Identity.Name</a></li>
+                                    <li><a href="https://inscon1/idserver/account/signout">Sign Off</a></li>
                                 }
                                 else
                                 {
-                                    <a href="/"><i class="icon-user icon-white"></i>Login</a>
+                                    <li><a href="/"><i class="icon-user icon-white"></i>Sign In</a></li>
+                                    
                                 }
-                            </li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>

@@ -1,0 +1,3 @@
+﻿@model Decimal
+
+@Html.TextBox("", Model == default(Decimal) ? null : Model.ToString(), new{@class="textbox single-line"})
