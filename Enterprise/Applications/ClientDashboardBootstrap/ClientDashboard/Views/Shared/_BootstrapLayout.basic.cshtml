@@ -30,7 +30,7 @@
                         <ul class="nav pull-right">
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <li><a href="/">Welcome, @User.Identity.Name</a></li>
+                                    <li><a href="https://inscon1/idserver/">Welcome, @User.Identity.Name</a></li>
                                     <li>@Html.ActionLink("View Claims", "ViewClaims", "Account")</li>
                                 }
                                 else
