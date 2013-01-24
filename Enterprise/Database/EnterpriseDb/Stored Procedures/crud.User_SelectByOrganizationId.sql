@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -16,6 +17,6 @@ AS
            [Title],
            [StatusID]
     FROM   [dbo].[User]
-    WHERE  [UserID] = @OrganizationID
+    WHERE  [OrganizationID] = @OrganizationID
 
 GO
