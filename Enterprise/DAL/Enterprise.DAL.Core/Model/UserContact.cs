@@ -6,7 +6,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class UserContact : SqlDataRecord
+    public class UserContact : ModelBase
     {
         private bool _isPrimary;
         private int _typeId;
@@ -16,37 +16,37 @@ namespace Enterprise.DAL.Core.Model
 
         public UserContact()
         {
-            EntityNumber = 18;
+            EntityNumber = (short) Entities.UserContact;
         }
 
         public Int32 UserContactId
         {
             get { return _userContactId; }
-            set { _userContactId = value; }
+            set { SetProperty(ref _userContactId, value); }
         }
 
         public Int32 UserId
         {
             get { return _userId; }
-            set { _userId = value; }
+            set { SetProperty(ref _userId, value); }
         }
 
         public String Value
         {
             get { return _value; }
-            set { _value = value; }
+            set { SetProperty(ref _value, value); }
         }
 
         public Int32 TypeId
         {
             get { return _typeId; }
-            set { _typeId = value; }
+            set { SetProperty(ref _typeId, value); }
         }
 
         public Boolean IsPrimary
         {
             get { return _isPrimary; }
-            set { _isPrimary = value; }
+            set { SetProperty(ref _isPrimary, value); }
         }
 
         public string Type

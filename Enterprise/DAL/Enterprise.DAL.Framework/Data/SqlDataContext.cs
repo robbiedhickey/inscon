@@ -123,7 +123,7 @@ namespace Enterprise.DAL.Framework.Data
         {
             using( var scope = new TransactionScope(TransactionScopeOption.RequiresNew) )
             {
-                foreach( IDbCommand command in commands )
+                foreach( var command in commands )
                 {
                     _db.ExecuteNonQuery((DbCommand) command);
                 }

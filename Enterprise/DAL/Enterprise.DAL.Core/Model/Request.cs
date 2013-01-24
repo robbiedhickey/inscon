@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class Request : SqlDataRecord
+    public class Request : ModelBase
     {
         private string _customerRequestId;
         private DateTime _dateInserted;
@@ -14,31 +14,31 @@ namespace Enterprise.DAL.Core.Model
 
         public Request()
         {
-            EntityNumber = 2;
+            EntityNumber = (short)Entities.Request;
         }
 
         public Int32 RequestId
         {
             get { return _requestId; }
-            set { _requestId = value; }
+            set { SetProperty(ref _requestId, value); }
         }
 
         public Int32 OrganizationId
         {
             get { return _organizationId; }
-            set { _organizationId = value; }
+            set { SetProperty(ref _organizationId, value); }
         }
 
         public DateTime DateInserted
         {
             get { return _dateInserted; }
-            set { _dateInserted = value; }
+            set { SetProperty(ref _dateInserted, value); }
         }
 
         public String CustomerRequestId
         {
             get { return _customerRequestId; }
-            set { _customerRequestId = value; }
+            set { SetProperty(ref _customerRequestId, value); }
         }
 
         #region public methods

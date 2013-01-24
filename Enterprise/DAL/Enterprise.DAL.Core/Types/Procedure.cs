@@ -43,6 +43,7 @@ namespace Enterprise.DAL.Core.Types
         public const String Entity_Insert = @"[crud].[Entity_Insert]";
         public const String Entity_SelectAll = @"[crud].[Entity_SelectAll]";
         public const String Entity_SelectById = @"[crud].[Entity_SelectById]";
+        public const String Entity_SelectByName = @"[crud].[Entity_SelectByName]";
         public const String Entity_Update = @"[crud].[Entity_Update]";
         // Event
         public const String Event_Delete = @"[crud].[Event_Delete]";

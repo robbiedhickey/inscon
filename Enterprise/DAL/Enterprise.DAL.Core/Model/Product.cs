@@ -6,7 +6,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class Product : SqlDataRecord
+    public class Product : ModelBase
     {
         private string _caption;
         private ProductCategory _category;
@@ -19,49 +19,49 @@ namespace Enterprise.DAL.Core.Model
 
         public Product()
         {
-            EntityNumber = 3;
+            EntityNumber = (short)Entities.Product;
         }
 
         public Int32 ProductId
         {
             get { return _productId; }
-            set { _productId = value; }
+            set { SetProperty(ref _productId, value); }
         }
 
         public Int32 ProductCategoryId
         {
             get { return _productCategoryId; }
-            set { _productCategoryId = value; }
+            set { SetProperty(ref _productCategoryId, value); }
         }
 
         public String Caption
         {
             get { return _caption; }
-            set { _caption = value; }
+            set { SetProperty(ref _caption, value); }
         }
 
         public String Code
         {
             get { return _code; }
-            set { _code = value; }
+            set { SetProperty(ref _code, value); }
         }
 
         public String SKU
         {
             get { return _sku; }
-            set { _sku = value; }
+            set { SetProperty(ref _sku, value); }
         }
 
         public Decimal Rate
         {
             get { return _rate; }
-            set { _rate = value; }
+            set { SetProperty(ref _rate, value); }
         }
 
         public Decimal Cost
         {
             get { return _cost; }
-            set { _cost = value; }
+            set { SetProperty(ref _cost, value); }
         }
 
         public ProductCategory Category

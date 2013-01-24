@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class AddressUse : SqlDataRecord
+    public class AddressUse : ModelBase
     {
         private int _addressId;
         private int _addressUseId;
@@ -13,25 +13,25 @@ namespace Enterprise.DAL.Core.Model
 
         public AddressUse()
         {
-            EntityNumber = 20;
+            EntityNumber = (short) Entities.AddressUse;
         }
 
         public Int32 AddressUseId
         {
             get { return _addressUseId; }
-            set { _addressUseId = value; }
+            set { SetProperty(ref _addressUseId, value); }
         }
 
         public Int32 AddressId
         {
             get { return _addressId; }
-            set { _addressId = value; }
+            set { SetProperty(ref _addressId, value); }
         }
 
         public Int32 TypeId
         {
             get { return _typeId; }
-            set { _typeId = value; }
+            set { SetProperty(ref _typeId, value); }
         }
 
         #region public methods

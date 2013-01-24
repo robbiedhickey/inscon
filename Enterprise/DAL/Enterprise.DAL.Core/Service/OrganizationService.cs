@@ -12,7 +12,6 @@ namespace Enterprise.DAL.Core.Service
         public OrganizationService()
         {
             IsCached = true;
-
         }
 
         /// <summary>

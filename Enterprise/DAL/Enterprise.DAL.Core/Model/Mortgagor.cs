@@ -6,7 +6,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class Mortgagor : SqlDataRecord
+    public class Mortgagor : ModelBase
     {
         private int _loanId;
         private int _mortgagorId;
@@ -16,37 +16,37 @@ namespace Enterprise.DAL.Core.Model
 
         public Mortgagor()
         {
-            EntityNumber = 13;
+            EntityNumber = (short) Entities.Mortgagor;
         }
 
         public Int32 MortgagorId
         {
             get { return _mortgagorId; }
-            set { _mortgagorId = value; }
+            set { SetProperty(ref _mortgagorId, value); }
         }
 
         public Int32 LoanId
         {
             get { return _loanId; }
-            set { _loanId = value; }
+            set { SetProperty(ref _loanId, value); }
         }
 
         public String Name
         {
             get { return _name; }
-            set { _name = value; }
+            set { SetProperty(ref _name, value); }
         }
 
         public Int32 TypeId
         {
             get { return _typeId; }
-            set { _typeId = value; }
+            set { SetProperty(ref _typeId, value); }
         }
 
         public String PhoneNumber
         {
             get { return _phoneNumber; }
-            set { _phoneNumber = value; }
+            set { SetProperty(ref _phoneNumber, value); }
         }
 
         public string Type

@@ -60,7 +60,7 @@ namespace Enterprise.DAL.Framework.Data
 		/// <summary>
 		/// Executes a set of arbitrary commands in a single transaction
 		/// </summary>
-		protected void Execute( List<IDbCommand> commands )
+		public void Execute( List<IDbCommand> commands )
 		{
 			if( commands != null && commands.Count > 0 )
 			{

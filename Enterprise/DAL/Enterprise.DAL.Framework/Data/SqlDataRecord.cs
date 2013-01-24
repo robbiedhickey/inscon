@@ -1,23 +1,37 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Enterprise.DAL.Framework.Data
 {
     /// <summary>
-    /// Summary description for SqlDataRecord.
+    ///     Summary description for SqlDataRecord.
     /// </summary>
     public abstract class SqlDataRecord : SqlDataExecutor, IDataRecord
     {
         private Dictionary<string, bool> _dirtyTable;
+
         private bool _trackChanges;
 
 
-        public Int16 EntityNumber { get; set; }
+        public short EntityNumber { get; set; }
+
+        public bool TrackChanges
+        {
+            get { return _trackChanges; }
+            set
+            {
+                if (!_trackChanges && value)
+                {
+                    _dirtyTable = new Dictionary<string, bool>();
+                }
+
+                _trackChanges = value;
+            }
+        }
 
 
         /// <summary>
-        /// Determines if any member of this listing has changed.
+        ///     Determines if any member of this listing has changed.
         /// </summary>
         /// <returns></returns>
         public bool IsChanged()
@@ -62,28 +76,15 @@ namespace Enterprise.DAL.Framework.Data
             return fields.ToArray();
         }
 
-        public bool TrackChanges
-        {
-            get { return _trackChanges; }
-            set
-            {
-                if (!_trackChanges && value)
-                {
-                    _dirtyTable = new Dictionary<string, bool>();
-                }
-
-                _trackChanges = value;
-            }
-        }
-
         public void CommitChanges()
         {
             _dirtyTable.Clear();
         }
 
-        protected void SetProperty<TValue>(ref TValue member, TValue newValue, IEqualityComparer<TValue> equalityComparer)
+        protected void SetProperty<TValue>(ref TValue member, TValue newValue,
+                                           IEqualityComparer<TValue> equalityComparer)
         {
-            var changed = !equalityComparer.Equals(member, newValue);
+            bool changed = !equalityComparer.Equals(member, newValue);
 
             if (changed)
             {
@@ -97,8 +98,5 @@ namespace Enterprise.DAL.Framework.Data
         {
             SetProperty(ref member, newValue, EqualityComparer<TValue>.Default);
         }
-
-
     }
 }
-

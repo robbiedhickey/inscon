@@ -6,15 +6,14 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class Loan : SqlDataRecord
+    public class Loan : ModelBase
     {
         private string _hudCaseNumber;
         private int _loanID;
         private string _loanNumber;
+        private Organization _organization;
         private int _organizationID;
         private int _typeID;
-
-        private Organization _organization;
 
         #region private variables
 
@@ -78,7 +77,7 @@ namespace Enterprise.DAL.Core.Model
         // Constructor
         public Loan()
         {
-            EntityNumber = 12;
+            EntityNumber = (short) Entities.Loan;
         }
 
         public static Loan Build(ITypeReader reader)

@@ -6,7 +6,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class File : SqlDataRecord
+    public class File : ModelBase
     {
         private string _caption;
         private short _entityId;
@@ -19,7 +19,7 @@ namespace Enterprise.DAL.Core.Model
 
         public File()
         {
-            EntityNumber = 10;
+            EntityNumber = (short) Entities.File;
         }
 
         public Int32 FileId

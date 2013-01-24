@@ -12,7 +12,7 @@ namespace Enterprise.DAL.Core.Service
         /// Get all Address records
         /// </summary>
         /// <returns></returns>
-        public List<Address> GetAllAddresses()
+        public List<Address> GetAllAddressRecords()
         {
             return QueryAll(SqlDatabase, Procedure.Address_SelectAll, Address.Build, CacheMinutesToExpire, IsCached);
         }
@@ -22,32 +22,32 @@ namespace Enterprise.DAL.Core.Service
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Address GetAddressByParentId(int id)
+        public Address GetAddressRecordById(int id)
         {
             if (IsCached)
             {
                 Predicate<Address> h = h2 => h2.AddressID == id;
-                return GetAllAddresses().Find(h) ?? new Address();
+                return GetAllAddressRecords().Find(h) ?? new Address();
             }
 
             return Query(SqlDatabase, Procedure.Address_SelectById, Address.Build, id);
         }
 
         /// <summary>
-        /// 
+        /// Get all Address records for the provided EntityID and ParentID)
         /// </summary>
         /// <param name="parentID"></param>
         /// <param name="entityID"></param>
         /// <returns></returns>
-        public Address GetAddressByParentIdAndEntityID(int parentID, Int16 entityID)
+        public List<Address> GetRecordByParentIdAndEntityID(int parentID, Int16 entityID)
         {
             if (IsCached)
             {
                 Predicate<Address> h = h2 => h2.ParentID == parentID && h2.EntityID == entityID;
-                return GetAllAddresses().Find(h) ?? new Address();
+                return GetAllAddressRecords().FindAll(h);
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Address.Build, parentID, entityID);
+            return QueryAll(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Address.Build, parentID, entityID);
         }
     }
 }

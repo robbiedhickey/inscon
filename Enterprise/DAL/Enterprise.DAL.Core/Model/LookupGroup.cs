@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Cache;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class LookupGroup : SqlDataRecord
+    public class LookupGroup : ModelBase
     {
 
         #region private variables
@@ -35,11 +35,10 @@ namespace Enterprise.DAL.Core.Model
 
         #region public methods
 
-       // Constructor
-        public LookupGroup()
-        {
-            EntityNumber = 4;
-        }
+       public LookupGroup()
+       {
+           EntityNumber = (short) Entities.LookupGroup;
+       }
 
         public static LookupGroup Build(ITypeReader reader)
         {

@@ -8,11 +8,6 @@ namespace Enterprise.DAL.Core.Service
     public class UserService : ServiceBase<User>
     {
 
-        public UserService()
-        {
-           
-        }
-
         /// <summary>
         /// Get All Users
         /// </summary>

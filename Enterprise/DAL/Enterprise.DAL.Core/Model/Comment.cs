@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class Comment : SqlDataRecord
+    public class Comment : ModelBase
     {
         private String _comment;
         private Int32 _commentId;
@@ -16,7 +16,7 @@ namespace Enterprise.DAL.Core.Model
 
         public Comment()
         {
-            EntityNumber = 7;
+            EntityNumber = (short) Entities.Comment;
         }
 
         public Int32 CommentId

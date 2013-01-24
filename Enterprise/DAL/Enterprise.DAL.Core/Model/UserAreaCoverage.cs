@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class UserAreaCoverage : SqlDataRecord
+    public class UserAreaCoverage : ModelBase
     {
         private int _serviceId;
         private int _userAreaCoverageId;
@@ -14,31 +14,31 @@ namespace Enterprise.DAL.Core.Model
 
         public UserAreaCoverage()
         {
-            EntityNumber = 17;
+            EntityNumber = (short)Entities.UserAreaCoverage;
         }
 
         public Int32 UserAreaCoverageId
         {
             get { return _userAreaCoverageId; }
-            set { _userAreaCoverageId = value; }
+            set { SetProperty(ref _userAreaCoverageId, value); }
         }
 
         public Int32 UserId
         {
             get { return _userId; }
-            set { _userId = value; }
+            set { SetProperty(ref _userId, value); }
         }
 
         public String ZipCode
         {
             get { return _zipCode; }
-            set { _zipCode = value; }
+            set { SetProperty(ref _zipCode, value); }
         }
 
         public Int32 ServiceId
         {
             get { return _serviceId; }
-            set { _serviceId = value; }
+            set { SetProperty(ref _serviceId, value); }
         }
 
 

@@ -7,7 +7,7 @@ using Enterprise.DAL.Framework.Data;
 namespace Enterprise.DAL.Core.Model
 {
 
-    public class Lookup : SqlDataRecord
+    public class Lookup : ModelBase
     {
         #region private variables
 
@@ -59,19 +59,18 @@ namespace Enterprise.DAL.Core.Model
 
         #region public methods
 
-        // Constructor
         public Lookup()
         {
-            EntityNumber = 8;
+            EntityNumber = (short) Entities.Lookup;
         }
 
         public static Lookup Build(ITypeReader reader)
         {
             var record = new Lookup
                 {
-                    LookupID = reader.GetInt32("idLookup"),
-                    LookupGroupID = reader.GetInt16("idLookupGroup"),
-                    Value = reader.GetString("Caption")
+                    LookupID = reader.GetInt32("LookupID"),
+                    LookupGroupID = reader.GetInt16("LookupGroupID"),
+                    Value = reader.GetString("Value")
                 };
 
             return record;

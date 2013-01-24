@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class Address : SqlDataRecord
+    public class Address : ModelBase
     {
         #region private variables
 
@@ -74,10 +74,9 @@ namespace Enterprise.DAL.Core.Model
 
         #region public methods
 
-        // Constructor
         public Address()
         {
-            EntityNumber = 6;
+            EntityNumber = (short) Entities.Address;
         }
 
         public static Address Build(ITypeReader reader)
@@ -144,8 +143,5 @@ namespace Enterprise.DAL.Core.Model
         }
 
         #endregion'
-
-
-
     }
 }

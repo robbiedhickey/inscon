@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class UserNotification : SqlDataRecord
+    public class UserNotification : ModelBase
     {
         private DateTime _datePosted;
         private DateTime? _dateRead;
@@ -14,31 +14,31 @@ namespace Enterprise.DAL.Core.Model
 
         public UserNotification()
         {
-            EntityNumber = 16;
+            EntityNumber = (short)Entities.UserNotification;
         }
 
         public Int32 UserNotificationId
         {
             get { return _userNotificationId; }
-            set { _userNotificationId = value; }
+            set { SetProperty(ref _userNotificationId, value); }
         }
 
         public Int32 UserId
         {
             get { return _userId; }
-            set { _userId = value; }
+            set { SetProperty(ref _userId, value); }
         }
 
         public DateTime DatePosted
         {
             get { return _datePosted; }
-            set { _datePosted = value; }
+            set { SetProperty(ref _datePosted, value); }
         }
 
         public DateTime? DateRead
         {
             get { return _dateRead; }
-            set { _dateRead = value; }
+            set { SetProperty(ref _dateRead, value); }
         }
 
 

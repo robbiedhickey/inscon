@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class AddressLocation : SqlDataRecord
+    public class AddressLocation : ModelBase
     {
         private int _addressID;
         private string _buildingNumber;
@@ -19,7 +19,7 @@ namespace Enterprise.DAL.Core.Model
 
         public AddressLocation()
         {
-            EntityNumber = 22;
+            EntityNumber = (short) Entities.AddressLocation;
         }
 
         public Int32 AddressID
@@ -98,9 +98,8 @@ namespace Enterprise.DAL.Core.Model
         }
 
 
-
         /// <summary>
-        /// Insert a new record, or update the current record using ID
+        ///     Insert a new record, or update the current record using ID
         /// </summary>
         public void Save()
         {
@@ -110,15 +109,15 @@ namespace Enterprise.DAL.Core.Model
                 {
                     // Update
                     Execute(GetCommand(Database.EnterpriseDb, Procedure.AddressLocation_Update
-                                            , _addressID
-                                            , _buildingNumber
-                                            , _streetName
-                                            , _city
-                                            , _state
-                                            , _zip
-                                            , _geoCode
-                                            , _lattitude
-                                            , _longitude));
+                                       , _addressID
+                                       , _buildingNumber
+                                       , _streetName
+                                       , _city
+                                       , _state
+                                       , _zip
+                                       , _geoCode
+                                       , _lattitude
+                                       , _longitude));
                     CommitChanges();
                 }
             }
@@ -126,22 +125,22 @@ namespace Enterprise.DAL.Core.Model
             {
                 // Insert
                 _addressID = Execute(GetCommand(Database.EnterpriseDb, Procedure.AddressLocation_Insert
-                                            , _addressID
-                                            , _buildingNumber
-                                            , _streetName
-                                            , _city
-                                            , _state
-                                            , _zip
-                                            , _geoCode
-                                            , _lattitude
-                                            , _longitude), Convert.ToInt32);
+                                                , _addressID
+                                                , _buildingNumber
+                                                , _streetName
+                                                , _city
+                                                , _state
+                                                , _zip
+                                                , _geoCode
+                                                , _lattitude
+                                                , _longitude), Convert.ToInt32);
                 CacheItem.Clear<AddressLocation>();
             }
         }
 
         /// <summary>
-        /// Removes current record using ID
-        ///  </summary>
+        ///     Removes current record using ID
+        /// </summary>
         public void Remove()
         {
             Execute(GetCommand(Database.EnterpriseDb, Procedure.AddressLocation_Delete, _addressID));

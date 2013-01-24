@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class WorkOrderAssignment : SqlDataRecord
+    public class WorkOrderAssignment : ModelBase
     {
         private DateTime _eventDate;
         private int _statusId;
@@ -15,37 +15,37 @@ namespace Enterprise.DAL.Core.Model
 
         public WorkOrderAssignment()
         {
-            EntityNumber = 19;
+            EntityNumber = (short)Entities.WorkOrderAssignment;
         }
 
         public Int32 WorkOrderAssignmentId
         {
             get { return _workOrderAssignmentId; }
-            set { _workOrderAssignmentId = value; }
+            set { SetProperty(ref _workOrderAssignmentId, value); }
         }
 
         public Int32 WorkOrderId
         {
             get { return _workOrderId; }
-            set { _workOrderId = value; }
+            set { SetProperty(ref _workOrderId, value); }
         }
 
         public Int32 UserId
         {
             get { return _userId; }
-            set { _userId = value; }
+            set { SetProperty(ref _userId, value); }
         }
 
         public DateTime EventDate
         {
             get { return _eventDate; }
-            set { _eventDate = value; }
+            set { SetProperty(ref _eventDate, value); }
         }
 
         public Int32 StatusId
         {
             get { return _statusId; }
-            set { _statusId = value; }
+            set { SetProperty(ref _statusId, value); }
         }
 
         public static WorkOrderAssignment Build(ITypeReader reader)

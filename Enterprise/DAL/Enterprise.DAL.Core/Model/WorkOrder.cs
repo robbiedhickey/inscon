@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class WorkOrder : SqlDataRecord
+    public class WorkOrder : ModelBase
     {
         private DateTime _dateInserted;
         private Int32? _loanId;
@@ -14,31 +14,31 @@ namespace Enterprise.DAL.Core.Model
 
         public WorkOrder()
         {
-            EntityNumber = 21;
+            EntityNumber = (short)Entities.WorkOrder;
         }
 
         public Int32 WorkOrderId
         {
             get { return _workOrderId; }
-            set { _workOrderId = value; }
+            set { SetProperty(ref _workOrderId, value); }
         }
 
         public Int32 RequestId
         {
             get { return _requestId; }
-            set { _requestId = value; }
+            set { SetProperty(ref _requestId, value); }
         }
 
         public Int32? LoanId
         {
             get { return _loanId; }
-            set { _loanId = value; }
+            set { SetProperty(ref _loanId, value); }
         }
 
         public DateTime DateInserted
         {
             get { return _dateInserted; }
-            set { _dateInserted = value; }
+            set { SetProperty(ref _dateInserted, value); }
         }
 
         public static WorkOrder Build(ITypeReader reader)

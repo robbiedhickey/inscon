@@ -6,7 +6,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class Event : SqlDataRecord
+    public class Event : ModelBase
     {
         private DateTime _date;
         private short _entityId;
@@ -17,7 +17,7 @@ namespace Enterprise.DAL.Core.Model
 
         public Event()
         {
-            EntityNumber = 9;
+            EntityNumber = (short) Entities.Event;
         }
 
         public Int32 EventId
@@ -63,7 +63,6 @@ namespace Enterprise.DAL.Core.Model
         }
 
         #region public methods
-
 
         public static Event Build(ITypeReader reader)
         {

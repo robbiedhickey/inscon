@@ -1,32 +1,33 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using Enterprise.DAL.Core.Service;
 using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Data;
 using Enterprise.DAL.Framework.Cache;
-
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
     [Serializable]
-    public class Organization : SqlDataRecord
+    public class Organization : ModelBase
     {
-
         #region private variables
 
-        private int _organizationID;
-        private string _name;
         private string _code;
-        private int _typeID;
+        private string _name;
+        private int _organizationID;
         private int _statusID;
-      
-
+        private int _typeID;
         private List<User> _users;
+
+
+        public Organization()
+        {
+            EntityNumber = (short) Entities.Organization;
+        }
 
         #endregion
 
         #region public properties
-
 
         public int OrganizationID
         {
@@ -70,12 +71,7 @@ namespace Enterprise.DAL.Core.Model
             // Read only lookup value
             get { return new LookupService().GetLookupById(_typeID).Value; }
         }
-      
-        // Constructor
-        public Organization()
-        {
-            EntityNumber = 14;
-        }
+
         public List<User> Users
         {
             get
@@ -101,16 +97,15 @@ namespace Enterprise.DAL.Core.Model
                     Name = reader.GetString("Name"),
                     Code = reader.GetString("Code"),
                     TypeID = reader.GetInt32("TypeID"),
-                    StatusID = reader.GetInt32("StatusID")
+                    StatusID = reader.GetInt32("StatusID"),
                 };
 
             return record;
         }
 
-       
 
         /// <summary>
-        /// Insert a new record, or update the current record using ID
+        ///     Insert a new record, or update the current record using ID
         /// </summary>
         public void Save()
         {
@@ -132,17 +127,17 @@ namespace Enterprise.DAL.Core.Model
             {
                 // Insert
                 _organizationID = Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Insert
-                                       , _name
-                                       , _code
-                                       , _typeID
-                                       , _statusID), Convert.ToInt32);
+                                                     , _name
+                                                     , _code
+                                                     , _typeID
+                                                     , _statusID), Convert.ToInt32);
                 CacheItem.Clear<Organization>();
             }
         }
 
         /// <summary>
-        /// Removes current record using ID
-        ///  </summary>
+        ///     Removes current record using ID
+        /// </summary>
         public void Remove()
         {
             Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Delete, _organizationID));

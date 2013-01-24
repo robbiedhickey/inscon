@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class ProductCategory : SqlDataRecord
+    public class ProductCategory : ModelBase
     {
         private string _code;
         private string _name;
@@ -13,25 +13,25 @@ namespace Enterprise.DAL.Core.Model
 
         public ProductCategory()
         {
-            EntityNumber = 1;
+            EntityNumber = (short)Entities.ProductCategory;
         }
 
         public Int32 ProductCategoryId
         {
             get { return _productCategoryId; }
-            set { _productCategoryId = value; }
+            set { SetProperty(ref _productCategoryId, value); }
         }
 
         public String Name
         {
             get { return _name; }
-            set { _name = value; }
+            set { SetProperty(ref _name, value); }
         }
 
         public String Code
         {
             get { return _code; }
-            set { _code = value; }
+            set { SetProperty(ref _code, value); }
         }
 
         public static ProductCategory Build(ITypeReader reader)

@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class Location : SqlDataRecord
+    public class Location : ModelBase
     {
         private string _code;
         private int _locationId;
@@ -15,37 +15,37 @@ namespace Enterprise.DAL.Core.Model
 
         public Location()
         {
-            EntityNumber = 11;
+            EntityNumber = (short) Entities.AddressLocation;
         }
 
         public Int32 LocationId
         {
             get { return _locationId; }
-            set { _locationId = value; }
+            set { SetProperty(ref _locationId, value); }
         }
 
         public Int32 OrganizationId
         {
             get { return _organizationId; }
-            set { _organizationId = value; }
+            set { SetProperty(ref _organizationId, value); }
         }
 
         public String Name
         {
             get { return _name; }
-            set { _name = value; }
+            set { SetProperty(ref _name, value); }
         }
 
         public String Code
         {
             get { return _code; }
-            set { _code = value; }
+            set { SetProperty(ref _code, value); }
         }
 
         public Int32 TypeId
         {
             get { return _typeId; }
-            set { _typeId = value; }
+            set { SetProperty(ref _typeId, value); }
         }
 
         #region public methods

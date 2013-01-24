@@ -1,6 +1,5 @@
 ﻿
 using System;
-using Enterprise.DAL.Framework.Configuration;
 using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service

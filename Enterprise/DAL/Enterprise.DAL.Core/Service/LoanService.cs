@@ -8,11 +8,6 @@ namespace Enterprise.DAL.Core.Service
     public class LoanService : ServiceBase<Organization>
     {
 
-        public LoanService()
-        {
-            
-        }
-
         /// <summary>
         /// Get all Loan records
         /// </summary>

@@ -6,7 +6,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class User : SqlDataRecord
+    public class User : ModelBase
     {
         private string _firstName;
         private string _lastName;
@@ -15,6 +15,11 @@ namespace Enterprise.DAL.Core.Model
         private int _statusID;
         private string _title;
         private int _userID;
+
+        public User()
+        {
+            EntityNumber = (short) Entities.User;
+        }
 
 
         public int UserID
@@ -65,6 +70,7 @@ namespace Enterprise.DAL.Core.Model
             get { return string.Format("{0} {1}", _firstName, _lastName); }
         }
 
+
         public Organization Organization
         {
             get
@@ -79,11 +85,6 @@ namespace Enterprise.DAL.Core.Model
         }
 
         #region public methods
-
-        public User()
-        {
-            EntityNumber = 15;
-        }
 
         public static User Build(ITypeReader reader)
         {

@@ -46,10 +46,12 @@
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\AddressLocation.cs" />
     <Compile Include="Model\AddressUse.cs" />
     <Compile Include="Model\Comment.cs" />
+    <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\File.cs" />
     <Compile Include="Model\Loan.cs" />
@@ -72,9 +74,11 @@
     <Compile Include="Service\AddressService.cs" />
     <Compile Include="Service\AddressUseService.cs" />
     <Compile Include="Service\CommentService.cs" />
+    <Compile Include="Service\EntityService.cs" />
     <Compile Include="Service\EventService.cs" />
     <Compile Include="Service\FileService.cs" />
     <Compile Include="Service\GenericService.cs" />
+    <Compile Include="Service\IService.cs" />
     <Compile Include="Service\LoanService.cs" />
     <Compile Include="Service\LocationService.cs" />
     <Compile Include="Service\LookupGroupService.cs" />
@@ -95,8 +99,11 @@
     <Compile Include="Types\Database.cs" />
     <Compile Include="Types\Groups.cs" />
     <Compile Include="Types\Procedure.cs" />
+    <Compile Include="Types\EntityProp.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="importdata.sql" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Enterprise.DAL.Framework\Enterprise.DAL.Framework.csproj">
       <Project>{caca9b92-dc2a-4751-9266-0f9544b308be}</Project>

@@ -5,7 +5,7 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-    public class WorkOrderItem : SqlDataRecord
+    public class WorkOrderItem : ModelBase
     {
         private DateTime _dateInserted;
         private int _productId;
@@ -16,43 +16,43 @@ namespace Enterprise.DAL.Core.Model
 
         public WorkOrderItem()
         {
-            EntityNumber = 23;
+            EntityNumber = (short) Entities.WorkOrderItem;
         }
 
         public Int32 WorkOrderItemId
         {
             get { return _workOrderItemId; }
-            set { _workOrderItemId = value; }
+            set { SetProperty(ref _workOrderItemId, value); }
         }
 
         public Int32 WorkOrderId
         {
             get { return _workOrderId; }
-            set { _workOrderId = value; }
+            set { SetProperty(ref _workOrderId, value); }
         }
 
         public Int32 ProductId
         {
             get { return _productId; }
-            set { _productId = value; }
+            set { SetProperty(ref _productId, value); }
         }
 
         public Decimal Quantity
         {
             get { return _quantity; }
-            set { _quantity = value; }
+            set { SetProperty(ref _quantity, value); }
         }
 
         public Decimal Rate
         {
             get { return _rate; }
-            set { _rate = value; }
+            set { SetProperty(ref _rate, value); }
         }
 
         public DateTime DateInserted
         {
             get { return _dateInserted; }
-            set { _dateInserted = value; }
+            set { SetProperty(ref _dateInserted, value); }
         }
 
 
