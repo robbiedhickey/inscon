@@ -15,7 +15,8 @@ AS
            [FirstName],
            [LastName],
            [Title],
-           [StatusID]
+           [StatusID],
+           [AuthenticationID]
     FROM   [dbo].[User]
     WHERE  [OrganizationID] = @OrganizationID
 

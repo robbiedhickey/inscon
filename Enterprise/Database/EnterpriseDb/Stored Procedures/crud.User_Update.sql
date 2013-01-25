@@ -1,15 +1,17 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
 
 CREATE PROC [crud].[User_Update]
-  @UserID         INT,
-  @OrganizationID INT,
-  @FirstName      VARCHAR(28),
-  @LastName       VARCHAR(28),
-  @Title          VARCHAR(50),
-  @StatusID       INT
+  @UserID           INT,
+  @OrganizationID   INT,
+  @FirstName        VARCHAR(28),
+  @LastName         VARCHAR(28),
+  @Title            VARCHAR(50),
+  @StatusID         INT,
+  @AuthenticationID INT
 AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
@@ -19,7 +21,7 @@ AS
            [FirstName] = @FirstName,
            [LastName] = @LastName,
            [Title] = @Title,
-           [StatusID] = @StatusID
-    WHERE  [UserID] = @UserID
-
+           [StatusID] = @StatusID,
+           [AuthenticationID] = @AuthenticationID
+    WHERE  [UserID] = @UserID 
 GO

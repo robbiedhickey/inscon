@@ -1,14 +1,16 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
 
 CREATE PROC [crud].[User_Insert]
-  @OrganizationID INT,
-  @FirstName      VARCHAR(28),
-  @LastName       VARCHAR(28),
-  @Title          VARCHAR(50),
-  @StatusID       INT
+  @OrganizationID   INT,
+  @FirstName        VARCHAR(28),
+  @LastName         VARCHAR(28),
+  @Title            VARCHAR(50),
+  @StatusID         INT,
+  @AuthenticationID INT
 AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
@@ -19,7 +21,8 @@ AS
       [FirstName],
       [LastName],
       [Title],
-      [StatusID]
+      [StatusID],
+      [AuthenticationID]
     )
     VALUES
     (
@@ -27,7 +30,8 @@ AS
       @FirstName,
       @LastName,
       @Title,
-      @StatusID
+      @StatusID,
+      @AuthenticationID
     )
     -- Begin Return Select <- do not remove
     SELECT [UserID],
@@ -35,7 +39,8 @@ AS
            [FirstName],
            [LastName],
            [Title],
-           [StatusID]
+           [StatusID],
+           [AuthenticationID]
     FROM   [dbo].[User]
     WHERE  [UserID] = SCOPE_IDENTITY()
 

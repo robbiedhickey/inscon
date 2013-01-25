@@ -5,7 +5,8 @@ CREATE TABLE [dbo].[User]
 [FirstName] [varchar] (28) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [LastName] [varchar] (28) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [Title] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[StatusID] [int] NOT NULL
+[StatusID] [int] NOT NULL,
+[AuthenticationID] [int] NULL
 ) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[User] ADD CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED  ([UserID]) ON [PRIMARY]
