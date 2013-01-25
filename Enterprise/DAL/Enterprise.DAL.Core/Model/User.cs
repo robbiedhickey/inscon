@@ -15,6 +15,7 @@ namespace Enterprise.DAL.Core.Model
         private int _statusID;
         private string _title;
         private int _userID;
+        private int _authentication;
 
         public User()
         {
@@ -70,6 +71,12 @@ namespace Enterprise.DAL.Core.Model
             get { return string.Format("{0} {1}", _firstName, _lastName); }
         }
 
+        public Int32 AuthenticationID
+        {
+            get { return _authentication; }
+            set { _authentication = value; }
+        }
+
 
         public Organization Organization
         {
@@ -94,7 +101,8 @@ namespace Enterprise.DAL.Core.Model
                     OrganizationID = reader.GetInt32("OrganizationID"),
                     FirstName = reader.GetString("FirstName"),
                     LastName = reader.GetString("LastName"),
-                    StatusID = reader.GetInt32("StatusID")
+                    StatusID = reader.GetInt32("StatusID"),
+                    AuthenticationID = reader.GetInt32("AuthenticationID")
                 };
 
             return record;
@@ -117,7 +125,8 @@ namespace Enterprise.DAL.Core.Model
                                        , _firstName
                                        , _lastName
                                        , _title
-                                       , _statusID));
+                                       , _statusID
+                                       , _authentication));
                     CommitChanges();
                 }
             }
@@ -129,7 +138,8 @@ namespace Enterprise.DAL.Core.Model
                                              , _firstName
                                              , _lastName
                                              , _title
-                                             , _statusID), Convert.ToInt32);
+                                             , _statusID
+                                             , _authentication), Convert.ToInt32);
                 CacheItem.Clear<User>();
             }
         }
