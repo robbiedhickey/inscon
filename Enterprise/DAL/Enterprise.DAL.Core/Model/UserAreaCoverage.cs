@@ -14,7 +14,7 @@ namespace Enterprise.DAL.Core.Model
 
         public UserAreaCoverage()
         {
-            EntityNumber = (short)Entities.UserAreaCoverage;
+            EntityNumber = (short) Entities.UserAreaCoverage;
         }
 
         public Int32 UserAreaCoverageId

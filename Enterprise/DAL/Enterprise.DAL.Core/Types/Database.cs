@@ -7,5 +7,6 @@
         public const string MsiEnterprise = "MSIEnterprise";
         public const string AdHocSandbox = "AdHocSandbox";
         public const string patrickTest = "PatrickTest";
+
     }
 }

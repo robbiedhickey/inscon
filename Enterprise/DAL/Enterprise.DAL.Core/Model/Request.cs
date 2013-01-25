@@ -14,7 +14,7 @@ namespace Enterprise.DAL.Core.Model
 
         public Request()
         {
-            EntityNumber = (short)Entities.Request;
+            EntityNumber = (short) Entities.Request;
         }
 
         public Int32 RequestId

@@ -15,7 +15,7 @@ namespace Enterprise.DAL.Core.Model
 
         public WorkOrderAssignment()
         {
-            EntityNumber = (short)Entities.WorkOrderAssignment;
+            EntityNumber = (short) Entities.WorkOrderAssignment;
         }
 
         public Int32 WorkOrderAssignmentId

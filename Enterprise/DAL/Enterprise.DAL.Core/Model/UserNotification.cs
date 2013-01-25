@@ -14,7 +14,7 @@ namespace Enterprise.DAL.Core.Model
 
         public UserNotification()
         {
-            EntityNumber = (short)Entities.UserNotification;
+            EntityNumber = (short) Entities.UserNotification;
         }
 
         public Int32 UserNotificationId

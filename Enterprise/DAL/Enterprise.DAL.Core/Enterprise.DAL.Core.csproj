@@ -99,7 +99,6 @@
     <Compile Include="Types\Database.cs" />
     <Compile Include="Types\Groups.cs" />
     <Compile Include="Types\Procedure.cs" />
-    <Compile Include="Types\EntityProp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="importdata.sql" />

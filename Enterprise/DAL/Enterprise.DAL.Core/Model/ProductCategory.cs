@@ -13,7 +13,7 @@ namespace Enterprise.DAL.Core.Model
 
         public ProductCategory()
         {
-            EntityNumber = (short)Entities.ProductCategory;
+            EntityNumber = (short) Entities.ProductCategory;
         }
 
         public Int32 ProductCategoryId
