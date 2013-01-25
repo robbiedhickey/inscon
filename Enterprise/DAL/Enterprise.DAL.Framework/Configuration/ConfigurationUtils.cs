@@ -1,7 +1,5 @@
 using System;
 using System.Configuration;
-using System.Globalization;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Enterprise.DAL.Framework.Configuration
@@ -16,13 +14,9 @@ namespace Enterprise.DAL.Framework.Configuration
         {
             get
             {
-                string expiry = ConfigurationManager.AppSettings["PasswordExpiryInDays"];
+                var expiry = ConfigurationManager.AppSettings["PasswordExpiryInDays"];
 
-                if (expiry == String.Empty)
-                {
-                    return 60;
-                }
-                return Int32.Parse(expiry);
+                return expiry == String.Empty ? 60 : Int32.Parse(expiry);
             }
         }
 
@@ -83,7 +77,7 @@ namespace Enterprise.DAL.Framework.Configuration
 
             if (includeTerminator && ! path.EndsWith(@"\"))
             {
-                return path + "\\";
+                return path + @"\\";
             }
             if (! includeTerminator && path.EndsWith(@"\"))
             {
@@ -91,24 +85,6 @@ namespace Enterprise.DAL.Framework.Configuration
             }
 
             return path;
-        }
-
-        // Antonio Gonzalez - 12.28.2009
-        public static String GetFullPacketUrl(String receiveddate, String clientcode, String invoicenumber)
-        {
-            var pdfpath = new StringBuilder(GetConfigString("pdfpath"));
-            //pdfpath.Append("\\{0}", );
-            pdfpath.Append(DateTime.Parse(receiveddate).Year.ToString(CultureInfo.InvariantCulture));
-            pdfpath.AppendFormat("/{0}", clientcode);
-            pdfpath.AppendFormat("/packets/{0}-packet.pdf", invoicenumber);
-
-            return pdfpath.ToString();
-        }
-
-        public static String GetPreservationDetailPageUrl(string invoiceNumber)
-        {
-            string retval = "/default.aspx?tab=240&ti=-1&pid=" + invoiceNumber;
-            return retval;
         }
     }
 }
