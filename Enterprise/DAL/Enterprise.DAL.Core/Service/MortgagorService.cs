@@ -1,26 +1,42 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="MortgagorService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class MortgagorService
+    /// </summary>
     public class MortgagorService : ServiceBase<Mortgagor>
     {
         /// <summary>
-        ///     Get all Mortgagor records
+        /// Gets all mortgagors.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{Mortgagor}.</returns>
         public List<Mortgagor> GetAllMortgagors()
         {
             return QueryAll(SqlDatabase, Procedure.Mortgagor_SelectAll, Mortgagor.Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        ///     Get Mortgagor record by ID
+        /// Gets the mortgagor by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>Mortgagor.</returns>
         public Mortgagor GetMortgagorById(int id)
         {
             if (IsCached)
@@ -33,6 +49,11 @@ namespace Enterprise.DAL.Core.Service
         }
 
 
+        /// <summary>
+        /// Gets the mortgagors by loan id.
+        /// </summary>
+        /// <param name="loanId">The loan id.</param>
+        /// <returns>List{Mortgagor}.</returns>
         public List<Mortgagor> GetMortgagorsByLoanId(Int32 loanId)
         {
             if (IsCached)
@@ -44,6 +65,12 @@ namespace Enterprise.DAL.Core.Service
             return QueryAll(SqlDatabase, Procedure.Mortgagor_SelectByLoanId, Mortgagor.Build, loanId);
         }
 
+        /// <summary>
+        /// Gets the mortgagors by loan id and type id.
+        /// </summary>
+        /// <param name="loanId">The loan id.</param>
+        /// <param name="typeId">The type id.</param>
+        /// <returns>Mortgagor.</returns>
         public Mortgagor GetMortgagorsByLoanIdAndTypeId(Int32 loanId, Int32 typeId)
         {
             if (IsCached)

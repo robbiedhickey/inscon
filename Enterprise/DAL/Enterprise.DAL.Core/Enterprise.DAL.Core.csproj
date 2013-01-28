@@ -47,18 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\AddressLocation.cs" />
     <Compile Include="Model\AddressUse.cs" />
     <Compile Include="Model\Comment.cs" />
-    <Compile Include="Model\Entity.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\File.cs" />
     <Compile Include="Model\Loan.cs" />
     <Compile Include="Model\Location.cs" />
     <Compile Include="Model\Lookup.cs" />
     <Compile Include="Model\LookupGroup.cs" />
+    <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\Mortgagor.cs" />
     <Compile Include="Model\Organization.cs" />
     <Compile Include="Model\Product.cs" />
@@ -75,11 +74,9 @@
     <Compile Include="Service\AddressService.cs" />
     <Compile Include="Service\AddressUseService.cs" />
     <Compile Include="Service\CommentService.cs" />
-    <Compile Include="Service\EntityService.cs" />
     <Compile Include="Service\EventService.cs" />
     <Compile Include="Service\FileService.cs" />
     <Compile Include="Service\GenericService.cs" />
-    <Compile Include="Service\IService.cs" />
     <Compile Include="Service\LoanService.cs" />
     <Compile Include="Service\LocationService.cs" />
     <Compile Include="Service\LookupGroupService.cs" />

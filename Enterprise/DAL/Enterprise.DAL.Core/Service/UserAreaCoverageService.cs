@@ -1,26 +1,43 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="UserAreaCoverageService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class UserAreaCoverageService
+    /// </summary>
     public class UserAreaCoverageService : ServiceBase<UserAreaCoverage>
     {
         /// <summary>
-        /// Get all UserAreaCoverage records
+        /// Gets all user area coverages.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{UserAreaCoverage}.</returns>
         public List<UserAreaCoverage> GetAllUserAreaCoverages()
         {
-            return QueryAll(SqlDatabase, Procedure.UserAreaCoverage_SelectAll, UserAreaCoverage.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.UserAreaCoverage_SelectAll, UserAreaCoverage.Build,
+                            CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Get UserAreaCoverage record by ID
+        /// Gets the address by parent id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>UserAreaCoverage.</returns>
         public UserAreaCoverage GetAddressByParentId(int id)
         {
             if (IsCached)
@@ -33,11 +50,11 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get UserAreaCoverage records by UserID and ServiceID
+        /// Gets the user area coverage by user idand service id.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="serviceId"></param>
-        /// <returns></returns>
+        /// <param name="userId">The user id.</param>
+        /// <param name="serviceId">The service id.</param>
+        /// <returns>List{UserAreaCoverage}.</returns>
         public List<UserAreaCoverage> GetUserAreaCoverageByUserIdandServiceId(Int32 userId, Int32 serviceId)
         {
             if (IsCached)
@@ -46,7 +63,8 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUserAreaCoverages().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.UserAreaCoverage_SelectByUserIdAndServiceId, UserAreaCoverage.Build, userId, serviceId);
+            return QueryAll(SqlDatabase, Procedure.UserAreaCoverage_SelectByUserIdAndServiceId, UserAreaCoverage.Build,
+                            userId, serviceId);
         }
     }
 }

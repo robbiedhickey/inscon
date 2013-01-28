@@ -1,28 +1,42 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="WorkOrderService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
-
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class WorkOrderService
+    /// </summary>
     public class WorkOrderService : ServiceBase<WorkOrder>
     {
-
         /// <summary>
-        /// Get all WorkOrder records
+        /// Gets all work orders.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{WorkOrder}.</returns>
         public List<WorkOrder> GetAllWorkOrders()
         {
             return QueryAll(SqlDatabase, Procedure.WorkOrder_SelectAll, WorkOrder.Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Get WorkOrder record by ID
+        /// Gets the work order by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>WorkOrder.</returns>
         public WorkOrder GetWorkOrderById(Int32 id)
         {
             if (IsCached)
@@ -34,7 +48,12 @@ namespace Enterprise.DAL.Core.Service
             return Query(SqlDatabase, Procedure.File_SelectById, WorkOrder.Build, id);
         }
 
-        
+
+        /// <summary>
+        /// Gets the work orders by request id.
+        /// </summary>
+        /// <param name="requestId">The request id.</param>
+        /// <returns>List{WorkOrder}.</returns>
         public List<WorkOrder> GetWorkOrdersByRequestId(Int32 requestId)
         {
             if (IsCached)

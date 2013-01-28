@@ -1,26 +1,43 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="AddressUseService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class AddressUseService
+    /// </summary>
     public class AddressUseService : ServiceBase<Address>
     {
         /// <summary>
-        /// Get all AddressUse records
+        /// Gets all address use records.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{AddressUse}.</returns>
         public List<AddressUse> GetAllAddressUseRecords()
         {
-            return QueryAll(SqlDatabase, Procedure.AddressUse_SelectAll, AddressUse.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.AddressUse_SelectAll, AddressUse.Build, CacheMinutesToExpire,
+                            IsCached);
         }
 
         /// <summary>
-        /// Get Address record by ID
+        /// Gets the address use by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>AddressUse.</returns>
         public AddressUse GetAddressUseById(int id)
         {
             if (IsCached)
@@ -33,10 +50,10 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get all AddressesUse records by AddressId
+        /// Gets the address use by address id.
         /// </summary>
-        /// <param name="addressID"></param>
-        /// <returns></returns>
+        /// <param name="addressID">The address ID.</param>
+        /// <returns>List{AddressUse}.</returns>
         public List<AddressUse> GetAddressUseByAddressId(int addressID)
         {
             if (IsCached)
@@ -49,11 +66,11 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get all AddressesUse records by AddressId and TypeId
+        /// Gets the address use by address id and type id.
         /// </summary>
-        /// <param name="addressID"></param>
-        /// <param name="typeID"></param>
-        /// <returns></returns>
+        /// <param name="addressID">The address ID.</param>
+        /// <param name="typeID">The type ID.</param>
+        /// <returns>AddressUse.</returns>
         public AddressUse GetAddressUseByAddressIdAndTypeId(int addressID, Int16 typeID)
         {
             if (IsCached)
@@ -62,7 +79,8 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddressUseRecords().Find(h) ?? new AddressUse();
             }
 
-            return Query(SqlDatabase, Procedure.AddressUse_SelectByAddressIdAndTypeId, AddressUse.Build, addressID, typeID);
+            return Query(SqlDatabase, Procedure.AddressUse_SelectByAddressIdAndTypeId, AddressUse.Build, addressID,
+                         typeID);
         }
     }
 }

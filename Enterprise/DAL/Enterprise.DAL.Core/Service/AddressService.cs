@@ -1,27 +1,42 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="AddressService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class AddressService
+    /// </summary>
     public class AddressService : ServiceBase<Address>
     {
-        
         /// <summary>
-        /// Get all Address records
+        /// Gets all address records.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{Address}.</returns>
         public List<Address> GetAllAddressRecords()
         {
             return QueryAll(SqlDatabase, Procedure.Address_SelectAll, Address.Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Get Address record by ID
+        /// Gets the address record by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>Address.</returns>
         public Address GetAddressRecordById(int id)
         {
             if (IsCached)
@@ -34,11 +49,11 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get all Address records for the provided EntityID and ParentID)
+        /// Gets the record by parent id and entity ID.
         /// </summary>
-        /// <param name="parentID"></param>
-        /// <param name="entityID"></param>
-        /// <returns></returns>
+        /// <param name="parentID">The parent ID.</param>
+        /// <param name="entityID">The entity ID.</param>
+        /// <returns>List{Address}.</returns>
         public List<Address> GetRecordByParentIdAndEntityID(int parentID, Int16 entityID)
         {
             if (IsCached)
@@ -47,7 +62,8 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddressRecords().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Address.Build, parentID, entityID);
+            return QueryAll(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Address.Build, parentID,
+                            entityID);
         }
     }
 }

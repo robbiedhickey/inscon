@@ -1,32 +1,50 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="LookupService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class LookupService
+    /// </summary>
     public class LookupService : ServiceBase<Lookup>
     {
-      
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LookupService"/> class.
+        /// </summary>
         public LookupService()
         {
             IsCached = true;
         }
 
         /// <summary>
-        /// Get All Lookup Values
+        /// Gets all lookups.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{Lookup}.</returns>
         public List<Lookup> GetAllLookups()
         {
             return QueryAll(SqlDatabase, Procedure.Lookup_SelectAll, Lookup.Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Get Lookup record by ID
+        /// Gets the lookup by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>Lookup.</returns>
         public Lookup GetLookupById(Int32 id)
         {
             if (IsCached)
@@ -38,10 +56,10 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get All Lookup values by GroupID
+        /// Gets the lookup values by group id.
         /// </summary>
-        /// <param name="groupID"></param>
-        /// <returns></returns>
+        /// <param name="groupID">The group ID.</param>
+        /// <returns>List{Lookup}.</returns>
         public List<Lookup> GetLookupValuesByGroupId(Int16 groupID)
         {
             if (IsCached)

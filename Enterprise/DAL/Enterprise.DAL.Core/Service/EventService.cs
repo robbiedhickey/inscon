@@ -1,26 +1,43 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="EventService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class EventService
+    /// </summary>
     public class EventService : ServiceBase<Event>
     {
-
         /// <summary>
-        /// Get all Event records
+        /// Gets all events.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{Event}.</returns>
         public List<Event> GetAllEvents()
         {
             return QueryAll(SqlDatabase, Procedure.Event_SelectAll, Event.Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Get Address record by ID
+        /// Gets the event by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>Event.</returns>
         public Event GetEventById(int id)
         {
             if (IsCached)
@@ -33,11 +50,11 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// 
+        /// Gets the event by parent id and entity ID.
         /// </summary>
-        /// <param name="parentID"></param>
-        /// <param name="entityID"></param>
-        /// <returns></returns>
+        /// <param name="parentID">The parent ID.</param>
+        /// <param name="entityID">The entity ID.</param>
+        /// <returns>Event.</returns>
         public Event GetEventByParentIdAndEntityID(int parentID, Int16 entityID)
         {
             if (IsCached)

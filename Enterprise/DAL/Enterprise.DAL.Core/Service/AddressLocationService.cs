@@ -1,16 +1,32 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="AddressLocationService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class AddressLocationService
+    /// </summary>
     public class AddressLocationService : ServiceBase<Address>
     {
-
         /// <summary>
-        /// Get All AddressLocation Records
+        /// Gets all addresses location records.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{AddressLocation}.</returns>
         public List<AddressLocation> GetAllAddressesLocationRecords()
         {
             return QueryAll(SqlDatabase, Procedure.AddressLocation_SelectAll, AddressLocation.Build,
@@ -18,10 +34,10 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get AddressLocation By RecordID
+        /// Gets the address location by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>AddressLocation.</returns>
         public AddressLocation GetAddressLocationById(int id)
         {
             if (IsCached)

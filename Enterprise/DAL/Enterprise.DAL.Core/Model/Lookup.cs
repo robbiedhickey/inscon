@@ -1,4 +1,18 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="Lookup.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using System;
 using Enterprise.DAL.Core.Service;
 using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Cache;
@@ -6,21 +20,41 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
-
+    /// <summary>
+    /// Class Lookup
+    /// </summary>
     public class Lookup : ModelBase
     {
         #region private variables
 
-        private Int32 _lookupID;
-        private Int16 _lookupGroupID;
-        private String _value;
+        /// <summary>
+        /// The _lookup group
+        /// </summary>
         private LookupGroup _lookupGroup;
+
+        /// <summary>
+        /// The _lookup group ID
+        /// </summary>
+        private Int16 _lookupGroupID;
+
+        /// <summary>
+        /// The _lookup ID
+        /// </summary>
+        private Int32 _lookupID;
+
+        /// <summary>
+        /// The _value
+        /// </summary>
+        private String _value;
 
         #endregion
 
         #region public properties
 
-      
+        /// <summary>
+        /// Gets or sets the lookup ID.
+        /// </summary>
+        /// <value>The lookup ID.</value>
         public int LookupID
         {
             get { return _lookupID; }
@@ -28,18 +62,30 @@ namespace Enterprise.DAL.Core.Model
         }
 
 
+        /// <summary>
+        /// Gets or sets the lookup group ID.
+        /// </summary>
+        /// <value>The lookup group ID.</value>
         public Int16 LookupGroupID
         {
             get { return _lookupGroupID; }
-            set { SetProperty(ref _lookupGroupID,  value); }
+            set { SetProperty(ref _lookupGroupID, value); }
         }
-        
+
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>The value.</value>
         public string Value
         {
             get { return _value; }
             set { SetProperty(ref _value, value); }
         }
 
+        /// <summary>
+        /// Gets the group.
+        /// </summary>
+        /// <value>The group.</value>
         public LookupGroup Group
         {
             get
@@ -59,11 +105,19 @@ namespace Enterprise.DAL.Core.Model
 
         #region public methods
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Lookup"/> class.
+        /// </summary>
         public Lookup()
         {
-            EntityNumber = (short) Entities.Lookup;
+            EntityNumber = Lookup_EntityId;
         }
 
+        /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Lookup.</returns>
         public static Lookup Build(ITypeReader reader)
         {
             var record = new Lookup
@@ -77,7 +131,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Insert a new record, or update the current record using ID
+        /// Saves this instance.
         /// </summary>
         public void Save()
         {
@@ -87,9 +141,9 @@ namespace Enterprise.DAL.Core.Model
                 {
                     // Update
                     Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Update
-                                        , _lookupID
-                                        , _lookupGroupID
-                                        , _value));
+                                       , _lookupID
+                                       , _lookupGroupID
+                                       , _value));
                     CommitChanges();
                 }
             }
@@ -97,15 +151,15 @@ namespace Enterprise.DAL.Core.Model
             {
                 // Insert
                 _lookupID = Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Insert
-                                        , _lookupGroupID
-                                        , _value), Convert.ToInt32);
+                                               , _lookupGroupID
+                                               , _value), Convert.ToInt32);
                 CacheItem.Clear<Lookup>();
             }
         }
 
         /// <summary>
-        /// Removes current record using ID
-        ///  </summary>
+        /// Removes this instance.
+        /// </summary>
         public void Remove()
         {
             Execute(GetCommand(Database.EnterpriseDb, Procedure.Lookup_Delete, _lookupID));

@@ -1,27 +1,43 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="WorkOrderAssignmentService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
-    public class WorkOrderAssignmentService: ServiceBase<WorkOrderAssignment>
+    /// <summary>
+    /// Class WorkOrderAssignmentService
+    /// </summary>
+    public class WorkOrderAssignmentService : ServiceBase<WorkOrderAssignment>
     {
-
         /// <summary>
-        /// Get all WorkOrderAssignment records
+        /// Gets all work order assignments.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{WorkOrderAssignment}.</returns>
         public List<WorkOrderAssignment> GetAllWorkOrderAssignments()
         {
-            return QueryAll(SqlDatabase, Procedure.WorkOrderAssignment_SelectAll, WorkOrderAssignment.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.WorkOrderAssignment_SelectAll, WorkOrderAssignment.Build,
+                            CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Get WorkOrderAssignment record by ID
+        /// Gets the work order assignment by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>WorkOrderAssignment.</returns>
         public WorkOrderAssignment GetWorkOrderAssignmentById(Int32 id)
         {
             if (IsCached)
@@ -34,10 +50,10 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get All Assignments by WorkOrderID
+        /// Gets all work order assignments by work order id.
         /// </summary>
-        /// <param name="workOrderId"></param>
-        /// <returns></returns>
+        /// <param name="workOrderId">The work order id.</param>
+        /// <returns>List{WorkOrderAssignment}.</returns>
         public List<WorkOrderAssignment> GetAllWorkOrderAssignmentsByWorkOrderId(Int32 workOrderId)
         {
             if (IsCached)
@@ -46,9 +62,8 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllWorkOrderAssignments().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.WorkOrderAssignment_SelectByWorkOrderId, WorkOrderAssignment.Build, workOrderId);
+            return QueryAll(SqlDatabase, Procedure.WorkOrderAssignment_SelectByWorkOrderId, WorkOrderAssignment.Build,
+                            workOrderId);
         }
-
-
     }
 }

@@ -1,23 +1,49 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="LookupGroup.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using System;
 using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Data;
 using Enterprise.DAL.Framework.Cache;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
+    /// <summary>
+    /// Class LookupGroup
+    /// </summary>
     public class LookupGroup : ModelBase
     {
-
         #region private variables
 
+        /// <summary>
+        /// The _lookup group ID
+        /// </summary>
         private Int16 _lookupGroupID;
+
+        /// <summary>
+        /// The _name
+        /// </summary>
         private string _name;
 
         #endregion
 
         #region public properties
 
-
+        /// <summary>
+        /// Gets or sets the lookup group ID.
+        /// </summary>
+        /// <value>The lookup group ID.</value>
         public Int16 LookupGroupID
         {
             get { return _lookupGroupID; }
@@ -25,6 +51,10 @@ namespace Enterprise.DAL.Core.Model
         }
 
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>The name.</value>
         public string Name
         {
             get { return _name; }
@@ -35,11 +65,19 @@ namespace Enterprise.DAL.Core.Model
 
         #region public methods
 
-       public LookupGroup()
-       {
-           EntityNumber = (short) Entities.LookupGroup;
-       }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LookupGroup"/> class.
+        /// </summary>
+        public LookupGroup()
+        {
+            EntityNumber = LookupGroup_EntityId;
+        }
 
+        /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>LookupGroup.</returns>
         public static LookupGroup Build(ITypeReader reader)
         {
             var record = new LookupGroup
@@ -53,7 +91,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        /// Insert a new record, or update the current record using ID
+        /// Saves this instance.
         /// </summary>
         public void Save()
         {
@@ -72,14 +110,14 @@ namespace Enterprise.DAL.Core.Model
             {
                 // Insert
                 _lookupGroupID = Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupGroup_Insert
-                                        , _name), Convert.ToInt16);
+                                                    , _name), Convert.ToInt16);
                 CacheItem.Clear<LookupGroup>();
             }
         }
 
         /// <summary>
-        /// Removes current record using ID
-        ///  </summary>
+        /// Removes this instance.
+        /// </summary>
         public void Remove()
         {
             Execute(GetCommand(Database.EnterpriseDb, Procedure.LookupGroup_Delete, _lookupGroupID));

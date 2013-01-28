@@ -1,27 +1,42 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="UserService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class UserService
+    /// </summary>
     public class UserService : ServiceBase<User>
     {
-
         /// <summary>
-        /// Get All Users
+        /// Gets all users.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{User}.</returns>
         public List<User> GetAllUsers()
         {
             return QueryAll(SqlDatabase, Procedure.User_SelectAll, User.Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Get User record by ID
+        /// Gets the user by id.
         /// </summary>
-        /// <param name="idUser"></param>
-        /// <returns></returns>
+        /// <param name="idUser">The id user.</param>
+        /// <returns>User.</returns>
         public User GetUserById(int idUser)
         {
             if (IsCached)
@@ -33,10 +48,10 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get User records by OrganizationId
+        /// Gets the users by organization id.
         /// </summary>
-        /// <param name="idOrganization"></param>
-        /// <returns></returns>
+        /// <param name="idOrganization">The id organization.</param>
+        /// <returns>List{User}.</returns>
         public List<User> GetUsersByOrganizationId(int idOrganization)
         {
             if (IsCached)
@@ -49,11 +64,11 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get User records by OrganizationId and IsActive
+        /// Gets the users by organization id and is active.
         /// </summary>
-        /// <param name="idOrganization"></param>
-        /// <param name="idStatus"></param>
-        /// <returns></returns>
+        /// <param name="idOrganization">The id organization.</param>
+        /// <param name="idStatus">The id status.</param>
+        /// <returns>List{User}.</returns>
         public List<User> GetUsersByOrganizationIdAndIsActive(int idOrganization, int idStatus)
         {
             if (IsCached)
@@ -62,8 +77,8 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUsers().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationIdAndStatusId, User.Build, idOrganization, idStatus);
+            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationIdAndStatusId, User.Build, idOrganization,
+                            idStatus);
         }
-
     }
 }

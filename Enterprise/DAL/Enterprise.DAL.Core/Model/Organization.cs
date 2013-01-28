@@ -1,4 +1,18 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="Organization.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Service;
 using Enterprise.DAL.Core.Types;
@@ -7,28 +21,61 @@ using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
+    /// <summary>
+    /// Class Organization
+    /// </summary>
     [Serializable]
     public class Organization : ModelBase
     {
         #region private variables
 
+        /// <summary>
+        /// The _code
+        /// </summary>
         private string _code;
+
+        /// <summary>
+        /// The _name
+        /// </summary>
         private string _name;
+
+        /// <summary>
+        /// The _organization ID
+        /// </summary>
         private int _organizationID;
+
+        /// <summary>
+        /// The _status ID
+        /// </summary>
         private int _statusID;
+
+        /// <summary>
+        /// The _type ID
+        /// </summary>
         private int _typeID;
+
+        /// <summary>
+        /// The _users
+        /// </summary>
         private List<User> _users;
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Organization"/> class.
+        /// </summary>
         public Organization()
         {
-            EntityNumber = (short) Entities.Organization;
+            EntityNumber = Organization_EntityId;
         }
 
         #endregion
 
         #region public properties
 
+        /// <summary>
+        /// Gets or sets the organization ID.
+        /// </summary>
+        /// <value>The organization ID.</value>
         public int OrganizationID
         {
             get { return _organizationID; }
@@ -36,42 +83,70 @@ namespace Enterprise.DAL.Core.Model
         }
 
 
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>The name.</value>
         public string Name
         {
             get { return _name; }
             set { SetProperty(ref _name, value); }
         }
 
+        /// <summary>
+        /// Gets or sets the code.
+        /// </summary>
+        /// <value>The code.</value>
         public string Code
         {
             get { return _code; }
             set { SetProperty(ref _code, value); }
         }
 
+        /// <summary>
+        /// Gets or sets the type ID.
+        /// </summary>
+        /// <value>The type ID.</value>
         public int TypeID
         {
             get { return _typeID; }
             set { SetProperty(ref _typeID, value); }
         }
 
+        /// <summary>
+        /// Gets or sets the status ID.
+        /// </summary>
+        /// <value>The status ID.</value>
         public int StatusID
         {
             get { return _statusID; }
             set { SetProperty(ref _statusID, value); }
         }
 
+        /// <summary>
+        /// Gets the status.
+        /// </summary>
+        /// <value>The status.</value>
         public string Status
         {
             // Read only lookup value
             get { return new LookupService().GetLookupById(_statusID).Value; }
         }
 
+        /// <summary>
+        /// Gets the type.
+        /// </summary>
+        /// <value>The type.</value>
         public string Type
         {
             // Read only lookup value
             get { return new LookupService().GetLookupById(_typeID).Value; }
         }
 
+        /// <summary>
+        /// Gets the users.
+        /// </summary>
+        /// <value>The users.</value>
         public List<User> Users
         {
             get
@@ -89,6 +164,11 @@ namespace Enterprise.DAL.Core.Model
 
         #region public methods
 
+        /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Organization.</returns>
         public static Organization Build(ITypeReader reader)
         {
             var record = new Organization
@@ -105,7 +185,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        ///     Insert a new record, or update the current record using ID
+        /// Saves this instance.
         /// </summary>
         public void Save()
         {
@@ -136,7 +216,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Removes current record using ID
+        /// Removes this instance.
         /// </summary>
         public void Remove()
         {

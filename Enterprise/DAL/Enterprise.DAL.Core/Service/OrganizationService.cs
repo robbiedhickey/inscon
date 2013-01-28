@@ -1,33 +1,51 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="OrganizationService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class OrganizationService
+    /// </summary>
     public class OrganizationService : ServiceBase<Organization>
     {
-        
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrganizationService"/> class.
+        /// </summary>
         public OrganizationService()
         {
             IsCached = true;
         }
 
         /// <summary>
-        /// Get all Organization records
+        /// Gets all organizations.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{Organization}.</returns>
         public List<Organization> GetAllOrganizations()
         {
-            return QueryAll(SqlDatabase, Procedure.Organization_SelectAll, Organization.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.Organization_SelectAll, Organization.Build, CacheMinutesToExpire,
+                            IsCached);
         }
 
         /// <summary>
-        /// Get Organization record by ID
+        /// Gets the organization by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>Organization.</returns>
         public Organization GetOrganizationById(int id)
         {
             if (IsCached)
@@ -40,10 +58,10 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get all Organization reocrds by TypeID
+        /// Gets the organizations by type id.
         /// </summary>
-        /// <param name="typeID"></param>
-        /// <returns></returns>
+        /// <param name="typeID">The type ID.</param>
+        /// <returns>List{Organization}.</returns>
         public List<Organization> GetOrganizationsByTypeId(int? typeID)
         {
             if (typeID == null)

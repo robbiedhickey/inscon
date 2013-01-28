@@ -169,7 +169,7 @@ namespace Enterprise.DAL.Framework.Data
 		/// <param name="procedure"></param>
 		/// <param name="args"></param>
 		/// <returns></returns>
-		protected IDbCommand GetCommand( string database, string procedure, params object[] args )
+		public IDbCommand GetCommand( string database, string procedure, params object[] args )
 		{
 			return TimedCommand( SqlContext(database).CreateCommand( procedure, args ) );
 		}

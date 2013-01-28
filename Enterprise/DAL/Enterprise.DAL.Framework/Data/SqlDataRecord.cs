@@ -8,13 +8,29 @@ namespace Enterprise.DAL.Framework.Data
     /// </summary>
     public abstract class SqlDataRecord : SqlDataExecutor, IDataRecord
     {
+        /// <summary>
+        ///     The _dirty table
+        /// </summary>
         private Dictionary<string, bool> _dirtyTable;
 
+        /// <summary>
+        ///     The _track changes
+        /// </summary>
         private bool _trackChanges;
 
 
+        /// <summary>
+        ///     Gets or sets the entity number.
+        /// </summary>
+        /// <value>The entity number.</value>
         public short EntityNumber { get; set; }
 
+        /// <summary>
+        ///     Gets or sets a value indicating whether [track changes].
+        /// </summary>
+        /// <value>
+        ///     <c>true</c> if [track changes]; otherwise, <c>false</c>.
+        /// </value>
         public bool TrackChanges
         {
             get { return _trackChanges; }
@@ -33,7 +49,9 @@ namespace Enterprise.DAL.Framework.Data
         /// <summary>
         ///     Determines if any member of this listing has changed.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        ///     <c>true</c> if this instance is changed; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsChanged()
         {
             if (_dirtyTable != null)
@@ -44,11 +62,19 @@ namespace Enterprise.DAL.Framework.Data
             return false;
         }
 
+        /// <summary>
+        ///     Determines whether the specified column is dirty.
+        /// </summary>
+        /// <param name="column">The column.</param>
         public void IsDirty(string column)
         {
             _dirtyTable[column] = true;
         }
 
+        /// <summary>
+        ///     Sets the changed.
+        /// </summary>
+        /// <param name="column">The column.</param>
         public void SetChanged(string column)
         {
             if (_dirtyTable == null)
@@ -59,11 +85,22 @@ namespace Enterprise.DAL.Framework.Data
             _dirtyTable[column] = true;
         }
 
+        /// <summary>
+        ///     Determines whether the specified field is changed.
+        /// </summary>
+        /// <param name="field">The field.</param>
+        /// <returns>
+        ///     <c>true</c> if the specified field is changed; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsChanged(string field)
         {
             return _dirtyTable != null && _dirtyTable.ContainsKey(field) && _dirtyTable[field];
         }
 
+        /// <summary>
+        ///     Dirties the fields.
+        /// </summary>
+        /// <returns>System.String[][].</returns>
         public string[] DirtyFields()
         {
             var fields = new List<string>();
@@ -76,11 +113,21 @@ namespace Enterprise.DAL.Framework.Data
             return fields.ToArray();
         }
 
+        /// <summary>
+        ///     Commits the changes.
+        /// </summary>
         public void CommitChanges()
         {
             _dirtyTable.Clear();
         }
 
+        /// <summary>
+        ///     Sets the property.
+        /// </summary>
+        /// <typeparam name="TValue">The type of the T value.</typeparam>
+        /// <param name="member">The member.</param>
+        /// <param name="newValue">The new value.</param>
+        /// <param name="equalityComparer">The equality comparer.</param>
         protected void SetProperty<TValue>(ref TValue member, TValue newValue,
                                            IEqualityComparer<TValue> equalityComparer)
         {
@@ -94,6 +141,12 @@ namespace Enterprise.DAL.Framework.Data
             }
         }
 
+        /// <summary>
+        ///     Sets the property.
+        /// </summary>
+        /// <typeparam name="TValue">The type of the T value.</typeparam>
+        /// <param name="member">The member.</param>
+        /// <param name="newValue">The new value.</param>
         protected void SetProperty<TValue>(ref TValue member, TValue newValue)
         {
             SetProperty(ref member, newValue, EqualityComparer<TValue>.Default);

@@ -1,26 +1,42 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="LocationService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class LocationService
+    /// </summary>
     public class LocationService : ServiceBase<Location>
     {
         /// <summary>
-        /// Get all Location records
+        /// Gets all locations.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{Location}.</returns>
         public List<Location> GetAllLocations()
         {
             return QueryAll(SqlDatabase, Procedure.Location_SelectAll, Location.Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        ///     Get Location record by ID
+        /// Gets the location by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>Location.</returns>
         public Location GetLocationById(int id)
         {
             if (IsCached)
@@ -33,10 +49,10 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get All locations by Organization
+        /// Gets the locations by organization id.
         /// </summary>
-        /// <param name="orgId"></param>
-        /// <returns></returns>
+        /// <param name="orgId">The org id.</param>
+        /// <returns>List{Location}.</returns>
         public List<Location> GetLocationsByOrganizationId(int orgId)
         {
             if (IsCached)
@@ -49,11 +65,11 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get All locations by Organization and Type
+        /// Gets the locations by organization idand type id.
         /// </summary>
-        /// <param name="orgId"></param>
-        /// <param name="typeId"></param>
-        /// <returns></returns>
+        /// <param name="orgId">The org id.</param>
+        /// <param name="typeId">The type id.</param>
+        /// <returns>List{Location}.</returns>
         public List<Location> GetLocationsByOrganizationIdandTypeId(Int32 orgId, Int32 typeId)
         {
             if (IsCached)

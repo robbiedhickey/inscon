@@ -1,26 +1,43 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="UserNotificationService.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+
 namespace Enterprise.DAL.Core.Service
 {
+    /// <summary>
+    /// Class UserNotificationService
+    /// </summary>
     public class UserNotificationService : ServiceBase<UserNotification>
     {
-
         /// <summary>
-        /// Get all UserNotification records
+        /// Gets all user notifications.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List{UserNotification}.</returns>
         public List<UserNotification> GetAllUserNotifications()
         {
-            return QueryAll(SqlDatabase, Procedure.UserNotification_SelectAll, UserNotification.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.UserNotification_SelectAll, UserNotification.Build,
+                            CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Get UserNotification record by ID
+        /// Gets the user notification by id.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id.</param>
+        /// <returns>UserNotification.</returns>
         public UserNotification GetUserNotificationById(Int32 id)
         {
             if (IsCached)
@@ -33,10 +50,10 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Get a list of User Notifications by UserDD
+        /// Gets the user notifications by user id.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
+        /// <param name="userId">The user id.</param>
+        /// <returns>List{UserNotification}.</returns>
         public List<UserNotification> GetUserNotificationsByUserId(Int32 userId)
         {
             if (IsCached)

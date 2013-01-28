@@ -1,4 +1,17 @@
-﻿using System;
+﻿// ***********************************************************************
+// Assembly         : Enterprise.DAL.Core
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="Procedure.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System;
 
 namespace Enterprise.DAL.Core.Types
 {
@@ -71,7 +84,10 @@ namespace Enterprise.DAL.Core.Types
         public const String Location_SelectAll = @"[crud].[Location_SelectAll]";
         public const String Location_SelectById = @"[crud].[Location_SelectById]";
         public const String Location_SelectByOrganizationId = @"[crud].[Location_SelectByOrganizationId]";
-        public const String Location_SelectByOrganizationIdAndTypeId = @"[crud].[Location_SelectByOrganizationIdAndTypeId]";
+
+        public const String Location_SelectByOrganizationIdAndTypeId =
+            @"[crud].[Location_SelectByOrganizationIdAndTypeId]";
+
         public const String Location_Update = @"[crud].[Location_Update]";
         // Lookup
         public const String Lookup_Delete = @"[crud].[Lookup_Delete]";
@@ -133,7 +149,10 @@ namespace Enterprise.DAL.Core.Types
         public const String UserAreaCoverage_Insert = @"[crud].[UserAreaCoverage_Insert]";
         public const String UserAreaCoverage_SelectAll = @"[crud].[UserAreaCoverage_SelectAll]";
         public const String UserAreaCoverage_SelectById = @"[crud].[UserAreaCoverage_SelectById]";
-        public const String UserAreaCoverage_SelectByUserIdAndServiceId = @"[crud].[UserAreaCoverage_SelectByUserIdAndServiceId]";
+
+        public const String UserAreaCoverage_SelectByUserIdAndServiceId =
+            @"[crud].[UserAreaCoverage_SelectByUserIdAndServiceId]";
+
         public const String UserAreaCoverage_Update = @"[crud].[UserAreaCoverage_Update]";
         // UserContact
         public const String UserContact_Delete = @"[crud].[UserContact_Delete]";
@@ -162,7 +181,9 @@ namespace Enterprise.DAL.Core.Types
         public const String WorkOrderAssignment_Insert = @"[crud].[WorkOrderAssignment_Insert]";
         public const String WorkOrderAssignment_SelectAll = @"[crud].[WorkOrderAssignment_SelectAll]";
         public const String WorkOrderAssignment_SelectById = @"[crud].[WorkOrderAssignment_SelectById]";
+
         public const String WorkOrderAssignment_SelectByWorkOrderId = @"[crud].[WorkOrderAssignment_SelectByWorkOrderId]";
+
         public const String WorkOrderAssignment_Update = @"[crud].[WorkOrderAssignment_Update]";
         // WorkOrderItem
         public const String WorkOrderItem_Delete = @"[crud].[WorkOrderItem_Delete]";
@@ -171,7 +192,7 @@ namespace Enterprise.DAL.Core.Types
         public const String WorkOrderItem_SelectById = @"[crud].[WorkOrderItem_SelectById]";
         public const String WorkOrderItem_SelectByWorkorderId = @"[crud].[WorkOrderItem_SelectByWorkorderId]";
         public const String WorkOrderItem_Update = @"[crud].[WorkOrderItem_Update]";
-        
+
         #endregion
     }
 }
