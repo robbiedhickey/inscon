@@ -127,9 +127,11 @@
     <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\ClaimsController.cs" />
     <Compile Include="Controllers\ExampleLayoutsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ClaimRecord.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
@@ -216,6 +218,16 @@
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\html5shiv.js" />
     <Content Include="packageRestore.proj" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Create.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Delete.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Details.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Edit.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\Empty.tt" />
+    <Content Include="CodeTemplates\AddView\CSHTML\List.tt" />
+    <Content Include="CodeTemplates\AddController\Controller.tt" />
+    <Content Include="CodeTemplates\AddController\ControllerWithContext.tt" />
+    <Content Include="CodeTemplates\AddController\ApiController.tt" />
+    <Content Include="CodeTemplates\AddController\ApiControllerWithContext.tt" />
     <None Include="Properties\PublishProfiles\Inscon1 Client.pubxml" />
     <None Include="scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="scripts\jquery-1.9.0.js" />
@@ -256,6 +268,11 @@
     <Content Include="Views\Claims\ReadOnly.cshtml" />
     <Content Include="Views\shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\shared\EditorTemplates\Decimal.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.QA.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
@@ -269,6 +286,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\shared\_html5shiv.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ApplicationServices\AuthenticationService\AuthenticationService.csproj">
+      <Project>{def58c44-1bc5-4b6f-b420-5be8252585dc}</Project>
+      <Name>AuthenticationService</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

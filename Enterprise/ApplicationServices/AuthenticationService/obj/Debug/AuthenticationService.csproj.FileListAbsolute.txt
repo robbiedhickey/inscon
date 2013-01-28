@@ -1,0 +1,4 @@
+C:\Work\InsightConcept\Enterprise\ApplicationServices\AuthenticationService\bin\Debug\AuthenticationService.dll
+C:\Work\InsightConcept\Enterprise\ApplicationServices\AuthenticationService\bin\Debug\AuthenticationService.pdb
+C:\Work\InsightConcept\Enterprise\ApplicationServices\AuthenticationService\obj\Debug\AuthenticationService.dll
+C:\Work\InsightConcept\Enterprise\ApplicationServices\AuthenticationService\obj\Debug\AuthenticationService.pdb

@@ -58,3 +58,5 @@ C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDa
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\obj\Debug\ClientDashboard.csprojResolveAssemblyReference.cache
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\obj\Debug\ClientDashboard.dll
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\obj\Debug\ClientDashboard.pdb
+C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\AuthenticationService.dll
+C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\AuthenticationService.pdb
