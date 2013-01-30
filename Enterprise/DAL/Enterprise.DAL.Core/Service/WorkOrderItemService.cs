@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,33 @@ namespace Enterprise.DAL.Core.Service
     public class WorkOrderItemService : ServiceBase<WorkOrderItem>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>WorkOrderItem.</returns>
+        public static WorkOrderItem Build(ITypeReader reader)
+        {
+            var record = new WorkOrderItem
+                {
+                    WorkOrderItemId = reader.GetInt32("WorkOrderItemID"),
+                    WorkOrderId = reader.GetInt32("WorkOrderID"),
+                    ProductId = reader.GetInt32("ProductID"),
+                    Quantity = reader.GetDecimal("Quantity"),
+                    Rate = reader.GetDecimal("Rate"),
+                    DateInserted = reader.GetDate("DateInserted")
+                };
+
+            return record;
+        }
+
+
+        /// <summary>
         /// Gets all work order items.
         /// </summary>
         /// <returns>List{WorkOrderItem}.</returns>
         public List<WorkOrderItem> GetAllWorkOrderItems()
         {
-            return QueryAll(SqlDatabase, Procedure.WorkOrderItem_SelectAll, WorkOrderItem.Build, CacheMinutesToExpire,
+            return QueryAll(SqlDatabase, Procedure.WorkOrderItem_SelectAll, Build, CacheMinutesToExpire,
                             IsCached);
         }
 
@@ -46,7 +69,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllWorkOrderItems().Find(h) ?? new WorkOrderItem();
             }
 
-            return Query(SqlDatabase, Procedure.WorkOrderItem_SelectById, WorkOrderItem.Build, id);
+            return Query(SqlDatabase, Procedure.WorkOrderItem_SelectById, Build, id);
         }
 
         /// <summary>
@@ -62,7 +85,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllWorkOrderItems().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.WorkOrderItem_SelectByWorkorderId, WorkOrderItem.Build, workOrderId);
+            return QueryAll(SqlDatabase, Procedure.WorkOrderItem_SelectByWorkorderId, Build, workOrderId);
         }
     }
 }

@@ -47,6 +47,7 @@
     <Compile Include="Data\DataAccessor.cs" />
     <Compile Include="Data\DataFormat.cs" />
     <Compile Include="Data\DataRecord.cs" />
+    <Compile Include="Data\DataRecordTask.cs" />
     <Compile Include="Data\IDataAccessor.cs" />
     <Compile Include="Data\IDataContext.cs" />
     <Compile Include="Data\IDataModifier.cs" />
@@ -55,7 +56,7 @@
     <Compile Include="Data\ListMapReader.cs" />
     <Compile Include="Data\MemoryCommand.cs" />
     <Compile Include="Data\MemoryContext.cs" />
-    <Compile Include="Data\NullHandler.cs" />
+    <Compile Include="Data\ModelHelper.cs" />
     <Compile Include="Data\SqlDataAccessor.cs" />
     <Compile Include="Data\SqlDataContext.cs" />
     <Compile Include="Data\SqlDataExecutor.cs" />
@@ -67,6 +68,9 @@
     <Compile Include="ValidationException.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1-ci9001\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -77,6 +81,7 @@
       <HintPath>..\..\ThirdParty\EntLib50Src\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Caching" />

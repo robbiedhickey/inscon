@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,30 @@ namespace Enterprise.DAL.Core.Service
     public class UserContactService : ServiceBase<UserContact>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>UserContact.</returns>
+        public static UserContact Build(ITypeReader reader)
+        {
+            var record = new UserContact
+                {
+                    UserContactId = reader.GetInt32("UserContactID"),
+                    UserId = reader.GetInt32("UserID"),
+                    Value = reader.GetString("Value"),
+                    TypeId = reader.GetInt32("TypeID"),
+                    IsPrimary = reader.GetBool("IsPrimary")
+                };
+            return record;
+        }
+
+        /// <summary>
         /// Gets all user contacts.
         /// </summary>
         /// <returns>List{UserContact}.</returns>
         public List<UserContact> GetAllUserContacts()
         {
-            return QueryAll(SqlDatabase, Procedure.UserContact_SelectAll, UserContact.Build, CacheMinutesToExpire,
+            return QueryAll(SqlDatabase, Procedure.UserContact_SelectAll, Build, CacheMinutesToExpire,
                             IsCached);
         }
 
@@ -46,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUserContacts().Find(h) ?? new UserContact();
             }
 
-            return Query(SqlDatabase, Procedure.UserContact_SelectById, UserContact.Build, id);
+            return Query(SqlDatabase, Procedure.UserContact_SelectById, Build, id);
         }
 
 
@@ -63,7 +83,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUserContacts().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.UserContact_SelectByUserId, UserContact.Build, userID);
+            return QueryAll(SqlDatabase, Procedure.UserContact_SelectByUserId, Build, userID);
         }
 
         /// <summary>
@@ -80,7 +100,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUserContacts().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.UserContact_SelectByUserId, UserContact.Build, userID, typeId);
+            return QueryAll(SqlDatabase, Procedure.UserContact_SelectByUserId, Build, userID, typeId);
         }
     }
 }

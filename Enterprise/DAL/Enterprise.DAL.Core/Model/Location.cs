@@ -11,53 +11,44 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
-using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Cache;
-using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    /// Class Location
+    ///     Class Location
     /// </summary>
     public class Location : ModelBase
     {
         /// <summary>
-        /// The _code
+        ///     The _code
         /// </summary>
         private string _code;
 
         /// <summary>
-        /// The _location id
+        ///     The _location id
         /// </summary>
         private int _locationId;
 
         /// <summary>
-        /// The _name
+        ///     The _name
         /// </summary>
         private string _name;
 
         /// <summary>
-        /// The _organization id
+        ///     The _organization id
         /// </summary>
         private int _organizationId;
 
         /// <summary>
-        /// The _type id
+        ///     The _type id
         /// </summary>
         private int _typeId;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Location"/> class.
-        /// </summary>
-        public Location()
-        {
-            EntityNumber = Location_EntityId;
-        }
 
         /// <summary>
-        /// Gets or sets the location id.
+        ///     Gets or sets the location id.
         /// </summary>
         /// <value>The location id.</value>
         public Int32 LocationId
@@ -67,7 +58,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the organization id.
+        ///     Gets or sets the organization id.
         /// </summary>
         /// <value>The organization id.</value>
         public Int32 OrganizationId
@@ -77,7 +68,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the name.
+        ///     Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         public String Name
@@ -87,7 +78,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the code.
+        ///     Gets or sets the code.
         /// </summary>
         /// <value>The code.</value>
         public String Code
@@ -97,7 +88,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the type id.
+        ///     Gets or sets the type id.
         /// </summary>
         /// <value>The type id.</value>
         public Int32 TypeId
@@ -109,62 +100,11 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        /// Builds the specified reader.
+        ///     Initializes a new instance of the <see cref="Location" /> class.
         /// </summary>
-        /// <param name="reader">The reader.</param>
-        /// <returns>Location.</returns>
-        public static Location Build(ITypeReader reader)
+        public Location()
         {
-            var record = new Location
-                {
-                    LocationId = reader.GetInt32("LocationID"),
-                    OrganizationId = reader.GetInt32("OrganizationID"),
-                    Name = reader.GetString("Name"),
-                    Code = reader.GetString("Code"),
-                    TypeId = reader.GetInt32("TypeID")
-                };
-
-            return record;
-        }
-
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        public void Save()
-        {
-            if (_locationId != 0)
-            {
-                if (IsChanged())
-                {
-                    // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.Location_Update
-                                       , _locationId
-                                       , _organizationId
-                                       , _name
-                                       , _code
-                                       , _typeId));
-                    CommitChanges();
-                }
-            }
-            else
-            {
-                // Insert
-                _locationId = Execute(GetCommand(Database.EnterpriseDb, Procedure.Location_Insert
-                                                 , _organizationId
-                                                 , _name
-                                                 , _code
-                                                 , _typeId), Convert.ToInt32);
-                CacheItem.Clear<Location>();
-            }
-        }
-
-        /// <summary>
-        /// Removes this instance.
-        /// </summary>
-        public void Remove()
-        {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.Location_Delete, _locationId));
-            CacheItem.Clear<Location>();
+            EntityNumber = Location_EntityId;
         }
 
         #endregion

@@ -41,20 +41,44 @@ namespace Enterprise.DAL.Core.Service
         /// </summary>
         /// <value>The cache minutes to expire.</value>
         public Int16 CacheMinutesToExpire { get; set; }
+
         /// <summary>
         /// Gets or sets the SQL database.
         /// </summary>
         /// <value>The SQL database.</value>
         public String SqlDatabase { get; set; }
+
         /// <summary>
         /// Gets or sets the is cached.
         /// </summary>
         /// <value>The is cached.</value>
         public Boolean IsCached { get; set; }
+
         /// <summary>
         /// Gets or sets the name of the entity.
         /// </summary>
         /// <value>The name of the entity.</value>
         public String EntityName { get; set; }
-    }
+
+        public Int32 SaveRecord(T model)
+        {
+            var record = new DataRecordTask<T>
+            {
+                Model = model
+            };
+
+            return record.SaveRecord();
+        }
+
+        public void DeleteRecord(T model)
+        {
+            var record = new DataRecordTask<T>
+                {
+                    Model = model
+                };
+            record.DeleteRecord();
+        }
+    
+}
+
 }

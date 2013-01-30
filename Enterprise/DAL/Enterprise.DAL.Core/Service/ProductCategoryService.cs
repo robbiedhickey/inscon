@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,30 @@ namespace Enterprise.DAL.Core.Service
     public class ProductCategoryService : ServiceBase<Address>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>ProductCategory.</returns>
+        public static ProductCategory Build(ITypeReader reader)
+        {
+            var record = new ProductCategory
+                {
+                    ProductCategoryId = reader.GetInt32("ProductCategoryID"),
+                    Name = reader.GetString("name"),
+                    Code = reader.GetString("Code")
+                };
+
+            return record;
+        }
+
+
+        /// <summary>
         /// Gets all product categories.
         /// </summary>
         /// <returns>List{ProductCategory}.</returns>
         public List<ProductCategory> GetAllProductCategories()
         {
-            return QueryAll(SqlDatabase, Procedure.ProductCategory_SelectAll, ProductCategory.Build,
+            return QueryAll(SqlDatabase, Procedure.ProductCategory_SelectAll, Build,
                             CacheMinutesToExpire, IsCached);
         }
 
@@ -46,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllProductCategories().Find(h) ?? new ProductCategory();
             }
 
-            return Query(SqlDatabase, Procedure.ProductCategory_SelectById, ProductCategory.Build, id);
+            return Query(SqlDatabase, Procedure.ProductCategory_SelectById, Build, id);
         }
     }
 }

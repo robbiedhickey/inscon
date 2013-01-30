@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,31 @@ namespace Enterprise.DAL.Core.Service
     public class LocationService : ServiceBase<Location>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Location.</returns>
+        public static Location Build(ITypeReader reader)
+        {
+            var record = new Location
+                {
+                    LocationId = reader.GetInt32("LocationID"),
+                    OrganizationId = reader.GetInt32("OrganizationID"),
+                    Name = reader.GetString("Name"),
+                    Code = reader.GetString("Code"),
+                    TypeId = reader.GetInt32("TypeID")
+                };
+
+            return record;
+        }
+
+        /// <summary>
         /// Gets all locations.
         /// </summary>
         /// <returns>List{Location}.</returns>
         public List<Location> GetAllLocations()
         {
-            return QueryAll(SqlDatabase, Procedure.Location_SelectAll, Location.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.Location_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -45,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllLocations().Find(h) ?? new Location();
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectById, Location.Build, id);
+            return Query(SqlDatabase, Procedure.Address_SelectById, Build, id);
         }
 
         /// <summary>
@@ -61,7 +82,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllLocations().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.Location_SelectByOrganizationId, Location.Build, orgId);
+            return QueryAll(SqlDatabase, Procedure.Location_SelectByOrganizationId, Build, orgId);
         }
 
         /// <summary>
@@ -78,7 +99,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllLocations().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.Location_SelectByOrganizationIdAndTypeId, Location.Build, orgId,
+            return QueryAll(SqlDatabase, Procedure.Location_SelectByOrganizationIdAndTypeId, Build, orgId,
                             typeId);
         }
     }

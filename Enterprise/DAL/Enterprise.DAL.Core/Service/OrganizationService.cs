@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -23,6 +25,25 @@ namespace Enterprise.DAL.Core.Service
     /// </summary>
     public class OrganizationService : ServiceBase<Organization>
     {
+        /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Organization.</returns>
+        public static Organization Build(ITypeReader reader)
+        {
+            var record = new Organization
+                {
+                    OrganizationID = reader.GetInt32("OrganizationID"),
+                    Name = reader.GetString("Name"),
+                    Code = reader.GetString("Code"),
+                    TypeID = reader.GetInt32("TypeID"),
+                    StatusID = reader.GetInt32("StatusID"),
+                };
+
+            return record;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OrganizationService"/> class.
         /// </summary>
@@ -37,7 +58,7 @@ namespace Enterprise.DAL.Core.Service
         /// <returns>List{Organization}.</returns>
         public List<Organization> GetAllOrganizations()
         {
-            return QueryAll(SqlDatabase, Procedure.Organization_SelectAll, Organization.Build, CacheMinutesToExpire,
+            return QueryAll(SqlDatabase, Procedure.Organization_SelectAll, Build, CacheMinutesToExpire,
                             IsCached);
         }
 
@@ -54,7 +75,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllOrganizations().Find(h) ?? new Organization();
             }
 
-            return Query(SqlDatabase, Procedure.Organization_SelectById, Organization.Build, id);
+            return Query(SqlDatabase, Procedure.Organization_SelectById, Build, id);
         }
 
         /// <summary>
@@ -74,7 +95,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllOrganizations().FindAll(d);
             }
 
-            return QueryAll(SqlDatabase, Procedure.Organization_SelectByTypeId, Organization.Build, typeID);
+            return QueryAll(SqlDatabase, Procedure.Organization_SelectByTypeId, Build, typeID);
         }
     }
 }

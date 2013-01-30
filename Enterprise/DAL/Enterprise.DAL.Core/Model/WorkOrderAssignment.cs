@@ -13,52 +13,50 @@
 // ***********************************************************************
 
 using System;
-using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Cache;
-using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    /// Class WorkOrderAssignment
+    ///     Class WorkOrderAssignment
     /// </summary>
     public class WorkOrderAssignment : ModelBase
     {
         /// <summary>
-        /// The _event date
+        ///     The _event date
         /// </summary>
         private DateTime _eventDate;
 
         /// <summary>
-        /// The _status id
+        ///     The _status id
         /// </summary>
         private int _statusId;
 
         /// <summary>
-        /// The _user id
+        ///     The _user id
         /// </summary>
         private int _userId;
 
         /// <summary>
-        /// The _work order assignment id
+        ///     The _work order assignment id
         /// </summary>
         private int _workOrderAssignmentId;
 
         /// <summary>
-        /// The _work order id
+        ///     The _work order id
         /// </summary>
         private int _workOrderId;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorkOrderAssignment"/> class.
+        ///     Initializes a new instance of the <see cref="WorkOrderAssignment" /> class.
         /// </summary>
         public WorkOrderAssignment()
         {
             EntityNumber = WorkOrderAssignment_EntityId;
         }
 
+
         /// <summary>
-        /// Gets or sets the work order assignment id.
+        ///     Gets or sets the work order assignment id.
         /// </summary>
         /// <value>The work order assignment id.</value>
         public Int32 WorkOrderAssignmentId
@@ -68,7 +66,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the work order id.
+        ///     Gets or sets the work order id.
         /// </summary>
         /// <value>The work order id.</value>
         public Int32 WorkOrderId
@@ -78,7 +76,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the user id.
+        ///     Gets or sets the user id.
         /// </summary>
         /// <value>The user id.</value>
         public Int32 UserId
@@ -88,7 +86,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the event date.
+        ///     Gets or sets the event date.
         /// </summary>
         /// <value>The event date.</value>
         public DateTime EventDate
@@ -98,72 +96,13 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the status id.
+        ///     Gets or sets the status id.
         /// </summary>
         /// <value>The status id.</value>
         public Int32 StatusId
         {
             get { return _statusId; }
             set { SetProperty(ref _statusId, value); }
-        }
-
-        /// <summary>
-        /// Builds the specified reader.
-        /// </summary>
-        /// <param name="reader">The reader.</param>
-        /// <returns>WorkOrderAssignment.</returns>
-        public static WorkOrderAssignment Build(ITypeReader reader)
-        {
-            var record = new WorkOrderAssignment
-                {
-                    WorkOrderAssignmentId = reader.GetInt32("WorkOrderAssignmentID"),
-                    WorkOrderId = reader.GetInt32("WorkOrderID"),
-                    UserId = reader.GetInt32("UserID"),
-                    EventDate = reader.GetDate("EventDate"),
-                    StatusId = reader.GetInt32("StatusID")
-                };
-
-            return record;
-        }
-
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        public void Save()
-        {
-            if (_workOrderAssignmentId != 0)
-            {
-                if (IsChanged())
-                {
-                    // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.WorkOrderAssignment_Update
-                                       , _workOrderAssignmentId
-                                       , _workOrderId
-                                       , _userId
-                                       , _eventDate
-                                       , _statusId));
-                    CommitChanges();
-                }
-            }
-            else
-            {
-                // Insert
-                _workOrderAssignmentId = Execute(GetCommand(Database.EnterpriseDb, Procedure.WorkOrderAssignment_Insert
-                                                            , _workOrderId
-                                                            , _userId
-                                                            , _eventDate
-                                                            , _statusId), Convert.ToInt32);
-                CacheItem.Clear<WorkOrderAssignment>();
-            }
-        }
-
-        /// <summary>
-        /// Removes this instance.
-        /// </summary>
-        public void Remove()
-        {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.WorkOrderAssignment_Delete, _workOrderAssignmentId));
-            CacheItem.Clear<WorkOrderAssignment>();
         }
     }
 }

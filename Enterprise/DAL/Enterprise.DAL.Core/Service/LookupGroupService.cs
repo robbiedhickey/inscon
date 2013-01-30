@@ -11,20 +11,38 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
     /// <summary>
-    /// Class LookupGroupService
+    ///     Class LookupGroupService
     /// </summary>
     public class LookupGroupService : ServiceBase<LookupGroup>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LookupGroupService"/> class.
+        ///     Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>LookupGroup.</returns>
+        public static LookupGroup Build(ITypeReader reader)
+        {
+            var record = new LookupGroup
+                {
+                    LookupGroupID = reader.GetInt16("LookupGroupID"),
+                    Name = reader.GetString("Name")
+                };
+
+            return record;
+        }
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="LookupGroupService" /> class.
         /// </summary>
         public LookupGroupService()
         {
@@ -32,17 +50,17 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Gets all lookup groups.
+        ///     Gets all lookup groups.
         /// </summary>
         /// <returns>List{LookupGroup}.</returns>
         public List<LookupGroup> GetAllLookupGroups()
         {
-            return QueryAll(SqlDatabase, Procedure.LookupGroup_SelectAll, LookupGroup.Build, CacheMinutesToExpire,
+            return QueryAll(SqlDatabase, Procedure.LookupGroup_SelectAll, Build, CacheMinutesToExpire,
                             IsCached);
         }
 
         /// <summary>
-        /// Gets the lookup group by id.
+        ///     Gets the lookup group by id.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns>LookupGroup.</returns>
@@ -54,7 +72,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllLookupGroups().Find(h) ?? new LookupGroup();
             }
 
-            return Query(SqlDatabase, Procedure.LookupGroup_SelectById, LookupGroup.Build, id);
+            return Query(SqlDatabase, Procedure.LookupGroup_SelectById, Build, id);
         }
     }
 }

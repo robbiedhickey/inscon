@@ -11,54 +11,50 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using Enterprise.DAL.Core.Service;
-using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Cache;
-using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    /// Class Event
+    ///     Class Event
     /// </summary>
     public class Event : ModelBase
     {
         /// <summary>
-        /// The _date
+        ///     The _date
         /// </summary>
         private DateTime _date;
+
         /// <summary>
-        /// The _entity id
+        ///     The _entity id
         /// </summary>
         private short _entityId;
+
         /// <summary>
-        /// The _event id
+        ///     The _event id
         /// </summary>
         private int _eventId;
+
         /// <summary>
-        /// The _parent id
+        ///     The _parent id
         /// </summary>
         private int _parentId;
+
         /// <summary>
-        /// The _type id
+        ///     The _type id
         /// </summary>
         private int _typeId;
+
         /// <summary>
-        /// The _user id
+        ///     The _user id
         /// </summary>
         private int _userId;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Event"/> class.
-        /// </summary>
-        public Event()
-        {
-            EntityNumber = Event_EntityId;
-        }
 
         /// <summary>
-        /// Gets or sets the event id.
+        ///     Gets or sets the event id.
         /// </summary>
         /// <value>The event id.</value>
         public Int32 EventId
@@ -68,7 +64,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the parent id.
+        ///     Gets or sets the parent id.
         /// </summary>
         /// <value>The parent id.</value>
         public Int32 ParentId
@@ -78,7 +74,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the entity id.
+        ///     Gets or sets the entity id.
         /// </summary>
         /// <value>The entity id.</value>
         public Int16 EntityId
@@ -88,7 +84,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the type id.
+        ///     Gets or sets the type id.
         /// </summary>
         /// <value>The type id.</value>
         public Int32 TypeId
@@ -98,7 +94,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the user id.
+        ///     Gets or sets the user id.
         /// </summary>
         /// <value>The user id.</value>
         public Int32 UserId
@@ -108,7 +104,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the date.
+        ///     Gets or sets the date.
         /// </summary>
         /// <value>The date.</value>
         public DateTime Date
@@ -118,7 +114,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets the type.
+        ///     Gets the type.
         /// </summary>
         /// <value>The type.</value>
         public string Type
@@ -130,66 +126,11 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        /// Builds the specified reader.
+        ///     Initializes a new instance of the <see cref="Event" /> class.
         /// </summary>
-        /// <param name="reader">The reader.</param>
-        /// <returns>Event.</returns>
-        public static Event Build(ITypeReader reader)
+        public Event()
         {
-            var record = new Event
-                {
-                    EventId = reader.GetInt32("EventID"),
-                    ParentId = reader.GetInt32("ParentID"),
-                    EntityId = reader.GetInt16("EntityID"),
-                    TypeId = reader.GetInt32("TypeID"),
-                    UserId = reader.GetInt32("UserID"),
-                    Date = reader.GetDate("EventDate")
-                };
-
-            return record;
-        }
-
-
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        public void Save()
-        {
-            if (_eventId != 0)
-            {
-                if (IsChanged())
-                {
-                    // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.Event_Update
-                                       , _eventId
-                                       , _parentId
-                                       , _entityId
-                                       , _typeId
-                                       , _userId
-                                       , _date));
-                    CommitChanges();
-                }
-            }
-            else
-            {
-                // Insert
-                _eventId = Execute(GetCommand(Database.EnterpriseDb, Procedure.Event_Insert
-                                              , _parentId
-                                              , _entityId
-                                              , _typeId
-                                              , _userId
-                                              , _date), Convert.ToInt32);
-                CacheItem.Clear<Event>();
-            }
-        }
-
-        /// <summary>
-        /// Removes this instance.
-        /// </summary>
-        public void Remove()
-        {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.Event_Delete, _eventId));
-            CacheItem.Clear<Event>();
+            EntityNumber = Event_EntityId;
         }
 
         #endregion

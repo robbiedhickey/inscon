@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,31 @@ namespace Enterprise.DAL.Core.Service
     public class WorkOrderAssignmentService : ServiceBase<WorkOrderAssignment>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>WorkOrderAssignment.</returns>
+        public static WorkOrderAssignment Build(ITypeReader reader)
+        {
+            var record = new WorkOrderAssignment
+                {
+                    WorkOrderAssignmentId = reader.GetInt32("WorkOrderAssignmentID"),
+                    WorkOrderId = reader.GetInt32("WorkOrderID"),
+                    UserId = reader.GetInt32("UserID"),
+                    EventDate = reader.GetDate("EventDate"),
+                    StatusId = reader.GetInt32("StatusID")
+                };
+
+            return record;
+        }
+
+        /// <summary>
         /// Gets all work order assignments.
         /// </summary>
         /// <returns>List{WorkOrderAssignment}.</returns>
         public List<WorkOrderAssignment> GetAllWorkOrderAssignments()
         {
-            return QueryAll(SqlDatabase, Procedure.WorkOrderAssignment_SelectAll, WorkOrderAssignment.Build,
+            return QueryAll(SqlDatabase, Procedure.WorkOrderAssignment_SelectAll, Build,
                             CacheMinutesToExpire, IsCached);
         }
 
@@ -46,7 +67,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllWorkOrderAssignments().Find(h) ?? new WorkOrderAssignment();
             }
 
-            return Query(SqlDatabase, Procedure.WorkOrderAssignment_SelectById, WorkOrderAssignment.Build, id);
+            return Query(SqlDatabase, Procedure.WorkOrderAssignment_SelectById, Build, id);
         }
 
         /// <summary>
@@ -62,7 +83,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllWorkOrderAssignments().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.WorkOrderAssignment_SelectByWorkOrderId, WorkOrderAssignment.Build,
+            return QueryAll(SqlDatabase, Procedure.WorkOrderAssignment_SelectByWorkOrderId, Build,
                             workOrderId);
         }
     }

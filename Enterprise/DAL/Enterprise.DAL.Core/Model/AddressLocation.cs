@@ -13,72 +13,70 @@
 // ***********************************************************************
 
 using System;
-using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Cache;
-using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    /// Class AddressLocation
+    ///     Class AddressLocation
     /// </summary>
     public class AddressLocation : ModelBase
     {
         /// <summary>
-        /// The _address ID
+        ///     The _address ID
         /// </summary>
         private int _addressID;
 
         /// <summary>
-        /// The _building number
+        ///     The _building number
         /// </summary>
         private string _buildingNumber;
 
         /// <summary>
-        /// The _city
+        ///     The _city
         /// </summary>
         private string _city;
 
         /// <summary>
-        /// The _geo code
+        ///     The _geo code
         /// </summary>
         private string _geoCode;
 
         /// <summary>
-        /// The _lattitude
+        ///     The _lattitude
         /// </summary>
         private float _lattitude;
 
         /// <summary>
-        /// The _longitude
+        ///     The _longitude
         /// </summary>
         private float _longitude;
 
         /// <summary>
-        /// The _state
+        ///     The _state
         /// </summary>
         private string _state;
 
         /// <summary>
-        /// The _street name
+        ///     The _street name
         /// </summary>
         private string _streetName;
 
         /// <summary>
-        /// The _zip
+        ///     The _zip
         /// </summary>
         private string _zip;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddressLocation"/> class.
+        ///     Initializes a new instance of the <see cref="AddressLocation" /> class.
         /// </summary>
         public AddressLocation()
         {
             EntityNumber = AddressLocation_EntityId;
         }
 
+
         /// <summary>
-        /// Gets or sets the address ID.
+        ///     Gets or sets the address ID.
         /// </summary>
         /// <value>The address ID.</value>
         public Int32 AddressID
@@ -88,7 +86,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the building number.
+        ///     Gets or sets the building number.
         /// </summary>
         /// <value>The building number.</value>
         public String BuildingNumber
@@ -98,7 +96,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the name of the street.
+        ///     Gets or sets the name of the street.
         /// </summary>
         /// <value>The name of the street.</value>
         public String StreetName
@@ -108,7 +106,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the city.
+        ///     Gets or sets the city.
         /// </summary>
         /// <value>The city.</value>
         public String City
@@ -118,7 +116,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the state.
+        ///     Gets or sets the state.
         /// </summary>
         /// <value>The state.</value>
         public String State
@@ -128,7 +126,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the zip.
+        ///     Gets or sets the zip.
         /// </summary>
         /// <value>The zip.</value>
         public String Zip
@@ -138,7 +136,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the geo code.
+        ///     Gets or sets the geo code.
         /// </summary>
         /// <value>The geo code.</value>
         public String GeoCode
@@ -148,7 +146,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the lattitude.
+        ///     Gets or sets the lattitude.
         /// </summary>
         /// <value>The lattitude.</value>
         public float Lattitude
@@ -158,7 +156,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the longitude.
+        ///     Gets or sets the longitude.
         /// </summary>
         /// <value>The longitude.</value>
         public float Longitude
@@ -167,82 +165,5 @@ namespace Enterprise.DAL.Core.Model
             get { return _longitude; }
             set { SetProperty(ref _longitude, value); }
         }
-
-        #region public methods
-
-        /// <summary>
-        /// Builds the specified reader.
-        /// </summary>
-        /// <param name="reader">The reader.</param>
-        /// <returns>AddressLocation.</returns>
-        public static AddressLocation Build(ITypeReader reader)
-        {
-            var record = new AddressLocation
-                {
-                    AddressID = reader.GetInt32("AddressID"),
-                    BuildingNumber = reader.GetString("BuildingNumber"),
-                    StreetName = reader.GetString("StreetName"),
-                    City = reader.GetString("City"),
-                    State = reader.GetString("State"),
-                    Zip = reader.GetString("Zip"),
-                    GeoCode = reader.GetString("GeoCode"),
-                    Lattitude = reader.GetFloat("Lattitude"),
-                    Longitude = reader.GetFloat("Longitude")
-                };
-
-            return record;
-        }
-
-
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        public void Save()
-        {
-            if (_addressID != 0)
-            {
-                if (IsChanged())
-                {
-                    // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.AddressLocation_Update
-                                       , _addressID
-                                       , _buildingNumber
-                                       , _streetName
-                                       , _city
-                                       , _state
-                                       , _zip
-                                       , _geoCode
-                                       , _lattitude
-                                       , _longitude));
-                    CommitChanges();
-                }
-            }
-            else
-            {
-                // Insert
-                _addressID = Execute(GetCommand(Database.EnterpriseDb, Procedure.AddressLocation_Insert
-                                                , _addressID
-                                                , _buildingNumber
-                                                , _streetName
-                                                , _city
-                                                , _state
-                                                , _zip
-                                                , _geoCode
-                                                , _lattitude
-                                                , _longitude), Convert.ToInt32);
-                CacheItem.Clear<AddressLocation>();
-            }
-        }
-
-        /// <summary>
-        /// Removes this instance.
-        /// </summary>
-        public void Remove()
-        {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.AddressLocation_Delete, _addressID));
-            CacheItem.Clear<AddressLocation>();
-        }
-
-        #endregion
     }
 }

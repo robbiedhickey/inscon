@@ -9,13 +9,13 @@
   </SpellChecker>
   <HelpFile>
     <OutputPath>C%3a%5ccode%5cInsightConcept%5ctrunk%5cEnterprise%5cDAL%5cHelp</OutputPath>
-    <SelectedProjects>Enterprise.DAL.Core%3bEnterprise.DAL.Framework</SelectedProjects>
+    <SelectedProjects>Enterprise.DAL.Framework%3bEnterprise.DAL.Core</SelectedProjects>
     <HtmlHelp1>True</HtmlHelp1>
     <MSHelp2>False</MSHelp2>
     <MSHelpViewer>False</MSHelpViewer>
     <Website>False</Website>
-    <DocumentInternals>True</DocumentInternals>
+    <DocumentInternals>False</DocumentInternals>
     <DocumentProtected>True</DocumentProtected>
-    <DocumentPrivates>True</DocumentPrivates>
+    <DocumentPrivates>False</DocumentPrivates>
   </HelpFile>
 </GhostDoc>

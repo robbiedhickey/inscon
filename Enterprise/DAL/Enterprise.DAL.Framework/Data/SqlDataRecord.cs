@@ -1,36 +1,47 @@
+// ***********************************************************************
+// Assembly         : Enterprise.DAL.Framework
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="SqlDataRecord.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Enterprise.DAL.Framework.Data
 {
     /// <summary>
-    ///     Summary description for SqlDataRecord.
+    /// Class SqlDataRecord
     /// </summary>
     public abstract class SqlDataRecord : SqlDataExecutor, IDataRecord
     {
         /// <summary>
-        ///     The _dirty table
+        /// The _dirty table
         /// </summary>
         private Dictionary<string, bool> _dirtyTable;
 
         /// <summary>
-        ///     The _track changes
+        /// The _track changes
         /// </summary>
         private bool _trackChanges;
 
 
         /// <summary>
-        ///     Gets or sets the entity number.
+        /// Gets or sets the entity number.
         /// </summary>
         /// <value>The entity number.</value>
         public short EntityNumber { get; set; }
 
         /// <summary>
-        ///     Gets or sets a value indicating whether [track changes].
+        /// Gets or sets a value indicating whether [track changes].
         /// </summary>
-        /// <value>
-        ///     <c>true</c> if [track changes]; otherwise, <c>false</c>.
-        /// </value>
+        /// <value><c>true</c> if [track changes]; otherwise, <c>false</c>.</value>
         public bool TrackChanges
         {
             get { return _trackChanges; }
@@ -47,11 +58,9 @@ namespace Enterprise.DAL.Framework.Data
 
 
         /// <summary>
-        ///     Determines if any member of this listing has changed.
+        /// Determines whether this instance is changed.
         /// </summary>
-        /// <returns>
-        ///     <c>true</c> if this instance is changed; otherwise, <c>false</c>.
-        /// </returns>
+        /// <returns><c>true</c> if this instance is changed; otherwise, <c>false</c>.</returns>
         public bool IsChanged()
         {
             if (_dirtyTable != null)
@@ -63,7 +72,7 @@ namespace Enterprise.DAL.Framework.Data
         }
 
         /// <summary>
-        ///     Determines whether the specified column is dirty.
+        /// Determines whether the specified column is dirty.
         /// </summary>
         /// <param name="column">The column.</param>
         public void IsDirty(string column)
@@ -72,7 +81,7 @@ namespace Enterprise.DAL.Framework.Data
         }
 
         /// <summary>
-        ///     Sets the changed.
+        /// Sets the changed.
         /// </summary>
         /// <param name="column">The column.</param>
         public void SetChanged(string column)
@@ -86,19 +95,17 @@ namespace Enterprise.DAL.Framework.Data
         }
 
         /// <summary>
-        ///     Determines whether the specified field is changed.
+        /// Determines whether the specified field is changed.
         /// </summary>
         /// <param name="field">The field.</param>
-        /// <returns>
-        ///     <c>true</c> if the specified field is changed; otherwise, <c>false</c>.
-        /// </returns>
+        /// <returns><c>true</c> if the specified field is changed; otherwise, <c>false</c>.</returns>
         public bool IsChanged(string field)
         {
             return _dirtyTable != null && _dirtyTable.ContainsKey(field) && _dirtyTable[field];
         }
 
         /// <summary>
-        ///     Dirties the fields.
+        /// Dirties the fields.
         /// </summary>
         /// <returns>System.String[][].</returns>
         public string[] DirtyFields()
@@ -114,7 +121,7 @@ namespace Enterprise.DAL.Framework.Data
         }
 
         /// <summary>
-        ///     Commits the changes.
+        /// Commits the changes.
         /// </summary>
         public void CommitChanges()
         {
@@ -122,7 +129,7 @@ namespace Enterprise.DAL.Framework.Data
         }
 
         /// <summary>
-        ///     Sets the property.
+        /// Sets the property.
         /// </summary>
         /// <typeparam name="TValue">The type of the T value.</typeparam>
         /// <param name="member">The member.</param>
@@ -142,7 +149,7 @@ namespace Enterprise.DAL.Framework.Data
         }
 
         /// <summary>
-        ///     Sets the property.
+        /// Sets the property.
         /// </summary>
         /// <typeparam name="TValue">The type of the T value.</typeparam>
         /// <param name="member">The member.</param>

@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,29 @@ namespace Enterprise.DAL.Core.Service
     public class UserAreaCoverageService : ServiceBase<UserAreaCoverage>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>UserAreaCoverage.</returns>
+        public static UserAreaCoverage Build(ITypeReader reader)
+        {
+            var record = new UserAreaCoverage
+                {
+                    UserAreaCoverageId = reader.GetInt32("UserAreaCoverageID"),
+                    UserId = reader.GetInt32("UserID"),
+                    ZipCode = reader.GetString("ZipCode"),
+                    ServiceId = reader.GetInt32("ServiceID")
+                };
+            return record;
+        }
+
+        /// <summary>
         /// Gets all user area coverages.
         /// </summary>
         /// <returns>List{UserAreaCoverage}.</returns>
         public List<UserAreaCoverage> GetAllUserAreaCoverages()
         {
-            return QueryAll(SqlDatabase, Procedure.UserAreaCoverage_SelectAll, UserAreaCoverage.Build,
+            return QueryAll(SqlDatabase, Procedure.UserAreaCoverage_SelectAll, Build,
                             CacheMinutesToExpire, IsCached);
         }
 
@@ -46,7 +65,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUserAreaCoverages().Find(h) ?? new UserAreaCoverage();
             }
 
-            return Query(SqlDatabase, Procedure.UserAreaCoverage_SelectById, UserAreaCoverage.Build, id);
+            return Query(SqlDatabase, Procedure.UserAreaCoverage_SelectById, Build, id);
         }
 
         /// <summary>
@@ -63,7 +82,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUserAreaCoverages().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.UserAreaCoverage_SelectByUserIdAndServiceId, UserAreaCoverage.Build,
+            return QueryAll(SqlDatabase, Procedure.UserAreaCoverage_SelectByUserIdAndServiceId, Build,
                             userId, serviceId);
         }
     }

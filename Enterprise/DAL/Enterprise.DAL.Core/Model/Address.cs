@@ -13,56 +13,53 @@
 // ***********************************************************************
 
 using System;
-using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Cache;
-using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    /// Class Address
+    ///     Class Address
     /// </summary>
     public class Address : ModelBase
     {
         #region private variables
 
         /// <summary>
-        /// The _address ID
+        ///     The _address ID
         /// </summary>
         private int _addressID;
 
         /// <summary>
-        /// The _city
+        ///     The _city
         /// </summary>
         private string _city;
 
         /// <summary>
-        /// The _entity ID
+        ///     The _entity ID
         /// </summary>
         private Int16 _entityID;
 
         /// <summary>
-        /// The _parent ID
+        ///     The _parent ID
         /// </summary>
         private int _parentID;
 
         /// <summary>
-        /// The _state
+        ///     The _state
         /// </summary>
         private string _state;
 
         /// <summary>
-        /// The _street
+        ///     The _street
         /// </summary>
         private string _street;
 
         /// <summary>
-        /// The _suite
+        ///     The _suite
         /// </summary>
         private string _suite;
 
         /// <summary>
-        /// The _zip
+        ///     The _zip
         /// </summary>
         private string _zip;
 
@@ -71,7 +68,7 @@ namespace Enterprise.DAL.Core.Model
         #region public properties
 
         /// <summary>
-        /// Gets or sets the address ID.
+        ///     Gets or sets the address ID.
         /// </summary>
         /// <value>The address ID.</value>
         public int AddressID
@@ -81,7 +78,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the parent ID.
+        ///     Gets or sets the parent ID.
         /// </summary>
         /// <value>The parent ID.</value>
         public int ParentID
@@ -91,7 +88,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the entity ID.
+        ///     Gets or sets the entity ID.
         /// </summary>
         /// <value>The entity ID.</value>
         public Int16 EntityID
@@ -101,7 +98,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the street.
+        ///     Gets or sets the street.
         /// </summary>
         /// <value>The street.</value>
         public string Street
@@ -111,7 +108,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the suite.
+        ///     Gets or sets the suite.
         /// </summary>
         /// <value>The suite.</value>
         public string Suite
@@ -121,7 +118,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the city.
+        ///     Gets or sets the city.
         /// </summary>
         /// <value>The city.</value>
         public string City
@@ -131,7 +128,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the state.
+        ///     Gets or sets the state.
         /// </summary>
         /// <value>The state.</value>
         public string State
@@ -141,7 +138,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the zip code.
+        ///     Gets or sets the zip code.
         /// </summary>
         /// <value>The zip code.</value>
         public string ZipCode
@@ -155,79 +152,11 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Address"/> class.
+        ///     Initializes a new instance of the <see cref="Address" /> class.
         /// </summary>
         public Address()
         {
             EntityNumber = Address_EntityId;
-        }
-
-        /// <summary>
-        /// Builds the specified reader.
-        /// </summary>
-        /// <param name="reader">The reader.</param>
-        /// <returns>Address.</returns>
-        public static Address Build(ITypeReader reader)
-        {
-            var record = new Address
-                {
-                    AddressID = reader.GetInt32("AddressID"),
-                    ParentID = reader.GetInt32("ParentID"),
-                    EntityID = reader.GetInt16("EntityID"),
-                    Street = reader.GetString("Address"),
-                    Suite = reader.GetString("Suite"),
-                    City = reader.GetString("City"),
-                    State = reader.GetString("State"),
-                    ZipCode = reader.GetString("Zip")
-                };
-
-            return record;
-        }
-
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        public void Save()
-        {
-            if (AddressID != 0)
-            {
-                if (IsChanged())
-                {
-                    // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Update
-                                       , _addressID
-                                       , _parentID
-                                       , _entityID
-                                       , _street
-                                       , _suite
-                                       , _city
-                                       , _state
-                                       , _zip));
-                    CommitChanges();
-                }
-            }
-            else
-            {
-                // Insert
-                _addressID = Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Insert
-                                                , _parentID
-                                                , _entityID
-                                                , _street
-                                                , _suite
-                                                , _city
-                                                , _state
-                                                , _zip), Convert.ToInt32);
-                CacheItem.Clear<Address>();
-            }
-        }
-
-        /// <summary>
-        /// Removes this instance.
-        /// </summary>
-        public void Remove()
-        {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.Address_Delete, _addressID));
-            CacheItem.Clear<Address>();
         }
 
         #endregion'

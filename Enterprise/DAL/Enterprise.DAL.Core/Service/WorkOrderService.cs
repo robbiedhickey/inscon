@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,30 @@ namespace Enterprise.DAL.Core.Service
     public class WorkOrderService : ServiceBase<WorkOrder>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>WorkOrder.</returns>
+        public static WorkOrder Build(ITypeReader reader)
+        {
+            var record = new WorkOrder
+                {
+                    WorkOrderId = reader.GetInt32("WorkOrderID"),
+                    RequestId = reader.GetInt32("RequestID"),
+                    LoanId = reader.GetInt32("LoanID"),
+                    DateInserted = reader.GetDate("DateInserted")
+                };
+
+            return record;
+        }
+
+        /// <summary>
         /// Gets all work orders.
         /// </summary>
         /// <returns>List{WorkOrder}.</returns>
         public List<WorkOrder> GetAllWorkOrders()
         {
-            return QueryAll(SqlDatabase, Procedure.WorkOrder_SelectAll, WorkOrder.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.WorkOrder_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -45,7 +65,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllWorkOrders().Find(h) ?? new WorkOrder();
             }
 
-            return Query(SqlDatabase, Procedure.File_SelectById, WorkOrder.Build, id);
+            return Query(SqlDatabase, Procedure.File_SelectById, Build, id);
         }
 
 
@@ -62,7 +82,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllWorkOrders().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.WorkOrder_SelectByRequestId, WorkOrder.Build, requestId);
+            return QueryAll(SqlDatabase, Procedure.WorkOrder_SelectByRequestId, Build, requestId);
         }
     }
 }

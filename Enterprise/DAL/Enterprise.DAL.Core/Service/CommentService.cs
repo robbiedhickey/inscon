@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -23,13 +24,34 @@ namespace Enterprise.DAL.Core.Service
     /// </summary>
     public class CommentService : ServiceBase<Comment>
     {
+
+        /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Comment.</returns>
+        public static Comment Build(ITypeReader reader)
+        {
+            var record = new Comment
+            {
+                CommentId = reader.GetInt32("CommentID"),
+                ParentId = reader.GetInt32("ParentID"),
+                EntityId = reader.GetInt16("EntityId"),
+                UserId = reader.GetInt32("UserID"),
+                TypeId = reader.GetInt32("TypeID"),
+                Value = reader.GetString("Comment")
+            };
+
+            return record;
+        }
+
         /// <summary>
         /// Gets all comments.
         /// </summary>
         /// <returns>List{Comment}.</returns>
         public List<Comment> GetAllComments()
         {
-            return QueryAll(SqlDatabase, Procedure.Comment_SelectAll, Comment.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.Comment_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -45,7 +67,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllComments().Find(h) ?? new Comment();
             }
 
-            return Query(SqlDatabase, Procedure.Comment_SelectById, Comment.Build, id);
+            return Query(SqlDatabase, Procedure.Comment_SelectById, Build, id);
         }
 
         /// <summary>
@@ -62,7 +84,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllComments().Find(h) ?? new Comment();
             }
 
-            return Query(SqlDatabase, Procedure.Comment_SelectByParentIdAndEntityId, Comment.Build, parentID, entityID);
+            return Query(SqlDatabase, Procedure.Comment_SelectByParentIdAndEntityId, Build, parentID, entityID);
         }
     }
 }

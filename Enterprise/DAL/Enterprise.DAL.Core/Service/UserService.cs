@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,33 @@ namespace Enterprise.DAL.Core.Service
     public class UserService : ServiceBase<User>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>User.</returns>
+        public static User Build(ITypeReader reader)
+        {
+            var record = new User
+                {
+                    UserID = reader.GetInt32("UserID"),
+                    OrganizationID = reader.GetInt32("OrganizationID"),
+                    FirstName = reader.GetString("FirstName"),
+                    LastName = reader.GetString("LastName"),
+                    StatusID = reader.GetInt32("StatusID"),
+                    AuthenticationID = reader.GetInt32("AuthenticationID")
+                };
+
+            return record;
+        }
+
+
+        /// <summary>
         /// Gets all users.
         /// </summary>
         /// <returns>List{User}.</returns>
         public List<User> GetAllUsers()
         {
-            return QueryAll(SqlDatabase, Procedure.User_SelectAll, User.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.User_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -44,7 +67,7 @@ namespace Enterprise.DAL.Core.Service
                 Predicate<User> h = h2 => h2.UserID == idUser;
                 return GetAllUsers().Find(h) ?? new User();
             }
-            return Query(SqlDatabase, Procedure.User_SelectById, User.Build, idUser);
+            return Query(SqlDatabase, Procedure.User_SelectById, Build, idUser);
         }
 
         /// <summary>
@@ -60,7 +83,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUsers().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationId, User.Build, idOrganization);
+            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationId, Build, idOrganization);
         }
 
         /// <summary>
@@ -77,7 +100,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUsers().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationIdAndStatusId, User.Build, idOrganization,
+            return QueryAll(SqlDatabase, Procedure.User_SelectByOrganizationIdAndStatusId, Build, idOrganization,
                             idStatus);
         }
     }

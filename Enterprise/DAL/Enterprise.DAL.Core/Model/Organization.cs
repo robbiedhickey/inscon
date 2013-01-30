@@ -15,14 +15,11 @@
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Service;
-using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Cache;
-using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    /// Class Organization
+    ///     Class Organization
     /// </summary>
     [Serializable]
     public class Organization : ModelBase
@@ -30,50 +27,41 @@ namespace Enterprise.DAL.Core.Model
         #region private variables
 
         /// <summary>
-        /// The _code
+        ///     The _code
         /// </summary>
         private string _code;
 
         /// <summary>
-        /// The _name
+        ///     The _name
         /// </summary>
         private string _name;
 
         /// <summary>
-        /// The _organization ID
+        ///     The _organization ID
         /// </summary>
         private int _organizationID;
 
         /// <summary>
-        /// The _status ID
+        ///     The _status ID
         /// </summary>
         private int _statusID;
 
         /// <summary>
-        /// The _type ID
+        ///     The _type ID
         /// </summary>
         private int _typeID;
 
         /// <summary>
-        /// The _users
+        ///     The _users
         /// </summary>
         private List<User> _users;
-
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Organization"/> class.
-        /// </summary>
-        public Organization()
-        {
-            EntityNumber = Organization_EntityId;
-        }
 
         #endregion
 
         #region public properties
 
         /// <summary>
-        /// Gets or sets the organization ID.
+        ///     Gets or sets the organization ID.
         /// </summary>
         /// <value>The organization ID.</value>
         public int OrganizationID
@@ -84,7 +72,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        /// Gets or sets the name.
+        ///     Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         public string Name
@@ -94,7 +82,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the code.
+        ///     Gets or sets the code.
         /// </summary>
         /// <value>The code.</value>
         public string Code
@@ -104,7 +92,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the type ID.
+        ///     Gets or sets the type ID.
         /// </summary>
         /// <value>The type ID.</value>
         public int TypeID
@@ -114,7 +102,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the status ID.
+        ///     Gets or sets the status ID.
         /// </summary>
         /// <value>The status ID.</value>
         public int StatusID
@@ -124,7 +112,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets the status.
+        ///     Gets the status.
         /// </summary>
         /// <value>The status.</value>
         public string Status
@@ -134,7 +122,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets the type.
+        ///     Gets the type.
         /// </summary>
         /// <value>The type.</value>
         public string Type
@@ -144,7 +132,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets the users.
+        ///     Gets the users.
         /// </summary>
         /// <value>The users.</value>
         public List<User> Users
@@ -165,63 +153,11 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        /// Builds the specified reader.
+        ///     Initializes a new instance of the <see cref="Organization" /> class.
         /// </summary>
-        /// <param name="reader">The reader.</param>
-        /// <returns>Organization.</returns>
-        public static Organization Build(ITypeReader reader)
+        public Organization()
         {
-            var record = new Organization
-                {
-                    OrganizationID = reader.GetInt32("OrganizationID"),
-                    Name = reader.GetString("Name"),
-                    Code = reader.GetString("Code"),
-                    TypeID = reader.GetInt32("TypeID"),
-                    StatusID = reader.GetInt32("StatusID"),
-                };
-
-            return record;
-        }
-
-
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        public void Save()
-        {
-            if (_organizationID != 0)
-            {
-                if (IsChanged())
-                {
-                    // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Update
-                                       , _organizationID
-                                       , _name
-                                       , _code
-                                       , _typeID
-                                       , _statusID));
-                    CommitChanges();
-                }
-            }
-            else
-            {
-                // Insert
-                _organizationID = Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Insert
-                                                     , _name
-                                                     , _code
-                                                     , _typeID
-                                                     , _statusID), Convert.ToInt32);
-                CacheItem.Clear<Organization>();
-            }
-        }
-
-        /// <summary>
-        /// Removes this instance.
-        /// </summary>
-        public void Remove()
-        {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.Organization_Delete, _organizationID));
-            CacheItem.Clear<Organization>();
+            EntityNumber = Organization_EntityId;
         }
 
         #endregion

@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,28 @@ namespace Enterprise.DAL.Core.Service
     public class AddressUseService : ServiceBase<Address>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>AddressUse.</returns>
+        public static AddressUse Build(ITypeReader reader)
+        {
+            var record = new AddressUse
+                {
+                    AddressUseId = reader.GetInt32("AddressUseID"),
+                    AddressId = reader.GetInt32("AddressID"),
+                    TypeId = reader.GetInt32("TypeID")
+                };
+            return record;
+        }
+
+        /// <summary>
         /// Gets all address use records.
         /// </summary>
         /// <returns>List{AddressUse}.</returns>
         public List<AddressUse> GetAllAddressUseRecords()
         {
-            return QueryAll(SqlDatabase, Procedure.AddressUse_SelectAll, AddressUse.Build, CacheMinutesToExpire,
+            return QueryAll(SqlDatabase, Procedure.AddressUse_SelectAll, Build, CacheMinutesToExpire,
                             IsCached);
         }
 
@@ -46,7 +64,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddressUseRecords().Find(h) ?? new AddressUse();
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectById, AddressUse.Build, CacheMinutesToExpire, IsCached, id);
+            return Query(SqlDatabase, Procedure.Address_SelectById, Build, CacheMinutesToExpire, IsCached, id);
         }
 
         /// <summary>
@@ -62,7 +80,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddressUseRecords().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.AddressUse_SelectByAddressId, AddressUse.Build, addressID);
+            return QueryAll(SqlDatabase, Procedure.AddressUse_SelectByAddressId, Build, addressID);
         }
 
         /// <summary>
@@ -79,7 +97,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddressUseRecords().Find(h) ?? new AddressUse();
             }
 
-            return Query(SqlDatabase, Procedure.AddressUse_SelectByAddressIdAndTypeId, AddressUse.Build, addressID,
+            return Query(SqlDatabase, Procedure.AddressUse_SelectByAddressIdAndTypeId, Build, addressID,
                          typeID);
         }
     }

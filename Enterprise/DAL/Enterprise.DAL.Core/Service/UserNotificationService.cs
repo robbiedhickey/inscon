@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,30 @@ namespace Enterprise.DAL.Core.Service
     public class UserNotificationService : ServiceBase<UserNotification>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>UserNotification.</returns>
+        public static UserNotification Build(ITypeReader reader)
+        {
+            var record = new UserNotification
+                {
+                    UserNotificationId = reader.GetInt32("UserNotificationID"),
+                    UserId = reader.GetInt32("UserID"),
+                    DatePosted = reader.GetDate("DatePosted"),
+                    DateRead = reader.GetNullDate("DateRead")
+                };
+
+            return record;
+        }
+
+        /// <summary>
         /// Gets all user notifications.
         /// </summary>
         /// <returns>List{UserNotification}.</returns>
         public List<UserNotification> GetAllUserNotifications()
         {
-            return QueryAll(SqlDatabase, Procedure.UserNotification_SelectAll, UserNotification.Build,
+            return QueryAll(SqlDatabase, Procedure.UserNotification_SelectAll, Build,
                             CacheMinutesToExpire, IsCached);
         }
 
@@ -46,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUserNotifications().Find(h) ?? new UserNotification();
             }
 
-            return Query(SqlDatabase, Procedure.UserNotification_SelectById, UserNotification.Build, id);
+            return Query(SqlDatabase, Procedure.UserNotification_SelectById, Build, id);
         }
 
         /// <summary>
@@ -62,7 +82,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUserNotifications().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.UserNotification_SelectByUserId, UserNotification.Build, userId);
+            return QueryAll(SqlDatabase, Procedure.UserNotification_SelectByUserId, Build, userId);
         }
     }
 }

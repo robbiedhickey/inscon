@@ -11,29 +11,50 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
     /// <summary>
-    /// Class LoanService
+    ///     Class LoanService
     /// </summary>
     public class LoanService : ServiceBase<Organization>
     {
         /// <summary>
-        /// Gets all loans.
+        ///     Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Loan.</returns>
+        public static Loan Build(ITypeReader reader)
+        {
+            var record = new Loan
+                {
+                    LoanID = reader.GetInt32("LoanID"),
+                    OrganizationID = reader.GetInt32("OrganizationID"),
+                    TypeID = reader.GetInt32("TypeID"),
+                    LoanNumber = reader.GetString("LoanNumber"),
+                    HudCaseNumber = reader.GetString("HudCaseNumber")
+                };
+
+            return record;
+        }
+
+        /// <summary>
+        ///     Gets all loans.
         /// </summary>
         /// <returns>List{Loan}.</returns>
         public List<Loan> GetAllLoans()
         {
-            return QueryAll(SqlDatabase, Procedure.Loan_SelectAll, Loan.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.Loan_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Gets the loan by id.
+        ///     Gets the loan by id.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns>Loan.</returns>
@@ -45,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllLoans().Find(h) ?? new Loan();
             }
 
-            return Query(SqlDatabase, Procedure.Loan_SelectById, Loan.Build, id);
+            return Query(SqlDatabase, Procedure.Loan_SelectById, Build, id);
         }
     }
 }

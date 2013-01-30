@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,13 +25,36 @@ namespace Enterprise.DAL.Core.Service
     /// </summary>
     public class FileService : ServiceBase<File>
     {
+
+        /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>File.</returns>
+        public static File Build(ITypeReader reader)
+        {
+            var record = new File
+            {
+                FileId = reader.GetInt32("FileID"),
+                ParentId = reader.GetInt32("ParentID"),
+                EntityId = reader.GetInt16("EntityID"),
+                ParentFolder = reader.GetString("ParentFolder"),
+                Name = reader.GetString("Name"),
+                Size = reader.GetDecimal("Size"),
+                TypeId = reader.GetInt32("TypeID"),
+                Caption = reader.GetString("Caption")
+            };
+
+            return record;
+        }
+
         /// <summary>
         /// Gets all files.
         /// </summary>
         /// <returns>List{File}.</returns>
         public List<File> GetAllFiles()
         {
-            return QueryAll(SqlDatabase, Procedure.File_SelectAll, File.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.File_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -46,7 +70,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllFiles().Find(h) ?? new File();
             }
 
-            return Query(SqlDatabase, Procedure.File_SelectById, File.Build, id);
+            return Query(SqlDatabase, Procedure.File_SelectById, Build, id);
         }
 
         /// <summary>
@@ -63,7 +87,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllFiles().Find(h) ?? new File();
             }
 
-            return Query(SqlDatabase, Procedure.File_SelectByParentIdAndEntityId, File.Build, parentID, entityID);
+            return Query(SqlDatabase, Procedure.File_SelectByParentIdAndEntityId, Build, parentID, entityID);
         }
     }
 }

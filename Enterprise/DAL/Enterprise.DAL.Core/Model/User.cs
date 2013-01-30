@@ -11,70 +11,60 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using Enterprise.DAL.Core.Service;
-using Enterprise.DAL.Core.Types;
-using Enterprise.DAL.Framework.Cache;
-using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    /// Class User
+    ///     Class User
     /// </summary>
     public class User : ModelBase
     {
         /// <summary>
-        /// The _authentication
+        ///     The _authentication
         /// </summary>
         private int _authentication;
 
         /// <summary>
-        /// The _first name
+        ///     The _first name
         /// </summary>
         private string _firstName;
 
         /// <summary>
-        /// The _last name
+        ///     The _last name
         /// </summary>
         private string _lastName;
 
         /// <summary>
-        /// The _organization
+        ///     The _organization
         /// </summary>
         private Organization _organization;
 
         /// <summary>
-        /// The _organization ID
+        ///     The _organization ID
         /// </summary>
         private int _organizationID;
 
         /// <summary>
-        /// The _status ID
+        ///     The _status ID
         /// </summary>
         private int _statusID;
 
         /// <summary>
-        /// The _title
+        ///     The _title
         /// </summary>
         private string _title;
 
         /// <summary>
-        /// The _user ID
+        ///     The _user ID
         /// </summary>
         private int _userID;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="User"/> class.
-        /// </summary>
-        public User()
-        {
-            EntityNumber = User_EntityId;
-        }
-
 
         /// <summary>
-        /// Gets or sets the user ID.
+        ///     Gets or sets the user ID.
         /// </summary>
         /// <value>The user ID.</value>
         public int UserID
@@ -84,7 +74,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the organization ID.
+        ///     Gets or sets the organization ID.
         /// </summary>
         /// <value>The organization ID.</value>
         public int OrganizationID
@@ -94,7 +84,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the first name.
+        ///     Gets or sets the first name.
         /// </summary>
         /// <value>The first name.</value>
         public string FirstName
@@ -105,7 +95,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        /// Gets or sets the last name.
+        ///     Gets or sets the last name.
         /// </summary>
         /// <value>The last name.</value>
         public string LastName
@@ -115,7 +105,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the title.
+        ///     Gets or sets the title.
         /// </summary>
         /// <value>The title.</value>
         public string Title
@@ -125,7 +115,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the status ID.
+        ///     Gets or sets the status ID.
         /// </summary>
         /// <value>The status ID.</value>
         public int StatusID
@@ -135,7 +125,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets the status.
+        ///     Gets the status.
         /// </summary>
         /// <value>The status.</value>
         public string Status
@@ -145,7 +135,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets the full name.
+        ///     Gets the full name.
         /// </summary>
         /// <value>The full name.</value>
         public string FullName
@@ -154,7 +144,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the authentication ID.
+        ///     Gets or sets the authentication ID.
         /// </summary>
         /// <value>The authentication ID.</value>
         public Int32 AuthenticationID
@@ -165,7 +155,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        /// Gets the organization.
+        ///     Gets the organization.
         /// </summary>
         /// <value>The organization.</value>
         public Organization Organization
@@ -184,68 +174,11 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        /// Builds the specified reader.
+        ///     Initializes a new instance of the <see cref="User" /> class.
         /// </summary>
-        /// <param name="reader">The reader.</param>
-        /// <returns>User.</returns>
-        public static User Build(ITypeReader reader)
+        public User()
         {
-            var record = new User
-                {
-                    UserID = reader.GetInt32("UserID"),
-                    OrganizationID = reader.GetInt32("OrganizationID"),
-                    FirstName = reader.GetString("FirstName"),
-                    LastName = reader.GetString("LastName"),
-                    StatusID = reader.GetInt32("StatusID"),
-                    AuthenticationID = reader.GetInt32("AuthenticationID")
-                };
-
-            return record;
-        }
-
-
-        /// <summary>
-        /// Saves this instance.
-        /// </summary>
-        public void Save()
-        {
-            if (_userID != 0)
-            {
-                if (IsChanged())
-                {
-                    // Update
-                    Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Update
-                                       , _userID
-                                       , _organizationID
-                                       , _firstName
-                                       , _lastName
-                                       , _title
-                                       , _statusID
-                                       , _authentication));
-                    CommitChanges();
-                }
-            }
-            else
-            {
-                // Insert
-                _userID = Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Insert
-                                             , _organizationID
-                                             , _firstName
-                                             , _lastName
-                                             , _title
-                                             , _statusID
-                                             , _authentication), Convert.ToInt32);
-                CacheItem.Clear<User>();
-            }
-        }
-
-        /// <summary>
-        /// Removes this instance.
-        /// </summary>
-        public void Remove()
-        {
-            Execute(GetCommand(Database.EnterpriseDb, Procedure.User_Delete, _userID));
-            CacheItem.Clear<User>();
+            EntityNumber = User_EntityId;
         }
 
         #endregion

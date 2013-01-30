@@ -15,155 +15,163 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Enterprise.DAL.Framework.Data;
+using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    /// Class ModelBase
+    ///     Class ModelBase
     /// </summary>
-    public class ModelBase : SqlDataExecutor, IDataRecord, IDisposable
+    public class ModelBase
     {
         #region entityId's
 
         /// <summary>
-        /// The address_ entity id
+        ///     The address_ entity id
         /// </summary>
         public const Int16 Address_EntityId = 6;
 
         /// <summary>
-        /// The address location_ entity id
+        ///     The address location_ entity id
         /// </summary>
         public const Int16 AddressLocation_EntityId = 22;
 
         /// <summary>
-        /// The address use_ entity id
+        ///     The address use_ entity id
         /// </summary>
         public const Int16 AddressUse_EntityId = 20;
 
         /// <summary>
-        /// The comment_ entity id
+        ///     The comment_ entity id
         /// </summary>
         public const Int16 Comment_EntityId = 7;
 
         /// <summary>
-        /// The entity_ entity id
+        ///     The entity_ entity id
         /// </summary>
         public const Int16 Entity_EntityId = 5;
 
         /// <summary>
-        /// The event_ entity id
+        ///     The event_ entity id
         /// </summary>
         public const Int16 Event_EntityId = 9;
 
         /// <summary>
-        /// The file_ entity id
+        ///     The file_ entity id
         /// </summary>
         public const Int16 File_EntityId = 10;
 
         /// <summary>
-        /// The loan_ entity id
+        ///     The loan_ entity id
         /// </summary>
         public const Int16 Loan_EntityId = 12;
 
         /// <summary>
-        /// The location_ entity id
+        ///     The location_ entity id
         /// </summary>
         public const Int16 Location_EntityId = 11;
 
         /// <summary>
-        /// The lookup_ entity id
+        ///     The lookup_ entity id
         /// </summary>
         public const Int16 Lookup_EntityId = 8;
 
         /// <summary>
-        /// The lookup group_ entity id
+        ///     The lookup group_ entity id
         /// </summary>
         public const Int16 LookupGroup_EntityId = 4;
 
         /// <summary>
-        /// The mortgagor_ entity id
+        ///     The mortgagor_ entity id
         /// </summary>
         public const Int16 Mortgagor_EntityId = 13;
 
         /// <summary>
-        /// The organization_ entity id
+        ///     The organization_ entity id
         /// </summary>
         public const Int16 Organization_EntityId = 14;
 
         /// <summary>
-        /// The product_ entity id
+        ///     The product_ entity id
         /// </summary>
         public const Int16 Product_EntityId = 3;
 
         /// <summary>
-        /// The product category_ entity id
+        ///     The product category_ entity id
         /// </summary>
         public const Int16 ProductCategory_EntityId = 1;
 
         /// <summary>
-        /// The request_ entity id
+        ///     The request_ entity id
         /// </summary>
         public const Int16 Request_EntityId = 2;
 
         /// <summary>
-        /// The user_ entity id
+        ///     The user_ entity id
         /// </summary>
         public const Int16 User_EntityId = 15;
 
         /// <summary>
-        /// The user area coverage_ entity id
+        ///     The user area coverage_ entity id
         /// </summary>
         public const Int16 UserAreaCoverage_EntityId = 17;
 
         /// <summary>
-        /// The user contact_ entity id
+        ///     The user contact_ entity id
         /// </summary>
         public const Int16 UserContact_EntityId = 18;
 
         /// <summary>
-        /// The user notification_ entity id
+        ///     The user notification_ entity id
         /// </summary>
         public const Int16 UserNotification_EntityId = 16;
 
         /// <summary>
-        /// The work order_ entity id
+        ///     The work order_ entity id
         /// </summary>
         public const Int16 WorkOrder_EntityId = 21;
 
         /// <summary>
-        /// The work order assignment_ entity id
+        ///     The work order assignment_ entity id
         /// </summary>
         public const Int16 WorkOrderAssignment_EntityId = 19;
 
         /// <summary>
-        /// The work order item_ entity id
+        ///     The work order item_ entity id
         /// </summary>
         public const Int16 WorkOrderItem_EntityId = 23;
 
         #endregion
 
         /// <summary>
-        /// The _dirty table
+        ///     The _dirty table
         /// </summary>
         private Dictionary<string, bool> _dirtyTable;
 
         /// <summary>
-        /// The _track changes
+        ///     The _track changes
         /// </summary>
         private bool _trackChanges;
 
 
+        public ModelBase()
+        {
+            SqlDatabase = Database.EnterpriseDb;
+        }
+
         /// <summary>
-        /// Gets or sets the entity number.
+        ///     Gets or sets the entity number.
         /// </summary>
         /// <value>The entity number.</value>
         public short EntityNumber { get; set; }
 
+
         /// <summary>
-        /// Gets or sets a value indicating whether [track changes].
+        ///     Gets or sets a value indicating whether [track changes].
         /// </summary>
-        /// <value><c>true</c> if [track changes]; otherwise, <c>false</c>.</value>
+        /// <value>
+        ///     <c>true</c> if [track changes]; otherwise, <c>false</c>.
+        /// </value>
         public bool TrackChanges
         {
             get { return _trackChanges; }
@@ -178,11 +186,20 @@ namespace Enterprise.DAL.Core.Model
             }
         }
 
+        public string SqlDatabase { get; set; }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
 
         /// <summary>
-        /// Determines whether this instance is changed.
+        ///     Determines whether this instance is changed.
         /// </summary>
-        /// <returns><c>true</c> if this instance is changed; otherwise, <c>false</c>.</returns>
+        /// <returns>
+        ///     <c>true</c> if this instance is changed; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsChanged()
         {
             if (_dirtyTable != null)
@@ -194,7 +211,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Determines whether the specified column is dirty.
+        ///     Determines whether the specified column is dirty.
         /// </summary>
         /// <param name="column">The column.</param>
         public void IsDirty(string column)
@@ -203,7 +220,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Sets the changed.
+        ///     Sets the changed.
         /// </summary>
         /// <param name="column">The column.</param>
         public void SetChanged(string column)
@@ -216,18 +233,20 @@ namespace Enterprise.DAL.Core.Model
             _dirtyTable[column] = true;
         }
 
+
+        //public bool IsChanged(string field)
+        //{
+        //    return _dirtyTable != null && _dirtyTable.ContainsKey(field) && _dirtyTable[field];
+        //}
         /// <summary>
-        /// Determines whether the specified field is changed.
+        ///     Determines whether the specified field is changed.
         /// </summary>
         /// <param name="field">The field.</param>
-        /// <returns><c>true</c> if the specified field is changed; otherwise, <c>false</c>.</returns>
-        public bool IsChanged(string field)
-        {
-            return _dirtyTable != null && _dirtyTable.ContainsKey(field) && _dirtyTable[field];
-        }
-
+        /// <returns>
+        ///     <c>true</c> if the specified field is changed; otherwise, <c>false</c>.
+        /// </returns>
         /// <summary>
-        /// Dirties the fields.
+        ///     Dirties the fields.
         /// </summary>
         /// <returns>System.String[][].</returns>
         public string[] DirtyFields()
@@ -243,7 +262,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Commits the changes.
+        ///     Commits the changes.
         /// </summary>
         public void CommitChanges()
         {
@@ -251,7 +270,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Sets the property.
+        ///     Sets the property.
         /// </summary>
         /// <typeparam name="TValue">The type of the T value.</typeparam>
         /// <param name="member">The member.</param>
@@ -271,7 +290,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Sets the property.
+        ///     Sets the property.
         /// </summary>
         /// <typeparam name="TValue">The type of the T value.</typeparam>
         /// <param name="member">The member.</param>
@@ -279,11 +298,6 @@ namespace Enterprise.DAL.Core.Model
         protected void SetProperty<TValue>(ref TValue member, TValue newValue)
         {
             SetProperty(ref member, newValue, EqualityComparer<TValue>.Default);
-        }
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -1,3 +1,16 @@
+// ***********************************************************************
+// Assembly         : Enterprise.DAL.Framework
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-27-2013
+// ***********************************************************************
+// <copyright file="SqlDataExecutor.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using System.Collections.Generic;
 using System.Data;
 

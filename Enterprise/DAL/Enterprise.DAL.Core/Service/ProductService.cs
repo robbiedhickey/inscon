@@ -11,29 +11,51 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
     /// <summary>
-    /// Class ProductService
+    ///     Class ProductService
     /// </summary>
     public class ProductService : ServiceBase<Product>
     {
         /// <summary>
-        /// Gets all products.
+        ///     Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Product.</returns>
+        public static Product Build(ITypeReader reader)
+        {
+            var record = new Product
+                {
+                    ProductId = reader.GetInt32("ProductID"),
+                    ProductCategoryId = reader.GetInt32("ProductCategoryID"),
+                    Caption = reader.GetString("Caption"),
+                    SKU = reader.GetString("SKU"),
+                    Rate = reader.GetDecimal("Rate"),
+                    Cost = reader.GetDecimal("Cost")
+                };
+
+            return record;
+        }
+
+        /// <summary>
+        ///     Gets all products.
         /// </summary>
         /// <returns>List{Product}.</returns>
         public List<Product> GetAllProducts()
         {
-            return QueryAll(SqlDatabase, Procedure.Product_SelectAll, Product.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.Product_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
-        /// Gets the product by id.
+        ///     Gets the product by id.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns>Product.</returns>
@@ -45,12 +67,12 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllProducts().Find(h) ?? new Product();
             }
 
-            return Query(SqlDatabase, Procedure.Product_SelectById, Product.Build, id);
+            return Query(SqlDatabase, Procedure.Product_SelectById, Build, id);
         }
 
 
         /// <summary>
-        /// Gets the products by category id.
+        ///     Gets the products by category id.
         /// </summary>
         /// <param name="categoryId">The category id.</param>
         /// <returns>List{Product}.</returns>
@@ -62,7 +84,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllProducts().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.Product_SelectByCategoryId, Product.Build, categoryId);
+            return QueryAll(SqlDatabase, Procedure.Product_SelectByCategoryId, Build, categoryId);
         }
     }
 }

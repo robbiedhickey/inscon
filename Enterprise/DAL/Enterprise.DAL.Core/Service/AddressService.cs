@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,34 @@ namespace Enterprise.DAL.Core.Service
     public class AddressService : ServiceBase<Address>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Address.</returns>
+        public static Address Build(ITypeReader reader)
+        {
+            var record = new Address
+                {
+                    AddressID = reader.GetInt32("AddressID"),
+                    ParentID = reader.GetInt32("ParentID"),
+                    EntityID = reader.GetInt16("EntityID"),
+                    Street = reader.GetString("Address"),
+                    Suite = reader.GetString("Suite"),
+                    City = reader.GetString("City"),
+                    State = reader.GetString("State"),
+                    ZipCode = reader.GetString("Zip")
+                };
+
+            return record;
+        }
+
+        /// <summary>
         /// Gets all address records.
         /// </summary>
         /// <returns>List{Address}.</returns>
         public List<Address> GetAllAddressRecords()
         {
-            return QueryAll(SqlDatabase, Procedure.Address_SelectAll, Address.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.Address_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -45,7 +69,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddressRecords().Find(h) ?? new Address();
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectById, Address.Build, id);
+            return Query(SqlDatabase, Procedure.Address_SelectById, Build, id);
         }
 
         /// <summary>
@@ -62,7 +86,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllAddressRecords().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Address.Build, parentID,
+            return QueryAll(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Build, parentID,
                             entityID);
         }
     }

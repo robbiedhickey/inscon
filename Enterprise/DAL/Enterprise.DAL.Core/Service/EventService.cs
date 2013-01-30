@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,13 +25,34 @@ namespace Enterprise.DAL.Core.Service
     /// </summary>
     public class EventService : ServiceBase<Event>
     {
+
+        /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Event.</returns>
+        public static Event Build(ITypeReader reader)
+        {
+            var record = new Event
+            {
+                EventId = reader.GetInt32("EventID"),
+                ParentId = reader.GetInt32("ParentID"),
+                EntityId = reader.GetInt16("EntityID"),
+                TypeId = reader.GetInt32("TypeID"),
+                UserId = reader.GetInt32("UserID"),
+                Date = reader.GetDate("EventDate")
+            };
+
+            return record;
+        }
+
         /// <summary>
         /// Gets all events.
         /// </summary>
         /// <returns>List{Event}.</returns>
         public List<Event> GetAllEvents()
         {
-            return QueryAll(SqlDatabase, Procedure.Event_SelectAll, Event.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.Event_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -46,7 +68,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllEvents().Find(h) ?? new Event();
             }
 
-            return Query(SqlDatabase, Procedure.Event_SelectById, Event.Build, id);
+            return Query(SqlDatabase, Procedure.Event_SelectById, Build, id);
         }
 
         /// <summary>
@@ -63,7 +85,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllEvents().Find(h) ?? new Event();
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Event.Build, parentID, entityID);
+            return Query(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Build, parentID, entityID);
         }
     }
 }

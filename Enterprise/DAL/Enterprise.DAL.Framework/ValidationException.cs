@@ -1,26 +1,56 @@
+// ***********************************************************************
+// Assembly         : Enterprise.DAL.Framework
+// Author           : Michael Roof
+// Created          : 01-26-2013
+//
+// Last Modified By : Michael Roof
+// Last Modified On : 01-26-2013
+// ***********************************************************************
+// <copyright file="ValidationException.cs" company="Mortgage Specialist International, LLC">
+//     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 using System;
 using System.Collections.Generic;
 
 namespace Enterprise.DAL.Framework
 {
-	/// <summary>
-	/// A validation exception represents a problem with the form or content
-	/// of data processed by the application.  It involves the failure of
-	/// some rule applied to the value of a given field.
-	/// </summary>
-	/// <author>Michael Roof</author>
+    /// <summary>
+    /// A validation exception represents a problem with the form or content
+    /// of data processed by the application.  It involves the failure of
+    /// some rule applied to the value of a given field.
+    /// </summary>
 	public class ValidationException : Exception
 	{
+        /// <summary>
+        /// The _errors
+        /// </summary>
 		private List<ValidationError> _errors;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidationException"/> class.
+        /// </summary>
+        /// <param name="violation">The violation.</param>
 		public ValidationException( string violation ) : this( null, violation )
 		{
 		}
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidationException"/> class.
+        /// </summary>
+        /// <param name="field">The field.</param>
+        /// <param name="violation">The violation.</param>
 		public ValidationException( string field, string violation ) : this( field, violation, null )
 		{
 		}
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidationException"/> class.
+        /// </summary>
+        /// <param name="field">The field.</param>
+        /// <param name="violation">The violation.</param>
+        /// <param name="value">The value.</param>
 		public ValidationException( string field, string violation, object value ) : base( violation )
 		{
 			_errors = new List<ValidationError>();
@@ -30,16 +60,28 @@ namespace Enterprise.DAL.Framework
 			_errors.Add( error );
 		}
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidationException"/> class.
+        /// </summary>
+        /// <param name="errors">The errors.</param>
 		public ValidationException( List<ValidationError> errors )
 		{
 			_errors = errors;
 		}
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidationException"/> class.
+        /// </summary>
+        /// <param name="error">The error.</param>
 		public ValidationException( ValidationError error )
 		{
 			_errors = new List<ValidationError> {error};
 		}
 
+        /// <summary>
+        /// Gets the first error.
+        /// </summary>
+        /// <value>The first error.</value>
 		public ValidationError FirstError
 		{
 			get
@@ -53,6 +95,10 @@ namespace Enterprise.DAL.Framework
 			}
 		}
 
+        /// <summary>
+        /// Gets or sets the field.
+        /// </summary>
+        /// <value>The field.</value>
 		public string Field
 		{
 			get
@@ -65,6 +111,10 @@ namespace Enterprise.DAL.Framework
 			}
 		}
 
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        /// <value>The value.</value>
 		public object Value
 		{
 			get
@@ -77,6 +127,10 @@ namespace Enterprise.DAL.Framework
 			}
 		}
 
+        /// <summary>
+        /// Gets or sets the violation.
+        /// </summary>
+        /// <value>The violation.</value>
 		public string Violation
 		{
 			get
@@ -89,6 +143,10 @@ namespace Enterprise.DAL.Framework
 			}
 		}
 
+        /// <summary>
+        /// Gets or sets the errors.
+        /// </summary>
+        /// <value>The errors.</value>
 		public List<ValidationError> Errors
 		{
 			get { return _errors; }

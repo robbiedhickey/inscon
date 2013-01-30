@@ -11,10 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
+using Enterprise.DAL.Framework.Data;
 
 namespace Enterprise.DAL.Core.Service
 {
@@ -24,12 +26,31 @@ namespace Enterprise.DAL.Core.Service
     public class MortgagorService : ServiceBase<Mortgagor>
     {
         /// <summary>
+        /// Builds the specified reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns>Mortgagor.</returns>
+        public static Mortgagor Build(ITypeReader reader)
+        {
+            var record = new Mortgagor
+                {
+                    MortgagorId = reader.GetInt32("MortgagorID"),
+                    LoanId = reader.GetInt32("LoanID"),
+                    Name = reader.GetString("Name"),
+                    TypeId = reader.GetInt32("TypeID"),
+                    PhoneNumber = reader.GetString("Phone")
+                };
+
+            return record;
+        }
+
+        /// <summary>
         /// Gets all mortgagors.
         /// </summary>
         /// <returns>List{Mortgagor}.</returns>
         public List<Mortgagor> GetAllMortgagors()
         {
-            return QueryAll(SqlDatabase, Procedure.Mortgagor_SelectAll, Mortgagor.Build, CacheMinutesToExpire, IsCached);
+            return QueryAll(SqlDatabase, Procedure.Mortgagor_SelectAll, Build, CacheMinutesToExpire, IsCached);
         }
 
         /// <summary>
@@ -45,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllMortgagors().Find(h) ?? new Mortgagor();
             }
 
-            return Query(SqlDatabase, Procedure.Mortgagor_SelectById, Mortgagor.Build, id);
+            return Query(SqlDatabase, Procedure.Mortgagor_SelectById, Build, id);
         }
 
 
@@ -62,7 +83,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllMortgagors().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.Mortgagor_SelectByLoanId, Mortgagor.Build, loanId);
+            return QueryAll(SqlDatabase, Procedure.Mortgagor_SelectByLoanId, Build, loanId);
         }
 
         /// <summary>
@@ -79,7 +100,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllMortgagors().Find(h) ?? new Mortgagor();
             }
 
-            return Query(SqlDatabase, Procedure.Mortgagor_SelectByLoanIdAndTypeId, Mortgagor.Build, loanId, typeId);
+            return Query(SqlDatabase, Procedure.Mortgagor_SelectByLoanIdAndTypeId, Build, loanId, typeId);
         }
     }
 }
