@@ -41,7 +41,7 @@ namespace Enterprise.DAL.Core.Service
                     Suite = reader.GetString("Suite"),
                     City = reader.GetString("City"),
                     State = reader.GetString("State"),
-                    ZipCode = reader.GetString("Zip")
+                    Zip = reader.GetString("Zip")
                 };
 
             return record;

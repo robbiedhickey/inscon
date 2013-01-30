@@ -25,7 +25,7 @@ namespace Enterprise.DAL.Core.Model
         /// <summary>
         ///     The _authentication
         /// </summary>
-        private int _authentication;
+        private Guid? _authentication;
 
         /// <summary>
         ///     The _first name
@@ -147,7 +147,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the authentication ID.
         /// </summary>
         /// <value>The authentication ID.</value>
-        public Int32 AuthenticationID
+        public Guid? AuthenticationID
         {
             get { return _authentication; }
             set { _authentication = value; }

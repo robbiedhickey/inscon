@@ -141,7 +141,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the zip code.
         /// </summary>
         /// <value>The zip code.</value>
-        public string ZipCode
+        public string Zip
         {
             get { return _zip; }
             set { SetProperty(ref _zip, value); }

@@ -39,7 +39,7 @@ namespace Enterprise.DAL.Core.Service
                     FirstName = reader.GetString("FirstName"),
                     LastName = reader.GetString("LastName"),
                     StatusID = reader.GetInt32("StatusID"),
-                    AuthenticationID = reader.GetInt32("AuthenticationID")
+                    AuthenticationID = reader.GetNullGuid("AuthenticationID")
                 };
 
             return record;

@@ -36,7 +36,7 @@ namespace Enterprise.DAL.Core.Service
                 {
                     WorkOrderId = reader.GetInt32("WorkOrderID"),
                     RequestId = reader.GetInt32("RequestID"),
-                    LoanId = reader.GetInt32("LoanID"),
+                    AssetId = reader.GetInt32("AssetID"),
                     DateInserted = reader.GetDate("DateInserted")
                 };
 
@@ -83,6 +83,18 @@ namespace Enterprise.DAL.Core.Service
             }
 
             return QueryAll(SqlDatabase, Procedure.WorkOrder_SelectByRequestId, Build, requestId);
+        }
+
+      
+        public List<WorkOrder> GetWorkOrdersByAssetId(Int32 assetId)
+        {
+            if (IsCached)
+            {
+                Predicate<WorkOrder> h = h2 => h2.AssetId == assetId;
+                return GetAllWorkOrders().FindAll(h);
+            }
+
+            return QueryAll(SqlDatabase, Procedure.WorkOrder_SelectByAssetId, Build, assetId);
         }
     }
 }

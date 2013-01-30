@@ -40,7 +40,7 @@ namespace Enterprise.DAL.Core.Service
                 EntityId = reader.GetInt16("EntityID"),
                 TypeId = reader.GetInt32("TypeID"),
                 UserId = reader.GetInt32("UserID"),
-                Date = reader.GetDate("EventDate")
+                EventDate = reader.GetDate("EventDate")
             };
 
             return record;

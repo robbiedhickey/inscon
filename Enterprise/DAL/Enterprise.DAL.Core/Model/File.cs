@@ -132,13 +132,7 @@ namespace Enterprise.DAL.Core.Model
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }
         }
-
-        /// <summary>
-        ///     Gets or sets the user id.
-        /// </summary>
-        /// <value>The user id.</value>
-        public Int32 UserId { get; set; }
-
+       
         /// <summary>
         ///     Gets or sets the caption.
         /// </summary>

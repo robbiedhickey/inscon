@@ -17,32 +17,32 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class WorkOrder
+    /// Class WorkOrder
     /// </summary>
     public class WorkOrder : ModelBase
     {
         /// <summary>
-        ///     The _date inserted
+        /// The _date inserted
         /// </summary>
         private DateTime _dateInserted;
 
         /// <summary>
-        ///     The _loan id
+        /// The _asset id
         /// </summary>
-        private Int32? _loanId;
+        private Int32? _assetId ;
 
         /// <summary>
-        ///     The _request id
+        /// The _request id
         /// </summary>
         private Int32 _requestId;
 
         /// <summary>
-        ///     The _work order id
+        /// The _work order id
         /// </summary>
         private Int32 _workOrderId;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="WorkOrder" /> class.
+        /// Initializes a new instance of the <see cref="WorkOrder"/> class.
         /// </summary>
         public WorkOrder()
         {
@@ -51,7 +51,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        ///     Gets or sets the work order id.
+        /// Gets or sets the work order id.
         /// </summary>
         /// <value>The work order id.</value>
         public Int32 WorkOrderId
@@ -61,7 +61,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the request id.
+        /// Gets or sets the request id.
         /// </summary>
         /// <value>The request id.</value>
         public Int32 RequestId
@@ -71,17 +71,17 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the loan id.
+        /// Gets or sets the asset id.
         /// </summary>
-        /// <value>The loan id.</value>
-        public Int32? LoanId
+        /// <value>The asset id.</value>
+        public Int32? AssetId   
         {
-            get { return _loanId; }
-            set { SetProperty(ref _loanId, value); }
+            get { return _assetId; }
+            set { SetProperty(ref _assetId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the date inserted.
+        /// Gets or sets the date inserted.
         /// </summary>
         /// <value>The date inserted.</value>
         public DateTime DateInserted

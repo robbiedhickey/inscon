@@ -44,6 +44,14 @@ namespace Enterprise.DAL.Core.Types
         public const String AddressUse_SelectByAddressIdAndTypeId = @"[crud].[AddressUse_SelectByAddressIdAndTypeId]";
         public const String AddressUse_SelectById = @"[crud].[AddressUse_SelectById]";
         public const String AddressUse_Update = @"[crud].[AddressUse_Update]";
+        // Asset
+        public const String Asset_Delete = @"[crud].[Asset_Delete]";
+        public const String Asset_Insert = @"[crud].[Asset_Insert]";
+        public const String Asset_SelectAll = @"[crud].[Asset_SelectAll]";
+        public const String Asset_SelectById = @"[crud].[Asset_SelectById]";
+        public const String Asset_SelectByLoanId = @"[crud].[Asset_SelectByLoanId]";
+        public const String Asset_SelectByOrganizationId = @"[crud].[Asset_SelectByOrganizationId]";
+        public const String Asset_Update = @"[crud].[Asset_Update]";
         // Comment
         public const String Comment_Delete = @"[crud].[Comment_Delete]";
         public const String Comment_Insert = @"[crud].[Comment_Insert]";
@@ -84,10 +92,7 @@ namespace Enterprise.DAL.Core.Types
         public const String Location_SelectAll = @"[crud].[Location_SelectAll]";
         public const String Location_SelectById = @"[crud].[Location_SelectById]";
         public const String Location_SelectByOrganizationId = @"[crud].[Location_SelectByOrganizationId]";
-
-        public const String Location_SelectByOrganizationIdAndTypeId =
-            @"[crud].[Location_SelectByOrganizationIdAndTypeId]";
-
+        public const String Location_SelectByOrganizationIdAndTypeId = @"[crud].[Location_SelectByOrganizationIdAndTypeId]";
         public const String Location_Update = @"[crud].[Location_Update]";
         // Lookup
         public const String Lookup_Delete = @"[crud].[Lookup_Delete]";
@@ -149,10 +154,7 @@ namespace Enterprise.DAL.Core.Types
         public const String UserAreaCoverage_Insert = @"[crud].[UserAreaCoverage_Insert]";
         public const String UserAreaCoverage_SelectAll = @"[crud].[UserAreaCoverage_SelectAll]";
         public const String UserAreaCoverage_SelectById = @"[crud].[UserAreaCoverage_SelectById]";
-
-        public const String UserAreaCoverage_SelectByUserIdAndServiceId =
-            @"[crud].[UserAreaCoverage_SelectByUserIdAndServiceId]";
-
+        public const String UserAreaCoverage_SelectByUserIdAndServiceId = @"[crud].[UserAreaCoverage_SelectByUserIdAndServiceId]";
         public const String UserAreaCoverage_Update = @"[crud].[UserAreaCoverage_Update]";
         // UserContact
         public const String UserContact_Delete = @"[crud].[UserContact_Delete]";
@@ -173,6 +175,7 @@ namespace Enterprise.DAL.Core.Types
         public const String WorkOrder_Delete = @"[crud].[WorkOrder_Delete]";
         public const String WorkOrder_Insert = @"[crud].[WorkOrder_Insert]";
         public const String WorkOrder_SelectAll = @"[crud].[WorkOrder_SelectAll]";
+        public const String WorkOrder_SelectByAssetId = @"[crud].[WorkOrder_SelectByAssetId]";
         public const String WorkOrder_SelectById = @"[crud].[WorkOrder_SelectById]";
         public const String WorkOrder_SelectByRequestId = @"[crud].[WorkOrder_SelectByRequestId]";
         public const String WorkOrder_Update = @"[crud].[WorkOrder_Update]";
@@ -181,9 +184,7 @@ namespace Enterprise.DAL.Core.Types
         public const String WorkOrderAssignment_Insert = @"[crud].[WorkOrderAssignment_Insert]";
         public const String WorkOrderAssignment_SelectAll = @"[crud].[WorkOrderAssignment_SelectAll]";
         public const String WorkOrderAssignment_SelectById = @"[crud].[WorkOrderAssignment_SelectById]";
-
         public const String WorkOrderAssignment_SelectByWorkOrderId = @"[crud].[WorkOrderAssignment_SelectByWorkOrderId]";
-
         public const String WorkOrderAssignment_Update = @"[crud].[WorkOrderAssignment_Update]";
         // WorkOrderItem
         public const String WorkOrderItem_Delete = @"[crud].[WorkOrderItem_Delete]";

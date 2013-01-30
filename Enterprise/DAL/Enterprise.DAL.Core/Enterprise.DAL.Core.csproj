@@ -53,6 +53,7 @@
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\AddressLocation.cs" />
     <Compile Include="Model\AddressUse.cs" />
+    <Compile Include="Model\Asset.cs" />
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\File.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Service\AddressLocationService.cs" />
     <Compile Include="Service\AddressService.cs" />
     <Compile Include="Service\AddressUseService.cs" />
+    <Compile Include="Service\AssetService.cs" />
     <Compile Include="Service\CommentService.cs" />
     <Compile Include="Service\EventService.cs" />
     <Compile Include="Service\FileService.cs" />

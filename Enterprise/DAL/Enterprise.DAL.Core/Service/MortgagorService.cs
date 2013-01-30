@@ -38,7 +38,7 @@ namespace Enterprise.DAL.Core.Service
                     LoanId = reader.GetInt32("LoanID"),
                     Name = reader.GetString("Name"),
                     TypeId = reader.GetInt32("TypeID"),
-                    PhoneNumber = reader.GetString("Phone")
+                    Phone = reader.GetString("Phone")
                 };
 
             return record;

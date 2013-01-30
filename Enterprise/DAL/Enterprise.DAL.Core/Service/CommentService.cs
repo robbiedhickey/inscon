@@ -39,7 +39,7 @@ namespace Enterprise.DAL.Core.Service
                 EntityId = reader.GetInt16("EntityId"),
                 UserId = reader.GetInt32("UserID"),
                 TypeId = reader.GetInt32("TypeID"),
-                Value = reader.GetString("Comment")
+                Value = reader.GetString("Value")
             };
 
             return record;

@@ -92,7 +92,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the phone number.
         /// </summary>
         /// <value>The phone number.</value>
-        public String PhoneNumber
+        public String Phone
         {
             get { return _phoneNumber; }
             set { SetProperty(ref _phoneNumber, value); }

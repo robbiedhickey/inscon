@@ -107,7 +107,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the date.
         /// </summary>
         /// <value>The date.</value>
-        public DateTime Date
+        public DateTime EventDate
         {
             get { return _date; }
             set { SetProperty(ref _date, value); }
