@@ -13,6 +13,7 @@ namespace AuthenticationService
     ///     * Expire password after 60 days
     ///     * More explanation when we fail to validate a user
     ///     * Enforces newly created passwords to be unique for a configurable number of previous passwords
+    ///     * Logs all login attempts, and tracks: UserId, WasSuccessful, ApplicationName, Date
     /// </summary>
     public class MsiMembershipProvider : SqlMembershipProvider
     {
