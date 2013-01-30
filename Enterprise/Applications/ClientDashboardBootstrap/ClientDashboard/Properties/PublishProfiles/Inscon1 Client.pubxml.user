@@ -13,8 +13,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>01/22/2013 11:28:41</publishTime>
     </File>
+    <File Include="bin/AuthenticationService.dll">
+      <publishTime>01/30/2013 13:40:47</publishTime>
+    </File>
     <File Include="bin/ClientDashboard.dll">
-      <publishTime>01/23/2013 13:06:55</publishTime>
+      <publishTime>01/30/2013 13:41:48</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>01/22/2013 11:28:40</publishTime>
@@ -57,6 +60,36 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/22/2013 11:28:41</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddController/ApiController.tt">
+      <publishTime>06/04/2012 01:02:20</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddController/ApiControllerWithContext.tt">
+      <publishTime>06/09/2012 01:00:32</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddController/Controller.tt">
+      <publishTime>01/28/2013 13:26:32</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddController/ControllerWithContext.tt">
+      <publishTime>01/28/2013 13:27:00</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddView/CSHTML/Create.tt">
+      <publishTime>01/28/2013 15:21:02</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddView/CSHTML/Delete.tt">
+      <publishTime>03/08/2012 08:20:30</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddView/CSHTML/Details.tt">
+      <publishTime>03/08/2012 08:20:30</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddView/CSHTML/Edit.tt">
+      <publishTime>01/28/2013 15:21:15</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddView/CSHTML/Empty.tt">
+      <publishTime>03/08/2012 08:20:30</publishTime>
+    </File>
+    <File Include="CodeTemplates/AddView/CSHTML/List.tt">
+      <publishTime>03/08/2012 08:20:30</publishTime>
     </File>
     <File Include="Content/bootstrap-responsive.css">
       <publishTime>01/22/2013 11:28:42</publishTime>
@@ -322,6 +355,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="scripts/jquery.validate.unobtrusive.min.js">
       <publishTime>01/22/2013 11:28:42</publishTime>
     </File>
+    <File Include="Views/Account/ChangePassword.cshtml">
+      <publishTime>01/30/2013 13:39:20</publishTime>
+    </File>
+    <File Include="Views/Account/LogOn.cshtml">
+      <publishTime>01/30/2013 13:39:20</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>01/30/2013 13:39:20</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPassword.cshtml">
+      <publishTime>01/30/2013 13:39:06</publishTime>
+    </File>
     <File Include="Views/Claims/ReadOnly.cshtml">
       <publishTime>01/22/2013 11:28:42</publishTime>
     </File>
@@ -343,6 +388,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/ExampleLayouts/TBD.cshtml">
       <publishTime>01/22/2013 11:28:42</publishTime>
     </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>01/28/2013 13:57:34</publishTime>
+    </File>
     <File Include="Views/shared/Create.cshtml">
       <publishTime>01/22/2013 11:28:42</publishTime>
     </File>
@@ -362,7 +410,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/22/2013 11:28:42</publishTime>
     </File>
     <File Include="Views/shared/_BootstrapLayout.basic.cshtml">
-      <publishTime>01/23/2013 13:05:01</publishTime>
+      <publishTime>01/28/2013 15:19:40</publishTime>
     </File>
     <File Include="Views/shared/_BootstrapLayout.empty.cshtml">
       <publishTime>01/22/2013 11:28:42</publishTime>
@@ -380,7 +428,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/22/2013 11:28:42</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/23/2013 13:06:55</publishTime>
+      <publishTime>01/30/2013 13:41:48</publishTime>
     </File>
   </ItemGroup>
 </Project>

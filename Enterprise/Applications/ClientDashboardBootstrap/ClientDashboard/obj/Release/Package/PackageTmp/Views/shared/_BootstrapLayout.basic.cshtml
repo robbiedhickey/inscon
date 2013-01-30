@@ -25,17 +25,20 @@
                     <a class="brand" href="/"><i class="icon-home icon-white"></i>Client Dashboard</a>
                     <div class="nav-collapse">
                         <ul class="nav">
-                            @Html.Navigation()
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @Html.Navigation()
+                            }
                         </ul>
                         <ul class="nav pull-right">
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <li><a href="https://inscon1/idserver/">Welcome, @User.Identity.Name</a></li>
-                                    <li>@Html.ActionLink("View Claims", "ViewClaims", "Account")</li>
+                                    <li><a href="/">Welcome, @User.Identity.Name</a></li>
+                                    <li>@Html.ActionLink("Sign Off", "LogOff", "Account")</li>
                                 }
                                 else
                                 {
-                                    <li><a href="/"><i class="icon-user icon-white"></i>Sign In</a></li>
+                                    <li>@Html.ActionLink("Sign In", "LogOn", "Account")</li>
                                     
                                 }
                         </ul>
@@ -58,6 +61,7 @@
                 "~/scripts/jquery.validate.unobtrusive.js",
                 "~/Scripts/jquery.validate.unobtrusive-custom-for-bootstrap.js",
                 "~/Scripts/jquery-ui-1.10.0.js")
+
          @RenderSection("Scripts", required: false)
         
         <script type='text/javascript'>

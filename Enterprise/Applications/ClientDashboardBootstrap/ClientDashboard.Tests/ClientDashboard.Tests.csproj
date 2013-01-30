@@ -51,6 +51,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AuthenticationService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ThirdParty\SharedBin\AuthenticationService.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -121,10 +125,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ApplicationServices\AuthenticationService\AuthenticationService.csproj">
-      <Project>{def58c44-1bc5-4b6f-b420-5be8252585dc}</Project>
-      <Name>AuthenticationService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ClientDashboard\ClientDashboard.csproj">
       <Project>{1083BEE7-0B49-49A7-AF8A-AF1352299E56}</Project>
       <Name>ClientDashboard</Name>

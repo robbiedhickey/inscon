@@ -31,6 +31,7 @@ C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDa
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\ClientDashboard.dll
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\ClientDashboard.pdb
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\Antlr3.Runtime.dll
+C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\AuthenticationService.dll
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\Microsoft.Web.Infrastructure.dll
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\Microsoft.Web.Mvc.dll
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\Newtonsoft.Json.dll
@@ -45,6 +46,7 @@ C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDa
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\System.Web.WebPages.dll
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\System.Web.WebPages.Razor.dll
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\WebGrease.dll
+C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\AuthenticationService.pdb
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\Newtonsoft.Json.xml
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\System.Net.Http.Formatting.xml
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\System.Web.Helpers.xml
@@ -58,5 +60,3 @@ C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDa
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\obj\Debug\ClientDashboard.csprojResolveAssemblyReference.cache
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\obj\Debug\ClientDashboard.dll
 C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\obj\Debug\ClientDashboard.pdb
-C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\AuthenticationService.dll
-C:\Work\InsightConcept\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\AuthenticationService.pdb

@@ -1,5 +1,5 @@
 ﻿@using BootstrapSupport
-@model ClientDashboard.Models.LogOnModel
+@model AuthenticationService.Models.LogOnModel
 
 @{
     ViewBag.Title = "LogOn";
@@ -9,7 +9,7 @@
 
 
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("LogOn", "Account")) {
     @Html.ValidationSummary(true,null,new {@class="alert alert-error"} )
 
     <fieldset class="form-horizontal">
@@ -35,7 +35,7 @@
         
         <div class="control-group">
             <div class="controls">
-                @Html.ActionLink("Forgot Password? Click here.", "ResetPassword", "Account")
+                @Html.ActionLink("Forgot Password? Click here.", "ResetPassword_1", "Account")
             </div>
         </div>
         <div class="form-actions">

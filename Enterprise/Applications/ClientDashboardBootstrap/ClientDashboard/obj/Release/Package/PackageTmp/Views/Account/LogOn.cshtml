@@ -1,0 +1,45 @@
+﻿@using BootstrapSupport
+@model AuthenticationService.Models.LogOnModel
+
+@{
+    ViewBag.Title = "LogOn";
+    Layout = "~/Views/shared/_BootstrapLayout.basic.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true,null,new {@class="alert alert-error"} )
+
+    <fieldset class="form-horizontal">
+        <legend><h2>Sign In <small>If you don't have an account, @Html.ActionLink("please register.", "Register") </small></h2></legend>
+
+        @Html.BeginControlGroupFor(model => model.UserName)
+            @Html.LabelFor(model => model.UserName, new {@class="control-label"})
+		<div class="controls">
+            @Html.EditorFor(model => model.UserName, new{@class="input-large"})
+            @Html.ValidationMessageFor(model => model.UserName, null, new {@class="help-inline"})
+
+		</div>
+		@Html.EndControlGroup()
+
+        @Html.BeginControlGroupFor(model => model.Password)
+            @Html.LabelFor(model => model.Password, new {@class="control-label"})
+		<div class="controls">
+            @Html.EditorFor(model => model.Password, new{@class="input-large"})
+            @Html.ValidationMessageFor(model => model.Password, null, new {@class="help-inline"})
+
+		</div>
+		@Html.EndControlGroup()
+        
+        <div class="control-group">
+            <div class="controls">
+                @Html.ActionLink("Forgot Password? Click here.", "ResetPassword", "Account")
+            </div>
+        </div>
+        <div class="form-actions">
+            <input type="submit" class="btn btn-primary" value="Create" />
+        </div>
+    </fieldset>
+}

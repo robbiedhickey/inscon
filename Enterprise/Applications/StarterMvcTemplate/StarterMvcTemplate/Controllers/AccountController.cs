@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using AuthenticationService;
 using BootstrapMvcSample.Controllers;
-using ClientDashboard.Models;
+using AuthenticationService.Models;
 
 namespace StarterMvcTemplate.Controllers
 {
@@ -123,7 +123,8 @@ namespace StarterMvcTemplate.Controllers
         // GET: /Account/ChangePassword
         public ActionResult ChangePassword()
         {
-            return View();
+            var model = new ChangePasswordModel { Username = User.Identity.Name };
+            return View(model);
         }
 
         //
@@ -149,7 +150,7 @@ namespace StarterMvcTemplate.Controllers
 
                 if (changePasswordSucceeded)
                 {
-                    Success("Password changed was successful! Please log in with your new password.");
+                    Success("Password changed was successful!");
                     return Redirect("/");
                 }
                 else
@@ -162,13 +163,32 @@ namespace StarterMvcTemplate.Controllers
             return View(model);
         }
 
-        public ActionResult ResetPassword()
+        public ActionResult ResetPassword_1()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult ResetPassword(ResetPasswordModel model)
+        public ActionResult ResetPassword_1(ResetPasswordModel model)
+        {
+            var user = MsiMembership.GetUser(model.Username, false);
+
+            if (user != null)
+            {
+                model.SecretQuestion = user.PasswordQuestion;
+                ModelState.Clear();
+            }
+            else
+            {
+                ModelState.AddModelError("", "Username not found.");
+                return View();
+            }
+
+            return View("ResetPassword_2", model);
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword_2(ResetPasswordModel model)
         {
             if (ModelState.IsValid)
             {
