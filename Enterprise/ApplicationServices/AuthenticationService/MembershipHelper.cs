@@ -12,11 +12,30 @@ using AuthenticationService.Models;
 
 namespace AuthenticationService
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MembershipHelper : IMembershipHelper
     {
+        /// <summary>
+        /// Gets or sets the auto unlock timeout.
+        /// </summary>
+        /// <value>
+        /// The auto unlock timeout.
+        /// </value>
         protected TimeSpan AutoUnlockTimeout { get; set; }
+        /// <summary>
+        /// Gets the encryption algorithm.
+        /// </summary>
+        /// <value>
+        /// The encryption algorithm.
+        /// </value>
         protected String EncryptionAlgorithm { get { return "SHA"; } }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MembershipHelper" /> class.
+        /// </summary>
+        /// <param name="autoUnlockTimeout">The auto unlock timeout.</param>
         public MembershipHelper(TimeSpan autoUnlockTimeout)
         {
             AutoUnlockTimeout = autoUnlockTimeout;
@@ -102,6 +121,7 @@ namespace AuthenticationService
         /// Performs check to ensure that the user attempting to login does not need to reset their password
         /// </summary>
         /// <param name="user"></param>
+        /// <exception cref="System.Configuration.Provider.ProviderException">Invalid username provided.</exception>
         public void EnforceValidateUserPreconditions(MembershipUser user)
         {
             //invalid user
@@ -133,14 +153,13 @@ namespace AuthenticationService
         /// <exception cref="System.NotImplementedException"></exception>
         public bool PasswordHasBeenUsedRecently(string username, string newPassword, int numPasswordsToEnforce)
         {
-            var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MembershipDB"].ConnectionString);
-            conn.Open();
-            var cmd = new SqlCommand("dbo.PasswordHistory_SelectRecentByUsername", conn)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-            cmd.Parameters.Add(new SqlParameter("userName", username));
-            cmd.Parameters.Add(new SqlParameter("numberOfRecentPasswordsToRetrieve", numPasswordsToEnforce));
+            var conn = GetOpenConnection();
+
+            var cmd = BuildStoredProcedureCommand(conn, "dbo.PasswordHistory_SelectRecentByUsername",
+                                                new SqlParameter("userName", username),
+                                                new SqlParameter("numberOfRecentPasswordsToRetrieve",
+                                                                 numPasswordsToEnforce));
+
             var reader = cmd.ExecuteReader();
             var history = new List<PasswordHistory>();
             while (reader.Read())
@@ -198,6 +217,62 @@ namespace AuthenticationService
                 return false;
             }
         }
+
+        /// <summary>
+        /// Logs the login attempt.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="wasSuccessful">if set to <c>true</c> [was successful].</param>
+        public void LogLoginAttempt(string username, bool wasSuccessful)
+        {
+            var conn = GetOpenConnection();
+
+            var appName =
+                new SqlConnectionStringBuilder(
+                    System.Configuration.ConfigurationManager.ConnectionStrings["MembershipDB"].ConnectionString).ApplicationName;
+
+            var cmd = BuildStoredProcedureCommand(conn, "dbo.LoginAttemptHistory_Insert",
+                                                  new SqlParameter("userName", username),
+                                                  new SqlParameter("wasSuccessful", wasSuccessful),
+                                                  new SqlParameter("appName", appName));
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+            conn.Dispose();
+        }
+        #endregion
+
+        #region Private Methods
+        /// <summary>
+        /// Builds the stored procedure command.
+        /// </summary>
+        /// <param name="conn">The conn.</param>
+        /// <param name="procedureName">Name of the procedure.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        private SqlCommand BuildStoredProcedureCommand(SqlConnection conn, string procedureName, params SqlParameter[] parameters)
+        {
+            var cmd = new SqlCommand(procedureName, conn)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            cmd.Parameters.AddRange(parameters);
+
+            return cmd;
+        }
+
+        /// <summary>
+        /// Gets the open connection.
+        /// </summary>
+        /// <returns></returns>
+        private SqlConnection GetOpenConnection()
+        {
+            var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MembershipDB"].ConnectionString);
+            conn.Open();
+            return conn;
+        } 
         #endregion
     }
 }

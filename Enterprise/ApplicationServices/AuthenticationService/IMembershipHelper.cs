@@ -52,5 +52,12 @@ namespace AuthenticationService
         /// Whether the membership record is eligible for unlocking
         /// </returns>
         bool UserIsEligibleForUnlock(MembershipUser user);
+
+        /// <summary>
+        /// Logs the login attempt.
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="wasSuccessful">if set to <c>true</c> [was successful].</param>
+        void LogLoginAttempt(string username, bool wasSuccessful);
     }
 }

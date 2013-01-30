@@ -12,6 +12,7 @@ namespace AuthenticationService
     ///     * Auto unlock user after 15 minutes
     ///     * Expire password after 60 days
     ///     * More explanation when we fail to validate a user
+    ///     * Enforces newly created passwords to be unique for a configurable number of previous passwords
     /// </summary>
     public class MsiMembershipProvider : SqlMembershipProvider
     {
@@ -161,6 +162,12 @@ namespace AuthenticationService
             get { return new TimeSpan(60, 0, 0, 0); }
         }
 
+        /// <summary>
+        /// Gets the number of recent passwords to enforce uniqueness.
+        /// </summary>
+        /// <value>
+        /// The number of recent passwords to enforce uniqueness.
+        /// </value>
         public int NumberOfRecentPasswordsToEnforce
         {
             get { return 6; }
@@ -205,8 +212,6 @@ namespace AuthenticationService
         /// <exception cref="System.Web.Security.MembershipPasswordException">thrown if the user's password is expired</exception>
         public override bool ValidateUser(string username, string password)
         {
-            bool retVal = false;
-
             //get the user membership record so we can check preconditions
             var user = Membership.GetUser(username);
 
@@ -216,12 +221,8 @@ namespace AuthenticationService
             //attempt to validate the user
             var validationSuccessful = base.ValidateUser(username, password);
 
-            //return if first login was successful
-            if (validationSuccessful)
-            {
-                retVal = true;
-            }
-            else
+            //check to see if account should be unlocked
+            if (!validationSuccessful)
             {
                 //unlock the user if appropriate
                 var unlockSuccessful = _helper.TryAutoUnlockUser(user);
@@ -229,12 +230,13 @@ namespace AuthenticationService
                 //if unlock was successful, attempt to validate the user again
                 if (unlockSuccessful)
                 {
-                    retVal = base.ValidateUser(username, password);
+                    validationSuccessful = base.ValidateUser(username, password);
                 }
-
             }
 
-            return retVal;
+            _helper.LogLoginAttempt(username, validationSuccessful);
+
+            return validationSuccessful;
         }
 
 
@@ -276,6 +278,15 @@ namespace AuthenticationService
         #endregion
 
         #region Public Methods
+
+
+        /// <summary>
+        /// Determines whether the password is expired for the specified user name.
+        /// </summary>
+        /// <param name="userName">Name of the user.</param>
+        /// <returns>
+        ///   <c>true</c> if the password is expired for the specified user name; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsPasswordExpired(string userName)
         {
             bool passwordExpired = false;
