@@ -10,7 +10,7 @@ CREATE PROC [crud].[User_Insert]
   @LastName         VARCHAR(28),
   @Title            VARCHAR(50),
   @StatusID         INT,
-  @AuthenticationID INT
+  @AuthenticationID [UNIQUEIDENTIFIER]
 AS
     SET NOCOUNT ON
     SET XACT_ABORT ON

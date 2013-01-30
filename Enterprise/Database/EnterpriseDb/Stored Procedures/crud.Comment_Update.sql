@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -9,7 +10,7 @@ CREATE PROC [crud].[Comment_Update]
   @EntityID  SMALLINT,
   @UserID    INT,
   @TypeID    INT,
-  @Comment   VARCHAR(MAX)
+  @Value   VARCHAR(MAX)
 AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
@@ -19,7 +20,7 @@ AS
            [EntityID] = @EntityID,
            [UserID] = @UserID,
            [TypeID] = @TypeID,
-           [Comment] = @Comment
+           [Value] = @Value
     WHERE  [CommentID] = @CommentID
 
 GO

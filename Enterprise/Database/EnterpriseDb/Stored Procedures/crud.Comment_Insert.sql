@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -8,7 +9,7 @@ CREATE PROC [crud].[Comment_Insert]
   @EntityID SMALLINT,
   @UserID   INT,
   @TypeID   INT,
-  @Comment  VARCHAR(MAX)
+  @Value  VARCHAR(MAX)
 AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
@@ -19,7 +20,7 @@ AS
       [EntityID],
       [UserID],
       [TypeID],
-      [Comment]
+      [Value]
     )
     VALUES
     (
@@ -27,7 +28,7 @@ AS
       @EntityID,
       @UserID,
       @TypeID,
-      @Comment
+      @Value
     )
     -- Begin Return Select <- do not remove
     SELECT [CommentID],
@@ -35,7 +36,7 @@ AS
            [EntityID],
            [UserID],
            [TypeID],
-           [Comment]
+           [Value]
     FROM   [generic].[Comment]
     WHERE  [CommentID] = SCOPE_IDENTITY()
 

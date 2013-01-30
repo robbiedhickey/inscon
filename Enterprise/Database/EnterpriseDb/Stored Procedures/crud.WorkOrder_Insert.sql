@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -5,7 +6,7 @@ GO
 
 CREATE PROC [crud].[WorkOrder_Insert]
   @RequestID    INT,
-  @LoanID       INT,
+  @AssetID       INT,
   @DateInserted DATETIME
 
 AS
@@ -15,21 +16,21 @@ AS
     INSERT INTO [dbo].[WorkOrder]
     (
       [RequestID],
-      [LoanID],
+      [AssetID],
       [DateInserted]
       
     )
     VALUES
     (
       @RequestID,
-      @LoanID,
+      @AssetID,
       @DateInserted
      
     )
     -- Begin Return Select <- do not remove
     SELECT [WorkOrderID],
            [RequestID],
-           [LoanID],
+           [AssetID],
            [DateInserted]
            
     FROM   [dbo].[WorkOrder]

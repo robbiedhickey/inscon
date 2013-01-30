@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -14,7 +15,7 @@ AS
            [EntityID],
            [UserID],
            [TypeID],
-           [Comment]
+           [Value]
     FROM   [generic].[Comment]
     WHERE  [CommentID] = @CommentID
 

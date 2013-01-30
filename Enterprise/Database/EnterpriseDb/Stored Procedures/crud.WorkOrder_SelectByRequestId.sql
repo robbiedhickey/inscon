@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -11,7 +12,7 @@ AS
 
     SELECT [WorkOrderID],
            [RequestID],
-           [LoanID],
+           [AssetID],
            [DateInserted]
           
     FROM   [dbo].[WorkOrder]
