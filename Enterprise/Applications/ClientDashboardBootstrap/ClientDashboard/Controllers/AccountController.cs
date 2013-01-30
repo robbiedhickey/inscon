@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Configuration.Provider;
 using System.Security.Claims;
 using System.Text;
 using System.Threading;
 using System.Web.Mvc;
 using System.Web.Security;
+using AuthenticationService;
 using BootstrapMvcSample.Controllers;
 using ClientDashboard.Models;
 
@@ -12,6 +14,12 @@ namespace ClientDashboard.Controllers
     [AllowAnonymous]
     public class AccountController : BootstrapBaseController
     {
+
+        protected MsiMembershipProvider MsiMembership 
+        {
+            get { return (MsiMembershipProvider) Membership.Provider; }
+        }
+
         //
         // GET: /Account/LogOn
 
@@ -28,46 +36,42 @@ namespace ClientDashboard.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
+                try
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    if (MsiMembership.ValidateUser(model.UserName, model.Password))
                     {
-                        return Redirect(returnUrl);
+                        //force user to change password if applicable
+                        if (MsiMembership.IsPasswordExpired(model.UserName))
+                        {
+                            Attention("Your password has expired! You must change it before continuing.");
+                            return View("ChangePassword", new ChangePasswordModel { Username = model.UserName });
+                        }
+
+                        //password has not expired, set the auth cookie
+                        FormsAuthentication.SetAuthCookie(model.UserName, false);
+
+                        if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                        {
+                            return Redirect(returnUrl);
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        ModelState.AddModelError("", "Username and/or password are not valid.");
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    //find out why we failed
-                    var user = Membership.GetUser(model.UserName);
-
-                    if (user == null)
-                    {
-                        ModelState.AddModelError("","Invalid user name provided");
-                    }
-
-                    else if (user.IsLockedOut)
-                    {
-                        ModelState.AddModelError("", "Your account is locked out. Please contact support.");
-                    }
-
-                    else if (!user.IsApproved)
-                    {
-                        ModelState.AddModelError("","Your account is not approved.");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                    }
+                    ModelState.AddModelError("", ex.Message);
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+            //if we are here then something failed, re-display the form with model errors
             return View(model);
         }
 
@@ -118,8 +122,6 @@ namespace ClientDashboard.Controllers
 
         //
         // GET: /Account/ChangePassword
-
-        [Authorize]
         public ActionResult ChangePassword()
         {
             return View();
@@ -127,21 +129,17 @@ namespace ClientDashboard.Controllers
 
         //
         // POST: /Account/ChangePassword
-
-        [Authorize]
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model)
         {
             if (ModelState.IsValid)
             {
-
                 // ChangePassword will throw an exception rather
                 // than return false in certain failure scenarios.
                 bool changePasswordSucceeded;
                 try
                 {
-                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
-                    changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
+                    changePasswordSucceeded = MsiMembership.ChangePassword(model.Username, model.OldPassword, model.NewPassword);
                 }
                 catch (Exception)
                 {
@@ -150,7 +148,8 @@ namespace ClientDashboard.Controllers
 
                 if (changePasswordSucceeded)
                 {
-                    return RedirectToAction("ChangePasswordSuccess");
+                    Success("Password changed was successful! Please log in with your new password.");
+                    return Redirect("/");
                 }
                 else
                 {
@@ -162,12 +161,28 @@ namespace ClientDashboard.Controllers
             return View(model);
         }
 
-        //
-        // GET: /Account/ChangePasswordSuccess
-
-        public ActionResult ChangePasswordSuccess()
+        public ActionResult ResetPassword()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(ResetPasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var tempPassword = MsiMembership.ResetPassword(model.Username, model.SecretAnswer);
+
+                Success(String.Format("Password reset successful! Here is your temp password: {0}", tempPassword));
+
+                return View("LogOn");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Secret answer was not correct.");
+                return View();
+            }
+            
         }
 
         #region Status Codes

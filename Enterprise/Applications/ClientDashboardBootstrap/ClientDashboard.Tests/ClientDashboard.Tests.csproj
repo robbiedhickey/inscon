@@ -112,6 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MembershipHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -120,6 +121,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ApplicationServices\AuthenticationService\AuthenticationService.csproj">
+      <Project>{def58c44-1bc5-4b6f-b420-5be8252585dc}</Project>
+      <Name>AuthenticationService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClientDashboard\ClientDashboard.csproj">
       <Project>{1083BEE7-0B49-49A7-AF8A-AF1352299E56}</Project>
       <Name>ClientDashboard</Name>

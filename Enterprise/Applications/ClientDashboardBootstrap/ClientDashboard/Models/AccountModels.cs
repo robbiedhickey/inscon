@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -7,8 +8,24 @@ using System.Web.Security;
 
 namespace ClientDashboard.Models
 {
+    public class ResetPasswordModel
+    {
+        [Required]
+        public string Username { get; set; }
+
+        [Display(Name = "Secret Question")]
+        public string SecretQuestion { get; set; }
+
+        [Required]
+        [Display(Name = "Secret Answer")]
+        public string SecretAnswer { get; set; }
+    }
+
     public class ChangePasswordModel
     {
+        [Required]
+        public string Username { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Current password")]
