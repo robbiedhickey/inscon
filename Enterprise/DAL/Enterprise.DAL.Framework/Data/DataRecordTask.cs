@@ -170,6 +170,8 @@ namespace Enterprise.DAL.Framework.Data
         /// </summary>
         public void DeleteRecord()
         {
+            LoadData();
+
             _storedProcedure = @"[crud]." + _modelName + @"_Delete";
             Execute(GetCommand(_dbConnectionString, _storedProcedure, GetArgs()));
             CacheItem.Clear<T>();
