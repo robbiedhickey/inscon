@@ -158,7 +158,7 @@ namespace Enterprise.DAL.Framework.Data
             }
 
             // Insert
-            _storedProcedure = @"[crud]." + _modelName + @"_Update";
+            _storedProcedure = @"[crud]." + _modelName + @"_Insert";
             _recordId = Execute(GetCommand(_dbConnectionString, _storedProcedure, GetArgs()), Convert.ToInt32);
             CacheItem.Clear<T>();
 
