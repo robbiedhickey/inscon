@@ -29,21 +29,13 @@ namespace AuthenticationService
         void EnforceValidateUserPreconditions(MembershipUser user);
 
         /// <summary>
-        /// Performs any necessary checks to ensure that the user is eligible to change their password
-        /// </summary>
-        /// <param name="user"></param>
-        /// <param name="newPassword"></param>
-        /// <returns></returns>
-        bool EnforceChangePasswordPreconditions(MembershipUser user, string newPassword);
-
-        /// <summary>
         /// Checks to see whether a given password has been used before.
         /// </summary>
         /// <param name="user">The user.</param>
         /// <param name="newPassword">The new password.</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        bool PasswordHasBeenUsedBefore(MembershipUser user, string newPassword);
+        bool PasswordHasBeenUsedRecently(string username, string newPassword, int numPasswordsToEnforce);
 
         /// <summary>
         /// Calculates the amount of time until the user's account will be auto-unlocked

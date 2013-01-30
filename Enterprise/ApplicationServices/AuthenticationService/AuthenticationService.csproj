@@ -45,6 +45,7 @@
     <Compile Include="IMembershipHelper.cs" />
     <Compile Include="MembershipHelper.cs" />
     <Compile Include="MsiMembershipProvider.cs" />
+    <Compile Include="Models\PasswordHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

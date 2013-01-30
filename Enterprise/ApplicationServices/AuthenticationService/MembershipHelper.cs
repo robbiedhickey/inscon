@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration.Provider;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
+using AuthenticationService.Models;
 
 namespace AuthenticationService
 {
     public class MembershipHelper : IMembershipHelper
     {
         protected TimeSpan AutoUnlockTimeout { get; set; }
+        protected String EncryptionAlgorithm { get { return "SHA"; } }
 
         public MembershipHelper(TimeSpan autoUnlockTimeout)
         {
@@ -31,7 +35,7 @@ namespace AuthenticationService
         {
             byte[] bIn = Encoding.Unicode.GetBytes(password);
             byte[] bSalt = Convert.FromBase64String(salt);
-            byte[] bRet = null; 
+            byte[] bRet = null;
 
             var hm = HashAlgorithm.Create(hashingAlgorithm);
             if (hm is KeyedHashAlgorithm)
@@ -120,31 +124,44 @@ namespace AuthenticationService
         }
 
         /// <summary>
-        /// Performs any necessary checks to ensure that the user is eligible to change their password
-        /// </summary>
-        /// <param name="user"></param>
-        /// <param name="newPassword"></param>
-        /// <returns></returns>
-        public bool EnforceChangePasswordPreconditions(MembershipUser user, string newPassword)
-        {
-
-            if (PasswordHasBeenUsedBefore(user, newPassword))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
         /// Checks to see whether a given password has been used before.
         /// </summary>
-        /// <param name="user">The user.</param>
+        /// <param name="username"></param>
         /// <param name="newPassword">The new password.</param>
+        /// <param name="numPasswordsToEnforce"></param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public bool PasswordHasBeenUsedBefore(MembershipUser user, string newPassword)
+        public bool PasswordHasBeenUsedRecently(string username, string newPassword, int numPasswordsToEnforce)
         {
+            var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["MembershipDB"].ConnectionString);
+            conn.Open();
+            var cmd = new SqlCommand("dbo.PasswordHistory_SelectRecentByUsername", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+            cmd.Parameters.Add(new SqlParameter("userName", username));
+            cmd.Parameters.Add(new SqlParameter("numberOfRecentPasswordsToRetrieve", numPasswordsToEnforce));
+            var reader = cmd.ExecuteReader();
+            var history = new List<PasswordHistory>();
+            while (reader.Read())
+            {
+
+                var oldPassword = reader["Password"].ToString();
+                var oldSalt = reader["PasswordSalt"].ToString();
+                history.Add(new PasswordHistory(oldPassword, oldSalt));
+            }
+
+            conn.Close();
+            conn.Dispose();
+            cmd.Dispose();
+
+            foreach (var record in history)
+            {
+                var encodedPassword = EncodePassword(newPassword, record.PasswordSalt, EncryptionAlgorithm);
+
+                if (history.Any(h => h.Password == encodedPassword)) { return true; }
+            }
+
             return false;
         }
 

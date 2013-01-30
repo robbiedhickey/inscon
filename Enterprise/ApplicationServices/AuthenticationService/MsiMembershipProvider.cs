@@ -160,6 +160,11 @@ namespace AuthenticationService
         {
             get { return new TimeSpan(60, 0, 0, 0); }
         }
+
+        public int NumberOfRecentPasswordsToEnforce
+        {
+            get { return 6; }
+        }
         #endregion
 
         #region Public Method Overrides
@@ -174,17 +179,17 @@ namespace AuthenticationService
         /// </returns>
         public override bool ChangePassword(string username, string oldPassword, string newPassword)
         {
-            //return immediately if old password is equal to new password
-            if (oldPassword == newPassword) { return false; }
-
-            var user = Membership.GetUser(username);
-
-            if (_helper.EnforceChangePasswordPreconditions(user, newPassword))
+            if (oldPassword == newPassword)
             {
-                return base.ChangePassword(username, oldPassword, newPassword);
+                throw new MembershipPasswordException("New password must be different than the current password.");
             }
 
-            return false;
+            if (_helper.PasswordHasBeenUsedRecently(username, newPassword, NumberOfRecentPasswordsToEnforce))
+            {
+                throw new MembershipPasswordException("The password provided has been used in the past.");
+            }
+
+            return base.ChangePassword(username, oldPassword, newPassword);
         }
 
         

@@ -137,13 +137,15 @@ namespace ClientDashboard.Controllers
                 // ChangePassword will throw an exception rather
                 // than return false in certain failure scenarios.
                 bool changePasswordSucceeded;
+                string errorMessage = null;
                 try
                 {
                     changePasswordSucceeded = MsiMembership.ChangePassword(model.Username, model.OldPassword, model.NewPassword);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     changePasswordSucceeded = false;
+                    errorMessage = ex.Message;
                 }
 
                 if (changePasswordSucceeded)
@@ -153,7 +155,7 @@ namespace ClientDashboard.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                    ModelState.AddModelError("", errorMessage ?? "The current password is incorrect or the new password is invalid.");
                 }
             }
 

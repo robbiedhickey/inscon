@@ -8,10 +8,16 @@ namespace ClientDashboard.Tests
     [TestClass]
     public class MembershipHelperTests
     {
-        [TestMethod]
-        public void EncodePassword_Should()
+        private readonly MembershipHelper _helper;
+
+        public MembershipHelperTests()
         {
-            var helper = new MembershipHelper(new TimeSpan(0, 0, 15, 0));
+            _helper = new MembershipHelper(new TimeSpan(0,0,15,0));
+        }
+
+        [TestMethod]
+        public void EncodePassword_ShouldHashIdenticalPasswordsInSameFashion()
+        {
             var algorithm = "SHA1"; //"HMACSHA256";
 
             var encodedPassword = "vIeee2b8yRNknast8mbYH9VhgKU="; //P@ssword encoded
@@ -19,11 +25,23 @@ namespace ClientDashboard.Tests
             var pass1 = "P@ssword";
             var salt1 = "DPUBXoloFTLCKikqBmQEoQ==";
 
-            var test1 = helper.EncodePassword(pass1, salt1, algorithm);
+            var newlyHashedPassword = _helper.EncodePassword(pass1, salt1, algorithm);
 
-            Debug.WriteLine(test1);
+            Debug.WriteLine(newlyHashedPassword);
 
-            Assert.IsTrue(encodedPassword == test1);
+            Assert.IsTrue(encodedPassword == newlyHashedPassword);
+        }
+
+        [TestMethod]
+        public void RecentPasswords_ShouldDetectPreviouslyUsed()
+        {
+            var result = _helper.PasswordHasBeenUsedRecently("robert.hickey", "P@ssword", 6); //used
+            var result2 = _helper.PasswordHasBeenUsedRecently("robert.hickey", "P@ssword1", 6); //used
+            var result3 = _helper.PasswordHasBeenUsedRecently("robert.hickey", "131lkjdkjkj1", 6); //never used
+
+            Assert.IsTrue(result);
+            Assert.IsTrue(result2);
+            Assert.IsFalse(result3);
         }
     }
 }
