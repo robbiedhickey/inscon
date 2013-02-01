@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Enterprise.DataServices.DALSvc.WorkOrderAssignmentService" CodeBehind="WorkOrderAssignmentService.svc.cs" %>
