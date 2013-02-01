@@ -23,7 +23,7 @@ namespace Enterprise.DAL.Core.Service
     /// <summary>
     /// Class AddressLocationService
     /// </summary>
-    public class AddressLocationService : ServiceBase<Address>
+    public class AddressLocationService : ServiceBase<AddressLocation>
     {
         /// <summary>
         /// Builds the specified reader.

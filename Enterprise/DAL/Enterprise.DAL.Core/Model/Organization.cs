@@ -21,7 +21,6 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     ///     Class Organization
     /// </summary>
-    [Serializable]
     public class Organization : ModelBase
     {
         #region private variables
