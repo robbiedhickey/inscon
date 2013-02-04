@@ -23,7 +23,7 @@ namespace Enterprise.DAL.Core.Service
     /// <summary>
     /// Class AddressUseService
     /// </summary>
-    public class AddressUseService : ServiceBase<Address>
+    public class AddressUseService : ServiceBase<AddressUse>
     {
         /// <summary>
         /// Builds the specified reader.
