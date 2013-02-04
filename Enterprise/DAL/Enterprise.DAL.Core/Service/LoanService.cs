@@ -23,7 +23,7 @@ namespace Enterprise.DAL.Core.Service
     /// <summary>
     ///     Class LoanService
     /// </summary>
-    public class LoanService : ServiceBase<Organization>
+    public class LoanService : ServiceBase<Loan>
     {
         /// <summary>
         ///     Builds the specified reader.
