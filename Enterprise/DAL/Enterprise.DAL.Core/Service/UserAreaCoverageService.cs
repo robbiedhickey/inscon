@@ -57,7 +57,7 @@ namespace Enterprise.DAL.Core.Service
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns>UserAreaCoverage.</returns>
-        public UserAreaCoverage GetAddressByParentId(int id)
+        public UserAreaCoverage GetUserAreaCoverageByParentId(int id)
         {
             if (IsCached)
             {
