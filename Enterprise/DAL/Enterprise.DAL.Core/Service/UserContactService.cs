@@ -100,7 +100,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllUserContacts().FindAll(h);
             }
 
-            return QueryAll(SqlDatabase, Procedure.UserContact_SelectByUserId, Build, userID, typeId);
+            return QueryAll(SqlDatabase, Procedure.UserContact_SelectByUserIdAndTypeId, Build, userID, typeId);
         }
     }
 }
