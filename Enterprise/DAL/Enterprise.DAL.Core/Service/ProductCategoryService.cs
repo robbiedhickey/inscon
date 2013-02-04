@@ -23,7 +23,7 @@ namespace Enterprise.DAL.Core.Service
     /// <summary>
     /// Class ProductCategoryService
     /// </summary>
-    public class ProductCategoryService : ServiceBase<Address>
+    public class ProductCategoryService : ServiceBase<ProductCategory>
     {
         /// <summary>
         /// Builds the specified reader.
