@@ -9,26 +9,75 @@ using Enterprise.DAL.Core.Model;
 
 namespace Enterprise.DataServices.DALSvc
 {
+    /// <summary>
+    /// Handles access to the Request table.
+    /// </summary>
     public class RequestService : IRequestService
     {
+        /// <summary>
+        /// Gets all requests.
+        /// </summary>
+        /// <returns>A list of request objects.</returns>
         public List<Request> GetAllRequests()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new dbSvc().GetAllRequests();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
+        /// <summary>
+        /// Gets the request by id.
+        /// </summary>
+        /// <param name="id">The id of the request.</param>
+        /// <returns>the request object that matches the id.</returns>
         public Request GetRequestById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new dbSvc().GetRequestById(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
+        /// <summary>
+        /// Deletes the request record.
+        /// </summary>
+        /// <param name="request">The request to delete.</param>
         public void DeleteRecord(Request request)
         {
-            throw new NotImplementedException();
+            try
+            {
+                new dbSvc().DeleteRecord(request);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
+        /// <summary>
+        /// Saves the request record.
+        /// </summary>
+        /// <param name="request">The request to save.</param>
+        /// <returns>The id of the saved request.</returns>
         public int SaveRecord(Request request)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new dbSvc().SaveRecord(request);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

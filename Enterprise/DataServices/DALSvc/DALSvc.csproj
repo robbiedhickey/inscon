@@ -86,7 +86,9 @@
     <Content Include="UserContactService.svc" />
     <Content Include="UserNotificationService.svc" />
     <Content Include="UserService.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="WorkOrderAssignmentService.svc" />
     <Content Include="WorkOrderItemService.svc" />
     <Content Include="WorkOrderService.svc" />

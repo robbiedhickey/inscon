@@ -12,7 +12,7 @@ namespace Enterprise.DataServices.DALSvc
         List<UserAreaCoverage> GetAllUserAreaCoverages();
 
         [OperationContract]
-        UserAreaCoverage GetAddressByParentId(int id);
+        UserAreaCoverage GetUserAreaCoverageByParentId(int id);
 
         [OperationContract]
         List<UserAreaCoverage> GetUserAreaCoverageByUserIdandServiceId(Int32 userId, Int32 serviceId);

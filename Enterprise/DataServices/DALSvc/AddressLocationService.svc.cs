@@ -1,4 +1,5 @@
-﻿using Enterprise.DAL.Core.Model;
+﻿using System;
+using Enterprise.DAL.Core.Model;
 using System.Collections.Generic;
 using dbSvc = Enterprise.DAL.Core.Service.AddressLocationService;
 
@@ -15,7 +16,14 @@ namespace Enterprise.DataServices.DALSvc
         /// <returns>A list of all address location records.</returns>
         public List<AddressLocation> GetAllAddressesLocationRecords()
         {
-            return new dbSvc().GetAllAddressesLocationRecords();
+            try
+            {
+                return new dbSvc().GetAllAddressesLocationRecords();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -25,7 +33,14 @@ namespace Enterprise.DataServices.DALSvc
         /// <returns>The record location object that matches the passed in id value.</returns>
         public AddressLocation GetAddressLocationById(int id)
         {
-            return new dbSvc().GetAddressLocationById(id);
+            try
+            {
+                return new dbSvc().GetAddressLocationById(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -34,7 +49,14 @@ namespace Enterprise.DataServices.DALSvc
         /// <param name="addressLocation">The address location to delete.</param>
         public void DeleteRecord(AddressLocation addressLocation)
         {
-            new dbSvc().DeleteRecord(addressLocation);
+            try
+            {
+                new dbSvc().DeleteRecord(addressLocation);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -44,7 +66,14 @@ namespace Enterprise.DataServices.DALSvc
         /// <returns>The id value of the saved record.</returns>
         public int SaveRecord(AddressLocation addressLocation)
         {
-            return new dbSvc().SaveRecord(addressLocation);
+            try
+            {
+                return new dbSvc().SaveRecord(addressLocation);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

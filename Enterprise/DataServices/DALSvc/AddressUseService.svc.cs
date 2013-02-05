@@ -13,32 +13,74 @@ namespace Enterprise.DataServices.DALSvc
     {
         public List<AddressUse> GetAllAddressUseRecords()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new dbSvc().GetAllAddressUseRecords();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public AddressUse GetAddressUseById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new dbSvc().GetAddressUseById(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<AddressUse> GetAddressUseByAddressId(int addressID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new dbSvc().GetAddressUseByAddressId(addressID);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public AddressUse GetAddressUseByAddressIdAndTypeId(int addressID, short typeID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new dbSvc().GetAddressUseByAddressIdAndTypeId(addressID, typeID);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void DeleteRecord(AddressUse addressUse)
         {
-            throw new NotImplementedException();
+            try
+            {
+                new dbSvc().DeleteRecord(addressUse);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public int SaveRecord(AddressUse addressUse)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return new dbSvc().SaveRecord(addressUse);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
