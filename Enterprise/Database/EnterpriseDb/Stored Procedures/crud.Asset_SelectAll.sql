@@ -1,10 +1,11 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
 
 CREATE PROC [crud].[Asset_SelectAll]
-
+  
 AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
@@ -12,9 +13,13 @@ AS
     SELECT [AssetID],
            [OrganizationID],
            [TypeID],
-           [LoanID],
-           [AssetNumber]
+           [AssetNumber],
+           [LoanNumber],
+           [LoanTypeID],
+           [MortgagorName],
+           [MortgagorPhone],
+           [HudCaseNumber],
+           [LoanID]
     FROM   [dbo].[Asset]
-
 
 GO

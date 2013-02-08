@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -12,9 +13,13 @@ AS
     SELECT [AssetID],
            [OrganizationID],
            [TypeID],
-           [LoanID],
-           [AssetNumber]
+           [AssetNumber],
+           [LoanNumber],
+           [LoanTypeID],
+           [MortgagorName],
+           [MortgagorPhone],
+           [HudCaseNumber],
+           [LoanID]
     FROM   [dbo].[Asset]
-    WHERE  [OrganizationID] = @OrganizationID
-
+    WHERE  [OrganizationID] = @OrganizationID 
 GO

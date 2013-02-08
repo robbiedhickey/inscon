@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -20,7 +21,7 @@ AS
     VALUES
     (
       @OrganizationID,
-      @DateInserted,
+      IsNull(@DateInserted, GETDATE()),
       @CustomerRequestID
     )
     -- Begin Return Select <- do not remove
