@@ -5,15 +5,16 @@ SET ANSI_NULLS ON
 GO
 
 CREATE PROC [crud].[Asset_Insert]
-  @OrganizationID INT,
-  @TypeID         INT,
-  @AssetNumber    VARCHAR(20),
-  @LoanNumber     VARCHAR(30),
-  @LoanTypeID     INT,
-  @MortgagorName  VARCHAR(38),
-  @MortgagorPhone VARCHAR(15),
-  @HudCaseNumber  VARCHAR(20),
-  @LoanID         INT
+  @OrganizationID      INT,
+  @TypeID              INT,
+  @AssetNumber         VARCHAR(20),
+  @LoanNumber          VARCHAR(30),
+  @LoanTypeID          INT,
+  @MortgagorName       VARCHAR(38),
+  @MortgagorPhone      VARCHAR(15),
+  @HudCaseNumber       VARCHAR(20),
+  @ConveyanceDate      DATETIME,
+  @FirstTimeVacantDate DATETIME
 AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
@@ -28,7 +29,8 @@ AS
       [MortgagorName],
       [MortgagorPhone],
       [HudCaseNumber],
-      [LoanID]
+      [ConveyanceDate],
+      [FirstTimeVacantDate]
     )
     VALUES
     (
@@ -40,7 +42,8 @@ AS
       @MortgagorName,
       @MortgagorPhone,
       @HudCaseNumber,
-      @LoanID
+      @ConveyanceDate,
+      @FirstTimeVacantDate
     )
     -- Begin Return Select <- do not remove
     SELECT [AssetID],
@@ -52,7 +55,8 @@ AS
            [MortgagorName],
            [MortgagorPhone],
            [HudCaseNumber],
-           [LoanID]
+           [ConveyanceDate],
+           [FirstTimeVacantDate]
     FROM   [dbo].[Asset]
     WHERE  [AssetID] = SCOPE_IDENTITY()
 

@@ -19,7 +19,8 @@ AS
            [MortgagorName],
            [MortgagorPhone],
            [HudCaseNumber],
-           [LoanID]
+           [ConveyanceDate],
+           [FirstTimeVacantDate]
     FROM   [dbo].[Asset]
     WHERE  [AssetID] = @AssetID
 

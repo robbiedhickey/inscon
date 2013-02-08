@@ -19,7 +19,9 @@ AS
            [MortgagorName],
            [MortgagorPhone],
            [HudCaseNumber],
-           [LoanID]
+           [ConveyanceDate],
+           [FirstTimeVacantDate]
     FROM   [dbo].[Asset]
-    WHERE  [OrganizationID] = @OrganizationID 
+    WHERE  [OrganizationID] = @OrganizationID
+
 GO

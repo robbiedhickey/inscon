@@ -9,7 +9,8 @@ CREATE TABLE [dbo].[Asset]
 [MortgagorName] [varchar] (38) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [MortgagorPhone] [varchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [HudCaseNumber] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS SPARSE NULL,
-[LoanID] [int] NULL
+[ConveyanceDate] [datetime] NULL,
+[FirstTimeVacantDate] [datetime] NULL
 ) ON [PRIMARY]
 ALTER TABLE [dbo].[Asset] ADD 
 CONSTRAINT [PK_Asset] PRIMARY KEY CLUSTERED  ([AssetID]) ON [PRIMARY]
@@ -21,8 +22,7 @@ EXEC sp_addextendedproperty N'MS_Description', N'RecordID', 'SCHEMA', N'dbo', 'T
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Customer Assigned Asset Number', 'SCHEMA', N'dbo', 'TABLE', N'Asset', 'COLUMN', N'AssetNumber'
 GO
-EXEC sp_addextendedproperty N'MS_Description', N'RecordID of loan associated', 'SCHEMA', N'dbo', 'TABLE', N'Asset', 'COLUMN', N'LoanID'
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Parent RecordID', 'SCHEMA', N'dbo', 'TABLE', N'Asset', 'COLUMN', N'OrganizationID'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Asset Type Lookup (House, Car, Boat, Motorcycle, Other)', 'SCHEMA', N'dbo', 'TABLE', N'Asset', 'COLUMN', N'TypeID'

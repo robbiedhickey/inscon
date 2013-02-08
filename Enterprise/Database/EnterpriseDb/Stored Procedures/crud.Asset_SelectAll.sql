@@ -5,7 +5,7 @@ SET ANSI_NULLS ON
 GO
 
 CREATE PROC [crud].[Asset_SelectAll]
-  
+
 AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
@@ -19,7 +19,8 @@ AS
            [MortgagorName],
            [MortgagorPhone],
            [HudCaseNumber],
-           [LoanID]
+           [ConveyanceDate],
+           [FirstTimeVacantDate]
     FROM   [dbo].[Asset]
 
 GO
