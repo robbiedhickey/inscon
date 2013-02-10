@@ -10,6 +10,7 @@ namespace InsConManager
     public partial class FrmOrganizationManager : Form
     {
         private Organization _org;
+        private OrganizationService _orgService;
         private int _orgId;
         private List<Organization> _orgs;
 
@@ -45,7 +46,8 @@ namespace InsConManager
 
         private void btnSaveOrg_Click(object sender, EventArgs e)
         {
-            _org = new OrganizationService().GetOrganizationById(_orgId);
+            _orgService = new OrganizationService();
+            _org = _orgService.GetOrganizationById(_orgId);
             _org.Name = txtOrgName.Text;
             _org.Code = txtOrgCode.Text;
             _org.StatusID = Convert.ToInt32(comboStatus.SelectedValue);
@@ -53,7 +55,8 @@ namespace InsConManager
 
             lblOrgStatus.Text = @"Record changed = : " + _org.IsChanged().ToString();
 
-            _org.Save();
+            _orgId = _orgService.SaveRecord(_org);
+
         }
 
         #endregion
