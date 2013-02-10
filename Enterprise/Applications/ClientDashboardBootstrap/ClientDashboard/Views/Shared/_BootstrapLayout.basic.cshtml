@@ -73,6 +73,11 @@
             $(document).ready(function() {
                 $('.datepicker').datepicker();
             });
+            
+            // Grab focus on first field that has error 
+            $(function () {
+                $("input[type=text]").first().focus();
+            });
         </script>
     </body>
 </html>

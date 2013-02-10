@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Configuration.Provider;
-using System.Security.Claims;
-using System.Text;
-using System.Threading;
 using System.Web.Mvc;
 using System.Web.Security;
 using AuthenticationService;
@@ -55,15 +51,13 @@ namespace ClientDashboard.Controllers
                         {
                             return Redirect(returnUrl);
                         }
-                        else
-                        {
+                        
                             return RedirectToAction("Index", "Home");
-                        }
+                        
                     }
-                    else
-                    {
-                        ModelState.AddModelError("", "Username and/or password are not valid.");
-                    }
+                    
+                    ModelState.AddModelError("", "Username and/or password are not valid.");
+                    
                 }
                 catch (Exception ex)
                 {
@@ -110,10 +104,9 @@ namespace ClientDashboard.Controllers
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }
-                else
-                {
-                    ModelState.AddModelError("", ErrorCodeToString(createStatus));
-                }
+                
+                ModelState.AddModelError("", ErrorCodeToString(createStatus));
+                
             }
 
             // If we got this far, something failed, redisplay form
@@ -154,10 +147,9 @@ namespace ClientDashboard.Controllers
                     Success("Password changed was successful!");
                     return Redirect("/");
                 }
-                else
-                {
-                    ModelState.AddModelError("", errorMessage ?? "The current password is incorrect or the new password is invalid.");
-                }
+                
+                    ModelState.AddModelError("", errorMessage ?? "The current password is incorrect, or the new password is invalid.");
+                
             }
 
             // If we got this far, something failed, redisplay form
@@ -172,38 +164,54 @@ namespace ClientDashboard.Controllers
         [HttpPost]
         public ActionResult ResetPassword_1(ResetPasswordModel model)
         {
-            var user = MsiMembership.GetUser(model.Username, false);
 
-            if (user != null)
+
+            try
             {
-                model.SecretQuestion = user.PasswordQuestion;
-                ModelState.Clear();
-            }
-            else
-            {
-                ModelState.AddModelError("", "Username not found.");
+
+                var user = MsiMembership.GetUser(model.Username, false);
+
+                if (user != null)
+                {
+                    model.SecretQuestion = user.PasswordQuestion;
+                    ModelState.Clear();
+                    return View("ResetPassword_2", model);
+                }
+                    
+                ModelState.AddModelError("", "The user name provided was not found.");
                 return View();
             }
 
-            return View("ResetPassword_2", model);
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View();
+            }
+            
         }
 
         [HttpPost]
         public ActionResult ResetPassword_2(ResetPasswordModel model)
         {
+         
+            
             if (ModelState.IsValid)
             {
-                var tempPassword = MsiMembership.ResetPassword(model.Username, model.SecretAnswer);
+                try
+                {
 
-                Success(String.Format("Password reset successful! Here is your temp password: {0}", tempPassword));
+                    var tempPassword = MsiMembership.ResetPassword(model.Username, model.SecretAnswer);
+                    Success(String.Format("Password reset successful! Here is your temp password: <b>{0}</b>", tempPassword));
+                    return View("LogOn");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                    return View();
+                }
+            }
 
-                return View("LogOn");
-            }
-            else
-            {
-                ModelState.AddModelError("", "Secret answer was not correct.");
-                return View();
-            }
+            return View();
             
         }
 
@@ -240,7 +248,7 @@ namespace ClientDashboard.Controllers
 
                 case MembershipCreateStatus.UserRejected:
                     return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
-
+                    
                 default:
                     return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
             }

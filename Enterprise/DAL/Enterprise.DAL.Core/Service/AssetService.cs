@@ -23,8 +23,15 @@ namespace Enterprise.DAL.Core.Service
                     AssetId = reader.GetInt32("AssetId"),
                     OrganizationId = reader.GetInt32("OrganizationId"),
                     TypeId = reader.GetInt32("TypeId"),
-                    LoanId = reader.GetNullInt32("LoanId"),
-                    AssetNumber = reader.GetString("AssetNumber")
+                    AssetNumber = reader.GetString("AssetNumber"),
+                    LoanNumber = reader.GetString("LoanNumber"),
+                    LoanTypeId = reader.GetNullInt32("LoanTypeId"),
+                    MortgagorName = reader.GetString("MortgagorName"),
+                    MortgagorPhone = reader.GetString("MortgagorPhone"),
+                    HudCaseNumber = reader.GetString("HudCaseNumber"),
+                    ConveyanceDate = reader.GetNullDate("ConveyanceDate"),
+                    FirstTimeVacantDate = reader.GetNullDate("FirstTimeVacantDate")
+                    
                 };
 
             return record;
@@ -73,20 +80,5 @@ namespace Enterprise.DAL.Core.Service
             return QueryAll(SqlDatabase, Procedure.Asset_SelectByOrganizationId, Build, organizationID);
         }
 
-        /// <summary>
-        /// Gets the asset by loan ID.
-        /// </summary>
-        /// <param name="loanID">The loan ID.</param>
-        /// <returns>List{Asset}.</returns>
-        public List<Asset> GetAssetByLoanID(Int32 loanID)
-        {
-            if (IsCached)
-            {
-                Predicate<Asset> h = h2 => h2.LoanId == loanID;
-                return GetAllAssets().FindAll(h);
-            }
-
-            return QueryAll(SqlDatabase, Procedure.Asset_SelectByLoanId, Build, loanID);
-        }
     }
 }

@@ -2,4 +2,3 @@ C:\code\InsightConcept\trunk\Enterprise\ThirdParty\SharedBin\Enterprise.DAL.Fram
 C:\code\InsightConcept\trunk\Enterprise\ThirdParty\SharedBin\Enterprise.DAL.Framework.pdb
 C:\code\InsightConcept\trunk\Enterprise\DAL\Enterprise.DAL.Framework\obj\Debug\Enterprise.DAL.Framework.dll
 C:\code\InsightConcept\trunk\Enterprise\DAL\Enterprise.DAL.Framework\obj\Debug\Enterprise.DAL.Framework.pdb
-C:\code\InsightConcept\trunk\Enterprise\DAL\Enterprise.DAL.Framework\obj\Debug\Enterprise.DAL.Framework.csprojResolveAssemblyReference.cache
