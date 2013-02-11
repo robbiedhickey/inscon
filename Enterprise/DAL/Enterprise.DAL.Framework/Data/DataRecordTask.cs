@@ -151,6 +151,7 @@ namespace Enterprise.DAL.Framework.Data
                     // Update
                     _storedProcedure = @"[crud]." + _modelName + @"_Update";
                     Execute(GetCommand(_dbConnectionString, _storedProcedure, GetArgs()));
+                    CacheItem.Clear<T>();
                     _commit.Invoke(_model, null);
                 }
 
