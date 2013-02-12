@@ -60,7 +60,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the user contact id.
         /// </summary>
         /// <value>The user contact id.</value>
-        public Int32 UserContactId
+        public Int32 UserContactID
         {
             get { return _userContactId; }
             set { SetProperty(ref _userContactId, value); }
@@ -70,7 +70,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the user id.
         /// </summary>
         /// <value>The user id.</value>
-        public Int32 UserId
+        public Int32 UserID
         {
             get { return _userId; }
             set { SetProperty(ref _userId, value); }
@@ -90,7 +90,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the type id.
         /// </summary>
         /// <value>The type id.</value>
-        public Int32 TypeId
+        public Int32 TypeID
         {
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }

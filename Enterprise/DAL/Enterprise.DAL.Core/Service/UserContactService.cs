@@ -34,10 +34,10 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new UserContact
                 {
-                    UserContactId = reader.GetInt32("UserContactID"),
-                    UserId = reader.GetInt32("UserID"),
+                    UserContactID = reader.GetInt32("UserContactID"),
+                    UserID = reader.GetInt32("UserID"),
                     Value = reader.GetString("Value"),
-                    TypeId = reader.GetInt32("TypeID"),
+                    TypeID = reader.GetInt32("TypeID"),
                     IsPrimary = reader.GetBool("IsPrimary")
                 };
             return record;
@@ -62,7 +62,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<UserContact> h = h2 => h2.UserContactId == id;
+                Predicate<UserContact> h = h2 => h2.UserContactID == id;
                 return GetAllUserContacts().Find(h) ?? new UserContact();
             }
 
@@ -79,7 +79,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<UserContact> h = h2 => h2.UserId == userID;
+                Predicate<UserContact> h = h2 => h2.UserID == userID;
                 return GetAllUserContacts().FindAll(h);
             }
 
@@ -96,7 +96,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<UserContact> h = h2 => h2.UserId == userID && h2.TypeId == typeId;
+                Predicate<UserContact> h = h2 => h2.UserID == userID && h2.TypeID == typeId;
                 return GetAllUserContacts().FindAll(h);
             }
 

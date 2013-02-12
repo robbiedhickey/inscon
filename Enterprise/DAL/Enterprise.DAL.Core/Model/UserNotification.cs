@@ -54,7 +54,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the user notification id.
         /// </summary>
         /// <value>The user notification id.</value>
-        public Int32 UserNotificationId
+        public Int32 UserNotificationID
         {
             get { return _userNotificationId; }
             set { SetProperty(ref _userNotificationId, value); }
@@ -64,7 +64,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the user id.
         /// </summary>
         /// <value>The user id.</value>
-        public Int32 UserId
+        public Int32 UserID
         {
             get { return _userId; }
             set { SetProperty(ref _userId, value); }

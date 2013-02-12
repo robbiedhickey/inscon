@@ -34,8 +34,8 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new UserNotification
                 {
-                    UserNotificationId = reader.GetInt32("UserNotificationID"),
-                    UserId = reader.GetInt32("UserID"),
+                    UserNotificationID = reader.GetInt32("UserNotificationID"),
+                    UserID = reader.GetInt32("UserID"),
                     DatePosted = reader.GetDate("DatePosted"),
                     DateRead = reader.GetNullDate("DateRead")
                 };
@@ -62,7 +62,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<UserNotification> h = h2 => h2.UserNotificationId == id;
+                Predicate<UserNotification> h = h2 => h2.UserNotificationID == id;
                 return GetAllUserNotifications().Find(h) ?? new UserNotification();
             }
 
@@ -78,7 +78,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<UserNotification> h = h2 => h2.UserId == userId;
+                Predicate<UserNotification> h = h2 => h2.UserID == userId;
                 return GetAllUserNotifications().FindAll(h);
             }
 
