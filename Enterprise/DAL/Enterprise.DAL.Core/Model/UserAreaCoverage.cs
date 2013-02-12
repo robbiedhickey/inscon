@@ -54,7 +54,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the user area coverage id.
         /// </summary>
         /// <value>The user area coverage id.</value>
-        public Int32 UserAreaCoverageId
+        public Int32 UserAreaCoverageID
         {
             get { return _userAreaCoverageId; }
             set { SetProperty(ref _userAreaCoverageId, value); }
@@ -64,7 +64,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the user id.
         /// </summary>
         /// <value>The user id.</value>
-        public Int32 UserId
+        public Int32 UserID
         {
             get { return _userId; }
             set { SetProperty(ref _userId, value); }
@@ -84,7 +84,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the service id.
         /// </summary>
         /// <value>The service id.</value>
-        public Int32 ServiceId
+        public Int32 ServiceID
         {
             get { return _serviceId; }
             set { SetProperty(ref _serviceId, value); }

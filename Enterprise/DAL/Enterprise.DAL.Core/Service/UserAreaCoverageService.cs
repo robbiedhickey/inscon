@@ -34,10 +34,10 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new UserAreaCoverage
                 {
-                    UserAreaCoverageId = reader.GetInt32("UserAreaCoverageID"),
-                    UserId = reader.GetInt32("UserID"),
+                    UserAreaCoverageID = reader.GetInt32("UserAreaCoverageID"),
+                    UserID = reader.GetInt32("UserID"),
                     ZipCode = reader.GetString("ZipCode"),
-                    ServiceId = reader.GetInt32("ServiceID")
+                    ServiceID = reader.GetInt32("ServiceID")
                 };
             return record;
         }
@@ -61,7 +61,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<UserAreaCoverage> h = h2 => h2.UserAreaCoverageId == id;
+                Predicate<UserAreaCoverage> h = h2 => h2.UserAreaCoverageID == id;
                 return GetAllUserAreaCoverages().Find(h) ?? new UserAreaCoverage();
             }
 
@@ -78,7 +78,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<UserAreaCoverage> h = h2 => h2.UserId == userId && h2.ServiceId == serviceId;
+                Predicate<UserAreaCoverage> h = h2 => h2.UserID == userId && h2.ServiceID == serviceId;
                 return GetAllUserAreaCoverages().FindAll(h);
             }
 
