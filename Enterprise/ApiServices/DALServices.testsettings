@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestSettings name="DALServices" id="bc2074c3-0b2d-4120-9601-0796c9536753" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Description>These are default test settings for a local test run.</Description>
+  <Deployment>
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUser.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadOrganization.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUserNotification.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUserAreaCoverage.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadAsset.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUserContact.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadLocation.sql" />
+  </Deployment>
+  <Scripts setupScript="C:\Work\MSISystem2\Enterprise\ApiServices\DALServices.Test\TestScripts\usp_LoadAllTestData.sql" cleanupScript="C:\Work\MSISystem2\Enterprise\ApiServices\DALServices.Test\TestScripts\usp_LoadAllTestData.sql" />
+  <Execution>
+    <TestTypeSpecific>
+      <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+        <AssemblyResolution>
+          <TestDirectory useLoadContext="true" />
+        </AssemblyResolution>
+      </UnitTestRunConfig>
+    </TestTypeSpecific>
+    <AgentRule name="Execution Agents">
+    </AgentRule>
+  </Execution>
+</TestSettings>

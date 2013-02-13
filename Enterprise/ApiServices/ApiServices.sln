@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALServices", "DALServices\DALServices.csproj", "{29C57205-D6BF-44FE-A4A3-4709A80B384B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALServices.Test", "DALServices.Test\DALServices.Test.csproj", "{4AF05ED8-13A8-47B5-A022-80D2CC31014B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93BFF07B-27F4-4981-B725-2113E9475641}"
+	ProjectSection(SolutionItems) = preProject
+		DALServices.testsettings = DALServices.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29C57205-D6BF-44FE-A4A3-4709A80B384B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29C57205-D6BF-44FE-A4A3-4709A80B384B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29C57205-D6BF-44FE-A4A3-4709A80B384B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29C57205-D6BF-44FE-A4A3-4709A80B384B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF05ED8-13A8-47B5-A022-80D2CC31014B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF05ED8-13A8-47B5-A022-80D2CC31014B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF05ED8-13A8-47B5-A022-80D2CC31014B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF05ED8-13A8-47B5-A022-80D2CC31014B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
