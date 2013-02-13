@@ -1,6 +1,7 @@
 USE [EnterpriseDbTest]
 
 -- Disable all constraints so we can load data
+ALTER TABLE [dbo].[WorkOrderItem] NOCHECK CONSTRAINT ALL
 ALTER TABLE [dbo].[Product] NOCHECK CONSTRAINT ALL
 
 -- Delete all data from tables
@@ -23,3 +24,4 @@ INSERT INTO [dbo].[Product]([ProductCategoryID] ,[Caption] ,[Code] ,[SKU] ,[Rate
 
 -- Enable all constraints
 ALTER TABLE [dbo].[Product] WITH CHECK CHECK CONSTRAINT ALL
+ALTER TABLE [dbo].[WorkOrderItem] WITH CHECK CHECK CONSTRAINT ALL

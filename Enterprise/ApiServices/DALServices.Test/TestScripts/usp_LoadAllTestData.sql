@@ -5,11 +5,36 @@ GO
 EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
 
 -- Delete all data from tables
-EXEC sp_msforeachtable 'DELETE FROM ?'
+DELETE FROM [dbo].[Organization]
+DELETE FROM [dbo].[User]
+DELETE FROM [dbo].[UserAreaCoverage]
+DELETE FROM [dbo].[UserNotification]
+DELETE FROM [dbo].[UserContact]
+DELETE FROM [dbo].[Location]
+DELETE FROM [dbo].[Asset]
+DELETE FROM [dbo].[Request]
+DELETE FROM [dbo].[WorkOrder]
+DELETE FROM [dbo].[WorkOrderItem]
+DELETE FROM [dbo].[ProductCategory]
+DELETE FROM [dbo].[Product]
+DELETE FROM [generic].[Lookup]
+DELETE FROM [generic].[LookupGroup]
 
 -- Reseed the identity column starting values
-EXEC sp_msforeachtable	@command1 = 'DBCC CHECKIDENT(''?'', RESEED, 0)'--,
-						--@whereand = ' ''?'' <> ''AddressLocaton'''
+DBCC CHECKIDENT('[dbo].[Organization]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[User]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[UserAreaCoverage]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[UserNotification]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[UserContact]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[Location]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[Asset]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[Request]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[WorkOrder]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[WorkOrderItem]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[ProductCategory]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[Product]', RESEED, 0)
+DBCC CHECKIDENT('[generic].[LookupGroup]', RESEED, 0)
+DBCC CHECKIDENT('[generic].[Lookup]', RESEED, 0)
 
 -- Insert the test data
 INSERT INTO [dbo].[Organization]([Name] ,[Code] ,[TypeID] ,[StatusID])VALUES('Bank of the Outer Galactic Empire', 'BOGE01', 3, 1)

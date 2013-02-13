@@ -35,12 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Enterprise.DAL.Core">
+    <Reference Include="Enterprise.DAL.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=c0d36b5e044e1334, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ThirdParty\SharedBin\Enterprise.DAL.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="SmoLiteApi">
-      <HintPath>..\..\..\..\..\Downloads\SMOLite\SmoLiteApi 1.1.4.43 (AnyCpu, .NET 4.0)\SmoLiteApi.dll</HintPath>
+    <Reference Include="SmoLiteApi, Version=1.1.4.43, Culture=neutral, PublicKeyToken=9a1ccabbad2d06c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\SmoLiteApi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -64,10 +66,16 @@
     <Compile Include="Controllers\AssetControllerTest.cs" />
     <Compile Include="Controllers\LocationControllerTest.cs" />
     <Compile Include="Controllers\OrganizationControllerTest.cs" />
+    <Compile Include="Controllers\ProductCategoryControllerTest.cs" />
+    <Compile Include="Controllers\ProductControllerTest.cs" />
+    <Compile Include="Controllers\RequestControllerTest.cs" />
     <Compile Include="Controllers\UserAreaCoverageControllerTest.cs" />
     <Compile Include="Controllers\UserContactControllerTest.cs" />
     <Compile Include="Controllers\UserControllerTest.cs" />
     <Compile Include="Controllers\UserNotificationControllerTest.cs" />
+    <Compile Include="Controllers\WorkOrderAssignmentControllerTest.cs" />
+    <Compile Include="Controllers\WorkOrderControllerTest.cs" />
+    <Compile Include="Controllers\WorkOrderItemControllerTest.cs" />
     <Compile Include="DataHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,7 +90,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="TestScripts\usp_LoadAllTestData.sql" />
+    <Content Include="TestScripts\usp_LoadAllTestData.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestScripts\usp_ReloadAsset.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

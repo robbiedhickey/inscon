@@ -8,12 +8,12 @@ using Enterprise.ApiServices.DALServices.Controllers;
 namespace Enterprise.ApiServices.DALServices.Test.Controllers
 {
     /// <summary>
-    /// Summary description for LocationControllerTest
+    /// Summary description for RequestControllerTest
     /// </summary>
     [TestClass]
-    public class LocationControllerTest
+    public class RequestControllerTest
     {
-        public LocationControllerTest()
+        public RequestControllerTest()
         {
             //
             // TODO: Add constructor logic here
@@ -64,117 +64,81 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         #endregion
 
         [TestMethod]
-        public void GetAllLocations()
+        public void GetAllRequests()
         {
-            LocationController controller = new LocationController();
+            RequestController controller = new RequestController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationByIdPass()
+        public void GetRequestByIdPass()
         {
-            LocationController controller = new LocationController();
+            RequestController controller = new RequestController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationByIdFail()
+        public void GetRequestByIdFail()
         {
-            LocationController controller = new LocationController();
+            RequestController controller = new RequestController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdPass()
+        public void DeleteRequestPass()
         {
-            LocationController controller = new LocationController();
+            RequestController controller = new RequestController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdFail()
+        public void DeleteRequestFail()
         {
-            LocationController controller = new LocationController();
+            RequestController controller = new RequestController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdandTypeIdPass()
+        public void InsertRequestPass()
         {
-            LocationController controller = new LocationController();
+            RequestController controller = new RequestController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdandTypeIdFail()
+        public void InsertRequestFail()
         {
-            LocationController controller = new LocationController();
+            RequestController controller = new RequestController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void DeleteLocationPass()
+        public void UpdateRequestPass()
         {
-            LocationController controller = new LocationController();
+            RequestController controller = new RequestController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void DeleteLocationFail()
+        public void UpdateRequestFail()
         {
-            LocationController controller = new LocationController();
-
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
-        }
-
-        [TestMethod]
-        public void InsertLocationPass()
-        {
-            LocationController controller = new LocationController();
-
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
-        }
-
-        [TestMethod]
-        public void InsertLocationFail()
-        {
-            LocationController controller = new LocationController();
-
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
-        }
-
-        [TestMethod]
-        public void UpdateLocationPass()
-        {
-            LocationController controller = new LocationController();
-
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
-        }
-
-        [TestMethod]
-        public void UpdateLocationFail()
-        {
-            LocationController controller = new LocationController();
+            RequestController controller = new RequestController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();

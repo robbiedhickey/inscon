@@ -55,7 +55,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         [TestInitialize()]
         public void MyTestInitialize()
         {
-            DataHelper.LoadData("usp_ReloadOrganization.sql");
+            DataHelper.LoadData("usp_LoadAllTestData.sql");
         }
         
         // Use TestCleanup to run code after each test has run

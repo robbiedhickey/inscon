@@ -56,7 +56,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         [TestInitialize()]
         public void MyTestInitialize()
         {
-            DataHelper.LoadData("usp_ReloadUserNotification.sql");
+            DataHelper.LoadData("usp_LoadAllTestData.sql");
 
             insObj = new UserNotification
                 {

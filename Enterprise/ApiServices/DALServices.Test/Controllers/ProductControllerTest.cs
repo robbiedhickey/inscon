@@ -8,12 +8,12 @@ using Enterprise.ApiServices.DALServices.Controllers;
 namespace Enterprise.ApiServices.DALServices.Test.Controllers
 {
     /// <summary>
-    /// Summary description for LocationControllerTest
+    /// Summary description for ProductControllerTest
     /// </summary>
     [TestClass]
-    public class LocationControllerTest
+    public class ProductControllerTest
     {
-        public LocationControllerTest()
+        public ProductControllerTest()
         {
             //
             // TODO: Add constructor logic here
@@ -64,117 +64,99 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         #endregion
 
         [TestMethod]
-        public void GetAllLocations()
+        public void GetAllProducts()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationByIdPass()
+        public void GetProductByIdPass()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationByIdFail()
+        public void GetProductByIdFail()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdPass()
+        public void GetProductsByCategoryIdPass()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdFail()
+        public void GetProductsByCategoryIdFail()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdandTypeIdPass()
+        public void DeleteProductPass()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdandTypeIdFail()
+        public void DeleteProductFail()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void DeleteLocationPass()
+        public void InsertProductPass()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void DeleteLocationFail()
+        public void InsertProductFail()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void InsertLocationPass()
+        public void UpdateProductPass()
         {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void InsertLocationFail()
+        public void UpdateProductFail()
         {
-            LocationController controller = new LocationController();
-
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
-        }
-
-        [TestMethod]
-        public void UpdateLocationPass()
-        {
-            LocationController controller = new LocationController();
-
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
-        }
-
-        [TestMethod]
-        public void UpdateLocationFail()
-        {
-            LocationController controller = new LocationController();
+            ProductController controller = new ProductController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();

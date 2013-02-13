@@ -8,12 +8,12 @@ using Enterprise.ApiServices.DALServices.Controllers;
 namespace Enterprise.ApiServices.DALServices.Test.Controllers
 {
     /// <summary>
-    /// Summary description for LocationControllerTest
+    /// Summary description for WorkOrderControllerTest
     /// </summary>
     [TestClass]
-    public class LocationControllerTest
+    public class WorkOrderControllerTest
     {
-        public LocationControllerTest()
+        public WorkOrderControllerTest()
         {
             //
             // TODO: Add constructor logic here
@@ -64,117 +64,117 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         #endregion
 
         [TestMethod]
-        public void GetAllLocations()
+        public void GetAllWorkOrders()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationByIdPass()
+        public void GetWorkOrderByIdPass()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationByIdFail()
+        public void GetWorkOrderByIdFail()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdPass()
+        public void GetWorkOrdersByRequestIdPass()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdFail()
+        public void GetWorkOrdersByRequestIdFail()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdandTypeIdPass()
+        public void GetWorkOrdersByAssetIdPass()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void GetLocationsByOrganizationIdandTypeIdFail()
+        public void GetWorkOrdersByAssetIdFail()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void DeleteLocationPass()
+        public void DeleteWorkOrderPass()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void DeleteLocationFail()
+        public void DeleteWorkOrderFail()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void InsertLocationPass()
+        public void InsertWorkOrderPass()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void InsertLocationFail()
+        public void InsertWorkOrderFail()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void UpdateLocationPass()
+        public void UpdateWorkOrderPass()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();
         }
 
         [TestMethod]
-        public void UpdateLocationFail()
+        public void UpdateWorkOrderFail()
         {
-            LocationController controller = new LocationController();
+            WorkOrderController controller = new WorkOrderController();
 
             Assert.IsNotNull(controller);
             Assert.Inconclusive();

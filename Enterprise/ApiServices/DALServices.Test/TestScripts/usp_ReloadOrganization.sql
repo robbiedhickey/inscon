@@ -1,6 +1,7 @@
 USE [EnterpriseDbTest]
 
 -- Disable all constraints so we can load data
+ALTER TABLE [dbo].[Asset] NOCHECK CONSTRAINT all
 ALTER TABLE [dbo].[Organization] NOCHECK CONSTRAINT all
 
 -- Delete all data from tables
@@ -16,3 +17,4 @@ INSERT INTO [dbo].[Organization]([Name] ,[Code] ,[TypeID] ,[StatusID])VALUES('Ro
 
 -- Enable all constraints
 ALTER TABLE [dbo].[Organization] WITH CHECK CHECK CONSTRAINT all
+ALTER TABLE [dbo].[Asset] WITH CHECK CHECK CONSTRAINT all

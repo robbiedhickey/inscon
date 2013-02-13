@@ -58,7 +58,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         [TestInitialize()]
         public void MyTestInitialize()
         {
-            DataHelper.LoadData("usp_ReloadUserAreaCoverage.sql");
+            DataHelper.LoadData("usp_LoadAllTestData.sql");
 
             insObj = new UserAreaCoverage
                 {

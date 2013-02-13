@@ -1,6 +1,7 @@
 USE [EnterpriseDbTest]
 
 -- Disable all constraints so we can load data
+ALTER TABLE [dbo].[User] NOCHECK CONSTRAINT all
 ALTER TABLE [dbo].[UserAreaCoverage] NOCHECK CONSTRAINT all
 
 -- Delete all data from tables
@@ -22,3 +23,4 @@ INSERT INTO [dbo].[UserAreaCoverage]([UserID] ,[ZipCode] ,[ServiceID])VALUES(9, 
 
 -- Enable all constraints
 ALTER TABLE [dbo].[UserAreaCoverage] WITH CHECK CHECK CONSTRAINT all
+ALTER TABLE [dbo].[User] WITH CHECK CHECK CONSTRAINT all

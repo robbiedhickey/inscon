@@ -1,6 +1,7 @@
 USE [EnterpriseDbTest]
 
 -- Disable all constraints so we can load data
+ALTER TABLE [dbo].[User] NOCHECK CONSTRAINT all
 ALTER TABLE [dbo].[UserContact] NOCHECK CONSTRAINT all
 
 -- Delete all data from tables
@@ -40,3 +41,4 @@ INSERT INTO [dbo].[UserContact]([UserID] ,[Value] ,[TypeID] ,[IsPrimary])VALUES(
 
 -- Enable all constraints
 ALTER TABLE [dbo].[UserContact] WITH CHECK CHECK CONSTRAINT all
+ALTER TABLE [dbo].[User] WITH CHECK CHECK CONSTRAINT all

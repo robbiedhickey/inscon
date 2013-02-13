@@ -10,6 +10,7 @@
     <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadWorkOrderAssignment.sql" />
     <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadWorkOrder.sql" />
     <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUserContact.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_LoadAllTestData.sql" />
     <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUserAreaCoverage.sql" />
     <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadWorkOrderItem.sql" />
     <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUserNotification.sql" />
