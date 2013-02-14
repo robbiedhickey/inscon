@@ -100,13 +100,22 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         public void DeleteProductCategoryPass()
         {
             ProductCategoryController controller = new ProductCategoryController();
-            var cat = controller.GetProductCategoryById(1);
-            controller.DeleteRecord(cat);
-            var res = controller.GetProductCategoryById(1);
+
+            var insCat = new ProductCategory
+            {
+                Name = "Test Category",
+                Code = "Test"
+            };
+
+            var catID = controller.SaveRecord(insCat);
+            var newCat = controller.GetProductCategoryById(catID);
+            controller.DeleteRecord(newCat);
+            var deadCat = controller.GetProductCategoryById(newCat.ProductCategoryID);
 
             Assert.IsNotNull(controller);
-            Assert.IsNotNull(cat);
-            Assert.IsNull(res);
+            Assert.AreEqual(3, catID);
+            Assert.IsNotNull(newCat);
+            Assert.IsNull(deadCat);
         }
 
         [TestMethod]
@@ -114,7 +123,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             ProductCategoryController controller = new ProductCategoryController();
             var cat = controller.GetProductCategoryById(1);
-            cat.ProductCategoryId = 100;
+            cat.ProductCategoryID = 100;
             controller.DeleteRecord(cat);
             var res = controller.GetAllProductCategories();
 
@@ -138,7 +147,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
 
             Assert.IsNotNull(controller);
             Assert.IsTrue(catID > 0);
-            Assert.AreEqual(cat.ProductCategoryId, catID);
+            Assert.AreEqual(cat.ProductCategoryID, catID);
             Assert.AreEqual(cat.Name, insCat.Name);
             Assert.AreEqual(cat.Code, insCat.Code);
         }
@@ -169,7 +178,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             var res = controller.GetProductCategoryById(1);
 
             Assert.IsNotNull(controller);
-            Assert.AreEqual(cat.ProductCategoryId, res.ProductCategoryId);
+            Assert.AreEqual(cat.ProductCategoryID, res.ProductCategoryID);
             Assert.AreEqual(cat.Name, res.Name);
         }
 
@@ -184,7 +193,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             var res = controller.GetProductCategoryById(1);
 
             Assert.IsNotNull(controller);
-            Assert.AreEqual(cat.ProductCategoryId, res.ProductCategoryId);
+            Assert.AreEqual(cat.ProductCategoryID, res.ProductCategoryID);
             Assert.AreEqual(cat.Name, res.Name);
         }
     }

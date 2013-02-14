@@ -17,7 +17,6 @@
     <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadLocation.sql" />
     <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadAsset.sql" />
   </Deployment>
-  <Scripts setupScript="C:\Work\MSISystem2\Enterprise\ApiServices\DALServices.Test\TestScripts\usp_LoadAllTestData.sql" cleanupScript="C:\Work\MSISystem2\Enterprise\ApiServices\DALServices.Test\TestScripts\usp_LoadAllTestData.sql" />
   <Execution>
     <TestTypeSpecific>
       <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">

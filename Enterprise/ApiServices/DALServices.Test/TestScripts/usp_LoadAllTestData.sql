@@ -37,9 +37,9 @@ DBCC CHECKIDENT('[generic].[LookupGroup]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[Lookup]', RESEED, 0)
 
 -- Insert the test data
-INSERT INTO [dbo].[Organization]([Name] ,[Code] ,[TypeID] ,[StatusID])VALUES('Bank of the Outer Galactic Empire', 'BOGE01', 3, 1)
-INSERT INTO [dbo].[Organization]([Name] ,[Code] ,[TypeID] ,[StatusID])VALUES('Oort Cloud Savings and Loan',       'OCSL01', 3, 1)
-INSERT INTO [dbo].[Organization]([Name] ,[Code] ,[TypeID] ,[StatusID])VALUES('Ronaks Thrifty Mortgage Emporium',  'RTME01', 3, 1)
+INSERT INTO [dbo].[Organization]([Name] ,[Code] ,[TypeID] ,[StatusID])VALUES('Bank of the Outer Galactic Empire', 'BOGE', 3, 1)
+INSERT INTO [dbo].[Organization]([Name] ,[Code] ,[TypeID] ,[StatusID])VALUES('Oort Cloud Savings and Loan',       'OCSL', 3, 1)
+INSERT INTO [dbo].[Organization]([Name] ,[Code] ,[TypeID] ,[StatusID])VALUES('Ronaks Thrifty Mortgage Emporium',  'RTME', 3, 1)
 
 INSERT INTO [dbo].[User]([OrganizationID] ,[FirstName] ,[LastName] ,[Title] ,[StatusID] ,[AuthenticationID])VALUES(1, 'John',    'Carter',    NULL, 8, NULL)
 INSERT INTO [dbo].[User]([OrganizationID] ,[FirstName] ,[LastName] ,[Title] ,[StatusID] ,[AuthenticationID])VALUES(1, 'Kantos',  'Kan',       NULL, 8, NULL)

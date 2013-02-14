@@ -16,7 +16,8 @@ namespace Enterprise.ApiServices.DALServices.Test
         public static void LoadData(string dataFileName)
         {
             var sqlConnectionString = ConfigurationManager.ConnectionStrings["EnterpriseDb"].ConnectionString;
-            var file = new FileInfo("TestScripts\\" + dataFileName);
+            //var file = new FileInfo("TestScripts\\" + dataFileName);
+            var file = new FileInfo(dataFileName);
             var script = file.OpenText().ReadToEnd();
             var conn = new SqlConnection(sqlConnectionString);
             var server = new Server();

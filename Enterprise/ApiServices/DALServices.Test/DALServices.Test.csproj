@@ -63,8 +63,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controllers\AddressControllerTest.cs" />
+    <Compile Include="Controllers\AddressLocationControllerTest.cs" />
+    <Compile Include="Controllers\AddressUseControllerTest.cs" />
     <Compile Include="Controllers\AssetControllerTest.cs" />
+    <Compile Include="Controllers\CommentControllerTest.cs" />
+    <Compile Include="Controllers\EventControllerTest.cs" />
+    <Compile Include="Controllers\FileControllerTest.cs" />
     <Compile Include="Controllers\LocationControllerTest.cs" />
+    <Compile Include="Controllers\LookupControllerTest.cs" />
+    <Compile Include="Controllers\LookupGroupControllerTest.cs" />
     <Compile Include="Controllers\OrganizationControllerTest.cs" />
     <Compile Include="Controllers\ProductCategoryControllerTest.cs" />
     <Compile Include="Controllers\ProductControllerTest.cs" />

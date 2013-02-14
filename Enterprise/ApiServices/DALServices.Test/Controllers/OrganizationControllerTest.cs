@@ -124,11 +124,28 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         public void DeleteOrganizationPass()
         {
             OrganizationController controller = new OrganizationController();
-            var actual = controller.GetOrganizationById(1);
-            controller.DeleteRecord(actual);
-            var results = controller.GetOrganizationById(actual.OrganizationID);
+            Organization org = new Organization
+            {
+                OrganizationID = 0,
+                Name = "Test Organization",
+                Code = "TORG",
+                TypeID = 3,
+                StatusID = 1
+            };
 
-            Assert.IsNotNull(results);
+            var actual = controller.SaveRecord(org);
+            var newOrg = controller.GetOrganizationById(actual);
+            controller.DeleteRecord(newOrg);
+            var deadOrg = controller.GetOrganizationById(newOrg.OrganizationID);
+
+            Assert.IsNotNull(controller);
+            Assert.AreEqual(4, actual);
+            Assert.IsNotNull(newOrg);
+            Assert.AreEqual(0, deadOrg.OrganizationID);
+            Assert.AreEqual(null, deadOrg.Name);
+            Assert.AreEqual(null, deadOrg.Code);
+            Assert.AreEqual(0, deadOrg.TypeID);
+            Assert.AreEqual(0, deadOrg.StatusID);
         }
 
         [TestMethod]
