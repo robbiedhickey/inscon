@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IAssetRepository _repository = new AssetRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<Asset> GetAllAssets()
         {
             return _repository.GetAllAssets();
         }
 
+        [HttpGet]
         public Asset GetAssetById(Int32 id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetAssetById(id);
         }
 
+        [HttpGet]
         public List<Asset> GetAssetByOrganizationID(Int32 organizationID)
         {
             if (organizationID < 0)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetAssetByOrganizationID(organizationID);
         }
 
+        [HttpDelete]
         public void DeleteRecord(Asset asset)
         {
             if (asset == null)
@@ -59,6 +63,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(asset);
         }
 
+        [HttpPost]
         public int SaveRecord(Asset asset)
         {
             if (asset == null)

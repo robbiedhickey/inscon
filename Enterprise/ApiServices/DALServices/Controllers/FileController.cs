@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IFileRepository _repository = new FileRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<File> GetAllFiles()
         {
             return _repository.GetAllFiles();
         }
 
+        [HttpGet]
         public File GetFileById(Int32 id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetFileById(id);
         }
 
+        [HttpGet]
         public File GetFileByParentIdAndEntityID(Int32 parentID, Int16 entityID)
         {
             if (parentID < 0)
@@ -54,6 +57,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetFileByParentIdAndEntityID(parentID, entityID);
         }
 
+        [HttpDelete]
         public void DeleteRecord(File file)
         {
             if (file == null)
@@ -67,6 +71,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(file);
         }
 
+        [HttpPost]
         public int SaveRecord(File file)
         {
             if (file == null)

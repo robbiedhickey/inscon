@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IUserRepository _repository = new UserRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<User> GetAllUsers()
         {
             return _repository.GetAllUsers();
         }
 
+        [HttpGet]
         public User GetUserById(int idUser)
         {
             if (idUser < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUserById(idUser);
         }
 
+        [HttpGet]
         public List<User> GetUsersByOrganizationId(int idOrganization)
         {
             if (idOrganization < 0)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUsersByOrganizationId(idOrganization);
         }
 
+        [HttpGet]
         public List<User> GetUsersByOrganizationIdAndIsActive(int idOrganization, int idStatus)
         {
             if (idOrganization < 0)
@@ -67,6 +71,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUsersByOrganizationIdAndIsActive(idOrganization, idStatus);
         }
 
+        [HttpDelete]
         public void DeleteRecord(User user)
         {
             if (user == null)
@@ -80,6 +85,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(user);
         }
 
+        [HttpPost]
         public int SaveRecord(User user)
         {
             if (user == null)

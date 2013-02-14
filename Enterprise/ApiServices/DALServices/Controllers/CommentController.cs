@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly ICommentRepository _repository = new CommentRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         private List<Comment> GetAllComments()
         {
             return _repository.GetAllComments();
         }
 
+        [HttpGet]
         public Comment GetCommentById(int id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetCommentById(id);
         }
 
+        [HttpGet]
         public Comment GetCommentByParentIdAndEntityID(int parentID, Int16 entityID)
         {
             if (parentID < 0)
@@ -54,6 +57,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetCommentByParentIdAndEntityID(parentID, entityID);
         }
 
+        [HttpDelete]
         public void DeleteRecord(Comment comment)
         {
             if (comment == null)
@@ -67,6 +71,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(comment);
         }
 
+        [HttpPost]
         public int SaveRecord(Comment comment)
         {
             if (comment == null)

@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IUserAreaCoverageRepository _repository = new UserAreaCoverageRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<UserAreaCoverage> GetAllUserAreaCoverages()
         {
             return _repository.GetAllUserAreaCoverages();
         }
 
+        [HttpGet]
         public UserAreaCoverage GetUserAreaCoverageByParentId(int id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUserAreaCoverageByParentId(id);
         }
 
+        [HttpGet]
         public List<UserAreaCoverage> GetUserAreaCoverageByUserIdandServiceId(Int32 userId, Int32 serviceId)
         {
             if (userId < 0)
@@ -54,6 +57,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUserAreaCoverageByUserIdandServiceId(userId, serviceId);
         }
 
+        [HttpDelete]
         public void DeleteRecord(UserAreaCoverage userAreaCoverage)
         {
             if (userAreaCoverage == null)
@@ -67,6 +71,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(userAreaCoverage);
         }
 
+        [HttpPost]
         public int SaveRecord(UserAreaCoverage userAreaCoverage)
         {
             if (userAreaCoverage == null)

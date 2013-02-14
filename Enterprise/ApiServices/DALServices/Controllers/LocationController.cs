@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly ILocationRepository _repository = new LocationRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<Location> GetAllLocations()
         {
             return _repository.GetAllLocations();
         }
 
+        [HttpGet]
         public Location GetLocationById(int id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetLocationById(id);
         }
 
+        [HttpGet]
         public List<Location> GetLocationsByOrganizationId(int orgId)
         {
             if (orgId < 0)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetLocationsByOrganizationId(orgId);
         }
 
+        [HttpGet]
         public List<Location> GetLocationsByOrganizationIdandTypeId(Int32 orgId, Int32 typeId)
         {
             if (orgId < 0)
@@ -67,6 +71,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetLocationsByOrganizationIdandTypeId(orgId, typeId);
         }
 
+        [HttpDelete]
         public void DeleteRecord(Location location)
         {
             if (location == null)
@@ -80,6 +85,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(location);
         }
 
+        [HttpPost]
         public int SaveRecord(Location location)
         {
             if (location == null)

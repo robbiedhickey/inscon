@@ -13,12 +13,14 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IAddressRepository _repository = new AddressRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
-        public List<Address> Get()
+        [HttpGet]
+        public List<Address> GetAllAddressRecords()
         {
             return _repository.GetAllAddressRecords();
         }
 
-        public Address Get(int id)
+        [HttpGet]
+        public Address GetAddressRecordById(int id)
         {
             if(id < 0)
             {
@@ -31,7 +33,8 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetAddressRecordById(id);
         }
 
-        public List<Address> Get(int parentId, Int16 entityId)
+        [HttpGet]
+        public List<Address> GetRecordByParentIdAndEntityID(int parentId, Int16 entityId)
         {
             if (parentId < 0)
             {
@@ -52,7 +55,8 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetRecordByParentIdAndEntityID(parentId, entityId);
         }
 
-        public void Delete(Address address)
+        [HttpDelete]
+        public void DeleteAddress(Address address)
         {
             if (address == null)
             {
@@ -65,7 +69,8 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(address);
         }
 
-        public int Post(Address address)
+        [HttpPost]
+        public int SaveAddress(Address address)
         {
             if (address == null)
             {

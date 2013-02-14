@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IWorkOrderItemRepository _repository = new WorkOrderItemRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<WorkOrderItem> GetAllWorkOrderItems()
         {
             return _repository.GetAllWorkOrderItems();
         }
 
+        [HttpGet]
         public WorkOrderItem GetWorkOrderItemById(Int32 id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetWorkOrderItemById(id);
         }
 
+        [HttpGet]
         public List<WorkOrderItem> GetWorkOrderItemsByWorkOrderId(Int32 workOrderId)
         {
             if (workOrderId < 0)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetWorkOrderItemsByWorkOrderId(workOrderId);
         }
 
+        [HttpDelete]
         public void DeleteRecord(WorkOrderItem workOrderItem)
         {
             if (workOrderItem == null)
@@ -59,6 +63,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(workOrderItem);
         }
 
+        [HttpPost]
         public int SaveRecord(WorkOrderItem workOrderItem)
         {
             if (workOrderItem == null)

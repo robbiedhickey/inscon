@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly ILookupGroupRepository _repository = new LookupGroupRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<LookupGroup> GetAllLookupGroups()
         {
             return _repository.GetAllLookupGroups();
         }
 
+        [HttpGet]
         public LookupGroup GetLookupGroupById(int id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetLookupGroupById(id);
         }
 
+        [HttpDelete]
         public void DeleteRecord(LookupGroup lookupGroup)
         {
             if (lookupGroup == null)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(lookupGroup);
         }
 
+        [HttpPost]
         public int SaveRecord(LookupGroup lookupGroup)
         {
             if (lookupGroup == null)

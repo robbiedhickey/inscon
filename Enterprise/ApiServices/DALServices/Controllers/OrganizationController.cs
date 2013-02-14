@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IOrganizationRepository _repository = new OrganizationRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<Organization> GetAllOrganizations()
         {
             return _repository.GetAllOrganizations();
         }
 
+        [HttpGet]
         public Organization GetOrganizationById(int id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetOrganizationById(id);
         }
 
+        [HttpGet]
         public List<Organization> GetOrganizationsByTypeId(int? typeID)
         {
             if (typeID < 0)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetOrganizationsByTypeId(typeID);
         }
 
+        [HttpDelete]
         public void DeleteRecord(Organization organization)
         {
             if (organization == null)
@@ -59,6 +63,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(organization);
         }
 
+        [HttpPost]
         public int SaveRecord(Organization organization)
         {
             if (organization == null)

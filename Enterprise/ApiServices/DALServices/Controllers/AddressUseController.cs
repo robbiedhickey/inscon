@@ -15,12 +15,14 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IAddressUseRepository _repository = new AddressUseRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
-        private List<AddressUse> GetAllAddressUseRecords()
+        [HttpGet]
+        public List<AddressUse> GetAllAddressUseRecords()
         {
             return _repository.GetAllAddressUseRecords();
         }
 
-        private AddressUse GetAddressUseById(int id)
+        [HttpGet]
+        public AddressUse GetAddressUseById(int id)
         {
             if (id < 0)
             {
@@ -33,7 +35,8 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetAddressUseById(id);
         }
 
-        private List<AddressUse> GetAddressUseByAddressId(int addressID)
+        [HttpGet]
+        public List<AddressUse> GetAddressUseByAddressId(int addressID)
         {
             if (addressID < 0)
             {
@@ -46,7 +49,8 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetAddressUseByAddressId(addressID);
         }
 
-        private AddressUse GetAddressUseByAddressIdAndTypeId(int addressID, Int16 typeID)
+        [HttpGet]
+        public AddressUse GetAddressUseByAddressIdAndTypeId(int addressID, Int16 typeID)
         {
             if (addressID < 0)
             {
@@ -67,7 +71,8 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetAddressUseByAddressIdAndTypeId(addressID, typeID);
         }
 
-        private void DeleteRecord(AddressUse addressUse)
+        [HttpDelete]
+        public void DeleteRecord(AddressUse addressUse)
         {
             if (addressUse == null)
             {
@@ -80,7 +85,8 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(addressUse);
         }
 
-        private int SaveRecord(AddressUse addressUse)
+        [HttpPost]
+        public int SaveRecord(AddressUse addressUse)
         {
             if (addressUse == null)
             {

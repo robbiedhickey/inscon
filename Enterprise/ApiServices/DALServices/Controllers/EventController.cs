@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IEventRepository _repository = new EventRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<Event> GetAllEvents()
         {
             return _repository.GetAllEvents();
         }
 
+        [HttpGet]
         public Event GetEventById(int id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetEventById(id);
         }
 
+        [HttpGet]
         public Event GetEventByParentIdAndEntityID(int parentID, Int16 entityID)
         {
             if (parentID < 0)
@@ -54,6 +57,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetEventByParentIdAndEntityID(parentID, entityID);
         }
 
+        [HttpDelete]
         public void DeleteRecord(Event dalEvent)
         {
             if (dalEvent == null)
@@ -67,6 +71,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(dalEvent);
         }
 
+        [HttpPost]
         public int SaveRecord(Event dalEvent)
         {
             if (dalEvent == null)

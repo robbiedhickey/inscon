@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IRequestRepository _repository = new RequestRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<Request> GetAllRequests()
         {
             return _repository.GetAllRequests();
         }
 
+        [HttpGet]
         public Request GetRequestById(Int32 id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetRequestById(id);
         }
 
+        [HttpDelete]
         public void DeleteRecord(Request request)
         {
             if (request == null)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(request);
         }
 
+        [HttpPost]
         public int SaveRecord(Request request)
         {
             if (request == null)

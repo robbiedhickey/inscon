@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IProductRepository _repository = new ProductRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<Product> GetAllProducts()
         {
             return _repository.GetAllProducts();
         }
 
+        [HttpGet]
         public Product GetProductById(Int32 id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetProductById(id);
         }
 
+        [HttpGet]
         public List<Product> GetProductsByCategoryId(Int32 categoryId)
         {
             if (categoryId < 0)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetProductsByCategoryId(categoryId);
         }
 
+        [HttpDelete]
         public void DeleteRecord(Product product)
         {
             if (product == null)
@@ -59,6 +63,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(product);
         }
 
+        [HttpPost]
         public int SaveRecord(Product product)
         {
             if (product == null)

@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IUserNotificationRepository _repository = new UserNotificationRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<UserNotification> GetAllUserNotifications()
         {
             return _repository.GetAllUserNotifications();
         }
 
+        [HttpGet]
         public UserNotification GetUserNotificationById(Int32 id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUserNotificationById(id);
         }
 
+        [HttpGet]
         public List<UserNotification> GetUserNotificationsByUserId(Int32 userId)
         {
             if (userId < 0)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUserNotificationsByUserId(userId);
         }
 
+        [HttpDelete]
         public void DeleteRecord(UserNotification userNotification)
         {
             if (userNotification == null)
@@ -59,6 +63,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(userNotification);
         }
 
+        [HttpPost]
         public int SaveRecord(UserNotification userNotification)
         {
             if (userNotification == null)

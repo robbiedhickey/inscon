@@ -15,11 +15,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IUserContactRepository _repository = new UserContactRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<UserContact> GetAllUserContacts()
         {
             return _repository.GetAllUserContacts();
         }
 
+        [HttpGet]
         public UserContact GetUserContactById(Int32 id)
         {
             if (id < 0)
@@ -33,6 +35,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUserContactById(id);
         }
 
+        [HttpGet]
         public List<UserContact> GetUserContactsByUserId(Int32 userID)
         {
             if (userID < 0)
@@ -46,6 +49,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUserContactsByUserId(userID);
         }
 
+        [HttpGet]
         public List<UserContact> GetUserContactsByUserIdAndTypeId(Int32 userID, Int32 typeId)
         {
             if (userID < 0)
@@ -67,6 +71,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetUserContactsByUserIdAndTypeId(userID, typeId);
         }
 
+        [HttpDelete]
         public void DeleteRecord(UserContact userContact)
         {
             if (userContact == null)
@@ -80,6 +85,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(userContact);
         }
 
+        [HttpPost]
         public int SaveRecord(UserContact userContact)
         {
             if (userContact == null)

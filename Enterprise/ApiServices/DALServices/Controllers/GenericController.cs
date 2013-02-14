@@ -15,6 +15,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IGenericRepository _repository = new GenericRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpPost]
         public void RunProc(string database, string procedure)
         {
             if (string.IsNullOrEmpty(database))
@@ -36,6 +37,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.RunProc(database, procedure);
         }
 
+        [HttpGet]
         public DataTable GetDataTable(string database, string storedProcedure, params object[] parameters)
         {
             if (string.IsNullOrEmpty(database))
@@ -65,6 +67,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetDataTable(database, storedProcedure, parameters);
         }
 
+        [HttpGet]
         public DataSet GetDataSet(string database, string storedProcedure, params object[] parameters)
         {
             if (string.IsNullOrEmpty(database))
@@ -94,6 +97,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetDataSet(database, storedProcedure, parameters);
         }
 
+        [HttpGet]
         public IDataReader GetDataReader(string database, string storedProcedure, params object[] parameters)
         {
             if (string.IsNullOrEmpty(database))

@@ -13,11 +13,13 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         private readonly IAddressLocationRepository _repository = new AddressLocationRepository();
         private readonly ExceptionHelper _exceptionHelper = new ExceptionHelper();
 
+        [HttpGet]
         public List<AddressLocation> GetAllAddressesLocationRecords()
         {
             return _repository.GetAllAddressesLocationRecords();
         }
 
+        [HttpGet]
         public AddressLocation GetAddressLocationById(int id)
         {
             if (id < 0)
@@ -31,6 +33,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetAddressLocationById(id);
         }
 
+        [HttpDelete]
         public void DeleteRecord(AddressLocation addressLocation)
         {
             if (addressLocation == null)
@@ -44,6 +47,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             _repository.DeleteRecord(addressLocation);
         }
 
+        [HttpPost]
         public int SaveRecord(AddressLocation addressLocation)
         {
             if (addressLocation == null)
