@@ -4,3 +4,10 @@ C:\code\InsightConcept\trunk\Enterprise\DAL\Enterprise.DAL.Core.Test\bin\Debug\A
 C:\code\InsightConcept\trunk\Enterprise\DAL\Enterprise.DAL.Core.Test\bin\Debug\AutoMapper.xml
 C:\code\InsightConcept\trunk\Enterprise\DAL\Enterprise.DAL.Core.Test\obj\Debug\Enterprise.DAL.Core.Test.dll
 C:\code\InsightConcept\trunk\Enterprise\DAL\Enterprise.DAL.Core.Test\obj\Debug\Enterprise.DAL.Core.Test.pdb
+C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Core.Test\bin\Debug\Enterprise.DAL.Core.Test.dll
+C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Core.Test\bin\Debug\Enterprise.DAL.Core.Test.pdb
+C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Core.Test\bin\Debug\AutoMapper.dll
+C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Core.Test\bin\Debug\AutoMapper.xml
+C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Core.Test\obj\Debug\Enterprise.DAL.Core.Test.csprojResolveAssemblyReference.cache
+C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Core.Test\obj\Debug\Enterprise.DAL.Core.Test.dll
+C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Core.Test\obj\Debug\Enterprise.DAL.Core.Test.pdb

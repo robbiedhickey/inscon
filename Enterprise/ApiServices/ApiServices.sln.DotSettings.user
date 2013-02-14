@@ -3,7 +3,7 @@
 	<s:Boolean x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=FA060818497B4F298C958BB7E389F0E4/@KeyIndexDefined">True</s:Boolean>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=FA060818497B4F298C958BB7E389F0E4/BuildPolicy/@EntryValue">WholeSolution</s:String>
 	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=FA060818497B4F298C958BB7E389F0E4/Name/@EntryValue">GetOrganizationByIdFail</s:String>
-	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=FA060818497B4F298C958BB7E389F0E4/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements&gt;&lt;UnitTestElement Provider="MSTest" Id="MsTest:Enterprise.ApiServices.DALServices.Test.Controllers.OrganizationControllerTest.GetOrganizationByIdFail" ParentId="MsTest:Enterprise.ApiServices.DALServices.Test.Controllers.OrganizationControllerTest" type="MsTestTestMethodElement" MethodName="GetOrganizationByIdFail" TypeName="Enterprise.ApiServices.DALServices.Test.Controllers.OrganizationControllerTest" Project="4AF05ED8-13A8-47B5-A022-80D2CC31014B" /&gt;&lt;/Elements&gt;&lt;/Session&gt;</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestSessionPersistentData/=FA060818497B4F298C958BB7E389F0E4/XmlSerializedElements/@EntryValue">&lt;Session&gt;&lt;Elements /&gt;&lt;/Session&gt;</s:String>
 	
 	
 	

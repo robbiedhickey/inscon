@@ -49,7 +49,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the product category id.
         /// </summary>
         /// <value>The product category id.</value>
-        public Int32 ProductCategoryID
+        public Int32 ProductCategoryId
         {
             get { return _productCategoryId; }
             set { SetProperty(ref _productCategoryId, value); }
