@@ -5,7 +5,7 @@ SET ANSI_NULLS ON
 GO
 
 CREATE PROC [crud].[AddressUse_SelectById]
-  @AddressUserID INT
+  @AddressUseID INT
 AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
@@ -14,6 +14,6 @@ AS
            [AddressID],
            [TypeID]
     FROM   [generic].[AddressUse]
-    WHERE  [AddressUserID] = @AddressUserID
+    WHERE  [AddressUserID] = @AddressUseID
 
 GO
