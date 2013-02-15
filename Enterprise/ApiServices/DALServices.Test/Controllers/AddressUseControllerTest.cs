@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Enterprise.ApiServices.DALServices.Controllers;
 
 namespace Enterprise.ApiServices.DALServices.Test.Controllers
 {
@@ -65,79 +66,109 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         [TestMethod]
         public void GetAllAddressUseRecords()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+            var adds = controller.GetAllAddressUseRecords();
+
+            Assert.IsNotNull(controller);
+            Assert.IsNotNull(adds);
+            Assert.AreEqual(9, adds.Count);
         }
 
         [TestMethod]
         public void GetAddressUseByIdPass()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+            var adds = controller.GetAddressUseById(1);
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void GetAddressUseByIdFail()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void GetAddressUseByAddressIdPass()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void GetAddressUseByAddressIdFail()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void GetAddressUseByAddressIdAndTypeIdPass()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void GetAddressUseByAddressIdAndTypeIdFail()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void DeleteAddressUsePass()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void DeleteAddressUseFail()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void InsertAddressUsePass()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void InsertAddressUseFail()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void UpdateAddressUsePass()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
         public void UpdateAddressUseFail()
         {
-            Assert.Inconclusive();
+            AddressUseController controller = new AddressUseController();
+
+            Assert.IsNotNull(controller);
         }
     }
 }
