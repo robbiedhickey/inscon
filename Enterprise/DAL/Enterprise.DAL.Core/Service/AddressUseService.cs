@@ -34,9 +34,9 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new AddressUse
                 {
-                    AddressUseId = reader.GetInt32("AddressUseID"),
-                    AddressId = reader.GetInt32("AddressID"),
-                    TypeId = reader.GetInt32("TypeID")
+                    AddressUseID = reader.GetInt32("AddressUseID"),
+                    AddressID = reader.GetInt32("AddressID"),
+                    TypeID = reader.GetInt32("TypeID")
                 };
             return record;
         }
@@ -60,11 +60,11 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<AddressUse> h = h2 => h2.AddressUseId == id;
+                Predicate<AddressUse> h = h2 => h2.AddressUseID == id;
                 return GetAllAddressUseRecords().Find(h) ?? new AddressUse();
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectById, Build, CacheMinutesToExpire, IsCached, id);
+            return Query(SqlDatabase, Procedure.AddressUse_SelectById, Build, CacheMinutesToExpire, IsCached, id);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<AddressUse> h = h2 => h2.AddressId == addressID;
+                Predicate<AddressUse> h = h2 => h2.AddressID == addressID;
                 return GetAllAddressUseRecords().FindAll(h);
             }
 
@@ -93,7 +93,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<AddressUse> h = h2 => h2.AddressId == addressID && h2.TypeId == typeID;
+                Predicate<AddressUse> h = h2 => h2.AddressID == addressID && h2.TypeID == typeID;
                 return GetAllAddressUseRecords().Find(h) ?? new AddressUse();
             }
 

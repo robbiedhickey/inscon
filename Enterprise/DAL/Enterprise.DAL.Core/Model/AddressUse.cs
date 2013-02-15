@@ -41,7 +41,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the address use id.
         /// </summary>
         /// <value>The address use id.</value>
-        public Int32 AddressUseId
+        public Int32 AddressUseID
         {
             get { return _addressUseId; }
             set { SetProperty(ref _addressUseId, value); }
@@ -51,7 +51,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the address id.
         /// </summary>
         /// <value>The address id.</value>
-        public Int32 AddressId
+        public Int32 AddressID
         {
             get { return _addressId; }
             set { SetProperty(ref _addressId, value); }
@@ -61,7 +61,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the type id.
         /// </summary>
         /// <value>The type id.</value>
-        public Int32 TypeId
+        public Int32 TypeID
         {
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }

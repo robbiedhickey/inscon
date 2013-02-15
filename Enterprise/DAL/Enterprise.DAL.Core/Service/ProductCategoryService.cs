@@ -34,7 +34,7 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new ProductCategory
                 {
-                    ProductCategoryId = reader.GetInt32("ProductCategoryID"),
+                    ProductCategoryID = reader.GetInt32("ProductCategoryID"),
                     Name = reader.GetString("name"),
                     Code = reader.GetString("Code")
                 };
@@ -62,7 +62,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<ProductCategory> h = h2 => h2.ProductCategoryId == id;
+                Predicate<ProductCategory> h = h2 => h2.ProductCategoryID == id;
                 return GetAllProductCategories().Find(h) ?? new ProductCategory();
             }
 
