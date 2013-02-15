@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -9,8 +10,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    SELECT [RequestID],
-           [OrganizationID],
+    SELECT [RequestID],          
            [DateInserted],
            [CustomerRequestID]
     FROM   [dbo].[Request]

@@ -6,6 +6,10 @@ CREATE TABLE [dbo].[Organization]
 [TypeID] [int] NOT NULL,
 [StatusID] [int] NOT NULL
 ) ON [PRIMARY]
+CREATE UNIQUE NONCLUSTERED INDEX [UX_CodeTypeID] ON [dbo].[Organization] ([Code], [TypeID]) ON [PRIMARY]
+
+CREATE UNIQUE NONCLUSTERED INDEX [UX_NameTypeID] ON [dbo].[Organization] ([Name], [TypeID]) ON [PRIMARY]
+
 GO
 ALTER TABLE [dbo].[Organization] ADD CONSTRAINT [PK_Organization] PRIMARY KEY CLUSTERED  ([OrganizationID]) ON [PRIMARY]
 GO

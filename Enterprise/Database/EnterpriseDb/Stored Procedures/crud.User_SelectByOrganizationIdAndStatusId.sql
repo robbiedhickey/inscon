@@ -4,6 +4,7 @@ GO
 SET ANSI_NULLS ON
 GO
 
+
 CREATE PROC [crud].[User_SelectByOrganizationIdAndStatusId]
   @OrganizationID INT,
   @StatusID INT
@@ -19,6 +20,7 @@ AS
            [StatusID],
            [AuthenticationID]
     FROM   [dbo].[User]
-    WHERE  [UserID] = @OrganizationID AND [StatusID] = @StatusID
+    WHERE  [OrganizationID] = @OrganizationID AND [StatusID] = @StatusID
+
 
 GO

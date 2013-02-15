@@ -10,7 +10,7 @@ CREATE PROC [crud].[Asset_Insert]
   @AssetNumber         VARCHAR(20),
   @LoanNumber          VARCHAR(30),
   @LoanTypeID          INT,
-  @MortgagorName       VARCHAR(38),
+  @MortgagorName       VARCHAR(40),
   @MortgagorPhone      VARCHAR(15),
   @HudCaseNumber       VARCHAR(20),
   @ConveyanceDate      DATETIME,

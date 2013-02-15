@@ -2,9 +2,11 @@ CREATE TABLE [dbo].[WorkOrder]
 (
 [WorkOrderID] [int] NOT NULL IDENTITY(1, 1),
 [RequestID] [int] NOT NULL,
-[AssetID] [int] NULL,
+[AssetID] [int] NOT NULL,
 [DateInserted] [datetime] NULL CONSTRAINT [DF_WorkOrder_DateInserted] DEFAULT (getdate())
 ) ON [PRIMARY]
+ALTER TABLE [dbo].[WorkOrder] ADD
+CONSTRAINT [FK_WorkOrder_Asset] FOREIGN KEY ([AssetID]) REFERENCES [dbo].[Asset] ([AssetID])
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Asset RecordID', 'SCHEMA', N'dbo', 'TABLE', N'WorkOrder', 'COLUMN', N'AssetID'
 GO
