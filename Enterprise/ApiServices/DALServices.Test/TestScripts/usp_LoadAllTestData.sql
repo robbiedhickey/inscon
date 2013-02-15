@@ -1,6 +1,3 @@
-USE [EnterpriseDbTest]
-GO
-
 -- Disable all constraints so we can load data
 EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT all'
 
@@ -40,7 +37,6 @@ DBCC CHECKIDENT('[dbo].[WorkOrderItem]', RESEED, 0)
 DBCC CHECKIDENT('[dbo].[ProductCategory]', RESEED, 0)
 DBCC CHECKIDENT('[dbo].[Product]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[Address]', RESEED, 0)
-DBCC CHECKIDENT('[generic].[AddressLocation]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[AddressUse]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[Comment]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[Event]', RESEED, 0)
@@ -259,6 +255,47 @@ INSERT INTO [generic].[Lookup]([LookupGroupID] ,[VALUE] ,[OldID]) VALUES(12, 'Bi
 INSERT INTO [generic].[Lookup]([LookupGroupID] ,[VALUE] ,[OldID]) VALUES(12, 'Physical',     NULL)
 INSERT INTO [generic].[Lookup]([LookupGroupID] ,[VALUE] ,[OldID]) VALUES(12, 'Personal',     NULL)
 
+INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(1, 24, '123 Asteroid Alley',       '', 'Hallows End',           'TX', '75656')
+INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(2, 24, '234 Quaking Bluff Twist',  '', 'New Haven',             'TX', '75656')
+INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(3, 24, '345 Honey Acorn Trace',    '', 'Treachers Landing',     'TX', '75656')
+INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(4, 24, '456 Turning Rise Estates', '', 'T-Bone Junction',       'TX', '75656')
+INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(5, 24, '567 Noble Zephyr Avenue',  '', 'Tetanus',               'TX', '75656')
+INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(6, 24, '678 Island Pike Road',     '', 'Angelic Ruins',         'TX', '75656')
+INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(7, 24, '789 Big Rabbit Meadow',    '', 'Sanders Gorge',         'TX', '75656')
+INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(8, 24, '890 Jagged Squirrel Road', '', 'Roads End',             'TX', '75656')
+INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(9, 24, '901 Blue Island Ridge',    '', 'Scorched Snake Canyon', 'TX', '75656')
+
+INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(1, 3)
+INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(2, 3)
+INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(3, 3)
+INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(4, 3)
+INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(5, 3)
+INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(6, 3)
+INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(7, 3)
+INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(8, 3)
+INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(9, 3)
+
+INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(1, '123', 'Asteroid Alley',       'Hallows End',           'TX', '75656', 0xE6100000010C7445292158B343408D2AC3B81B2653C0, 39.401127,        -76.595442)
+INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(2, '234', 'Quaking Bluff Twist',  'New Haven',             'TX', '75656', 0xE6100000010CC7F1E8EB9E093E4005227A0819F256C0, 30.0375812,       -91.7827779)
+INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(3, '345', 'Honey Acorn Trace',    'Treachers Landing',     'TX', '75656', 0xE6100000010C0000000075243C4000000080859C54C0, 28.1424102783203, -82.4456481933594)
+INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(4, '456', 'Turning Rise Estates', 'T-Bone Junction',       'TX', '75656', 0xE6100000010C00000040E85D4340000000A0875F53C0, 38.7336502075195, -77.4926528930664)
+INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(5, '567', 'Noble Zephyr Avenue',  'Tetanus',               'TX', '75656', 0xE6100000010C00000040FE184740000000C0FEC65DC0, 46.1952590942383, -119.109298706055)
+INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(6, '678', 'Island Pike Road',     'Angelic Ruins',         'TX', '75656', 0xE6100000010C0000002026774140000000A0DF1C5EC0, 34.930850982666,  -120.451148986816)
+INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(7, '789', 'Big Rabbit Meadow',    'Sanders Gorge',         'TX', '75656', 0xE6100000010CFB761211FE3541407CD11E2FA4EC5DC0, 34.421816,        -119.697521)
+INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(8, '890', 'Jagged Squirrel Road', 'Roads End',             'TX', '75656', 0xE6100000010C7451E3946FB34340FC83EDCC292653C0, 39.4018427,       -76.5963013)
+INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(9, '901', 'Blue Island Ridge',    'Scorched Snake Canyon', 'TX', '75656', 0xE6100000010C85FE53BB70B343400E7CB19C292653C0, 39.4018778,       -76.5962898)
+
+INSERT INTO [generic].[Comment]([ParentID] ,[EntityID] ,[UserID] ,[TypeID] ,[Value])VALUES(7, 24, 7, 36, 'What a dump.')
+
+INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(1, 24, '\\Resources\2012\12\01', 'picture01.jpg', 150.50, 35, 'Micro-Black Hole Penetrations')
+INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(2, 24, '\\Resources\2012\12\01', 'picture02.jpg', 150.50, 35, 'Nuclear Goo Leakage from Power Core')
+INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(3, 24, '\\Resources\2012\12\01', 'picture03.jpg', 150.50, 35, 'Dead BabelFish in Dirty Tank')
+INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(4, 24, '\\Resources\2012\12\01', 'picture04.jpg', 150.50, 35, 'Dead Renters Due To Bad Life Support')
+INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(5, 24, '\\Resources\2012\12\01', 'picture05.jpg', 150.50, 35, 'Slick Landing Zone')
+INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(6, 24, '\\Resources\2012\12\01', 'picture06.jpg', 150.50, 35, 'Clogged Galactic Dust Filters')
+INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(7, 24, '\\Resources\2012\12\01', 'picture07.jpg', 150.50, 35, 'Worn Outer Shell Seams')
+INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(8, 24, '\\Resources\2012\12\01', 'picture08.jpg', 150.50, 35, 'Missing Outer Shel Seam Seal')
+INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(9, 24, '\\Resources\2012\12\01', 'picture09.jpg', 150.50, 35, 'Ruptured Power Core')
 
 -- Enable all constraints
 EXEC sp_msforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all'
