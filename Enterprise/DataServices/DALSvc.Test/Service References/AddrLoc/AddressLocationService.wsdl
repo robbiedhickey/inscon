@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AddressLocationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52709/AddressLocationService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52709/AddressLocationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52709/AddressLocationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Enterprise.DAL.Core.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAddressLocationService_GetAllAddressesLocationRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAddressesLocationRecords" />
+  </wsdl:message>
+  <wsdl:message name="IAddressLocationService_GetAllAddressesLocationRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAddressesLocationRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressLocationService_GetAddressLocationById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressLocationById" />
+  </wsdl:message>
+  <wsdl:message name="IAddressLocationService_GetAddressLocationById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressLocationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressLocationService_DeleteRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRecord" />
+  </wsdl:message>
+  <wsdl:message name="IAddressLocationService_DeleteRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressLocationService_SaveRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRecord" />
+  </wsdl:message>
+  <wsdl:message name="IAddressLocationService_SaveRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRecordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAddressLocationService">
+    <wsdl:operation name="GetAllAddressesLocationRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressLocationService/GetAllAddressesLocationRecords" message="tns:IAddressLocationService_GetAllAddressesLocationRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressLocationService/GetAllAddressesLocationRecordsResponse" message="tns:IAddressLocationService_GetAllAddressesLocationRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressLocationById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressLocationService/GetAddressLocationById" message="tns:IAddressLocationService_GetAddressLocationById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressLocationService/GetAddressLocationByIdResponse" message="tns:IAddressLocationService_GetAddressLocationById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressLocationService/DeleteRecord" message="tns:IAddressLocationService_DeleteRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressLocationService/DeleteRecordResponse" message="tns:IAddressLocationService_DeleteRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressLocationService/SaveRecord" message="tns:IAddressLocationService_SaveRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressLocationService/SaveRecordResponse" message="tns:IAddressLocationService_SaveRecord_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAddressLocationService" type="tns:IAddressLocationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllAddressesLocationRecords">
+      <soap:operation soapAction="http://tempuri.org/IAddressLocationService/GetAllAddressesLocationRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressLocationById">
+      <soap:operation soapAction="http://tempuri.org/IAddressLocationService/GetAddressLocationById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRecord">
+      <soap:operation soapAction="http://tempuri.org/IAddressLocationService/DeleteRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRecord">
+      <soap:operation soapAction="http://tempuri.org/IAddressLocationService/SaveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddressLocationService">
+    <wsdl:port name="BasicHttpBinding_IAddressLocationService" binding="tns:BasicHttpBinding_IAddressLocationService">
+      <soap:address location="http://localhost:52709/AddressLocationService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

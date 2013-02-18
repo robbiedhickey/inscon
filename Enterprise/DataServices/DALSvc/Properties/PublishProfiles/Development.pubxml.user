@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AddressLocationService.svc">
+      <publishTime>02/01/2013 14:16:42</publishTime>
+    </File>
+    <File Include="AddressService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="AddressUseService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="AssetService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DAL.Core.dll">
+      <publishTime>02/04/2013 10:56:05</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DAL.Core.pdb">
+      <publishTime>02/04/2013 10:56:05</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DAL.Framework.dll">
+      <publishTime>01/31/2013 10:38:01</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DAL.Framework.pdb">
+      <publishTime>01/31/2013 10:38:01</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DataServices.DALSvc.dll">
+      <publishTime>02/05/2013 08:26:35</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DataServices.DALSvc.pdb">
+      <publishTime>02/05/2013 08:26:35</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>12/31/2012 15:00:09</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.pdb">
+      <publishTime>12/31/2012 15:00:09</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>12/31/2012 15:00:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.pdb">
+      <publishTime>12/31/2012 15:00:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>04/16/2010 14:42:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>04/16/2010 14:42:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+      <publishTime>04/16/2010 14:42:32</publishTime>
+    </File>
+    <File Include="CommentService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="EventService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="FileService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="GenericService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="LoanService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="LocationService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="LookupGroupService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="LookupService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="MortgagorService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="OrganizationService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="ProductCategoryService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="ProductService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="RequestService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="UserAreaCoverageService.svc">
+      <publishTime>02/01/2013 14:21:31</publishTime>
+    </File>
+    <File Include="UserContactService.svc">
+      <publishTime>02/01/2013 14:21:30</publishTime>
+    </File>
+    <File Include="UserNotificationService.svc">
+      <publishTime>02/01/2013 14:21:30</publishTime>
+    </File>
+    <File Include="UserService.svc">
+      <publishTime>02/01/2013 14:21:30</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/05/2013 08:26:35</publishTime>
+    </File>
+    <File Include="WorkOrderAssignmentService.svc">
+      <publishTime>02/01/2013 14:21:30</publishTime>
+    </File>
+    <File Include="WorkOrderItemService.svc">
+      <publishTime>02/01/2013 14:21:30</publishTime>
+    </File>
+    <File Include="WorkOrderService.svc">
+      <publishTime>02/01/2013 14:21:30</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

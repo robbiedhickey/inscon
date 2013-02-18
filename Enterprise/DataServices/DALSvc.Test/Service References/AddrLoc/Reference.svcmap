@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="91c7c333-3a91-45d5-8021-37fdc4151ef7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52709/AddressLocationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AddressLocationService.xsd" MetadataType="Schema" ID="2103b5a1-bf40-461a-a98c-f59ccd113578" SourceId="1" SourceUrl="http://localhost:52709/AddressLocationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AddressLocationService1.xsd" MetadataType="Schema" ID="d5bfd263-dc71-4232-ab55-53a13ee03cc6" SourceId="1" SourceUrl="http://localhost:52709/AddressLocationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AddressLocationService.wsdl" MetadataType="Wsdl" ID="badc3e67-5faa-4e45-9ce2-e3c5ae0401b1" SourceId="1" SourceUrl="http://localhost:52709/AddressLocationService.svc?wsdl" />
+    <MetadataFile FileName="AddressLocationService.disco" MetadataType="Disco" ID="33c6282d-f698-4351-b201-70612b672050" SourceId="1" SourceUrl="http://localhost:52709/AddressLocationService.svc?disco" />
+    <MetadataFile FileName="AddressLocationService2.xsd" MetadataType="Schema" ID="01948c70-7d44-43ea-afb1-7741b9b6f4ff" SourceId="1" SourceUrl="http://localhost:52709/AddressLocationService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
