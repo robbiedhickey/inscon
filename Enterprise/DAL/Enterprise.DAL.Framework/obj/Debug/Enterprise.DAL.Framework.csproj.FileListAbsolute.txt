@@ -1,9 +1,0 @@
-C:\code\InsightConcept\trunk\Enterprise\ThirdParty\SharedBin\Enterprise.DAL.Framework.dll
-C:\code\InsightConcept\trunk\Enterprise\ThirdParty\SharedBin\Enterprise.DAL.Framework.pdb
-C:\code\InsightConcept\trunk\Enterprise\DAL\Enterprise.DAL.Framework\obj\Debug\Enterprise.DAL.Framework.dll
-C:\code\InsightConcept\trunk\Enterprise\DAL\Enterprise.DAL.Framework\obj\Debug\Enterprise.DAL.Framework.pdb
-C:\Work\InsightConcept\Enterprise\ThirdParty\SharedBin\Enterprise.DAL.Framework.dll
-C:\Work\InsightConcept\Enterprise\ThirdParty\SharedBin\Enterprise.DAL.Framework.pdb
-C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Framework\obj\Debug\Enterprise.DAL.Framework.csprojResolveAssemblyReference.cache
-C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Framework\obj\Debug\Enterprise.DAL.Framework.dll
-C:\Work\InsightConcept\Enterprise\DAL\Enterprise.DAL.Framework\obj\Debug\Enterprise.DAL.Framework.pdb
