@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using BootstrapMvcSample.Controllers;
 
+//using BootstrapMvcSample.Controllers;
+
 namespace ClientDashboard.Controllers
 {
     public class HomeController : BootstrapBaseController

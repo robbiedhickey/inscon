@@ -17,43 +17,48 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class Comment
+    /// Class Comment
     /// </summary>
     public class Comment : ModelBase
     {
         /// <summary>
-        ///     The _comment
+        /// The _comment
         /// </summary>
         private String _comment;
 
         /// <summary>
-        ///     The _comment id
+        /// The _comment id
         /// </summary>
         private Int32 _commentId;
 
         /// <summary>
-        ///     The _entity id
+        /// The _date inserted
+        /// </summary>
+        private DateTime _dateInserted;
+
+        /// <summary>
+        /// The _entity id
         /// </summary>
         private Int16 _entityId;
 
         /// <summary>
-        ///     The _parent id
+        /// The _parent id
         /// </summary>
         private Int32 _parentId;
 
         /// <summary>
-        ///     The _type id
+        /// The _type id
         /// </summary>
         private Int32 _typeId;
 
         /// <summary>
-        ///     The _user id
+        /// The _user id
         /// </summary>
         private Int32 _userId;
 
 
         /// <summary>
-        ///     Gets or sets the comment id.
+        /// Gets or sets the comment id.
         /// </summary>
         /// <value>The comment id.</value>
         public Int32 CommentId
@@ -63,7 +68,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the parent id.
+        /// Gets or sets the parent id.
         /// </summary>
         /// <value>The parent id.</value>
         public Int32 ParentId
@@ -73,7 +78,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the entity id.
+        /// Gets or sets the entity id.
         /// </summary>
         /// <value>The entity id.</value>
         public Int16 EntityId
@@ -83,7 +88,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the user id.
+        /// Gets or sets the user id.
         /// </summary>
         /// <value>The user id.</value>
         public Int32 UserId
@@ -93,7 +98,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the type id.
+        /// Gets or sets the type id.
         /// </summary>
         /// <value>The type id.</value>
         public Int32 TypeId
@@ -103,7 +108,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the value.
+        /// Gets or sets the value.
         /// </summary>
         /// <value>The value.</value>
         public String Value
@@ -112,10 +117,20 @@ namespace Enterprise.DAL.Core.Model
             set { SetProperty(ref _comment, value); }
         }
 
+        /// <summary>
+        /// Gets or sets the date inserted.
+        /// </summary>
+        /// <value>The date inserted.</value>
+        public DateTime DateInserted
+        {
+            get { return _dateInserted; }
+            set { _dateInserted = value; }
+        }
+
         #region public methods
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Comment" /> class.
+        /// Initializes a new instance of the <see cref="Comment"/> class.
         /// </summary>
         public Comment()
         {

@@ -73,12 +73,12 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Gets the record by parent id and entity ID.
+        /// Gets the address records by parent id and entity ID.
         /// </summary>
         /// <param name="parentID">The parent ID.</param>
         /// <param name="entityID">The entity ID.</param>
         /// <returns>List{Address}.</returns>
-        public List<Address> GetRecordByParentIdAndEntityID(int parentID, Int16 entityID)
+        public List<Address> GetAddressRecordsByParentIdAndEntityID(int parentID, Int16 entityID)
         {
             if (IsCached)
             {

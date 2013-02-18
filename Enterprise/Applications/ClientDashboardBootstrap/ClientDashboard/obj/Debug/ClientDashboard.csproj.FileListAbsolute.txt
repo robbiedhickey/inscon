@@ -89,3 +89,4 @@ C:\code\InsightConcept\trunk\Enterprise\Applications\ClientDashboardBootstrap\Cl
 C:\code\InsightConcept\trunk\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\bin\System.Web.WebPages.Razor.xml
 C:\code\InsightConcept\trunk\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\obj\Debug\ClientDashboard.dll
 C:\code\InsightConcept\trunk\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\obj\Debug\ClientDashboard.pdb
+C:\code\InsightConcept\trunk\Enterprise\Applications\ClientDashboardBootstrap\ClientDashboard\obj\Debug\ClientDashboard.csprojResolveAssemblyReference.cache

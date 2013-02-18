@@ -18,53 +18,58 @@ using Enterprise.DAL.Core.Service;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class File
+    /// Class File
     /// </summary>
     public class File : ModelBase
     {
         /// <summary>
-        ///     The _caption
+        /// The _caption
         /// </summary>
         private string _caption;
 
         /// <summary>
-        ///     The _entity id
+        /// The _date inserted
+        /// </summary>
+        private DateTime _dateInserted;
+
+        /// <summary>
+        /// The _entity id
         /// </summary>
         private short _entityId;
 
         /// <summary>
-        ///     The _file id
+        /// The _file id
         /// </summary>
         private int _fileId;
 
         /// <summary>
-        ///     The _name
+        /// The _name
         /// </summary>
         private string _name;
 
         /// <summary>
-        ///     The _parent folder
+        /// The _parent folder
         /// </summary>
         private string _parentFolder;
 
         /// <summary>
-        ///     The _parent id
+        /// The _parent id
         /// </summary>
         private int _parentId;
 
         /// <summary>
-        ///     The _size
+        /// The _size
         /// </summary>
         private decimal _size;
 
         /// <summary>
-        ///     The _type id
+        /// The _type id
         /// </summary>
         private int _typeId;
 
 
         /// <summary>
-        ///     Gets or sets the file id.
+        /// Gets or sets the file id.
         /// </summary>
         /// <value>The file id.</value>
         public Int32 FileId
@@ -74,7 +79,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the parent id.
+        /// Gets or sets the parent id.
         /// </summary>
         /// <value>The parent id.</value>
         public Int32 ParentId
@@ -84,7 +89,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the entity id.
+        /// Gets or sets the entity id.
         /// </summary>
         /// <value>The entity id.</value>
         public Int16 EntityId
@@ -94,7 +99,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the parent folder.
+        /// Gets or sets the parent folder.
         /// </summary>
         /// <value>The parent folder.</value>
         public String ParentFolder
@@ -104,7 +109,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the name.
+        /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         public String Name
@@ -114,7 +119,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the size.
+        /// Gets or sets the size.
         /// </summary>
         /// <value>The size.</value>
         public Decimal Size
@@ -124,7 +129,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the type id.
+        /// Gets or sets the type id.
         /// </summary>
         /// <value>The type id.</value>
         public Int32 TypeId
@@ -132,9 +137,9 @@ namespace Enterprise.DAL.Core.Model
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }
         }
-       
+
         /// <summary>
-        ///     Gets or sets the caption.
+        /// Gets or sets the caption.
         /// </summary>
         /// <value>The caption.</value>
         public String Caption
@@ -144,7 +149,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the type.
+        /// Gets the type.
         /// </summary>
         /// <value>The type.</value>
         public string Type
@@ -156,11 +161,21 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="File" /> class.
+        /// Initializes a new instance of the <see cref="File"/> class.
         /// </summary>
         public File()
         {
             EntityNumber = File_EntityId;
+        }
+
+        /// <summary>
+        /// Gets or sets the date inserted.
+        /// </summary>
+        /// <value>The date inserted.</value>
+        public DateTime DateInserted
+        {
+            get { return _dateInserted; }
+            set { _dateInserted = value; }
         }
 
         #endregion
