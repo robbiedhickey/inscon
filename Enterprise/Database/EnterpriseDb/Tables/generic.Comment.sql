@@ -5,7 +5,8 @@ CREATE TABLE [generic].[Comment]
 [EntityID] [smallint] NOT NULL,
 [UserID] [int] NULL,
 [TypeID] [int] NOT NULL,
-[Value] [varchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+[Value] [varchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+[DateInserted] [datetime] NULL CONSTRAINT [DF_Comment_DateInserted] DEFAULT (getdate())
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Comment', 'SCHEMA', N'generic', 'TABLE', N'Comment', 'COLUMN', N'Value'

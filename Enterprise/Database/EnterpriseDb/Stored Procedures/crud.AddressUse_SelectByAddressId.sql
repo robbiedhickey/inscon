@@ -10,10 +10,9 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    SELECT [AddressUserID] AS AddressUseID,
-           [AddressID],
+    SELECT [AddressID],
            [TypeID]
-    FROM   [generic].[AddressUse]
+    FROM   [generic].[AddressUse_XREF]
     WHERE  [AddressID] = @AddressID
 
 GO

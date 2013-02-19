@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -10,7 +11,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [generic].[AddressUse]
+    INSERT INTO [generic].[AddressUse_XREF]
     (
       [AddressID],
       [TypeID]
@@ -21,11 +22,10 @@ AS
       @TypeID
     )
     -- Begin Return Select <- do not remove
-    SELECT [AddressUserID],
-           [AddressID],
+    SELECT [AddressID],
            [TypeID]
-    FROM   [generic].[AddressUse]
-    WHERE  [AddressUserID] = SCOPE_IDENTITY()
+    FROM   [generic].[AddressUse_XREF]
+    WHERE  [AddressID] = @AddressID AND [TypeID] = @TypeID
 
 -- End Return Select <- do not remove
 

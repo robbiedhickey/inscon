@@ -7,7 +7,8 @@ CREATE TABLE [generic].[File]
 [Name] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [Size] [decimal] (18, 2) NULL,
 [TypeID] [int] NULL,
-[Caption] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+[Caption] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[DateInserted] [datetime] NULL CONSTRAINT [DF_File_DateInserted] DEFAULT (getdate())
 ) ON [PRIMARY]
 GO
 ALTER TABLE [generic].[File] ADD CONSTRAINT [PK_File] PRIMARY KEY CLUSTERED  ([FileID]) ON [PRIMARY]

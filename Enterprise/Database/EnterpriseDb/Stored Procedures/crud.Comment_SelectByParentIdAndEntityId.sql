@@ -16,7 +16,8 @@ AS
            [EntityID],
            [UserID],
            [TypeID],
-           [Value]
+           [Value],
+           [DateInserted]
     FROM   [generic].[Comment]
     WHERE  [ParentID] = @ParentID
            AND [EntityID] = @EntityID 

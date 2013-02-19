@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -16,7 +17,8 @@ AS
            [Name],
            [Size],
            [TypeID],
-           [Caption]
+           [Caption],
+           [DateInserted]
     FROM   [generic].[File]
     WHERE  [FileID] = @FileID
 

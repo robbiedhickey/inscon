@@ -1,10 +1,10 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
 
 CREATE PROC [crud].[AddressUse_Update]
-  @AddressUserID INT,
   @AddressID     INT,
   @TypeID        INT
 AS
@@ -14,6 +14,6 @@ AS
     UPDATE [generic].[AddressUse]
     SET    [AddressID] = @AddressID,
            [TypeID] = @TypeID
-    WHERE  [AddressUserID] = @AddressUserID
+    WHERE  [AddressID] = @AddressID AND [TypeID] = @TypeID
 
 GO

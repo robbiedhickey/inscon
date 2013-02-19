@@ -36,7 +36,8 @@ AS
            [EntityID],
            [UserID],
            [TypeID],
-           [Value]
+           [Value],
+           [DateInserted]
     FROM   [generic].[Comment]
     WHERE  [CommentID] = SCOPE_IDENTITY()
 
