@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Text;
 using System.Collections.Generic;
+using Enterprise.ApiServices.DALServices.Controllers;
 using Enterprise.DAL.Core.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,11 +14,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
     [TestClass]
     public class LookupGroupControllerTest
     {
+        private readonly LookupGroupController _controller;
         public LookupGroupControllerTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            _controller = new LookupGroupController();
         }
 
         private TestContext testContextInstance;
@@ -65,55 +66,102 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         [TestMethod]
         public void GetAllLookupGroups()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetAllLookupGroups();
+
+            Assert.IsTrue(actual.Count == 12);
         }
 
         [TestMethod]
         public void GetLookupGroupByIdPass()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetLookupGroupById(1);
+
+            //LookupGroupID	Name
+            //1	OrganizationStatus
+            Assert.IsNotNull(actual);
+            Assert.IsTrue(actual.LookupGroupID == 1);
+            Assert.IsTrue(actual.Name == "OrganizationStatus");
         }
 
         [TestMethod]
         public void GetLookupGroupByIdFail()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetLookupGroupById(100);
+
+            Assert.IsNull(actual);
         }
 
         [TestMethod]
         public void DeleteLookupGroupPass()
         {
-            Assert.Inconclusive();
+            var groupToDelete = new LookupGroup {LookupGroupID = 1};
+
+            _controller.DeleteRecord(groupToDelete);
+
+            var result = _controller.GetLookupGroupById(1);
+
+            Assert.IsNull(result);
         }
 
         [TestMethod]
         public void DeleteLookupGroupFail()
         {
-            Assert.Inconclusive();
+            var groupToDelete = new LookupGroup {LookupGroupID = 100};
+
+            _controller.DeleteRecord(groupToDelete);
+
+            var result = _controller.GetLookupGroupById(100);
+
+            Assert.IsNull(result);
+
         }
 
         [TestMethod]
         public void InsertLookupGroupPass()
         {
-            Assert.Inconclusive();
+            var groupToInsert = new LookupGroup {Name = "FancyNewGroup"};
+
+            var resultId = _controller.SaveRecord(groupToInsert);
+
+            var result = _controller.GetLookupGroupById(resultId);
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Name == "FancyNewGroup");
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException))]
         public void InsertLookupGroupFail()
         {
-            Assert.Inconclusive();
+            var groupToInsert = new LookupGroup {Name = "OrganizationStatus"};
+
+            var resultId = _controller.SaveRecord(groupToInsert);
         }
 
         [TestMethod]
         public void UpdateLookupGroupPass()
         {
-            Assert.Inconclusive();
+            var groupToUpdate = _controller.GetLookupGroupById(2);
+
+            groupToUpdate.Name = "SomethingNew";
+
+            var resultId = _controller.SaveRecord(groupToUpdate);
+
+            var result = _controller.GetLookupGroupById(resultId);
+
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Name == "SomethingNew");
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException))]
         public void UpdateLookupGroupFail()
         {
-            Assert.Inconclusive();
+            var groupToUpdate = _controller.GetLookupGroupById(2);
+
+            groupToUpdate.Name = "UserStatus";
+
+            var resultId = _controller.SaveRecord(groupToUpdate);
         }
     }
 }
