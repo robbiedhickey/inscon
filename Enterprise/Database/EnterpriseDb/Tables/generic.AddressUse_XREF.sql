@@ -3,6 +3,8 @@ CREATE TABLE [generic].[AddressUse_XREF]
 [AddressID] [int] NOT NULL,
 [TypeID] [int] NOT NULL
 ) ON [PRIMARY]
+ALTER TABLE [generic].[AddressUse_XREF] ADD
+CONSTRAINT [FK_AddressUse_XREF_Lookup] FOREIGN KEY ([TypeID]) REFERENCES [generic].[Lookup] ([LookupID])
 GO
 ALTER TABLE [generic].[AddressUse_XREF] ADD CONSTRAINT [PK_AddressUse_1] PRIMARY KEY CLUSTERED  ([AddressID], [TypeID]) ON [PRIMARY]
 GO
