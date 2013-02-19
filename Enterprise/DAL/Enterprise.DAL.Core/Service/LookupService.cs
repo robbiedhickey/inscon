@@ -69,7 +69,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Lookup> h = h2 => h2.LookupID == id;
-                return GetAllLookups().Find(h) ?? new Lookup();
+                return GetAllLookups().Find(h);
             }
             return Query(SqlDatabase, Procedure.Lookup_SelectById, Build, id);
         }
