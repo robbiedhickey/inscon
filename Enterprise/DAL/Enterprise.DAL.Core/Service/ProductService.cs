@@ -34,8 +34,8 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new Product
                 {
-                    ProductId = reader.GetInt32("ProductID"),
-                    ProductCategoryId = reader.GetInt32("ProductCategoryID"),
+                    ProductID = reader.GetInt32("ProductID"),
+                    ProductCategoryID = reader.GetInt32("ProductCategoryID"),
                     Caption = reader.GetString("Caption"),
                     SKU = reader.GetString("SKU"),
                     Rate = reader.GetDecimal("Rate"),
@@ -63,7 +63,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Product> h = h2 => h2.ProductId == id;
+                Predicate<Product> h = h2 => h2.ProductID == id;
                 return GetAllProducts().Find(h) ?? new Product();
             }
 
@@ -80,7 +80,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Product> h = h2 => h2.ProductCategoryId == categoryId;
+                Predicate<Product> h = h2 => h2.ProductCategoryID == categoryId;
                 return GetAllProducts().FindAll(h);
             }
 

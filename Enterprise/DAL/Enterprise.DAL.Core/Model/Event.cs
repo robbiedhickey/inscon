@@ -18,95 +18,95 @@ using Enterprise.DAL.Core.Service;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class Event
+    /// Class Event
     /// </summary>
     public class Event : ModelBase
     {
         /// <summary>
-        ///     The _date
+        /// The _date
         /// </summary>
         private DateTime _date;
 
         /// <summary>
-        ///     The _entity id
+        /// The _entity id
         /// </summary>
         private short _entityId;
 
         /// <summary>
-        ///     The _event id
+        /// The _event id
         /// </summary>
         private int _eventId;
 
         /// <summary>
-        ///     The _parent id
+        /// The _parent id
         /// </summary>
         private int _parentId;
 
         /// <summary>
-        ///     The _type id
+        /// The _type id
         /// </summary>
         private int _typeId;
 
         /// <summary>
-        ///     The _user id
+        /// The _user id
         /// </summary>
         private int _userId;
 
 
         /// <summary>
-        ///     Gets or sets the event id.
+        /// Gets or sets the event ID.
         /// </summary>
-        /// <value>The event id.</value>
-        public Int32 EventId
+        /// <value>The event ID.</value>
+        public Int32 EventID
         {
             get { return _eventId; }
             set { SetProperty(ref _eventId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the parent id.
+        /// Gets or sets the parent ID.
         /// </summary>
-        /// <value>The parent id.</value>
-        public Int32 ParentId
+        /// <value>The parent ID.</value>
+        public Int32 ParentID
         {
             get { return _parentId; }
             set { SetProperty(ref _parentId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the entity id.
+        /// Gets or sets the entity ID.
         /// </summary>
-        /// <value>The entity id.</value>
-        public Int16 EntityId
+        /// <value>The entity ID.</value>
+        public Int16 EntityID
         {
             get { return _entityId; }
             set { SetProperty(ref _entityId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the type id.
+        /// Gets or sets the type ID.
         /// </summary>
-        /// <value>The type id.</value>
-        public Int32 TypeId
+        /// <value>The type ID.</value>
+        public Int32 TypeID
         {
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the user id.
+        /// Gets or sets the user ID.
         /// </summary>
-        /// <value>The user id.</value>
-        public Int32 UserId
+        /// <value>The user ID.</value>
+        public Int32 UserID
         {
             get { return _userId; }
             set { SetProperty(ref _userId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the date.
+        /// Gets or sets the event date.
         /// </summary>
-        /// <value>The date.</value>
+        /// <value>The event date.</value>
         public DateTime EventDate
         {
             get { return _date; }
@@ -114,7 +114,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the type.
+        /// Gets the type.
         /// </summary>
         /// <value>The type.</value>
         public string Type
@@ -126,7 +126,7 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Event" /> class.
+        /// Initializes a new instance of the <see cref="Event"/> class.
         /// </summary>
         public Event()
         {

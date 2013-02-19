@@ -59,7 +59,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the work order assignment id.
         /// </summary>
         /// <value>The work order assignment id.</value>
-        public Int32 WorkOrderAssignmentId
+        public Int32 WorkOrderAssignmentID
         {
             get { return _workOrderAssignmentId; }
             set { SetProperty(ref _workOrderAssignmentId, value); }
@@ -69,7 +69,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the work order id.
         /// </summary>
         /// <value>The work order id.</value>
-        public Int32 WorkOrderId
+        public Int32 WorkOrderID
         {
             get { return _workOrderId; }
             set { SetProperty(ref _workOrderId, value); }
@@ -79,7 +79,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the user id.
         /// </summary>
         /// <value>The user id.</value>
-        public Int32 UserId
+        public Int32 UserID
         {
             get { return _userId; }
             set { SetProperty(ref _userId, value); }
@@ -99,7 +99,7 @@ namespace Enterprise.DAL.Core.Model
         ///     Gets or sets the status id.
         /// </summary>
         /// <value>The status id.</value>
-        public Int32 StatusId
+        public Int32 StatusID
         {
             get { return _statusId; }
             set { SetProperty(ref _statusId, value); }

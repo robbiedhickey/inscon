@@ -69,30 +69,30 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        /// Gets or sets the file id.
+        /// Gets or sets the file ID.
         /// </summary>
-        /// <value>The file id.</value>
-        public Int32 FileId
+        /// <value>The file ID.</value>
+        public Int32 FileID
         {
             get { return _fileId; }
             set { SetProperty(ref _fileId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the parent id.
+        /// Gets or sets the parent ID.
         /// </summary>
-        /// <value>The parent id.</value>
-        public Int32 ParentId
+        /// <value>The parent ID.</value>
+        public Int32 ParentID
         {
             get { return _parentId; }
             set { SetProperty(ref _parentId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the entity id.
+        /// Gets or sets the entity ID.
         /// </summary>
-        /// <value>The entity id.</value>
-        public Int16 EntityId
+        /// <value>The entity ID.</value>
+        public Int16 EntityID
         {
             get { return _entityId; }
             set { SetProperty(ref _entityId, value); }
@@ -129,10 +129,10 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        /// Gets or sets the type id.
+        /// Gets or sets the type ID.
         /// </summary>
-        /// <value>The type id.</value>
-        public Int32 TypeId
+        /// <value>The type ID.</value>
+        public Int32 TypeID
         {
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }

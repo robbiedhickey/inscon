@@ -58,50 +58,50 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        /// Gets or sets the comment id.
+        /// Gets or sets the comment ID.
         /// </summary>
-        /// <value>The comment id.</value>
-        public Int32 CommentId
+        /// <value>The comment ID.</value>
+        public Int32 CommentID
         {
             get { return _commentId; }
             set { SetProperty(ref _commentId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the parent id.
+        /// Gets or sets the parent ID.
         /// </summary>
-        /// <value>The parent id.</value>
-        public Int32 ParentId
+        /// <value>The parent ID.</value>
+        public Int32 ParentID
         {
             get { return _parentId; }
             set { SetProperty(ref _parentId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the entity id.
+        /// Gets or sets the entity ID.
         /// </summary>
-        /// <value>The entity id.</value>
-        public Int16 EntityId
+        /// <value>The entity ID.</value>
+        public Int16 EntityID
         {
             get { return _entityId; }
             set { SetProperty(ref _entityId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the user id.
+        /// Gets or sets the user ID.
         /// </summary>
-        /// <value>The user id.</value>
-        public Int32 UserId
+        /// <value>The user ID.</value>
+        public Int32 UserID
         {
             get { return _userId; }
             set { SetProperty(ref _userId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the type id.
+        /// Gets or sets the type ID.
         /// </summary>
-        /// <value>The type id.</value>
-        public Int32 TypeId
+        /// <value>The type ID.</value>
+        public Int32 TypeID
         {
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }

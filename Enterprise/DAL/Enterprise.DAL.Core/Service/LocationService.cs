@@ -34,11 +34,11 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new Location
                 {
-                    LocationId = reader.GetInt32("LocationID"),
-                    OrganizationId = reader.GetInt32("OrganizationID"),
+                    LocationID = reader.GetInt32("LocationID"),
+                    OrganizationID = reader.GetInt32("OrganizationID"),
                     Name = reader.GetString("Name"),
                     Code = reader.GetString("Code"),
-                    TypeId = reader.GetInt32("TypeID")
+                    TypeID = reader.GetInt32("TypeID")
                 };
 
             return record;
@@ -62,7 +62,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Location> h = h2 => h2.LocationId == id;
+                Predicate<Location> h = h2 => h2.LocationID == id;
                 return GetAllLocations().Find(h) ?? new Location();
             }
 
@@ -78,7 +78,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Location> h = h2 => h2.OrganizationId == orgId;
+                Predicate<Location> h = h2 => h2.OrganizationID == orgId;
                 return GetAllLocations().FindAll(h);
             }
 
@@ -95,7 +95,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Location> h = h2 => h2.OrganizationId == orgId && h2.TypeId == typeId;
+                Predicate<Location> h = h2 => h2.OrganizationID == orgId && h2.TypeID == typeId;
                 return GetAllLocations().FindAll(h);
             }
 

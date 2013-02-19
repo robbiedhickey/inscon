@@ -35,11 +35,11 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new Event
             {
-                EventId = reader.GetInt32("EventID"),
-                ParentId = reader.GetInt32("ParentID"),
-                EntityId = reader.GetInt16("EntityID"),
-                TypeId = reader.GetInt32("TypeID"),
-                UserId = reader.GetInt32("UserID"),
+                EventID = reader.GetInt32("EventID"),
+                ParentID = reader.GetInt32("ParentID"),
+                EntityID = reader.GetInt16("EntityID"),
+                TypeID = reader.GetInt32("TypeID"),
+                UserID = reader.GetInt32("UserID"),
                 EventDate = reader.GetDate("EventDate")
             };
 
@@ -64,7 +64,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Event> h = h2 => h2.EventId == id;
+                Predicate<Event> h = h2 => h2.EventID == id;
                 return GetAllEvents().Find(h) ?? new Event();
             }
 
@@ -81,7 +81,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Event> h = h2 => h2.ParentId == parentID && h2.EntityId == entityID;
+                Predicate<Event> h = h2 => h2.ParentID == parentID && h2.EntityID == entityID;
                 return GetAllEvents().Find(h) ?? new Event();
             }
 

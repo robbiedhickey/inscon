@@ -18,73 +18,73 @@ using Enterprise.DAL.Core.Service;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class Product
+    /// Class Product
     /// </summary>
     public class Product : ModelBase
     {
         /// <summary>
-        ///     The _caption
+        /// The _caption
         /// </summary>
         private string _caption;
 
         /// <summary>
-        ///     The _category
+        /// The _category
         /// </summary>
         private ProductCategory _category;
 
         /// <summary>
-        ///     The _code
+        /// The _code
         /// </summary>
         private string _code;
 
         /// <summary>
-        ///     The _cost
+        /// The _cost
         /// </summary>
         private decimal _cost;
 
         /// <summary>
-        ///     The _product category id
+        /// The _product category id
         /// </summary>
         private int _productCategoryId;
 
         /// <summary>
-        ///     The _product id
+        /// The _product id
         /// </summary>
         private int _productId;
 
         /// <summary>
-        ///     The _rate
+        /// The _rate
         /// </summary>
         private decimal _rate;
 
         /// <summary>
-        ///     The _sku
+        /// The _sku
         /// </summary>
         private string _sku;
 
 
         /// <summary>
-        ///     Gets or sets the product id.
+        /// Gets or sets the product ID.
         /// </summary>
-        /// <value>The product id.</value>
-        public Int32 ProductId
+        /// <value>The product ID.</value>
+        public Int32 ProductID
         {
             get { return _productId; }
             set { SetProperty(ref _productId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the product category id.
+        /// Gets or sets the product category ID.
         /// </summary>
-        /// <value>The product category id.</value>
-        public Int32 ProductCategoryId
+        /// <value>The product category ID.</value>
+        public Int32 ProductCategoryID
         {
             get { return _productCategoryId; }
             set { SetProperty(ref _productCategoryId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the caption.
+        /// Gets or sets the caption.
         /// </summary>
         /// <value>The caption.</value>
         public String Caption
@@ -94,7 +94,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the code.
+        /// Gets or sets the code.
         /// </summary>
         /// <value>The code.</value>
         public String Code
@@ -104,7 +104,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the SKU.
+        /// Gets or sets the SKU.
         /// </summary>
         /// <value>The SKU.</value>
         public String SKU
@@ -114,7 +114,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the rate.
+        /// Gets or sets the rate.
         /// </summary>
         /// <value>The rate.</value>
         public Decimal Rate
@@ -124,7 +124,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the cost.
+        /// Gets or sets the cost.
         /// </summary>
         /// <value>The cost.</value>
         public Decimal Cost
@@ -134,7 +134,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the category.
+        /// Gets the category.
         /// </summary>
         /// <value>The category.</value>
         public ProductCategory Category
@@ -153,7 +153,7 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Product" /> class.
+        /// Initializes a new instance of the <see cref="Product"/> class.
         /// </summary>
         public Product()
         {

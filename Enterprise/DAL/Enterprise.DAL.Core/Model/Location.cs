@@ -17,58 +17,58 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class Location
+    /// Class Location
     /// </summary>
     public class Location : ModelBase
     {
         /// <summary>
-        ///     The _code
+        /// The _code
         /// </summary>
         private string _code;
 
         /// <summary>
-        ///     The _location id
+        /// The _location id
         /// </summary>
         private int _locationId;
 
         /// <summary>
-        ///     The _name
+        /// The _name
         /// </summary>
         private string _name;
 
         /// <summary>
-        ///     The _organization id
+        /// The _organization id
         /// </summary>
         private int _organizationId;
 
         /// <summary>
-        ///     The _type id
+        /// The _type id
         /// </summary>
         private int _typeId;
 
 
         /// <summary>
-        ///     Gets or sets the location id.
+        /// Gets or sets the location ID.
         /// </summary>
-        /// <value>The location id.</value>
-        public Int32 LocationId
+        /// <value>The location ID.</value>
+        public Int32 LocationID
         {
             get { return _locationId; }
             set { SetProperty(ref _locationId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the organization id.
+        /// Gets or sets the organization ID.
         /// </summary>
-        /// <value>The organization id.</value>
-        public Int32 OrganizationId
+        /// <value>The organization ID.</value>
+        public Int32 OrganizationID
         {
             get { return _organizationId; }
             set { SetProperty(ref _organizationId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the name.
+        /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         public String Name
@@ -78,7 +78,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the code.
+        /// Gets or sets the code.
         /// </summary>
         /// <value>The code.</value>
         public String Code
@@ -88,10 +88,10 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the type id.
+        /// Gets or sets the type ID.
         /// </summary>
-        /// <value>The type id.</value>
-        public Int32 TypeId
+        /// <value>The type ID.</value>
+        public Int32 TypeID
         {
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }
@@ -100,7 +100,7 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Location" /> class.
+        /// Initializes a new instance of the <see cref="Location"/> class.
         /// </summary>
         public Location()
         {

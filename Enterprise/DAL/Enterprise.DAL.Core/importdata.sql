@@ -255,3 +255,33 @@ INSERT INTO [EnterpriseDb].[generic].[AddressUse]
 
 GO 
 
+--- UPDATE MORTGAGOR PHONE FROM INSPECTION TABLE
+UPDATE EnterpriseDb.dbo.Asset
+SET    MortgagorPhone = (SELECT DISTINCT TOP 1
+                                i.BorrowerHomePhone
+                         FROM   MSIEnterprise.dbo.Inspection i
+                                INNER JOIN MSIEnterprise. dbo.WorkOrder w
+                                        ON w.idWorkOrder = i.idWorkOrder
+                                INNER JOIN MSIEnterprise.dbo.Loan l
+                                        ON l.idLoan = w.idLoan
+                                INNER JOIN MSIEnterprise.dbo.Client c
+                                        ON c.idClient = l.idClient
+                                INNER JOIN EnterpriseDb.dbo.Asset a
+                                        ON a.LoanNumber = l.LoanNumber
+                                           AND a.OrganizationID = l.idClient
+                         WHERE  a.AssetID = AssetID)
+
+GO
+
+UPDATE EnterpriseDb.dbo.Asset
+SET    MortgagorPhone = LTRIM(RTRIM(MortgagorPhone))
+
+GO
+
+UPDATE EnterpriseDb.dbo.Asset
+SET    MortgagorPhone = NULL
+WHERE  LEN(MortgagorPhone) < 10
+
+GO 
+
+

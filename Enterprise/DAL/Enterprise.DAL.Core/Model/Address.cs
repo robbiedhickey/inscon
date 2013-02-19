@@ -19,52 +19,55 @@ using Enterprise.DAL.Core.Service;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class Address
+    /// Class Address
     /// </summary>
     public class Address : ModelBase
     {
         #region private variables
 
         /// <summary>
-        ///     The _address ID
+        /// The _address ID
         /// </summary>
         private int _addressID;
 
         /// <summary>
-        ///     The _city
+        /// The _city
         /// </summary>
         private string _city;
 
         /// <summary>
-        ///     The _entity ID
+        /// The _entity ID
         /// </summary>
         private Int16 _entityID;
 
         /// <summary>
-        ///     The _parent ID
+        /// The _parent ID
         /// </summary>
         private int _parentID;
 
         /// <summary>
-        ///     The _state
+        /// The _state
         /// </summary>
         private string _state;
 
         /// <summary>
-        ///     The _street
+        /// The _street
         /// </summary>
         private string _street;
 
         /// <summary>
-        ///     The _suite
+        /// The _suite
         /// </summary>
         private string _suite;
 
         /// <summary>
-        ///     The _zip
+        /// The _zip
         /// </summary>
         private string _zip;
 
+        /// <summary>
+        /// The _address uses
+        /// </summary>
         private List<AddressUse> _addressUses;
 
         #endregion
@@ -72,7 +75,7 @@ namespace Enterprise.DAL.Core.Model
         #region public properties
 
         /// <summary>
-        ///     Gets or sets the address ID.
+        /// Gets or sets the address ID.
         /// </summary>
         /// <value>The address ID.</value>
         public int AddressID
@@ -82,7 +85,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the parent ID.
+        /// Gets or sets the parent ID.
         /// </summary>
         /// <value>The parent ID.</value>
         public int ParentID
@@ -92,7 +95,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the entity ID.
+        /// Gets or sets the entity ID.
         /// </summary>
         /// <value>The entity ID.</value>
         public Int16 EntityID
@@ -102,7 +105,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the street.
+        /// Gets or sets the street.
         /// </summary>
         /// <value>The street.</value>
         public string Street
@@ -112,7 +115,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the suite.
+        /// Gets or sets the suite.
         /// </summary>
         /// <value>The suite.</value>
         public string Suite
@@ -122,7 +125,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the city.
+        /// Gets or sets the city.
         /// </summary>
         /// <value>The city.</value>
         public string City
@@ -132,7 +135,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the state.
+        /// Gets or sets the state.
         /// </summary>
         /// <value>The state.</value>
         public string State
@@ -142,15 +145,19 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the zip code.
+        /// Gets or sets the zip.
         /// </summary>
-        /// <value>The zip code.</value>
+        /// <value>The zip.</value>
         public string Zip
         {
             get { return _zip; }
             set { SetProperty(ref _zip, value); }
         }
 
+        /// <summary>
+        /// Gets the address uses.
+        /// </summary>
+        /// <value>The address uses.</value>
         public List<AddressUse> AddressUses
         {
             get
@@ -170,7 +177,7 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Address" /> class.
+        /// Initializes a new instance of the <see cref="Address"/> class.
         /// </summary>
         public Address()
         {

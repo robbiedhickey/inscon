@@ -34,10 +34,10 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new Request
                 {
-                    RequestId = reader.GetInt32("RequestID"),
-                    OrganizationId = reader.GetInt32("OrganizationID"),
+                    RequestID = reader.GetInt32("RequestID"),
+                    OrganizationID = reader.GetInt32("OrganizationID"),
                     DateInserted = reader.GetDate("DateInserted"),
-                    CustomerRequestId = reader.GetString("CustomerRequestID")
+                    CustomerRequestID = reader.GetString("CustomerRequestID")
                 };
             return record;
         }
@@ -60,7 +60,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Request> h = h2 => h2.RequestId == id;
+                Predicate<Request> h = h2 => h2.RequestID == id;
                 return GetAllRequests().Find(h) ?? new Request();
             }
 

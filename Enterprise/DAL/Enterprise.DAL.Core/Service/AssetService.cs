@@ -20,12 +20,12 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new Asset
                 {
-                    AssetId = reader.GetInt32("AssetId"),
-                    OrganizationId = reader.GetInt32("OrganizationId"),
-                    TypeId = reader.GetInt32("TypeId"),
+                    AssetID = reader.GetInt32("AssetID"),
+                    OrganizationID = reader.GetInt32("OrganizationID"),
+                    TypeID = reader.GetInt32("TypeID"),
                     AssetNumber = reader.GetString("AssetNumber"),
                     LoanNumber = reader.GetString("LoanNumber"),
-                    LoanTypeId = reader.GetNullInt32("LoanTypeId"),
+                    LoanTypeID = reader.GetNullInt32("LoanTypeID"),
                     MortgagorName = reader.GetString("MortgagorName"),
                     MortgagorPhone = reader.GetString("MortgagorPhone"),
                     HudCaseNumber = reader.GetString("HudCaseNumber"),
@@ -56,7 +56,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Asset> h = h2 => h2.AssetId == id;
+                Predicate<Asset> h = h2 => h2.AssetID == id;
                 return GetAllAssets().Find(h) ?? new Asset();
             }
 
@@ -73,7 +73,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Asset> h = h2 => h2.OrganizationId == organizationID;
+                Predicate<Asset> h = h2 => h2.OrganizationID == organizationID;
                 return GetAllAssets().FindAll(h);
             }
 

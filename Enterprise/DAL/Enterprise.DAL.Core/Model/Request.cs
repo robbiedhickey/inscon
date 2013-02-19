@@ -17,53 +17,53 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class Request
+    /// Class Request
     /// </summary>
     public class Request : ModelBase
     {
         /// <summary>
-        ///     The _customer request id
+        /// The _customer request id
         /// </summary>
         private string _customerRequestId;
 
         /// <summary>
-        ///     The _date inserted
+        /// The _date inserted
         /// </summary>
         private DateTime _dateInserted;
 
         /// <summary>
-        ///     The _organization id
+        /// The _organization id
         /// </summary>
         private int _organizationId;
 
         /// <summary>
-        ///     The _request id
+        /// The _request id
         /// </summary>
         private int _requestId;
 
 
         /// <summary>
-        ///     Gets or sets the request id.
+        /// Gets or sets the request ID.
         /// </summary>
-        /// <value>The request id.</value>
-        public Int32 RequestId
+        /// <value>The request ID.</value>
+        public Int32 RequestID
         {
             get { return _requestId; }
             set { SetProperty(ref _requestId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the organization id.
+        /// Gets or sets the organization ID.
         /// </summary>
-        /// <value>The organization id.</value>
-        public Int32 OrganizationId
+        /// <value>The organization ID.</value>
+        public Int32 OrganizationID
         {
             get { return _organizationId; }
             set { SetProperty(ref _organizationId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the date inserted.
+        /// Gets or sets the date inserted.
         /// </summary>
         /// <value>The date inserted.</value>
         public DateTime DateInserted
@@ -73,10 +73,10 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the customer request id.
+        /// Gets or sets the customer request ID.
         /// </summary>
-        /// <value>The customer request id.</value>
-        public String CustomerRequestId
+        /// <value>The customer request ID.</value>
+        public String CustomerRequestID
         {
             get { return _customerRequestId; }
             set { SetProperty(ref _customerRequestId, value); }
@@ -85,7 +85,7 @@ namespace Enterprise.DAL.Core.Model
         #region public methods
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Request" /> class.
+        /// Initializes a new instance of the <see cref="Request"/> class.
         /// </summary>
         public Request()
         {

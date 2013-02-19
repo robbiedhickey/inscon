@@ -34,11 +34,11 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new WorkOrderAssignment
                 {
-                    WorkOrderAssignmentId = reader.GetInt32("WorkOrderAssignmentID"),
-                    WorkOrderId = reader.GetInt32("WorkOrderID"),
-                    UserId = reader.GetInt32("UserID"),
+                    WorkOrderAssignmentID = reader.GetInt32("WorkOrderAssignmentID"),
+                    WorkOrderID = reader.GetInt32("WorkOrderID"),
+                    UserID = reader.GetInt32("UserID"),
                     EventDate = reader.GetDate("EventDate"),
-                    StatusId = reader.GetInt32("StatusID")
+                    StatusID = reader.GetInt32("StatusID")
                 };
 
             return record;
@@ -63,7 +63,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<WorkOrderAssignment> h = h2 => h2.WorkOrderAssignmentId == id;
+                Predicate<WorkOrderAssignment> h = h2 => h2.WorkOrderAssignmentID == id;
                 return GetAllWorkOrderAssignments().Find(h) ?? new WorkOrderAssignment();
             }
 
@@ -79,7 +79,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<WorkOrderAssignment> h = h2 => h2.WorkOrderId == workOrderId;
+                Predicate<WorkOrderAssignment> h = h2 => h2.WorkOrderID == workOrderId;
                 return GetAllWorkOrderAssignments().FindAll(h);
             }
 

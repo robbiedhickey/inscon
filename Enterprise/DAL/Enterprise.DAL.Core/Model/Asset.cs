@@ -84,30 +84,30 @@ namespace Enterprise.DAL.Core.Model
         private List<Address> _addresses;
 
         /// <summary>
-        /// Gets or sets the asset id.
+        /// Gets or sets the asset ID.
         /// </summary>
-        /// <value>The asset id.</value>
-        public Int32 AssetId
+        /// <value>The asset ID.</value>
+        public Int32 AssetID
         {
             get { return _assetId; }
             set { SetProperty(ref _assetId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the organization id.
+        /// Gets or sets the organization ID.
         /// </summary>
-        /// <value>The organization id.</value>
-        public Int32 OrganizationId
+        /// <value>The organization ID.</value>
+        public Int32 OrganizationID
         {
             get { return _organizationId; }
             set { SetProperty(ref _organizationId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the type id.
+        /// Gets or sets the type ID.
         /// </summary>
-        /// <value>The type id.</value>
-        public Int32 TypeId
+        /// <value>The type ID.</value>
+        public Int32 TypeID
         {
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }
@@ -135,10 +135,10 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        /// Gets or sets the loan type id.
+        /// Gets or sets the loan type ID.
         /// </summary>
-        /// <value>The loan type id.</value>
-        public Int32? LoanTypeId
+        /// <value>The loan type ID.</value>
+        public Int32? LoanTypeID
         {
             get { return _loanTypeId; }
             set { _loanTypeId = value; }
@@ -210,7 +210,6 @@ namespace Enterprise.DAL.Core.Model
                 return _addresses;
             }
         }
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Asset"/> class.

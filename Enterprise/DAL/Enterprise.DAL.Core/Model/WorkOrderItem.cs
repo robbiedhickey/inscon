@@ -17,42 +17,42 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class WorkOrderItem
+    /// Class WorkOrderItem
     /// </summary>
     public class WorkOrderItem : ModelBase
     {
         /// <summary>
-        ///     The _date inserted
+        /// The _date inserted
         /// </summary>
         private DateTime _dateInserted;
 
         /// <summary>
-        ///     The _product id
+        /// The _product id
         /// </summary>
         private int _productId;
 
         /// <summary>
-        ///     The _quantity
+        /// The _quantity
         /// </summary>
         private decimal _quantity;
 
         /// <summary>
-        ///     The _rate
+        /// The _rate
         /// </summary>
         private decimal _rate;
 
         /// <summary>
-        ///     The _work order id
+        /// The _work order id
         /// </summary>
         private int _workOrderId;
 
         /// <summary>
-        ///     The _work order item id
+        /// The _work order item id
         /// </summary>
         private int _workOrderItemId;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="WorkOrderItem" /> class.
+        /// Initializes a new instance of the <see cref="WorkOrderItem"/> class.
         /// </summary>
         public WorkOrderItem()
         {
@@ -61,37 +61,37 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        ///     Gets or sets the work order item id.
+        /// Gets or sets the work order item ID.
         /// </summary>
-        /// <value>The work order item id.</value>
-        public Int32 WorkOrderItemId
+        /// <value>The work order item ID.</value>
+        public Int32 WorkOrderItemID
         {
             get { return _workOrderItemId; }
             set { SetProperty(ref _workOrderItemId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the work order id.
+        /// Gets or sets the work order ID.
         /// </summary>
-        /// <value>The work order id.</value>
-        public Int32 WorkOrderId
+        /// <value>The work order ID.</value>
+        public Int32 WorkOrderID
         {
             get { return _workOrderId; }
             set { SetProperty(ref _workOrderId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the product id.
+        /// Gets or sets the product ID.
         /// </summary>
-        /// <value>The product id.</value>
-        public Int32 ProductId
+        /// <value>The product ID.</value>
+        public Int32 ProductID
         {
             get { return _productId; }
             set { SetProperty(ref _productId, value); }
         }
 
         /// <summary>
-        ///     Gets or sets the quantity.
+        /// Gets or sets the quantity.
         /// </summary>
         /// <value>The quantity.</value>
         public Decimal Quantity
@@ -101,7 +101,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the rate.
+        /// Gets or sets the rate.
         /// </summary>
         /// <value>The rate.</value>
         public Decimal Rate
@@ -111,7 +111,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the date inserted.
+        /// Gets or sets the date inserted.
         /// </summary>
         /// <value>The date inserted.</value>
         public DateTime DateInserted

@@ -34,11 +34,11 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new Comment
             {
-                CommentId = reader.GetInt32("CommentID"),
-                ParentId = reader.GetInt32("ParentID"),
-                EntityId = reader.GetInt16("EntityId"),
-                UserId = reader.GetInt32("UserID"),
-                TypeId = reader.GetInt32("TypeID"),
+                CommentID = reader.GetInt32("CommentID"),
+                ParentID = reader.GetInt32("ParentID"),
+                EntityID = reader.GetInt16("EntityID"),
+                UserID = reader.GetInt32("UserID"),
+                TypeID = reader.GetInt32("TypeID"),
                 Value = reader.GetString("Value")
             };
 
@@ -63,7 +63,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Comment> h = h2 => h2.CommentId == id;
+                Predicate<Comment> h = h2 => h2.CommentID == id;
                 return GetAllComments().Find(h) ?? new Comment();
             }
 
@@ -80,7 +80,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<Comment> h = h2 => h2.ParentId == parentID && h2.EntityId == entityID;
+                Predicate<Comment> h = h2 => h2.ParentID == parentID && h2.EntityID == entityID;
                 return GetAllComments().Find(h) ?? new Comment();
             }
 

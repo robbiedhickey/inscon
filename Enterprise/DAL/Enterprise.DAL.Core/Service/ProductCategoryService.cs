@@ -35,7 +35,7 @@ namespace Enterprise.DAL.Core.Service
             var record = new ProductCategory
                 {
                     ProductCategoryID = reader.GetInt32("ProductCategoryID"),
-                    Name = reader.GetString("name"),
+                    Name = reader.GetString("Name"),
                     Code = reader.GetString("Code")
                 };
 

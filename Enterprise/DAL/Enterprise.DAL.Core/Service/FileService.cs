@@ -35,13 +35,13 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new File
             {
-                FileId = reader.GetInt32("FileID"),
-                ParentId = reader.GetInt32("ParentID"),
-                EntityId = reader.GetInt16("EntityID"),
+                FileID = reader.GetInt32("FileID"),
+                ParentID = reader.GetInt32("ParentID"),
+                EntityID = reader.GetInt16("EntityID"),
                 ParentFolder = reader.GetString("ParentFolder"),
                 Name = reader.GetString("Name"),
                 Size = reader.GetDecimal("Size"),
-                TypeId = reader.GetInt32("TypeID"),
+                TypeID = reader.GetInt32("TypeID"),
                 Caption = reader.GetString("Caption")
             };
 
@@ -66,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<File> h = h2 => h2.FileId == id;
+                Predicate<File> h = h2 => h2.FileID == id;
                 return GetAllFiles().Find(h) ?? new File();
             }
 
@@ -83,7 +83,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<File> h = h2 => h2.ParentId == parentID && h2.EntityId == entityID;
+                Predicate<File> h = h2 => h2.ParentID == parentID && h2.EntityID == entityID;
                 return GetAllFiles().Find(h) ?? new File();
             }
 

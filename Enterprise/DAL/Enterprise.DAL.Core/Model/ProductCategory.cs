@@ -17,27 +17,27 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class ProductCategory
+    /// Class ProductCategory
     /// </summary>
     public class ProductCategory : ModelBase
     {
         /// <summary>
-        ///     The _code
+        /// The _code
         /// </summary>
         private string _code;
 
         /// <summary>
-        ///     The _name
+        /// The _name
         /// </summary>
         private string _name;
 
         /// <summary>
-        ///     The _product category id
+        /// The _product category id
         /// </summary>
         private int _productCategoryId;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ProductCategory" /> class.
+        /// Initializes a new instance of the <see cref="ProductCategory"/> class.
         /// </summary>
         public ProductCategory()
         {
@@ -46,9 +46,9 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        ///     Gets or sets the product category id.
+        /// Gets or sets the product category ID.
         /// </summary>
-        /// <value>The product category id.</value>
+        /// <value>The product category ID.</value>
         public Int32 ProductCategoryID
         {
             get { return _productCategoryId; }
@@ -56,7 +56,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the name.
+        /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         public String Name
@@ -66,7 +66,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the code.
+        /// Gets or sets the code.
         /// </summary>
         /// <value>The code.</value>
         public String Code

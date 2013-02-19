@@ -34,9 +34,9 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new WorkOrderItem
                 {
-                    WorkOrderItemId = reader.GetInt32("WorkOrderItemID"),
-                    WorkOrderId = reader.GetInt32("WorkOrderID"),
-                    ProductId = reader.GetInt32("ProductID"),
+                    WorkOrderItemID = reader.GetInt32("WorkOrderItemID"),
+                    WorkOrderID = reader.GetInt32("WorkOrderID"),
+                    ProductID = reader.GetInt32("ProductID"),
                     Quantity = reader.GetDecimal("Quantity"),
                     Rate = reader.GetDecimal("Rate"),
                     DateInserted = reader.GetDate("DateInserted")
@@ -65,7 +65,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<WorkOrderItem> h = h2 => h2.WorkOrderItemId == id;
+                Predicate<WorkOrderItem> h = h2 => h2.WorkOrderItemID == id;
                 return GetAllWorkOrderItems().Find(h) ?? new WorkOrderItem();
             }
 
@@ -81,7 +81,7 @@ namespace Enterprise.DAL.Core.Service
         {
             if (IsCached)
             {
-                Predicate<WorkOrderItem> h = h2 => h2.WorkOrderId == workOrderId;
+                Predicate<WorkOrderItem> h = h2 => h2.WorkOrderID == workOrderId;
                 return GetAllWorkOrderItems().FindAll(h);
             }
 

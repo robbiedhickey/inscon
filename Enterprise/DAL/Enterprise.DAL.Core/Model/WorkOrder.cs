@@ -51,30 +51,30 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        /// Gets or sets the work order id.
+        /// Gets or sets the work order ID.
         /// </summary>
-        /// <value>The work order id.</value>
-        public Int32 WorkOrderId
+        /// <value>The work order ID.</value>
+        public Int32 WorkOrderID
         {
             get { return _workOrderId; }
             set { SetProperty(ref _workOrderId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the request id.
+        /// Gets or sets the request ID.
         /// </summary>
-        /// <value>The request id.</value>
-        public Int32 RequestId
+        /// <value>The request ID.</value>
+        public Int32 RequestID
         {
             get { return _requestId; }
             set { SetProperty(ref _requestId, value); }
         }
 
         /// <summary>
-        /// Gets or sets the asset id.
+        /// Gets or sets the asset ID.
         /// </summary>
-        /// <value>The asset id.</value>
-        public Int32? AssetId   
+        /// <value>The asset ID.</value>
+        public Int32? AssetID   
         {
             get { return _assetId; }
             set { SetProperty(ref _assetId, value); }
