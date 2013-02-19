@@ -1,4 +1,5 @@
-﻿-- DELETE USERS
+﻿
+-- DELETE USERS
 DELETE FROM EnterpriseDb.dbo.[User]
 DBCC CHECKIDENT([User], RESEED, 1)
 
@@ -9,6 +10,46 @@ DBCC CHECKIDENT([Location], RESEED, 1)
 -- DELETE ORGANIZATION
 DELETE FROM EnterpriseDb.dbo.[Organization]
 DBCC CHECKIDENT([Organization], RESEED, 1)
+
+-- DELETE LOOKUP
+DELETE FROM [EnterpriseDb].[generic].[Lookup]
+WHERE OldId is not null
+
+-- DELETE LOOKUP GROUP
+DELETE FROM [EnterpriseDb].[generic].[LookupGroup]
+WHERE OldId is not null
+
+-- INSERT LOOKUP GROUP
+INSERT INTO [EnterpriseDb].[generic].[LookupGroup]
+(
+  [Name],
+  [OldID]
+)
+  (SELECT LookupCategoryName,
+          idLookupCategory
+   FROM   MSIEnterprise.dbo.LookupCategory
+   WHERE  idLookupCategory != 25
+          AND LookupCategoryName NOT LIKE '%Claim%')
+
+
+-- INSERT LOOKUP VALUES
+INSERT INTO [EnterpriseDb].[generic].[Lookup]
+(
+  [LookupGroupID],
+  [Value],
+  [OldID]
+)
+  (SELECT lg.LookupGroupID,
+          l.LookupDescription,
+          l.idLookup
+   FROM   MSIEnterprise.dbo.[Lookup] l
+          INNER JOIN EnterpriseDb.generic.LookupGroup lg
+                  ON lg.OldID = l.idLookupCategory)
+
+GO 
+
+
+
 
 -- INSERT ORGANIZATION
 SET IDENTITY_INSERT [Organization] ON
@@ -131,3 +172,86 @@ INSERT INTO [EnterpriseDb].[dbo].[Asset]
 GO
 
 SET IDENTITY_INSERT [Asset] OFF 
+
+
+
+-- DELETE LOCATION
+DELETE FROM [EnterpriseDb].[generic].[AddressLocation]
+
+DELETE FROM EnterpriseDb.generic.[AddressUse]
+DBCC CHECKIDENT([EnterpriseDb.generic.AddressUse], RESEED, 1)
+
+DELETE FROM EnterpriseDb.generic.[Address]
+DBCC CHECKIDENT([EnterpriseDb.generic.Address], RESEED, 1)
+GO
+
+-- INSERT ASSET ADDRESS
+IF OBJECT_ID (N'TempAddetAddressTable', N'U') IS NOT NULL
+  DROP TABLE dbo.TempAddetAddressTable;
+
+SELECT DISTINCT
+       l.LoanNumber,
+       l.idClient,
+       24                           AS 'EntityID',
+       dbo.CleanAddress(w.Address1) AS 'Address',
+       w.City                       AS 'City',
+       w.[State]                    AS 'State',
+       w.ZipCode                    AS 'Zip'
+INTO   TempAddetAddressTable
+FROM   MSIEnterprise.dbo.Loan l
+       LEFT OUTER JOIN MSIEnterprise.dbo.WorkOrder w
+                    ON w.idLoan = l.idLoan
+       INNER JOIN EnterpriseDb.dbo.Asset a
+               ON a.LoanNumber = l.LoanNumber
+                  AND a.OrganizationID = l.idClient
+ORDER  BY l.idClient,
+          l.LoanNumber,
+          dbo.CleanAddress(w.Address1)
+
+INSERT INTO [EnterpriseDb].[generic].[Address]
+(
+  [ParentID],
+  [EntityID],
+  [Street],
+  [City],
+  [State],
+  [Zip]
+)
+  (SELECT a.AssetID,
+          t.EntityID,
+          t.[Address],
+          t.City,
+          t.[State],
+          t.Zip
+   FROM   TempAddetAddressTable t
+          INNER JOIN EnterpriseDb.dbo.Asset a
+                  ON t.LoanNumber = a.LoanNumber
+                     AND a.OrganizationID = t.idClient
+                     
+    WHERE t.[Address] IS NOT NULL
+    )
+
+
+  
+GO
+
+IF OBJECT_ID (N'TempAddetAddressTable', N'U') IS NOT NULL
+  DROP TABLE dbo.TempAddetAddressTable;
+
+GO 
+
+-- CLEAR ADDRESSUSE TABLE
+DELETE FROM [EnterpriseDb].[generic].[AddressUse]
+
+-- INSERT ADDRESS USE
+INSERT INTO [EnterpriseDb].[generic].[AddressUse]
+(
+  [AddressID],
+  [TypeID]
+)
+  (SELECT AddressID,
+          27
+   FROM   enterpriseDb.generic.[Address])
+
+GO 
+
