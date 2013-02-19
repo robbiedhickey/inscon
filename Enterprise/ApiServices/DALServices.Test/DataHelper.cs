@@ -15,14 +15,14 @@ namespace Enterprise.ApiServices.DALServices.Test
     {
         public static void LoadData(string dataFileName)
         {
-            var sqlConnectionString = ConfigurationManager.ConnectionStrings["EnterpriseDb"].ConnectionString;
-            //var file = new FileInfo("TestScripts\\" + dataFileName);
+            var sqlConnectionString = ConfigurationManager.ConnectionStrings["EnterpriseDb"];
+            var builder = new SqlConnectionStringBuilder(sqlConnectionString.ConnectionString);
             var file = new FileInfo(dataFileName);
             var script = file.OpenText().ReadToEnd();
-            var conn = new SqlConnection(sqlConnectionString);
+            var conn = new SqlConnection(sqlConnectionString.ConnectionString);
             var server = new Server();
             server.ConnectionContext.ServerInstance = "INSCON1";
-            Database database = new Database(server, "EnterpriseDbTest");
+            Database database = new Database(server, builder.InitialCatalog);
             server.ConnectionContext.Connect();
             database.ExecuteNonQuery(script);
         }
