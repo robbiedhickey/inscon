@@ -34,7 +34,6 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new AddressUse
                 {
-                    AddressUseID = reader.GetInt32("AddressUseID"),
                     AddressID = reader.GetInt32("AddressID"),
                     TypeID = reader.GetInt32("TypeID")
                 };
@@ -52,27 +51,11 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        /// Gets the address use by id.
-        /// </summary>
-        /// <param name="id">The id.</param>
-        /// <returns>AddressUse.</returns>
-        public AddressUse GetAddressUseById(int id)
-        {
-            if (IsCached)
-            {
-                Predicate<AddressUse> h = h2 => h2.AddressUseID == id;
-                return GetAllAddressUseRecords().Find(h) ?? new AddressUse();
-            }
-
-            return Query(SqlDatabase, Procedure.AddressUse_SelectById, Build, CacheMinutesToExpire, IsCached, id);
-        }
-
-        /// <summary>
         /// Gets the address use by address id.
         /// </summary>
         /// <param name="addressID">The address ID.</param>
         /// <returns>List{AddressUse}.</returns>
-        public List<AddressUse> GetAddressUseByAddressId(int addressID)
+        public List<AddressUse> GetAddressUseByAddressId(Int32 addressID)
         {
             if (IsCached)
             {
@@ -89,7 +72,7 @@ namespace Enterprise.DAL.Core.Service
         /// <param name="addressID">The address ID.</param>
         /// <param name="typeID">The type ID.</param>
         /// <returns>AddressUse.</returns>
-        public AddressUse GetAddressUseByAddressIdAndTypeId(int addressID, Int16 typeID)
+        public AddressUse GetAddressUseByAddressIdAndTypeId(int addressID, Int32 typeID)
         {
             if (IsCached)
             {

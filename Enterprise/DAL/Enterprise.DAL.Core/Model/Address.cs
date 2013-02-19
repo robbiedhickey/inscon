@@ -13,6 +13,8 @@
 // ***********************************************************************
 
 using System;
+using System.Collections.Generic;
+using Enterprise.DAL.Core.Service;
 
 namespace Enterprise.DAL.Core.Model
 {
@@ -62,6 +64,8 @@ namespace Enterprise.DAL.Core.Model
         ///     The _zip
         /// </summary>
         private string _zip;
+
+        private List<AddressUse> _addressUses;
 
         #endregion
 
@@ -145,6 +149,20 @@ namespace Enterprise.DAL.Core.Model
         {
             get { return _zip; }
             set { SetProperty(ref _zip, value); }
+        }
+
+        public List<AddressUse> AddressUses
+        {
+            get
+            {
+                if (_addressUses != null)
+                {
+                    return _addressUses;
+                }
+                _addressUses = new AddressUseService().GetAddressUseByAddressId(_addressID);
+                return _addressUses;
+            }
+          
         }
 
         #endregion

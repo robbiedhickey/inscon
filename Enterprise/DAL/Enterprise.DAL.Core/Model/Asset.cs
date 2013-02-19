@@ -13,72 +13,78 @@
 // ***********************************************************************
 
 using System;
+using System.Collections.Generic;
+using Enterprise.DAL.Core.Service;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class Asset
+    /// Class Asset
     /// </summary>
     public class Asset : ModelBase
     {
         /// <summary>
-        ///     The _asset id
+        /// The _asset id
         /// </summary>
         private int _assetId;
 
         /// <summary>
-        ///     The _asset number
+        /// The _asset number
         /// </summary>
         private string _assetNumber;
 
         /// <summary>
-        ///     The _loan number
+        /// The _loan number
         /// </summary>
         private String _loanNumber;
 
         /// <summary>
-        ///     The _organization id
+        /// The _organization id
         /// </summary>
         private int _organizationId;
 
         /// <summary>
-        ///     The _type id
+        /// The _type id
         /// </summary>
         private int _typeId;
 
         /// <summary>
-        ///     The _loan type id
+        /// The _loan type id
         /// </summary>
         private int? _loanTypeId;
 
         /// <summary>
-        ///     The _mortgagor name
+        /// The _mortgagor name
         /// </summary>
         private string _mortgagorName;
 
         /// <summary>
-        ///     The _mortgagor phone
+        /// The _mortgagor phone
         /// </summary>
         private string _mortgagorPhone;
 
         /// <summary>
-        ///     The _hud case number
+        /// The _hud case number
         /// </summary>
         private string _hudCaseNumber;
 
         /// <summary>
-        ///     The _conveyance date
+        /// The _conveyance date
         /// </summary>
         private DateTime? _conveyanceDate;
 
         /// <summary>
-        ///     The _first time vacant date
+        /// The _first time vacant date
         /// </summary>
         private DateTime? _firstTimeVacantDate;
 
+        /// <summary>
+        /// The _addresses
+        /// </summary>
+        private List<Address> _addresses;
 
         /// <summary>
-        ///     Gets or sets the asset id.
+        /// Gets or sets the asset id.
         /// </summary>
         /// <value>The asset id.</value>
         public Int32 AssetId
@@ -88,7 +94,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the organization id.
+        /// Gets or sets the organization id.
         /// </summary>
         /// <value>The organization id.</value>
         public Int32 OrganizationId
@@ -98,7 +104,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the type id.
+        /// Gets or sets the type id.
         /// </summary>
         /// <value>The type id.</value>
         public Int32 TypeId
@@ -108,7 +114,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the loan number.
+        /// Gets or sets the loan number.
         /// </summary>
         /// <value>The loan number.</value>
         public String LoanNumber
@@ -118,7 +124,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the asset number.
+        /// Gets or sets the asset number.
         /// </summary>
         /// <value>The asset number.</value>
         public String AssetNumber
@@ -129,7 +135,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        ///     Gets or sets the loan type id.
+        /// Gets or sets the loan type id.
         /// </summary>
         /// <value>The loan type id.</value>
         public Int32? LoanTypeId
@@ -139,7 +145,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the name of the mortgagor.
+        /// Gets or sets the name of the mortgagor.
         /// </summary>
         /// <value>The name of the mortgagor.</value>
         public String MortgagorName
@@ -149,7 +155,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the mortgagor phone.
+        /// Gets or sets the mortgagor phone.
         /// </summary>
         /// <value>The mortgagor phone.</value>
         public String MortgagorPhone
@@ -159,7 +165,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the hud case number.
+        /// Gets or sets the hud case number.
         /// </summary>
         /// <value>The hud case number.</value>
         public String HudCaseNumber
@@ -169,7 +175,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the conveyance date.
+        /// Gets or sets the conveyance date.
         /// </summary>
         /// <value>The conveyance date.</value>
         public DateTime? ConveyanceDate
@@ -179,7 +185,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the first time vacant date.
+        /// Gets or sets the first time vacant date.
         /// </summary>
         /// <value>The first time vacant date.</value>
         public DateTime? FirstTimeVacantDate
@@ -188,9 +194,26 @@ namespace Enterprise.DAL.Core.Model
             set { _firstTimeVacantDate = value; }
         }
 
+        /// <summary>
+        /// Gets the addresses.
+        /// </summary>
+        /// <value>The addresses.</value>
+        public List<Address> Addresses
+        {
+            get
+            {
+                if (_addresses != null)
+                {
+                    return _addresses;
+                }
+                _addresses = new AddressService().GetAddressRecordsByParentIdAndEntityID(_assetId, EntityNumber);
+                return _addresses;
+            }
+        }
+
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Asset" /> class.
+        /// Initializes a new instance of the <see cref="Asset"/> class.
         /// </summary>
         public Asset()
         {

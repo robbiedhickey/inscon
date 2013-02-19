@@ -27,25 +27,10 @@ namespace Enterprise.DAL.Core.Model
         private int _addressId;
 
         /// <summary>
-        ///     The _address use id
-        /// </summary>
-        private int _addressUseId;
-
-        /// <summary>
         ///     The _type id
         /// </summary>
         private int _typeId;
-
-
-        /// <summary>
-        ///     Gets or sets the address use id.
-        /// </summary>
-        /// <value>The address use id.</value>
-        public Int32 AddressUseID
-        {
-            get { return _addressUseId; }
-            set { SetProperty(ref _addressUseId, value); }
-        }
+        
 
         /// <summary>
         ///     Gets or sets the address id.
