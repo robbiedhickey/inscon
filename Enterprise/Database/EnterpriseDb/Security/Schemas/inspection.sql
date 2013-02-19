@@ -1,0 +1,3 @@
+CREATE SCHEMA [inspection]
+AUTHORIZATION [dbo]
+GO
