@@ -18,7 +18,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
 
         public List<Address> GetRecordByParentIdAndEntityID(int parentId, short entityId)
         {
-            return new dbSvc().GetRecordByParentIdAndEntityID(parentId, entityId);
+            return new dbSvc().GetAddressRecordsByParentIdAndEntityID(parentId, entityId);
         }
 
         public void DeleteRecord(Address address)

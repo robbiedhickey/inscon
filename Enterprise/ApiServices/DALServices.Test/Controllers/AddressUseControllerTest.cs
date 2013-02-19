@@ -74,22 +74,22 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             Assert.AreEqual(9, adds.Count);
         }
 
-        [TestMethod]
-        public void GetAddressUseByIdPass()
-        {
-            AddressUseController controller = new AddressUseController();
-            var adds = controller.GetAddressUseById(1);
+        //[TestMethod]
+        //public void GetAddressUseByIdPass()
+        //{
+        //    AddressUseController controller = new AddressUseController();
+        //    var adds = controller.GetAddressUseById(1);
 
-            Assert.IsNotNull(controller);
-        }
+        //    Assert.IsNotNull(controller);
+        //}
 
-        [TestMethod]
-        public void GetAddressUseByIdFail()
-        {
-            AddressUseController controller = new AddressUseController();
+        //[TestMethod]
+        //public void GetAddressUseByIdFail()
+        //{
+        //    AddressUseController controller = new AddressUseController();
 
-            Assert.IsNotNull(controller);
-        }
+        //    Assert.IsNotNull(controller);
+        //}
 
         [TestMethod]
         public void GetAddressUseByAddressIdPass()

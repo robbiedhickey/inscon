@@ -21,19 +21,19 @@ namespace Enterprise.ApiServices.DALServices.Controllers
             return _repository.GetAllAddressUseRecords();
         }
 
-        [HttpGet]
-        public AddressUse GetAddressUseById(int id)
-        {
-            if (id < 0)
-            {
-                throw new HttpResponseException(
-                    _exceptionHelper.BuildHttpResponseMessage(HttpStatusCode.NotAcceptable,
-                                                             "The ID for the address use must not be negative.",
-                                                             "Negative Value Not Allowed"));
-            }
+        //[HttpGet]
+        //public AddressUse GetAddressUseById(int id)
+        //{
+        //    if (id < 0)
+        //    {
+        //        throw new HttpResponseException(
+        //            _exceptionHelper.BuildHttpResponseMessage(HttpStatusCode.NotAcceptable,
+        //                                                     "The ID for the address use must not be negative.",
+        //                                                     "Negative Value Not Allowed"));
+        //    }
 
-            return _repository.GetAddressUseById(id);
-        }
+        //    return _repository.GetAddressUseById(id);
+        //}
 
         [HttpGet]
         public List<AddressUse> GetAddressUseByAddressId(int addressID)
