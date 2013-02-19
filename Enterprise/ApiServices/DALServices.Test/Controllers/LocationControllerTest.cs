@@ -2,6 +2,8 @@
 using System.Text;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
+using System.Linq;
+using System.Linq.Expressions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Enterprise.ApiServices.DALServices.Controllers;
 
@@ -68,8 +70,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             LocationController controller = new LocationController();
 
+            var actual = controller.GetAllLocations();
+
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            Assert.AreEqual(9,actual.Count);
         }
 
         [TestMethod]
@@ -77,8 +81,16 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             LocationController controller = new LocationController();
 
+            var actual = controller.GetLocationById(1);
+
+            //LocationID	OrganizationID	Name	Code	TypeID
+            //1	1	Bank of the Outer Galactic Empire	BOGE01	11
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            Assert.AreEqual(actual.LocationId, 1);
+            Assert.AreEqual(actual.OrganizationId, 1);
+            Assert.AreEqual(actual.Name, "Bank of the Outer Galactic Empire");
+            Assert.AreEqual(actual.Code, "BOGE01");
+            Assert.AreEqual(actual.TypeId, 11);
         }
 
         [TestMethod]
@@ -86,8 +98,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             LocationController controller = new LocationController();
 
+            var actual = controller.GetLocationById(100);
+
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            Assert.IsNull(actual);
         }
 
         [TestMethod]
@@ -95,8 +109,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             LocationController controller = new LocationController();
 
+            var actual = controller.GetLocationsByOrganizationId(1);
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            Assert.AreEqual(3, actual.Count);
+            Assert.IsTrue(actual.Any(l => l.Name == "Bank of the Outer Galactic Empire"));
+            Assert.IsTrue(actual.Any(l => l.Name == "Greater Helium Branch"));
+            Assert.IsTrue(actual.Any(l => l.Name == "Wastelands Branch"));
         }
 
         [TestMethod]
@@ -104,8 +122,9 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             LocationController controller = new LocationController();
 
+            var actual = controller.GetLocationsByOrganizationId(100);
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            Assert.AreEqual(actual.Count, 0);
         }
 
         [TestMethod]
@@ -113,8 +132,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             LocationController controller = new LocationController();
 
+            var actual = controller.GetLocationsByOrganizationIdandTypeId(1, 12);
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(actual.Count, 2);
+            Assert.IsTrue(actual.Any(l => l.Name == "Greater Helium Branch"));
+            Assert.IsTrue(actual.Any(l => l.Name == "Wastelands Branch"));
         }
 
         [TestMethod]
@@ -122,8 +145,9 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             LocationController controller = new LocationController();
 
+            var actual = controller.GetLocationsByOrganizationIdandTypeId(200, 200);
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            Assert.IsNotNull(actual);
         }
 
         [TestMethod]

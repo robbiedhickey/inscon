@@ -66,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllLocations().Find(h) ?? new Location();
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectById, Build, id);
+            return Query(SqlDatabase, Procedure.Location_SelectById, Build, id);
         }
 
         /// <summary>
