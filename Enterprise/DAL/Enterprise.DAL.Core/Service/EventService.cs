@@ -85,7 +85,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllEvents().Find(h) ?? new Event();
             }
 
-            return Query(SqlDatabase, Procedure.Address_SelectByParentIdAndEntityId, Build, parentID, entityID);
+            return Query(SqlDatabase, Procedure.Event_SelectByParentIdAndEntityId, Build, parentID, entityID);
         }
     }
 }

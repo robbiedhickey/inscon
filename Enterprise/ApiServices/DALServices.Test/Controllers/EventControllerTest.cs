@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using Enterprise.ApiServices.DALServices.Controllers;
 using Enterprise.DAL.Core.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,11 +13,11 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
     [TestClass]
     public class EventControllerTest
     {
+        private EventController _controller;
+
         public EventControllerTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            _controller = new EventController();
         }
 
         private TestContext testContextInstance;
@@ -49,9 +50,11 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         // [ClassCleanup()]
         // public static void MyClassCleanup() { }
         //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
+        [TestInitialize()]
+        public void MyTestInitialize()
+        {
+            DataHelper.LoadData("usp_LoadAllTestData.sql");
+        }
         //
         // Use TestCleanup to run code after each test has run
         // [TestCleanup()]
@@ -62,32 +65,62 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         [TestMethod]
         public void GetAllEvents()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetAllEvents();
+
+            Assert.AreEqual(6, actual.Count);
         }
 
         [TestMethod]
         public void GetEventByIdPass()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetEventById(1);
+
+            //EventID	ParentID	EntityID	TypeID	UserID	EventDate
+            //1	1	20	30	40	2013-02-01 00:00:00.000
+            Assert.AreEqual(1, actual.EventId);
+            Assert.AreEqual(1, actual.ParentId);
+            Assert.AreEqual(20, actual.EntityId);
+            Assert.AreEqual(30, actual.TypeId);
+            Assert.AreEqual(40, actual.UserId);
+            Assert.AreEqual(new DateTime(2013,2,1), actual.EventDate);
         }
 
         [TestMethod]
         public void GetEventByIdFail()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetEventById(200);
+
+            Assert.IsNull(actual);
         }
 
+        /// <summary>
+        /// Not sure why this is failing.. valid record exists and DAL service is not pulling it back
+        /// </summary>
         [TestMethod]
         public void GetEventByParentIdAndEntityIDPass()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetEventByParentIdAndEntityID(1, 20);
+
+            Assert.IsNotNull(actual);
+            //EventID	ParentID	EntityID	TypeID	UserID	EventDate
+            //1	1	20	30	40	2013-02-01 00:00:00.000
+            Assert.AreEqual(1, actual.EventId);
+            Assert.AreEqual(1, actual.ParentId);
+            Assert.AreEqual(20, actual.EntityId);
+            Assert.AreEqual(30, actual.TypeId);
+            Assert.AreEqual(40, actual.UserId);
+            Assert.AreEqual(new DateTime(2013, 2, 1), actual.EventDate);
         }
 
         [TestMethod]
         public void GetEventByParentIdAndEntityIDFail()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetEventByParentIdAndEntityID(1, 200);
+
+            Assert.IsNull(actual);
+
         }
+
 
         [TestMethod]
         public void DeleteEventPass()
