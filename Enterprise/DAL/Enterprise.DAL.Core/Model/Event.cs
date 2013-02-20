@@ -30,7 +30,7 @@ namespace Enterprise.DAL.Core.Model
         /// <summary>
         /// The _entity id
         /// </summary>
-        private short _entityId;
+        private Int16 _entityId;
 
         /// <summary>
         /// The _event id

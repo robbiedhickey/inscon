@@ -25,7 +25,7 @@ namespace Enterprise.DAL.Core.Model
         /// <summary>
         /// The _lookup group ID
         /// </summary>
-        private short _lookupGroupID;
+        private Int16 _lookupGroupID;
 
         /// <summary>
         /// The _name
@@ -37,7 +37,7 @@ namespace Enterprise.DAL.Core.Model
         /// Gets or sets the lookup group ID.
         /// </summary>
         /// <value>The lookup group ID.</value>
-        public short LookupGroupID
+        public Int16 LookupGroupID
         {
             get { return _lookupGroupID; }
             set { SetProperty(ref _lookupGroupID, value); }
