@@ -16,12 +16,20 @@ DELETE FROM [dbo].[ProductCategory]
 DELETE FROM [dbo].[Product]
 DELETE FROM [generic].[Address]
 DELETE FROM [generic].[AddressLocation]
-DELETE FROM [generic].[AddressUse]
+DELETE FROM [generic].[AddressUse_XREF]
 DELETE FROM [generic].[Comment]
 DELETE FROM [generic].[Event]
 DELETE FROM [generic].[File]
 DELETE FROM [generic].[Lookup]
 DELETE FROM [generic].[LookupGroup]
+DELETE FROM [inspection].[Exterior]
+DELETE FROM [inspection].[ForSale]
+DELETE FROM [inspection].[Inspection]
+DELETE FROM [inspection].[Interior]
+DELETE FROM [inspection].[Loss]
+DELETE FROM [inspection].[Maintenance]
+DELETE FROM [inspection].[PropertyDamage]
+DELETE FROM [inspection].[Renter]
 
 -- Reseed the identity column starting values
 DBCC CHECKIDENT('[dbo].[Organization]', RESEED, 0)
@@ -37,7 +45,6 @@ DBCC CHECKIDENT('[dbo].[WorkOrderItem]', RESEED, 0)
 DBCC CHECKIDENT('[dbo].[ProductCategory]', RESEED, 0)
 DBCC CHECKIDENT('[dbo].[Product]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[Address]', RESEED, 0)
-DBCC CHECKIDENT('[generic].[AddressUse]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[Comment]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[Event]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[File]', RESEED, 0)
@@ -267,15 +274,15 @@ INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City
 INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(8, 24, '890 Jagged Squirrel Road', '', 'Roads End',             'TX', '75656')
 INSERT INTO [generic].[Address]([ParentID] ,[EntityID] ,[Street] ,[Suite] ,[City] ,[State] ,[Zip])VALUES(9, 24, '901 Blue Island Ridge',    '', 'Scorched Snake Canyon', 'TX', '75656')
 
-INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(1, 3)
-INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(2, 3)
-INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(3, 3)
-INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(4, 3)
-INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(5, 3)
-INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(6, 3)
-INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(7, 3)
-INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(8, 3)
-INSERT INTO [generic].[AddressUse]([AddressID] ,[TypeID])VALUES(9, 3)
+INSERT INTO [generic].[AddressUse_XREF]([AddressID] ,[TypeID])VALUES(1, 3)
+INSERT INTO [generic].[AddressUse_XREF]([AddressID] ,[TypeID])VALUES(2, 3)
+INSERT INTO [generic].[AddressUse_XREF]([AddressID] ,[TypeID])VALUES(3, 3)
+INSERT INTO [generic].[AddressUse_XREF]([AddressID] ,[TypeID])VALUES(4, 3)
+INSERT INTO [generic].[AddressUse_XREF]([AddressID] ,[TypeID])VALUES(5, 3)
+INSERT INTO [generic].[AddressUse_XREF]([AddressID] ,[TypeID])VALUES(6, 3)
+INSERT INTO [generic].[AddressUse_XREF]([AddressID] ,[TypeID])VALUES(7, 3)
+INSERT INTO [generic].[AddressUse_XREF]([AddressID] ,[TypeID])VALUES(8, 3)
+INSERT INTO [generic].[AddressUse_XREF]([AddressID] ,[TypeID])VALUES(9, 3)
 
 INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(1, '123', 'Asteroid Alley',       'Hallows End',           'TX', '75656', 0xE6100000010C7445292158B343408D2AC3B81B2653C0, 39.401127,        -76.595442)
 INSERT INTO [generic].[AddressLocation]([AddressID] ,[BuildingNumber] ,[StreetName] ,[City] ,[State] ,[Zip] ,[GeoCode] ,[Lattitude] ,[Longitude])VALUES(2, '234', 'Quaking Bluff Twist',  'New Haven',             'TX', '75656', 0xE6100000010CC7F1E8EB9E093E4005227A0819F256C0, 30.0375812,       -91.7827779)
@@ -305,5 +312,22 @@ INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[Even
 INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[EventDate]) VALUES (4 ,23 ,33 ,43 ,'02/04/2013') 
 INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[EventDate]) VALUES (5 ,24 ,34 ,44 ,'02/05/2013') 
 INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[EventDate]) VALUES (6 ,25 ,35 ,45 ,'02/06/2013') 
+
+--INSERT INTO [inspection].[Exterior]([WorkOrderID] ,[ConstructionType_Lookup] ,[BuildingType_Lookup] ,[Stories_Lookup] ,[PrimaryColor_Lookup] ,[RoofType_Lookup] ,[PoolOnSite] ,[PoolSecured] ,[PoolDrained] ,[DoorTagStatus_Lookup] ,[ContactMade] ,[Occupancy_Lookup] ,[OccupancyVerifiedBy_Lookup] ,[PropertyCondition_Lookup] ,[NeighborhoodCondition_Lookup] ,[EMV_Lookup] ,[Electric_Lookup] ,[Water_Lookup] ,[Gas_Lookup] ,[PersonalPropertyOnSite] ,[IsWinterized] ,[idWinterizedByType] ,[WinterizedDate] ,[HowLongVacant] ,[HazardsExist])VALUES(
+
+--INSERT INTO [inspection].[ForSale]([WorkOrderID] ,[PropertyForSaleBy_Lookup] ,[RealtorName] ,[RealtorPhone] ,[idActiveListing] ,[ListPrice] ,[DaysOnMarket])VALUES(
+
+--INSERT INTO [inspection].[Inspection]([WorkOrderID] ,[DateInserted] ,[TypeID] ,[UserIDCompletedBy])VALUES(
+
+--INSERT INTO [inspection].[Interior]([WorkOrderID] ,[idInteriorStatus] ,[idHeatSource] ,[idPropaneVolume] ,[ContactName] ,[ContactNumber] ,[idMaintained])VALUES(
+
+--INSERT INTO [inspection].[Loss]([WorkOrderID] ,[LossType] ,[LossPercentCompleted] ,[LossCompletedToSatisfaction] ,[LossSatisfactionNotes] ,[LossCompletedRepairs] ,[LossAdditionalRepairsNeeded] ,[LossUnableToCompleteBecause] ,[PercentageCompleted] ,[PercentageCompletedNotes] ,[EstimatedCompletionDate])VALUES(
+
+--INSERT INTO [inspection].[Maintenance]([WorkOrderID] ,[ChangeLocks] ,[ReplaceGlass] ,[BoardSecure] ,[Winterize] ,[CutGrass] ,[GrassHeightInches] ,[DrainPool] ,[RemoveDebris] ,[RecommendedOther])VALUES(
+
+--INSERT INTO [inspection].[PropertyDamage]([WorkOrderID] ,[Vandalized] ,[FireDamage] ,[LiabilityHazard] ,[StormDamage] ,[FloodDamage] ,[FreezeDamage] ,[RoofLeak] ,[Neglected] ,[EarthquakeDamage] ,[CityViolation] ,[Mold] ,[BrokenWindows] ,[BurstPipes] ,[StructuralDamage])VALUES(
+
+--INSERT INTO [inspection].[Renter]([WorkOrderID] ,[RenterName] ,[RenterPhone] ,[RentPaidTo] ,[RentPaidToAddress] ,[RentCurrent] ,[RentAmountMonthly])VALUES(
+
 -- Enable all constraints
 EXEC sp_msforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all'
