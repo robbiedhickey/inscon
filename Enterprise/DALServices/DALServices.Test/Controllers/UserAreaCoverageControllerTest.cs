@@ -14,8 +14,8 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
     public class UserAreaCoverageControllerTest
     {
         private int recCount = 9;
-        private UserAreaCoverage delObj;
-        private UserAreaCoverage insObj;
+        private UserAreaCoverage delObj = new UserAreaCoverage();
+        private UserAreaCoverage insObj = new UserAreaCoverage();
 
         public UserAreaCoverageControllerTest()
         {
