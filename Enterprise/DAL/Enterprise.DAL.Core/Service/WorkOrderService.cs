@@ -65,7 +65,7 @@ namespace Enterprise.DAL.Core.Service
                 return GetAllWorkOrders().Find(h) ?? new WorkOrder();
             }
 
-            return Query(SqlDatabase, Procedure.File_SelectById, Build, id);
+            return Query(SqlDatabase, Procedure.WorkOrder_SelectById, Build, id);
         }
 
 

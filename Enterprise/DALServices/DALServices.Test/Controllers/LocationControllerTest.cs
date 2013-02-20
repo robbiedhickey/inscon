@@ -248,7 +248,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         }
 
         [TestMethod]
-        [ExpectedException(typeof(SqlException), "Should enforce constraints")]
+        [ExpectedException(typeof(SqlException), "Should enforce uniqueness of Name and Code?")]
         public void UpdateLocationFail()
         {
             LocationController controller = new LocationController();
@@ -256,6 +256,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             var locationToUpdate = controller.GetLocationById(1);
 
             locationToUpdate.Name = "Wastelands Branch";
+            locationToUpdate.Code = "BOGE03";
 
             controller.SaveRecord(locationToUpdate);
         }

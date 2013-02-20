@@ -193,7 +193,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         }
 
         [TestMethod]
-        [ExpectedException(typeof(SqlException))]
+        [ExpectedException(typeof(SqlException), "Should enforce uniqueness given a Value with the same LookupGroudID")]
         public void UpdateLookupFail()
         {
             var lookupToUpdate = _controller.GetLookupById(2);
