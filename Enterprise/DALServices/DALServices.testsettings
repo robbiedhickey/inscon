@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestSettings name="DALServices" id="bc2074c3-0b2d-4120-9601-0796c9536753" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Description>These are default test settings for a local test run.</Description>
+  <Deployment>
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadProductCategory.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadRequest.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUser.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadOrganization.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadProduct.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadWorkOrderAssignment.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadWorkOrder.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUserContact.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_LoadAllTestData.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUserAreaCoverage.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadWorkOrderItem.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadUserNotification.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadLocation.sql" />
+    <DeploymentItem filename="DALServices.Test\TestScripts\usp_ReloadAsset.sql" />
+  </Deployment>
+  <Execution>
+    <TestTypeSpecific>
+      <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+        <AssemblyResolution>
+          <TestDirectory useLoadContext="true" />
+        </AssemblyResolution>
+      </UnitTestRunConfig>
+    </TestTypeSpecific>
+    <AgentRule name="Execution Agents">
+    </AgentRule>
+  </Execution>
+</TestSettings>
