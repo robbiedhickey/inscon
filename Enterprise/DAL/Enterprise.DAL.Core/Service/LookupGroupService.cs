@@ -21,12 +21,12 @@ using Enterprise.DAL.Framework.Data;
 namespace Enterprise.DAL.Core.Service
 {
     /// <summary>
-    ///     Class LookupGroupService
+    /// Class LookupGroupService
     /// </summary>
     public class LookupGroupService : ServiceBase<LookupGroup>
     {
         /// <summary>
-        ///     Builds the specified reader.
+        /// Builds the specified reader.
         /// </summary>
         /// <param name="reader">The reader.</param>
         /// <returns>LookupGroup.</returns>
@@ -42,7 +42,7 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="LookupGroupService" /> class.
+        /// Initializes a new instance of the <see cref="LookupGroupService"/> class.
         /// </summary>
         public LookupGroupService()
         {
@@ -50,7 +50,7 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        ///     Gets all lookup groups.
+        /// Gets all lookup groups.
         /// </summary>
         /// <returns>List{LookupGroup}.</returns>
         public List<LookupGroup> GetAllLookupGroups()
@@ -60,11 +60,11 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        ///     Gets the lookup group by id.
+        /// Gets the lookup group by id.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns>LookupGroup.</returns>
-        public LookupGroup GetLookupGroupById(int id)
+        public LookupGroup GetLookupGroupById(Int16 id)
         {
             if (IsCached)
             {
