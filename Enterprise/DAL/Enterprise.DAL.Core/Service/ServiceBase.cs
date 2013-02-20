@@ -60,6 +60,11 @@ namespace Enterprise.DAL.Core.Service
         /// <value>The name of the entity.</value>
         public String EntityName { get; set; }
 
+        /// <summary>
+        /// Saves the record.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <returns>Int32.</returns>
         public Int32 SaveRecord(T model)
         {
             var record = new DataRecordTask<T>
@@ -70,6 +75,10 @@ namespace Enterprise.DAL.Core.Service
             return record.SaveRecord();
         }
 
+        /// <summary>
+        /// Deletes the record.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public void DeleteRecord(T model)
         {
             var record = new DataRecordTask<T>

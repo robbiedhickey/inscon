@@ -19,7 +19,7 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class Request
     /// </summary>
-    public class Request : ModelBase
+    public class Request : ModelBase<Request>
     {
         /// <summary>
         /// The _customer request id
@@ -81,17 +81,5 @@ namespace Enterprise.DAL.Core.Model
             get { return _customerRequestId; }
             set { SetProperty(ref _customerRequestId, value); }
         }
-
-        #region public methods
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Request"/> class.
-        /// </summary>
-        public Request()
-        {
-            EntityNumber = Request_EntityId;
-        }
-
-        #endregion
     }
 }

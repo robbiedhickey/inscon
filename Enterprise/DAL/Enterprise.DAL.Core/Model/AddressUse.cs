@@ -17,25 +17,25 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class AddressUse
+    /// Class AddressUse
     /// </summary>
-    public class AddressUse : ModelBase
+    public class AddressUse : ModelBase<AddressUse>
     {
         /// <summary>
-        ///     The _address id
+        /// The _address id
         /// </summary>
         private int _addressId;
 
         /// <summary>
-        ///     The _type id
+        /// The _type id
         /// </summary>
         private int _typeId;
-        
+
 
         /// <summary>
-        ///     Gets or sets the address id.
+        /// Gets or sets the address ID.
         /// </summary>
-        /// <value>The address id.</value>
+        /// <value>The address ID.</value>
         public Int32 AddressID
         {
             get { return _addressId; }
@@ -43,25 +43,13 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the type id.
+        /// Gets or sets the type ID.
         /// </summary>
-        /// <value>The type id.</value>
+        /// <value>The type ID.</value>
         public Int32 TypeID
         {
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }
         }
-
-        #region public methods
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="AddressUse" /> class.
-        /// </summary>
-        public AddressUse()
-        {
-            EntityNumber = AddressUse_EntityId;
-        }
-
-        #endregion
     }
 }

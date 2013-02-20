@@ -18,38 +18,34 @@ using Enterprise.DAL.Core.Service;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class Lookup
+    /// Class Lookup
     /// </summary>
-    public class Lookup : ModelBase
+    public class Lookup : ModelBase<Lookup>
     {
-        #region private variables
 
         /// <summary>
-        ///     The _lookup group
+        /// The _lookup group
         /// </summary>
         private LookupGroup _lookupGroup;
 
         /// <summary>
-        ///     The _lookup group ID
+        /// The _lookup group ID
         /// </summary>
         private Int16 _lookupGroupID;
 
         /// <summary>
-        ///     The _lookup ID
+        /// The _lookup ID
         /// </summary>
         private Int32 _lookupID;
 
         /// <summary>
-        ///     The _value
+        /// The _value
         /// </summary>
         private String _value;
 
-        #endregion
-
-        #region public properties
 
         /// <summary>
-        ///     Gets or sets the lookup ID.
+        /// Gets or sets the lookup ID.
         /// </summary>
         /// <value>The lookup ID.</value>
         public int LookupID
@@ -60,7 +56,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        ///     Gets or sets the lookup group ID.
+        /// Gets or sets the lookup group ID.
         /// </summary>
         /// <value>The lookup group ID.</value>
         public Int16 LookupGroupID
@@ -70,7 +66,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the value.
+        /// Gets or sets the value.
         /// </summary>
         /// <value>The value.</value>
         public string Value
@@ -80,7 +76,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the group.
+        /// Gets the group.
         /// </summary>
         /// <value>The group.</value>
         public LookupGroup Group
@@ -98,18 +94,6 @@ namespace Enterprise.DAL.Core.Model
             }
         }
 
-        #endregion
-
-        #region public methods
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Lookup" /> class.
-        /// </summary>
-        public Lookup()
-        {
-            EntityNumber = Lookup_EntityId;
-        }
-
-        #endregion
+       
     }
 }

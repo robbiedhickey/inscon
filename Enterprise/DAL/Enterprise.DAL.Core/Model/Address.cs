@@ -21,10 +21,8 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class Address
     /// </summary>
-    public class Address : ModelBase
+    public class Address : ModelBase<Address>
     {
-        #region private variables
-
         /// <summary>
         /// The _address ID
         /// </summary>
@@ -69,10 +67,6 @@ namespace Enterprise.DAL.Core.Model
         /// The _address uses
         /// </summary>
         private List<AddressUse> _addressUses;
-
-        #endregion
-
-        #region public properties
 
         /// <summary>
         /// Gets or sets the address ID.
@@ -169,21 +163,6 @@ namespace Enterprise.DAL.Core.Model
                 _addressUses = new AddressUseService().GetAddressUseByAddressId(_addressID);
                 return _addressUses;
             }
-          
         }
-
-        #endregion
-
-        #region public methods
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Address"/> class.
-        /// </summary>
-        public Address()
-        {
-            EntityNumber = Address_EntityId;
-        }
-
-        #endregion'
     }
 }

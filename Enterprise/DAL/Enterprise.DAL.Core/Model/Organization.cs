@@ -12,55 +12,48 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Service;
 
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class Organization
+    /// Class Organization
     /// </summary>
-    public class Organization : ModelBase
+    public class Organization : ModelBase<Organization>
     {
-        #region private variables
-
         /// <summary>
-        ///     The _code
+        /// The _code
         /// </summary>
         private string _code;
 
         /// <summary>
-        ///     The _name
+        /// The _name
         /// </summary>
         private string _name;
 
         /// <summary>
-        ///     The _organization ID
+        /// The _organization ID
         /// </summary>
         private int _organizationID;
 
         /// <summary>
-        ///     The _status ID
+        /// The _status ID
         /// </summary>
         private int _statusID;
 
         /// <summary>
-        ///     The _type ID
+        /// The _type ID
         /// </summary>
         private int _typeID;
 
         /// <summary>
-        ///     The _users
+        /// The _users
         /// </summary>
         private List<User> _users;
 
-        #endregion
-
-        #region public properties
-
         /// <summary>
-        ///     Gets or sets the organization ID.
+        /// Gets or sets the organization ID.
         /// </summary>
         /// <value>The organization ID.</value>
         public int OrganizationID
@@ -71,7 +64,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        ///     Gets or sets the name.
+        /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         public string Name
@@ -81,7 +74,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the code.
+        /// Gets or sets the code.
         /// </summary>
         /// <value>The code.</value>
         public string Code
@@ -91,7 +84,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the type ID.
+        /// Gets or sets the type ID.
         /// </summary>
         /// <value>The type ID.</value>
         public int TypeID
@@ -101,7 +94,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the status ID.
+        /// Gets or sets the status ID.
         /// </summary>
         /// <value>The status ID.</value>
         public int StatusID
@@ -111,7 +104,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the status.
+        /// Gets the status.
         /// </summary>
         /// <value>The status.</value>
         public string Status
@@ -121,7 +114,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the type.
+        /// Gets the type.
         /// </summary>
         /// <value>The type.</value>
         public string Type
@@ -131,7 +124,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the users.
+        /// Gets the users.
         /// </summary>
         /// <value>The users.</value>
         public List<User> Users
@@ -146,19 +139,5 @@ namespace Enterprise.DAL.Core.Model
                 return _users;
             }
         }
-
-        #endregion
-
-        #region public methods
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="Organization" /> class.
-        /// </summary>
-        public Organization()
-        {
-            EntityNumber = Organization_EntityId;
-        }
-
-        #endregion
     }
 }

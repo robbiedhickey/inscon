@@ -19,7 +19,7 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class Location
     /// </summary>
-    public class Location : ModelBase
+    public class Location : ModelBase<Location>
     {
         /// <summary>
         /// The _code
@@ -96,17 +96,5 @@ namespace Enterprise.DAL.Core.Model
             get { return _typeId; }
             set { SetProperty(ref _typeId, value); }
         }
-
-        #region public methods
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Location"/> class.
-        /// </summary>
-        public Location()
-        {
-            EntityNumber = Location_EntityId;
-        }
-
-        #endregion
     }
 }

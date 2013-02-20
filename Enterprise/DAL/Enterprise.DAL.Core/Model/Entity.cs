@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
 // Assembly         : Enterprise.DAL.Core
 // Author           : Michael Roof
-// Created          : 01-26-2013
+// Created          : 02-19-2013
 //
 // Last Modified By : Michael Roof
-// Last Modified On : 01-26-2013
+// Last Modified On : 02-19-2013
 // ***********************************************************************
-// <copyright file="LookupGroup.cs" company="Mortgage Specialist International, LLC">
+// <copyright file="Entity.cs" company="Mortgage Specialist International, LLC">
 //     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
 // </copyright>
 // <summary></summary>
@@ -17,41 +17,37 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    /// Class LookupGroup
+    /// Class Entity
     /// </summary>
-    public class LookupGroup : ModelBase<LookupGroup>
+    public class Entity : ModelBase<Entity>
     {
-
         /// <summary>
-        /// The _lookup group ID
+        /// The _entity
         /// </summary>
-        private Int16 _lookupGroupID;
-
+        private short _entity;
         /// <summary>
         /// The _name
         /// </summary>
         private string _name;
 
-
         /// <summary>
-        /// Gets or sets the lookup group ID.
+        /// Gets or sets the entity ID.
         /// </summary>
-        /// <value>The lookup group ID.</value>
-        public Int16 LookupGroupID
+        /// <value>The entity ID.</value>
+        public Int16 EntityID
         {
-            get { return _lookupGroupID; }
-            set { SetProperty(ref _lookupGroupID, value); }
+            get { return _entity; }
+            set {  SetProperty(ref _entity, value); }
         }
-
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name
+        public String Name
         {
             get { return _name; }
-            set { SetProperty(ref _name, value); }
+            set {  SetProperty(ref _name, value); }
         }
     }
 }

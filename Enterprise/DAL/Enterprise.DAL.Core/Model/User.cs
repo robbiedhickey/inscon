@@ -18,53 +18,53 @@ using Enterprise.DAL.Core.Service;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class User
+    /// Class User
     /// </summary>
-    public class User : ModelBase
+    public class User : ModelBase<User>
     {
         /// <summary>
-        ///     The _authentication
+        /// The _authentication
         /// </summary>
         private Guid? _authentication;
 
         /// <summary>
-        ///     The _first name
+        /// The _first name
         /// </summary>
         private string _firstName;
 
         /// <summary>
-        ///     The _last name
+        /// The _last name
         /// </summary>
         private string _lastName;
 
         /// <summary>
-        ///     The _organization
+        /// The _organization
         /// </summary>
         private Organization _organization;
 
         /// <summary>
-        ///     The _organization ID
+        /// The _organization ID
         /// </summary>
         private int _organizationID;
 
         /// <summary>
-        ///     The _status ID
+        /// The _status ID
         /// </summary>
         private int _statusID;
 
         /// <summary>
-        ///     The _title
+        /// The _title
         /// </summary>
         private string _title;
 
         /// <summary>
-        ///     The _user ID
+        /// The _user ID
         /// </summary>
         private int _userID;
 
 
         /// <summary>
-        ///     Gets or sets the user ID.
+        /// Gets or sets the user ID.
         /// </summary>
         /// <value>The user ID.</value>
         public int UserID
@@ -74,7 +74,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the organization ID.
+        /// Gets or sets the organization ID.
         /// </summary>
         /// <value>The organization ID.</value>
         public int OrganizationID
@@ -84,7 +84,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the first name.
+        /// Gets or sets the first name.
         /// </summary>
         /// <value>The first name.</value>
         public string FirstName
@@ -95,7 +95,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        ///     Gets or sets the last name.
+        /// Gets or sets the last name.
         /// </summary>
         /// <value>The last name.</value>
         public string LastName
@@ -105,7 +105,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the title.
+        /// Gets or sets the title.
         /// </summary>
         /// <value>The title.</value>
         public string Title
@@ -115,7 +115,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the status ID.
+        /// Gets or sets the status ID.
         /// </summary>
         /// <value>The status ID.</value>
         public int StatusID
@@ -125,7 +125,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the status.
+        /// Gets the status.
         /// </summary>
         /// <value>The status.</value>
         public string Status
@@ -135,7 +135,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the full name.
+        /// Gets the full name.
         /// </summary>
         /// <value>The full name.</value>
         public string FullName
@@ -144,7 +144,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the authentication ID.
+        /// Gets or sets the authentication ID.
         /// </summary>
         /// <value>The authentication ID.</value>
         public Guid? AuthenticationID
@@ -155,7 +155,7 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        ///     Gets the organization.
+        /// Gets the organization.
         /// </summary>
         /// <value>The organization.</value>
         public Organization Organization
@@ -170,17 +170,5 @@ namespace Enterprise.DAL.Core.Model
                 return _organization;
             }
         }
-
-        #region public methods
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="User" /> class.
-        /// </summary>
-        public User()
-        {
-            EntityNumber = User_EntityId;
-        }
-
-        #endregion
     }
 }

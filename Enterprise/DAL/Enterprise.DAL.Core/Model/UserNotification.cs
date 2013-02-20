@@ -17,43 +17,35 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class UserNotification
+    /// Class UserNotification
     /// </summary>
-    public class UserNotification : ModelBase
+    public class UserNotification : ModelBase<UserNotification>
     {
         /// <summary>
-        ///     The _date posted
+        /// The _date posted
         /// </summary>
         private DateTime _datePosted;
 
         /// <summary>
-        ///     The _date read
+        /// The _date read
         /// </summary>
         private DateTime? _dateRead;
 
         /// <summary>
-        ///     The _user id
+        /// The _user id
         /// </summary>
         private int _userId;
 
         /// <summary>
-        ///     The _user notification id
+        /// The _user notification id
         /// </summary>
         private int _userNotificationId;
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="UserNotification" /> class.
-        /// </summary>
-        public UserNotification()
-        {
-            EntityNumber = UserNotification_EntityId;
-        }
-
 
         /// <summary>
-        ///     Gets or sets the user notification id.
+        /// Gets or sets the user notification ID.
         /// </summary>
-        /// <value>The user notification id.</value>
+        /// <value>The user notification ID.</value>
         public Int32 UserNotificationID
         {
             get { return _userNotificationId; }
@@ -61,9 +53,9 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the user id.
+        /// Gets or sets the user ID.
         /// </summary>
-        /// <value>The user id.</value>
+        /// <value>The user ID.</value>
         public Int32 UserID
         {
             get { return _userId; }
@@ -71,7 +63,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the date posted.
+        /// Gets or sets the date posted.
         /// </summary>
         /// <value>The date posted.</value>
         public DateTime DatePosted
@@ -81,7 +73,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the date read.
+        /// Gets or sets the date read.
         /// </summary>
         /// <value>The date read.</value>
         public DateTime? DateRead

@@ -20,7 +20,7 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class Event
     /// </summary>
-    public class Event : ModelBase
+    public class Event : ModelBase<Event>
     {
         /// <summary>
         /// The _date
@@ -122,17 +122,5 @@ namespace Enterprise.DAL.Core.Model
             // Read only lookup value
             get { return new LookupService().GetLookupById(_typeId).Value; }
         }
-
-        #region public methods
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Event"/> class.
-        /// </summary>
-        public Event()
-        {
-            EntityNumber = Event_EntityId;
-        }
-
-        #endregion
     }
 }

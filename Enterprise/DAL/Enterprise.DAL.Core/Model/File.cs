@@ -20,7 +20,7 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class File
     /// </summary>
-    public class File : ModelBase
+    public class File : ModelBase<File>
     {
         /// <summary>
         /// The _caption
@@ -158,16 +158,6 @@ namespace Enterprise.DAL.Core.Model
             get { return new LookupService().GetLookupById(_typeId).Value; }
         }
 
-        #region public methods
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="File"/> class.
-        /// </summary>
-        public File()
-        {
-            EntityNumber = File_EntityId;
-        }
-
         /// <summary>
         /// Gets or sets the date inserted.
         /// </summary>
@@ -177,7 +167,5 @@ namespace Enterprise.DAL.Core.Model
             get { return _dateInserted; }
             set { _dateInserted = value; }
         }
-
-        #endregion
     }
 }

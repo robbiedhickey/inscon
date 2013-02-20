@@ -19,7 +19,7 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class WorkOrderItem
     /// </summary>
-    public class WorkOrderItem : ModelBase
+    public class WorkOrderItem : ModelBase<WorkOrderItem>
     {
         /// <summary>
         /// The _date inserted
@@ -50,14 +50,6 @@ namespace Enterprise.DAL.Core.Model
         /// The _work order item id
         /// </summary>
         private int _workOrderItemId;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="WorkOrderItem"/> class.
-        /// </summary>
-        public WorkOrderItem()
-        {
-            EntityNumber = WorkOrderItem_EntityId;
-        }
 
 
         /// <summary>

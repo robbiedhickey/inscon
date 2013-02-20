@@ -17,43 +17,34 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class UserAreaCoverage
+    /// Class UserAreaCoverage
     /// </summary>
-    public class UserAreaCoverage : ModelBase
+    public class UserAreaCoverage : ModelBase<UserAreaCoverage>
     {
         /// <summary>
-        ///     The _service id
+        /// The _service id
         /// </summary>
         private int _serviceId;
 
         /// <summary>
-        ///     The _user area coverage id
+        /// The _user area coverage id
         /// </summary>
         private int _userAreaCoverageId;
 
         /// <summary>
-        ///     The _user id
+        /// The _user id
         /// </summary>
         private int _userId;
 
         /// <summary>
-        ///     The _zip code
+        /// The _zip code
         /// </summary>
         private string _zipCode;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="UserAreaCoverage" /> class.
+        /// Gets or sets the user area coverage ID.
         /// </summary>
-        public UserAreaCoverage()
-        {
-            EntityNumber = UserAreaCoverage_EntityId;
-        }
-
-
-        /// <summary>
-        ///     Gets or sets the user area coverage id.
-        /// </summary>
-        /// <value>The user area coverage id.</value>
+        /// <value>The user area coverage ID.</value>
         public Int32 UserAreaCoverageID
         {
             get { return _userAreaCoverageId; }
@@ -61,9 +52,9 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the user id.
+        /// Gets or sets the user ID.
         /// </summary>
-        /// <value>The user id.</value>
+        /// <value>The user ID.</value>
         public Int32 UserID
         {
             get { return _userId; }
@@ -71,7 +62,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the zip code.
+        /// Gets or sets the zip code.
         /// </summary>
         /// <value>The zip code.</value>
         public String ZipCode
@@ -81,9 +72,9 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the service id.
+        /// Gets or sets the service ID.
         /// </summary>
-        /// <value>The service id.</value>
+        /// <value>The service ID.</value>
         public Int32 ServiceID
         {
             get { return _serviceId; }

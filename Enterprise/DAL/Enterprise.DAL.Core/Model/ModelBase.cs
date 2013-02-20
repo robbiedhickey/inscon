@@ -4,7 +4,7 @@
 // Created          : 01-26-2013
 //
 // Last Modified By : Michael Roof
-// Last Modified On : 01-26-2013
+// Last Modified On : 02-19-2013
 // ***********************************************************************
 // <copyright file="ModelBase.cs" company="Mortgage Specialist International, LLC">
 //     Copyright (c) Mortgage Specialist International, LLC. All rights reserved.
@@ -15,6 +15,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Enterprise.DAL.Core.Service;
 using Enterprise.DAL.Core.Types;
 
 namespace Enterprise.DAL.Core.Model
@@ -22,108 +23,9 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class ModelBase
     /// </summary>
-    public class ModelBase
+    /// <typeparam name="T"></typeparam>
+    public class ModelBase<T>
     {
-        #region entityId's
-
-        /// <summary>
-        /// The address_ entity id
-        /// </summary>
-        public const Int16 Address_EntityId = 6;
-        /// <summary>
-        /// The address location_ entity id
-        /// </summary>
-        public const Int16 AddressLocation_EntityId = 22;
-        /// <summary>
-        /// The address use_ entity id
-        /// </summary>
-        public const Int16 AddressUse_EntityId = 20;
-        /// <summary>
-        /// The asset_ entity id
-        /// </summary>
-        public const Int16 Asset_EntityId = 24;
-        /// <summary>
-        /// The comment_ entity id
-        /// </summary>
-        public const Int16 Comment_EntityId = 7;
-        /// <summary>
-        /// The entity_ entity id
-        /// </summary>
-        public const Int16 Entity_EntityId = 5;
-        /// <summary>
-        /// The event_ entity id
-        /// </summary>
-        public const Int16 Event_EntityId = 9;
-        /// <summary>
-        /// The file_ entity id
-        /// </summary>
-        public const Int16 File_EntityId = 10;
-        /// <summary>
-        /// The loan_ entity id
-        /// </summary>
-        public const Int16 Loan_EntityId = 12;
-        /// <summary>
-        /// The location_ entity id
-        /// </summary>
-        public const Int16 Location_EntityId = 11;
-        /// <summary>
-        /// The lookup_ entity id
-        /// </summary>
-        public const Int16 Lookup_EntityId = 8;
-        /// <summary>
-        /// The lookup group_ entity id
-        /// </summary>
-        public const Int16 LookupGroup_EntityId = 4;
-        /// <summary>
-        /// The mortgagor_ entity id
-        /// </summary>
-        public const Int16 Mortgagor_EntityId = 13;
-        /// <summary>
-        /// The organization_ entity id
-        /// </summary>
-        public const Int16 Organization_EntityId = 14;
-        /// <summary>
-        /// The product_ entity id
-        /// </summary>
-        public const Int16 Product_EntityId = 3;
-        /// <summary>
-        /// The product category_ entity id
-        /// </summary>
-        public const Int16 ProductCategory_EntityId = 1;
-        /// <summary>
-        /// The request_ entity id
-        /// </summary>
-        public const Int16 Request_EntityId = 2;
-        /// <summary>
-        /// The user_ entity id
-        /// </summary>
-        public const Int16 User_EntityId = 15;
-        /// <summary>
-        /// The user area coverage_ entity id
-        /// </summary>
-        public const Int16 UserAreaCoverage_EntityId = 17;
-        /// <summary>
-        /// The user contact_ entity id
-        /// </summary>
-        public const Int16 UserContact_EntityId = 18;
-        /// <summary>
-        /// The user notification_ entity id
-        /// </summary>
-        public const Int16 UserNotification_EntityId = 16;
-        /// <summary>
-        /// The work order_ entity id
-        /// </summary>
-        public const Int16 WorkOrder_EntityId = 21;
-        /// <summary>
-        /// The work order assignment_ entity id
-        /// </summary>
-        public const Int16 WorkOrderAssignment_EntityId = 19;
-        /// <summary>
-        /// The work order item_ entity id
-        /// </summary>
-        public const Int16 WorkOrderItem_EntityId = 23;
-
-        #endregion
 
         /// <summary>
         /// The _dirty table
@@ -137,11 +39,13 @@ namespace Enterprise.DAL.Core.Model
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ModelBase"/> class.
+        /// Initializes a new instance of the <see cref="ModelBase{T}"/> class.
         /// </summary>
         public ModelBase()
         {
+
             SqlDatabase = Database.EnterpriseDb;
+            EntityNumber = new EntityService().GetEntityByName(typeof (T).Name).EntityID;
         }
 
         /// <summary>
@@ -228,9 +132,9 @@ namespace Enterprise.DAL.Core.Model
         //    return _dirtyTable != null && _dirtyTable.ContainsKey(field) && _dirtyTable[field];
         //}
         /// <summary>
-        /// Determines whether the specified field is changed.
+        /// Dirties the fields.
         /// </summary>
-        /// <returns><c>true</c> if the specified field is changed; otherwise, <c>false</c>.</returns>
+        /// <returns>System.String[][].</returns>
         public string[] DirtyFields()
         {
             var fields = new List<string>();

@@ -20,7 +20,7 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class Product
     /// </summary>
-    public class Product : ModelBase
+    public class Product : ModelBase<Product>
     {
         /// <summary>
         /// The _caption
@@ -149,17 +149,5 @@ namespace Enterprise.DAL.Core.Model
                 return _category;
             }
         }
-
-        #region public methods
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Product"/> class.
-        /// </summary>
-        public Product()
-        {
-            EntityNumber = Product_EntityId;
-        }
-
-        #endregion
     }
 }

@@ -18,48 +18,40 @@ using Enterprise.DAL.Core.Service;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class UserContact
+    /// Class UserContact
     /// </summary>
-    public class UserContact : ModelBase
+    public class UserContact : ModelBase<UserContact>
     {
         /// <summary>
-        ///     The _is primary
+        /// The _is primary
         /// </summary>
         private bool _isPrimary;
 
         /// <summary>
-        ///     The _type id
+        /// The _type id
         /// </summary>
         private int _typeId;
 
         /// <summary>
-        ///     The _user contact id
+        /// The _user contact id
         /// </summary>
         private int _userContactId;
 
         /// <summary>
-        ///     The _user id
+        /// The _user id
         /// </summary>
         private int _userId;
 
         /// <summary>
-        ///     The _value
+        /// The _value
         /// </summary>
         private string _value;
 
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="UserContact" /> class.
-        /// </summary>
-        public UserContact()
-        {
-            EntityNumber = UserContact_EntityId;
-        }
-
 
         /// <summary>
-        ///     Gets or sets the user contact id.
+        /// Gets or sets the user contact ID.
         /// </summary>
-        /// <value>The user contact id.</value>
+        /// <value>The user contact ID.</value>
         public Int32 UserContactID
         {
             get { return _userContactId; }
@@ -67,9 +59,9 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the user id.
+        /// Gets or sets the user ID.
         /// </summary>
-        /// <value>The user id.</value>
+        /// <value>The user ID.</value>
         public Int32 UserID
         {
             get { return _userId; }
@@ -77,7 +69,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the value.
+        /// Gets or sets the value.
         /// </summary>
         /// <value>The value.</value>
         public String Value
@@ -87,9 +79,9 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the type id.
+        /// Gets or sets the type ID.
         /// </summary>
-        /// <value>The type id.</value>
+        /// <value>The type ID.</value>
         public Int32 TypeID
         {
             get { return _typeId; }
@@ -97,7 +89,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the is primary.
+        /// Gets or sets the is primary.
         /// </summary>
         /// <value>The is primary.</value>
         public Boolean IsPrimary
@@ -107,7 +99,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets the type.
+        /// Gets the type.
         /// </summary>
         /// <value>The type.</value>
         public string Type

@@ -21,7 +21,7 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class Asset
     /// </summary>
-    public class Asset : ModelBase
+    public class Asset : ModelBase<Asset>
     {
         /// <summary>
         /// The _asset id
@@ -209,14 +209,6 @@ namespace Enterprise.DAL.Core.Model
                 _addresses = new AddressService().GetAddressRecordsByParentIdAndEntityID(_assetId, EntityNumber);
                 return _addresses;
             }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Asset"/> class.
-        /// </summary>
-        public Asset()
-        {
-            EntityNumber = Asset_EntityId;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class ProductCategory
     /// </summary>
-    public class ProductCategory : ModelBase
+    public class ProductCategory : ModelBase<ProductCategory>
     {
         /// <summary>
         /// The _code
@@ -36,13 +36,6 @@ namespace Enterprise.DAL.Core.Model
         /// </summary>
         private int _productCategoryId;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProductCategory"/> class.
-        /// </summary>
-        public ProductCategory()
-        {
-            EntityNumber = ProductCategory_EntityId;
-        }
 
 
         /// <summary>

@@ -17,48 +17,39 @@ using System;
 namespace Enterprise.DAL.Core.Model
 {
     /// <summary>
-    ///     Class WorkOrderAssignment
+    /// Class WorkOrderAssignment
     /// </summary>
-    public class WorkOrderAssignment : ModelBase
+    public class WorkOrderAssignment : ModelBase<WorkOrderAssignment>
     {
         /// <summary>
-        ///     The _event date
+        /// The _event date
         /// </summary>
         private DateTime _eventDate;
 
         /// <summary>
-        ///     The _status id
+        /// The _status id
         /// </summary>
         private int _statusId;
 
         /// <summary>
-        ///     The _user id
+        /// The _user id
         /// </summary>
         private int _userId;
 
         /// <summary>
-        ///     The _work order assignment id
+        /// The _work order assignment id
         /// </summary>
         private int _workOrderAssignmentId;
 
         /// <summary>
-        ///     The _work order id
+        /// The _work order id
         /// </summary>
         private int _workOrderId;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="WorkOrderAssignment" /> class.
+        /// Gets or sets the work order assignment ID.
         /// </summary>
-        public WorkOrderAssignment()
-        {
-            EntityNumber = WorkOrderAssignment_EntityId;
-        }
-
-
-        /// <summary>
-        ///     Gets or sets the work order assignment id.
-        /// </summary>
-        /// <value>The work order assignment id.</value>
+        /// <value>The work order assignment ID.</value>
         public Int32 WorkOrderAssignmentID
         {
             get { return _workOrderAssignmentId; }
@@ -66,9 +57,9 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the work order id.
+        /// Gets or sets the work order ID.
         /// </summary>
-        /// <value>The work order id.</value>
+        /// <value>The work order ID.</value>
         public Int32 WorkOrderID
         {
             get { return _workOrderId; }
@@ -76,9 +67,9 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the user id.
+        /// Gets or sets the user ID.
         /// </summary>
-        /// <value>The user id.</value>
+        /// <value>The user ID.</value>
         public Int32 UserID
         {
             get { return _userId; }
@@ -86,7 +77,7 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the event date.
+        /// Gets or sets the event date.
         /// </summary>
         /// <value>The event date.</value>
         public DateTime EventDate
@@ -96,9 +87,9 @@ namespace Enterprise.DAL.Core.Model
         }
 
         /// <summary>
-        ///     Gets or sets the status id.
+        /// Gets or sets the status ID.
         /// </summary>
-        /// <value>The status id.</value>
+        /// <value>The status ID.</value>
         public Int32 StatusID
         {
             get { return _statusId; }

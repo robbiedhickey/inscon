@@ -19,7 +19,7 @@ namespace Enterprise.DAL.Core.Model
     /// <summary>
     /// Class Comment
     /// </summary>
-    public class Comment : ModelBase
+    public class Comment : ModelBase<Comment>
     {
         /// <summary>
         /// The _comment
@@ -126,17 +126,5 @@ namespace Enterprise.DAL.Core.Model
             get { return _dateInserted; }
             set { _dateInserted = value; }
         }
-
-        #region public methods
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Comment"/> class.
-        /// </summary>
-        public Comment()
-        {
-            EntityNumber = Comment_EntityId;
-        }
-
-        #endregion
     }
 }
