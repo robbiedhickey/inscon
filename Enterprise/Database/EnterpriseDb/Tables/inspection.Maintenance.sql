@@ -11,11 +11,12 @@ CREATE TABLE [inspection].[Maintenance]
 [RemoveDebris] [bit] NULL,
 [RecommendedOther] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
 ) ON [PRIMARY]
+ALTER TABLE [inspection].[Maintenance] ADD
+CONSTRAINT [FK_Maintenance_WorkOrder1] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [inspection].[Maintenance] ADD CONSTRAINT [pk_maintenance] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO
-ALTER TABLE [inspection].[Maintenance] ADD CONSTRAINT [FK_Maintenance_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Y\N - Board and Secure', 'SCHEMA', N'inspection', 'TABLE', N'Maintenance', 'COLUMN', N'BoardSecure'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Y\N - Change Locks', 'SCHEMA', N'inspection', 'TABLE', N'Maintenance', 'COLUMN', N'ChangeLocks'

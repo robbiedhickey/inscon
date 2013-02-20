@@ -10,7 +10,8 @@ CREATE TABLE [dbo].[Asset]
 [MortgagorPhone] [varchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [HudCaseNumber] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS SPARSE NULL,
 [ConveyanceDate] [datetime] NULL,
-[FirstTimeVacantDate] [datetime] NULL
+[FirstTimeVacantDate] [datetime] NULL,
+[InBankruptcyProtection] [bit] NULL
 ) ON [PRIMARY]
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Conveyance Date', 'SCHEMA', N'dbo', 'TABLE', N'Asset', 'COLUMN', N'ConveyanceDate'

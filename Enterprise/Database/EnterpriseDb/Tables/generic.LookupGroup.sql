@@ -5,6 +5,9 @@ CREATE TABLE [generic].[LookupGroup]
 [OldID] [int] NULL
 ) ON [PRIMARY]
 GO
+ALTER TABLE [generic].[LookupGroup] ADD CONSTRAINT [UN_LookupGroupName] UNIQUE NONCLUSTERED  ([Name]) ON [PRIMARY]
+
+GO
 ALTER TABLE [generic].[LookupGroup] ADD CONSTRAINT [PK_LookupGroup] PRIMARY KEY CLUSTERED  ([LookupGroupID]) ON [PRIMARY]
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'RecordID', 'SCHEMA', N'generic', 'TABLE', N'LookupGroup', 'COLUMN', N'LookupGroupID'

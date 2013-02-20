@@ -8,11 +8,12 @@ CREATE TABLE [inspection].[Renter]
 [RentCurrent] [tinyint] NULL,
 [RentAmountMonthly] [decimal] (15, 2) NULL
 ) ON [PRIMARY]
+ALTER TABLE [inspection].[Renter] ADD
+CONSTRAINT [FK_Renter_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [inspection].[Renter] ADD CONSTRAINT [pk_renter] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO
-ALTER TABLE [inspection].[Renter] ADD CONSTRAINT [FK_Renter_WorkOrder1] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'How much rent is paid each month', 'SCHEMA', N'inspection', 'TABLE', N'Renter', 'COLUMN', N'RentAmountMonthly'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Is rent current', 'SCHEMA', N'inspection', 'TABLE', N'Renter', 'COLUMN', N'RentCurrent'
