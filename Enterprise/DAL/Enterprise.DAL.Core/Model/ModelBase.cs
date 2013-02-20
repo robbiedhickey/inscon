@@ -45,14 +45,28 @@ namespace Enterprise.DAL.Core.Model
         {
 
             SqlDatabase = Database.EnterpriseDb;
-            EntityNumber = new EntityService().GetEntityByName(typeof (T).Name).EntityID;
+            
         }
 
         /// <summary>
         /// Gets or sets the entity number.
         /// </summary>
         /// <value>The entity number.</value>
-        public short EntityNumber { get; set; }
+        public short EntityNumber
+        {
+            get
+            {
+                try
+                {
+                    return new EntityService().GetEntityByName(typeof (T).Name).EntityID;
+                }
+                catch
+                {
+                    throw new Exception(@"Model with name of '" + typeof(T).Name + " does not exist in table 'dbo.Entity'. Add a record and run try again.");
+                }
+                
+            }
+        }
 
 
         /// <summary>
