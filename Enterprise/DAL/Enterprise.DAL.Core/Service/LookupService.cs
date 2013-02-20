@@ -21,12 +21,12 @@ using Enterprise.DAL.Framework.Data;
 namespace Enterprise.DAL.Core.Service
 {
     /// <summary>
-    ///     Class LookupService
+    /// Class LookupService
     /// </summary>
     public class LookupService : ServiceBase<Lookup>
     {
         /// <summary>
-        ///     Builds the specified reader.
+        /// Builds the specified reader.
         /// </summary>
         /// <param name="reader">The reader.</param>
         /// <returns>Lookup.</returns>
@@ -35,7 +35,7 @@ namespace Enterprise.DAL.Core.Service
             var record = new Lookup
                 {
                     LookupID = reader.GetInt32("LookupID"),
-                    LookupGroupID = reader.GetInt16("LookupGroupID"),
+                    LookupGroupID = reader.GetInt32("LookupGroupID"),
                     Value = reader.GetString("Value")
                 };
 
@@ -43,7 +43,7 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="LookupService" /> class.
+        /// Initializes a new instance of the <see cref="LookupService"/> class.
         /// </summary>
         public LookupService()
         {
@@ -51,7 +51,7 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        ///     Gets all lookups.
+        /// Gets all lookups.
         /// </summary>
         /// <returns>List{Lookup}.</returns>
         public List<Lookup> GetAllLookups()
@@ -60,7 +60,7 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        ///     Gets the lookup by id.
+        /// Gets the lookup by id.
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns>Lookup.</returns>
@@ -75,7 +75,7 @@ namespace Enterprise.DAL.Core.Service
         }
 
         /// <summary>
-        ///     Gets the lookup values by group id.
+        /// Gets the lookup values by group id.
         /// </summary>
         /// <param name="groupID">The group ID.</param>
         /// <returns>List{Lookup}.</returns>

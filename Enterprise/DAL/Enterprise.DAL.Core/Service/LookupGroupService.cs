@@ -34,7 +34,7 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new LookupGroup
                 {
-                    LookupGroupID = reader.GetInt16("LookupGroupID"),
+                    LookupGroupID = reader.GetInt32("LookupGroupID"),
                     Name = reader.GetString("Name")
                 };
 
@@ -64,7 +64,7 @@ namespace Enterprise.DAL.Core.Service
         /// </summary>
         /// <param name="id">The id.</param>
         /// <returns>LookupGroup.</returns>
-        public LookupGroup GetLookupGroupById(Int16 id)
+        public LookupGroup GetLookupGroupById(int id)
         {
             if (IsCached)
             {
