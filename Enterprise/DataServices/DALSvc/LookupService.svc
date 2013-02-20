@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="Enterprise.DataServices.DALSvc.LookupService" CodeBehind="LookupService.svc.cs" %>
