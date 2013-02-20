@@ -68,7 +68,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             var actual = _controller.GetAllLookupGroups();
 
-            Assert.IsTrue(actual.Count == 12);
+            Assert.AreEqual(actual.Count, 12);
         }
 
         [TestMethod]

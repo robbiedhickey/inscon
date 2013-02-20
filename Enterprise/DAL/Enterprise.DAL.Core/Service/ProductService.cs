@@ -37,6 +37,7 @@ namespace Enterprise.DAL.Core.Service
                     ProductID = reader.GetInt32("ProductID"),
                     ProductCategoryID = reader.GetInt32("ProductCategoryID"),
                     Caption = reader.GetString("Caption"),
+                    Code = reader.GetString("Code"),
                     SKU = reader.GetString("SKU"),
                     Rate = reader.GetDecimal("Rate"),
                     Cost = reader.GetDecimal("Cost")

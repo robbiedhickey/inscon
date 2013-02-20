@@ -182,7 +182,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
 
             var after = _controller.GetFileById(1);
 
-            Assert.AreEqual(after.EntityID, 30);
+            Assert.AreEqual(30, after.EntityID);
         }
 
         [TestMethod]

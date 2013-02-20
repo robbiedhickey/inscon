@@ -83,9 +83,9 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             //LookupID	LookupGroupID	Value	OldID
             //1	1	Active	NULL
             Assert.IsNotNull(actual);
-            Assert.AreEqual(actual.LookupID, 1);
-            Assert.AreEqual(actual.LookupGroupID, 1);
-            Assert.AreEqual(actual.Value, "Active");
+            Assert.AreEqual(1, actual.LookupID);
+            Assert.AreEqual(1, actual.LookupGroupID);
+            Assert.AreEqual("Active", actual.Value);
 
         }
 

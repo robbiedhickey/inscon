@@ -170,6 +170,7 @@ INSERT INTO [dbo].[Product]([ProductCategoryID] ,[Caption] ,[Code] ,[SKU] ,[Rate
 INSERT INTO [dbo].[Product]([ProductCategoryID] ,[Caption] ,[Code] ,[SKU] ,[Rate] ,[Cost])VALUES(2, 'Inspect Life Support Air Filters',                  'INSP03', '130',    25.00,   15.00)
 INSERT INTO [dbo].[Product]([ProductCategoryID] ,[Caption] ,[Code] ,[SKU] ,[Rate] ,[Cost])VALUES(2, 'Inspect BabelFish Tank Filtration System',          'INSP04', '131',   400.00,   40.00)
 INSERT INTO [dbo].[Product]([ProductCategoryID] ,[Caption] ,[Code] ,[SKU] ,[Rate] ,[Cost])VALUES(2, 'Inspect Outer Shell for Micro-Black Hole Openings', 'INSP05', '132',   350.00,  300.00)
+INSERT INTO [dbo].[Product]([ProductCategoryID] ,[Caption] ,[Code] ,[SKU] ,[Rate] ,[Cost])VALUES(2, 'Something Clever', 'MAINT01', '132',   350.00,  300.00)
 
 INSERT INTO [dbo].[WorkOrderItem]([WorkOrderID] ,[ProductID] ,[Quantity] ,[Rate] ,[DateInserted])VALUES(1,  1, 1,   150.00, DATEADD(DAY,  -2, GETDATE()))
 INSERT INTO [dbo].[WorkOrderItem]([WorkOrderID] ,[ProductID] ,[Quantity] ,[Rate] ,[DateInserted])VALUES(1,  2, 1,  3700.00, DATEADD(DAY,  -2, GETDATE()))

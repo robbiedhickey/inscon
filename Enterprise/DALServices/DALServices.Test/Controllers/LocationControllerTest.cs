@@ -87,11 +87,11 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             //LocationID	OrganizationID	Name	Code	TypeID
             //1	1	Bank of the Outer Galactic Empire	BOGE01	11
             Assert.IsNotNull(controller);
-            Assert.AreEqual(actual.LocationID, 1);
-            Assert.AreEqual(actual.OrganizationID, 1);
-            Assert.AreEqual(actual.Name, "Bank of the Outer Galactic Empire");
-            Assert.AreEqual(actual.Code, "BOGE01");
-            Assert.AreEqual(actual.TypeID, 11);
+            Assert.AreEqual(1, actual.LocationID, 1);
+            Assert.AreEqual(1, actual.OrganizationID, 1);
+            Assert.AreEqual("Bank of the Outer Galactic Empire", actual.Name);
+            Assert.AreEqual("BOGE01", actual.Code);
+            Assert.AreEqual(11, actual.TypeID);
         }
 
         [TestMethod]
@@ -136,7 +136,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             var actual = controller.GetLocationsByOrganizationIdandTypeId(1, 12);
             Assert.IsNotNull(controller);
             Assert.IsNotNull(actual);
-            Assert.AreEqual(actual.Count, 2);
+            Assert.AreEqual(2, actual.Count);
             Assert.IsTrue(actual.Any(l => l.Name == "Greater Helium Branch"));
             Assert.IsTrue(actual.Any(l => l.Name == "Wastelands Branch"));
         }

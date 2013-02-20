@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
@@ -68,8 +70,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             ProductController controller = new ProductController();
 
+            var actual = controller.GetAllProducts();
+
+            Assert.AreEqual(actual.Count, 11);
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
         }
 
         [TestMethod]
@@ -77,8 +81,20 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             ProductController controller = new ProductController();
 
+            //ProductID	ProductCategoryID	Caption	Code	SKU	Rate	Cost
+            //1	1	Flush Galactic Dust Filtration System	MANT01	123	150.00	15.00
+            var actual = controller.GetProductById(1);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(1, actual.ProductID);
+            Assert.AreEqual(1, actual.ProductCategoryID);
+            Assert.AreEqual("Flush Galactic Dust Filtration System", actual.Caption);
+            Assert.AreEqual("MANT01", actual.Code);
+            Assert.AreEqual("123", actual.SKU);
+            Assert.AreEqual(150.00M, actual.Rate);
+            Assert.AreEqual(15.00M, actual.Cost);
+
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
         }
 
         [TestMethod]
@@ -86,8 +102,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             ProductController controller = new ProductController();
 
+            var actual = controller.GetProductById(100);
+
+            Assert.IsNull(actual);
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
         }
 
         [TestMethod]
@@ -95,8 +113,16 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             ProductController controller = new ProductController();
 
+            var actual = controller.GetProductsByCategoryId(1);
+
+            Assert.AreEqual(5, actual.Count);
+            Assert.AreEqual(true, actual.Any(p => p.Code == "MANT01"));
+            Assert.AreEqual(true, actual.Any(p => p.Code == "MANT02"));
+            Assert.AreEqual(true, actual.Any(p => p.Code == "MANT03"));
+            Assert.AreEqual(true, actual.Any(p => p.Code == "MANT04"));
+            Assert.AreEqual(true, actual.Any(p => p.Code == "MANT05"));
+
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
         }
 
         [TestMethod]
@@ -104,8 +130,11 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             ProductController controller = new ProductController();
 
+            var actual = controller.GetProductsByCategoryId(100);
+
+            Assert.AreEqual(0, actual.Count);
+
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
         }
 
         [TestMethod]
@@ -113,17 +142,25 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             ProductController controller = new ProductController();
 
+            var productToDelete = new Product {ProductID = 11};
+
+            controller.DeleteRecord(productToDelete);
+
+            var result = controller.GetProductById(11);
+
+            Assert.IsNull(result);
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException), "Should receive foreign key constraint violation on WorkOrderItems")]
         public void DeleteProductFail()
         {
             ProductController controller = new ProductController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var productToDelete = new Product {ProductID = 1};
+
+            controller.DeleteRecord(productToDelete);
         }
 
         [TestMethod]
@@ -131,17 +168,45 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             ProductController controller = new ProductController();
 
+            var productToInsert = new Product
+                {
+                    ProductCategoryID = 2,
+                    Caption = "Hitchhiker's Guide To The Galaxy",
+                    Code = "ERHM01",
+                    SKU = "100",
+                    Rate = 1000M,
+                    Cost = 100M
+                };
+
+            var resultId = controller.SaveRecord(productToInsert);
+
+            var result = controller.GetProductById(resultId);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(11, result.ProductID);
+            Assert.AreEqual(2, result.ProductCategoryID);
+            Assert.AreEqual("Hitchhiker's Guide To The Galaxy", result.Caption);
+            Assert.AreEqual("ERHM01", result.Code);
+            Assert.AreEqual("100", result.SKU);
+            Assert.AreEqual(1000M, result.Rate);
+            Assert.AreEqual(100M, result.Cost);
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException), "Should enforce uniqueness of Caption and possibly Code")]
         public void InsertProductFail()
         {
             ProductController controller = new ProductController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var productToInsert = new Product
+            {
+                ProductCategoryID = 100,
+                Caption = "Flush Galactic Dust Filtration System",
+                Code = "MANT01",
+            };
+
+            controller.SaveRecord(productToInsert);
         }
 
         [TestMethod]
@@ -149,17 +214,40 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             ProductController controller = new ProductController();
 
+            var productToUpdate = controller.GetProductById(1);
+
+            productToUpdate.Code = "MERG01";
+            productToUpdate.Caption = "Something else";
+            productToUpdate.SKU = "122";
+            productToUpdate.Rate = 100M;
+            productToUpdate.Cost = 10M;
+
+            var resultId = controller.SaveRecord(productToUpdate);
+
+            var result = controller.GetProductById(resultId);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("MERG01", result.Code);
+            Assert.AreEqual("Something else", result.Caption);
+            Assert.AreEqual("122", result.SKU);
+            Assert.AreEqual(100M, result.Rate);
+            Assert.AreEqual(10M, result.Cost);
             Assert.IsNotNull(controller);
-            Assert.Inconclusive();
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException), "Should enforce uniqueness of Caption and possibly Code")]
         public void UpdateProductFail()
         {
             ProductController controller = new ProductController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var productToUpdate = controller.GetProductById(1);
+
+            productToUpdate.ProductCategoryID = 100;
+            productToUpdate.Code = "MANT02";
+            productToUpdate.Caption = "Reseal Outer Shell Seams with Dark Matter Sealant";
+
+            controller.SaveRecord(productToUpdate);
         }
     }
 }
