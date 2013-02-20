@@ -10,7 +10,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         Location GetLocationById(int id);
         List<Location> GetLocationsByOrganizationId(int orgId);
         List<Location> GetLocationsByOrganizationIdandTypeId(Int32 orgId, Int32 typeId);
-        void DeleteRecord(Location location);
+        bool DeleteRecord(Location location);
         int SaveRecord(Location location);
     }
 }

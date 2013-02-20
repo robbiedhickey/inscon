@@ -8,7 +8,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
     {
         List<Request> GetAllRequests();
         Request GetRequestById(Int32 id);
-        void DeleteRecord(Request request);
+        bool DeleteRecord(Request request);
         int SaveRecord(Request request);
     }
 }

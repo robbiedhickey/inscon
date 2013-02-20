@@ -10,7 +10,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         UserContact GetUserContactById(Int32 id);
         List<UserContact> GetUserContactsByUserId(Int32 userId);
         List<UserContact> GetUserContactsByUserIdAndTypeId(Int32 userId, Int32 typeId);
-        void DeleteRecord(UserContact userContact);
+        bool DeleteRecord(UserContact userContact);
         int SaveRecord(UserContact userContact);
     }
 }

@@ -187,11 +187,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         public void DeleteUserPass()
         {
             UserController controller = new UserController();
-            controller.DeleteRecord(goodUser);
-            var actual = controller.GetUserById(goodUser.UserID);
+            var result = controller.DeleteRecord(goodUser);
 
             Assert.IsNotNull(controller);
-            Assert.IsNull(actual);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -199,12 +198,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             UserController controller = new UserController();
             goodUser.UserID = 10;
-            controller.DeleteRecord(goodUser);
-            var actual = controller.GetAllUsers();
+            var result = controller.DeleteRecord(goodUser);
 
             Assert.IsNotNull(controller);
-            Assert.IsNotNull(actual);
-            Assert.AreEqual(userCount, actual.Count);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]

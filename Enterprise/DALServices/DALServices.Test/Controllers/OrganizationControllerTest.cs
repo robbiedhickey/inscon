@@ -135,17 +135,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
 
             var actual = controller.SaveRecord(org);
             var newOrg = controller.GetOrganizationById(actual);
-            controller.DeleteRecord(newOrg);
-            var deadOrg = controller.GetOrganizationById(newOrg.OrganizationID);
+            bool ret = controller.DeleteRecord(newOrg);
 
             Assert.IsNotNull(controller);
             Assert.AreEqual(4, actual);
             Assert.IsNotNull(newOrg);
-            Assert.AreEqual(0, deadOrg.OrganizationID);
-            Assert.AreEqual(null, deadOrg.Name);
-            Assert.AreEqual(null, deadOrg.Code);
-            Assert.AreEqual(0, deadOrg.TypeID);
-            Assert.AreEqual(0, deadOrg.StatusID);
+            Assert.IsTrue(ret);
         }
 
         [TestMethod]
@@ -161,11 +156,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
                     StatusID = 1
                 };
 
-            controller.DeleteRecord(org);
+            var res = controller.DeleteRecord(org);
 
-            var results = controller.GetAllOrganizations();
-
-            Assert.AreEqual(3, results.Count);
+            Assert.IsNotNull(controller);
+            Assert.IsFalse(res);
         }
 
         [TestMethod]

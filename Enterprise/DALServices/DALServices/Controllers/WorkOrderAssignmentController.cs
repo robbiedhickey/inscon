@@ -50,7 +50,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(WorkOrderAssignment workOrderAssignment)
+        public bool DeleteRecord(WorkOrderAssignment workOrderAssignment)
         {
             if (workOrderAssignment == null)
             {
@@ -60,7 +60,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Negative Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(workOrderAssignment);
+            return _repository.DeleteRecord(workOrderAssignment);
         }
 
         [HttpPost]

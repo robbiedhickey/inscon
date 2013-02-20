@@ -9,7 +9,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         User GetUserById(int idUser);
         List<User> GetUsersByOrganizationId(int idOrganization);
         List<User> GetUsersByOrganizationIdAndIsActive(int idOrganization, int idStatus);
-        void DeleteRecord(User user);
+        bool DeleteRecord(User user);
         int SaveRecord(User user);
     }
 }

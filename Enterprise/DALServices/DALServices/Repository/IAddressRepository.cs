@@ -9,7 +9,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         List<Address> GetAllAddressRecords();
         Address GetAddressRecordById(int id);
         List<Address> GetRecordByParentIdAndEntityID(int parentId, Int16 entityId);
-        void DeleteRecord(Address address);
+        bool DeleteRecord(Address address);
         int SaveRecord(Address address);
     }
 }

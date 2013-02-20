@@ -26,9 +26,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetWorkOrdersByAssetId(assetId);
         }
 
-        public void DeleteRecord(WorkOrder workOrder)
+        public bool DeleteRecord(WorkOrder workOrder)
         {
-            new dbSvc().DeleteRecord(workOrder);
+            return new dbSvc().DeleteRecord(workOrder);
         }
 
         public int SaveRecord(WorkOrder workOrder)

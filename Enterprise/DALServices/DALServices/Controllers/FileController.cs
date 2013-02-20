@@ -58,7 +58,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(File file)
+        public bool DeleteRecord(File file)
         {
             if (file == null)
             {
@@ -68,7 +68,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Null Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(file);
+            return _repository.DeleteRecord(file);
         }
 
         [HttpPost]

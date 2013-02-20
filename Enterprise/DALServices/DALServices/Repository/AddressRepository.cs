@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetAddressRecordsByParentIdAndEntityID(parentId, entityId);
         }
 
-        public void DeleteRecord(Address address)
+        public bool DeleteRecord(Address address)
         {
-            new dbSvc().DeleteRecord(address);
+            return new dbSvc().DeleteRecord(address);
         }
 
         public int SaveRecord(Address address)

@@ -26,9 +26,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetUsersByOrganizationIdAndIsActive(idOrganization, idStatus);
         }
 
-        public void DeleteRecord(User user)
+        public bool DeleteRecord(User user)
         {
-            new dbSvc().DeleteRecord(user);
+            return new dbSvc().DeleteRecord(user);
         }
 
         public int SaveRecord(User user)

@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetProductsByCategoryId(categoryId);
         }
 
-        public void DeleteRecord(Product product)
+        public bool DeleteRecord(Product product)
         {
-            new dbSvc().DeleteRecord(product);
+            return new dbSvc().DeleteRecord(product);
         }
 
         public int SaveRecord(Product product)

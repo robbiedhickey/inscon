@@ -36,7 +36,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(Request request)
+        public bool DeleteRecord(Request request)
         {
             if (request == null)
             {
@@ -46,7 +46,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Negative Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(request);
+            return _repository.DeleteRecord(request);
         }
 
         [HttpPost]

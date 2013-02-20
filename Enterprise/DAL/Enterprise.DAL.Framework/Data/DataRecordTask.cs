@@ -169,13 +169,19 @@ namespace Enterprise.DAL.Framework.Data
         /// <summary>
         /// Deletes the record.
         /// </summary>
-        public void DeleteRecord()
+        public bool DeleteRecord()
         {
             LoadData();
 
             _storedProcedure = @"[crud]." + _modelName + @"_Delete";
-            Execute(GetCommand(_dbConnectionString, _storedProcedure, GetArgs()));
+            var args = GetArgs();
+            Execute(GetCommand(_dbConnectionString, _storedProcedure, args));
             CacheItem.Clear<T>();
+
+            string _checkProcedure = @"[crud]." + _modelName + @"_SelectById";
+            int retValue = Execute(GetCommand(_dbConnectionString, _checkProcedure, args), Convert.ToInt32);
+
+            return retValue == 0;
         }
 
         /// <summary>

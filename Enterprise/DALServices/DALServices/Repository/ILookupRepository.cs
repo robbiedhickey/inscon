@@ -9,7 +9,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         List<Lookup> GetAllLookups();
         Lookup GetLookupById(Int32 id);
         List<Lookup> GetLookupValuesByGroupId(Int16 groupId);
-        void DeleteRecord(Lookup lookup);
+        bool DeleteRecord(Lookup lookup);
         int SaveRecord(Lookup lookup);
     }
 }

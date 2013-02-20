@@ -10,7 +10,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         WorkOrder GetWorkOrderById(Int32 id);
         List<WorkOrder> GetWorkOrdersByRequestId(Int32 requestId);
         List<WorkOrder> GetWorkOrdersByAssetId(Int32 assetId);
-        void DeleteRecord(WorkOrder workOrder);
+        bool DeleteRecord(WorkOrder workOrder);
         int SaveRecord(WorkOrder workOrder);
     }
 }

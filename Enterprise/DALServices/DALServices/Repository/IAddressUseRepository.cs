@@ -10,7 +10,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         //AddressUse GetAddressUseById(int id);
         List<AddressUse> GetAddressUseByAddressId(int addressId);
         AddressUse GetAddressUseByAddressIdAndTypeId(int addressId, Int16 typeId);
-        void DeleteRecord(AddressUse addressUse);
+        bool DeleteRecord(AddressUse addressUse);
         int SaveRecord(AddressUse addressUse);
     }
 }

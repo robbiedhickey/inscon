@@ -7,7 +7,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
     {
         List<LookupGroup> GetAllLookupGroups();
         LookupGroup GetLookupGroupById(int id);
-        void DeleteRecord(LookupGroup lookupGroup);
+        bool DeleteRecord(LookupGroup lookupGroup);
         int SaveRecord(LookupGroup lookupGroup);
     }
 }

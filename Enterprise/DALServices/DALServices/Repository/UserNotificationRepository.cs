@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetUserNotificationsByUserId(userId);
         }
 
-        public void DeleteRecord(UserNotification userNotification)
+        public bool DeleteRecord(UserNotification userNotification)
         {
-            new dbSvc().DeleteRecord(userNotification);
+            return new dbSvc().DeleteRecord(userNotification);
         }
 
         public int SaveRecord(UserNotification userNotification)

@@ -16,9 +16,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetLookupGroupById(id);
         }
 
-        public void DeleteRecord(LookupGroup lookupGroup)
+        public bool DeleteRecord(LookupGroup lookupGroup)
         {
-            new dbSvc().DeleteRecord(lookupGroup);
+            return new dbSvc().DeleteRecord(lookupGroup);
         }
 
         public int SaveRecord(LookupGroup lookupGroup)

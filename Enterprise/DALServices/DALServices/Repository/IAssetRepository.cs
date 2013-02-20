@@ -9,7 +9,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         List<Asset> GetAllAssets();
         Asset GetAssetById(Int32 id);
         List<Asset> GetAssetByOrganizationID(Int32 organizationId);
-        void DeleteRecord(Asset asset);
+        bool DeleteRecord(Asset asset);
         int SaveRecord(Asset asset);
     }
 }

@@ -9,7 +9,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         List<File> GetAllFiles();
         File GetFileById(Int32 id);
         File GetFileByParentIdAndEntityID(Int32 parentId, Int16 entityId);
-        void DeleteRecord(File file);
+        bool DeleteRecord(File file);
         int SaveRecord(File file);
     }
 }

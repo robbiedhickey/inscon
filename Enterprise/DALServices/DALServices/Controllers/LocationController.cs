@@ -72,7 +72,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(Location location)
+        public bool DeleteRecord(Location location)
         {
             if (location == null)
             {
@@ -82,7 +82,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Negative Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(location);
+            return _repository.DeleteRecord(location);
         }
 
         [HttpPost]

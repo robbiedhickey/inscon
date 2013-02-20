@@ -109,13 +109,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
 
             var catID = controller.SaveRecord(insCat);
             var newCat = controller.GetProductCategoryById(catID);
-            controller.DeleteRecord(newCat);
-            var deadCat = controller.GetProductCategoryById(newCat.ProductCategoryID);
+            var res = controller.DeleteRecord(newCat);
 
             Assert.IsNotNull(controller);
             Assert.AreEqual(3, catID);
             Assert.IsNotNull(newCat);
-            Assert.IsNull(deadCat);
+            Assert.IsTrue(res);
         }
 
         [TestMethod]
@@ -124,12 +123,11 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             ProductCategoryController controller = new ProductCategoryController();
             var cat = controller.GetProductCategoryById(1);
             cat.ProductCategoryID = 100;
-            controller.DeleteRecord(cat);
-            var res = controller.GetAllProductCategories();
+            var res = controller.DeleteRecord(cat);
 
             Assert.IsNotNull(controller);
             Assert.IsNotNull(cat);
-            Assert.AreEqual(2,res.Count);
+            Assert.IsFalse(res);
         }
 
         [TestMethod]

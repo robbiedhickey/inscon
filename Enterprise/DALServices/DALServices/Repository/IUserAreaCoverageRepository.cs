@@ -9,7 +9,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         List<UserAreaCoverage> GetAllUserAreaCoverages();
         UserAreaCoverage GetUserAreaCoverageByParentId(int id);
         List<UserAreaCoverage> GetUserAreaCoverageByUserIdandServiceId(Int32 userId, Int32 serviceId);
-        void DeleteRecord(UserAreaCoverage userAreaCoverage);
+        bool DeleteRecord(UserAreaCoverage userAreaCoverage);
         int SaveRecord(UserAreaCoverage userAreaCoverage);
     }
 }

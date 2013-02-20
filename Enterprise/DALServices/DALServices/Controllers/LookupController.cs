@@ -50,7 +50,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(Lookup lookup)
+        public bool DeleteRecord(Lookup lookup)
         {
             if (lookup == null)
             {
@@ -60,7 +60,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Negative Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(lookup);
+            return _repository.DeleteRecord(lookup);
         }
 
         [HttpPost]

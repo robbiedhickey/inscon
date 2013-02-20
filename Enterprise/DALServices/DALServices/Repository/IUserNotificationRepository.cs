@@ -9,7 +9,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         List<UserNotification> GetAllUserNotifications();
         UserNotification GetUserNotificationById(Int32 id);
         List<UserNotification> GetUserNotificationsByUserId(Int32 userId);
-        void DeleteRecord(UserNotification userNotification);
+        bool DeleteRecord(UserNotification userNotification);
         int SaveRecord(UserNotification userNotification);
     }
 }

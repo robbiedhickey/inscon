@@ -79,13 +79,13 @@ namespace Enterprise.DAL.Core.Service
         /// Deletes the record.
         /// </summary>
         /// <param name="model">The model.</param>
-        public void DeleteRecord(T model)
+        public bool DeleteRecord(T model)
         {
             var record = new DataRecordTask<T>
                 {
                     Model = model
                 };
-            record.DeleteRecord();
+            return record.DeleteRecord();
         }
     
 }

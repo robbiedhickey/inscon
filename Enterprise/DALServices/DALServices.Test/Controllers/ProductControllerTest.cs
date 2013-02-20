@@ -141,17 +141,13 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         public void DeleteProductPass()
         {
             ProductController controller = new ProductController();
-
             var productToDelete = new Product {ProductID = 11};
+            var result = controller.DeleteRecord(productToDelete);
 
-            controller.DeleteRecord(productToDelete);
-
-            var result = controller.GetProductById(11);
-
-            Assert.IsNull(result);
             Assert.IsNotNull(controller);
+            Assert.IsTrue(result);
         }
-
+        // HACK: this is only true if the product has a dependant record.  If it was just added the product will delete.
         [TestMethod]
         [ExpectedException(typeof(SqlException), "Should receive foreign key constraint violation on WorkOrderItems")]
         public void DeleteProductFail()

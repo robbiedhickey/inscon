@@ -7,7 +7,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
     {
         List<ProductCategory> GetAllProductCategories();
         ProductCategory GetProductCategoryById(int id);
-        void DeleteRecord(ProductCategory productCategory);
+        bool DeleteRecord(ProductCategory productCategory);
         int SaveRecord(ProductCategory productCategory);
     }
 }

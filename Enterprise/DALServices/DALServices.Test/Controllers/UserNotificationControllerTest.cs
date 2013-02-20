@@ -130,11 +130,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             UserNotificationController controller = new UserNotificationController();
             var un = controller.GetUserNotificationById(1);
-            controller.DeleteRecord(un);
-            var result = controller.GetUserNotificationById(1);
+            var result = controller.DeleteRecord(un);
 
             Assert.IsNotNull(controller);
-            Assert.IsNull(result);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -143,11 +142,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             UserNotificationController controller = new UserNotificationController();
             var target = controller.GetUserNotificationById(1);
             target.UserNotificationID = 100;
-            controller.DeleteRecord(target);
-            var usrList = controller.GetAllUserNotifications();
+            var result = controller.DeleteRecord(target);
 
             Assert.IsNotNull(controller);
-            Assert.AreEqual(18, usrList.Count);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]

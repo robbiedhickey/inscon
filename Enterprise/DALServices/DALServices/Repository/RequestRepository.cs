@@ -16,9 +16,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetRequestById(id);
         }
 
-        public void DeleteRecord(Request request)
+        public bool DeleteRecord(Request request)
         {
-            new dbSvc().DeleteRecord(request);
+            return new dbSvc().DeleteRecord(request);
         }
 
         public int SaveRecord(Request request)

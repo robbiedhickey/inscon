@@ -36,7 +36,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(LookupGroup lookupGroup)
+        public bool DeleteRecord(LookupGroup lookupGroup)
         {
             if (lookupGroup == null)
             {
@@ -46,7 +46,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Negative Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(lookupGroup);
+            return _repository.DeleteRecord(lookupGroup);
         }
 
         [HttpPost]

@@ -146,11 +146,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         public void DeleteUserAreaCoveragePass()
         {
             UserAreaCoverageController controller = new UserAreaCoverageController();
-            controller.DeleteRecord(delObj);
-            var actual = controller.GetUserAreaCoverageByParentId(delObj.UserID);
+            var result = controller.DeleteRecord(delObj);
 
             Assert.IsNotNull(controller);
-            Assert.IsNull(actual);
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -158,11 +157,10 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             UserAreaCoverageController controller = new UserAreaCoverageController();
             delObj.UserAreaCoverageID = 100;
-            controller.DeleteRecord(delObj);
-            var actual = controller.GetAllUserAreaCoverages();
+            var result = controller.DeleteRecord(delObj);
 
             Assert.IsNotNull(controller);
-            Assert.AreEqual(9, actual.Count);
+            Assert.IsFalse(result);
         }
 
         [TestMethod]

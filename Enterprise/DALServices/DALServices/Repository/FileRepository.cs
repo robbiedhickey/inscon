@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetFileByParentIdAndEntityID(parentId, entityId);
         }
 
-        public void DeleteRecord(File file)
+        public bool DeleteRecord(File file)
         {
-            new dbSvc().DeleteRecord(file);
+            return new dbSvc().DeleteRecord(file);
         }
 
         public int SaveRecord(File file)

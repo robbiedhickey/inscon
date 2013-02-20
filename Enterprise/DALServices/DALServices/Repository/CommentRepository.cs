@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetCommentByParentIdAndEntityID(parentId, entityId);
         }
 
-        public void DeleteRecord(Comment comment)
+        public bool DeleteRecord(Comment comment)
         {
-            new dbSvc().DeleteRecord(comment);
+            return new dbSvc().DeleteRecord(comment);
         }
 
         public int SaveRecord(Comment comment)

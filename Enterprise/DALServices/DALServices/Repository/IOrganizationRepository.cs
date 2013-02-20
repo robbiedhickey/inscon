@@ -8,7 +8,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         List<Organization> GetAllOrganizations();
         Organization GetOrganizationById(int id);
         List<Organization> GetOrganizationsByTypeId(int? typeId);
-        void DeleteRecord(Organization organization);
+        bool DeleteRecord(Organization organization);
         int SaveRecord(Organization organization);
     }
 }

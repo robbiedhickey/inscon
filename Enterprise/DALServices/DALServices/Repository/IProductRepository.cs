@@ -9,7 +9,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         List<Product> GetAllProducts();
         Product GetProductById(Int32 id);
         List<Product> GetProductsByCategoryId(Int32 categoryId);
-        void DeleteRecord(Product product);
+        bool DeleteRecord(Product product);
         int SaveRecord(Product product);
     }
 }

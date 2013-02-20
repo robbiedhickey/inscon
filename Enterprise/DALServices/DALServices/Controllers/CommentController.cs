@@ -58,7 +58,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(Comment comment)
+        public bool DeleteRecord(Comment comment)
         {
             if (comment == null)
             {
@@ -68,7 +68,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Null Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(comment);
+            return _repository.DeleteRecord(comment);
         }
 
         [HttpPost]

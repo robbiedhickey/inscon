@@ -50,7 +50,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(Organization organization)
+        public bool DeleteRecord(Organization organization)
         {
             if (organization == null)
             {
@@ -60,7 +60,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Negative Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(organization);
+            return _repository.DeleteRecord(organization);
         }
 
         [HttpPost]

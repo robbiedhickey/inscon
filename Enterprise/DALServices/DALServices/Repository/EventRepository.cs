@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetEventByParentIdAndEntityID(parentId, entityId);
         }
 
-        public void DeleteRecord(Event dalEvent)
+        public bool DeleteRecord(Event dalEvent)
         {
-            new dbSvc().DeleteRecord(dalEvent);
+            return new dbSvc().DeleteRecord(dalEvent);
         }
 
         public int SaveRecord(Event dalEvent)

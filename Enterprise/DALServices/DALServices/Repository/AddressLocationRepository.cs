@@ -16,9 +16,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetAddressLocationById(id);
         }
 
-        public void DeleteRecord(AddressLocation addressLocation)
+        public bool DeleteRecord(AddressLocation addressLocation)
         {
-            new dbSvc().DeleteRecord(addressLocation);
+            return new dbSvc().DeleteRecord(addressLocation);
         }
 
         public int SaveRecord(AddressLocation addressLocation)

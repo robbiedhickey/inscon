@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetLookupValuesByGroupId(groupId);
         }
 
-        public void DeleteRecord(Lookup lookup)
+        public bool DeleteRecord(Lookup lookup)
         {
-            new dbSvc().DeleteRecord(lookup);
+            return new dbSvc().DeleteRecord(lookup);
         }
 
         public int SaveRecord(Lookup lookup)

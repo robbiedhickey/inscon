@@ -7,7 +7,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
     {
         List<AddressLocation> GetAllAddressesLocationRecords();
         AddressLocation GetAddressLocationById(int id);
-        void DeleteRecord(AddressLocation addressLocation);
+        bool DeleteRecord(AddressLocation addressLocation);
         int SaveRecord(AddressLocation addressLocation);
     }
 }

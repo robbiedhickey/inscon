@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetAssetByOrganizationID(organizationId);
         }
 
-        public void DeleteRecord(Asset asset)
+        public bool DeleteRecord(Asset asset)
         {
-            new dbSvc().DeleteRecord(asset);
+            return new dbSvc().DeleteRecord(asset);
         }
 
         public int SaveRecord(Asset asset)

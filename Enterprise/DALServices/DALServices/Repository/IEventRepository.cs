@@ -9,7 +9,7 @@ namespace Enterprise.ApiServices.DALServices.Repository
         List<Event> GetAllEvents();
         Event GetEventById(int id);
         Event GetEventByParentIdAndEntityID(int parentId, Int16 entityId);
-        void DeleteRecord(Event dalEvent);
+        bool DeleteRecord(Event dalEvent);
         int SaveRecord(Event dalEvent);
     }
 }

@@ -36,7 +36,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(ProductCategory productCategory)
+        public bool DeleteRecord(ProductCategory productCategory)
         {
             if (productCategory == null)
             {
@@ -46,7 +46,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Negative Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(productCategory);
+            return _repository.DeleteRecord(productCategory);
         }
 
         [HttpPost]

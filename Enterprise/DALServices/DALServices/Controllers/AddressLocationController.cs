@@ -34,7 +34,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(AddressLocation addressLocation)
+        public bool DeleteRecord(AddressLocation addressLocation)
         {
             if (addressLocation == null)
             {
@@ -44,7 +44,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Null Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(addressLocation);
+            return _repository.DeleteRecord(addressLocation);
         }
 
         [HttpPost]

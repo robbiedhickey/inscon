@@ -26,9 +26,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetUserContactsByUserIdAndTypeId(userId, typeId);
         }
 
-        public void DeleteRecord(UserContact userContact)
+        public bool DeleteRecord(UserContact userContact)
         {
-            new dbSvc().DeleteRecord(userContact);
+            return new dbSvc().DeleteRecord(userContact);
         }
 
         public int SaveRecord(UserContact userContact)

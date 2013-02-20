@@ -50,7 +50,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(Asset asset)
+        public bool DeleteRecord(Asset asset)
         {
             if (asset == null)
             {
@@ -60,7 +60,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Null Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(asset);
+            return _repository.DeleteRecord(asset);
         }
 
         [HttpPost]

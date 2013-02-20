@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetUserAreaCoverageByUserIdandServiceId(userId, serviceId);
         }
 
-        public void DeleteRecord(UserAreaCoverage userAreaCoverage)
+        public bool DeleteRecord(UserAreaCoverage userAreaCoverage)
         {
-            new dbSvc().DeleteRecord(userAreaCoverage);
+            return new dbSvc().DeleteRecord(userAreaCoverage);
         }
 
         public int SaveRecord(UserAreaCoverage userAreaCoverage)

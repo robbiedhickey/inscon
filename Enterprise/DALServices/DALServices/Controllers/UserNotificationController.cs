@@ -50,7 +50,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(UserNotification userNotification)
+        public bool DeleteRecord(UserNotification userNotification)
         {
             if (userNotification == null)
             {
@@ -60,7 +60,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Negative Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(userNotification);
+            return _repository.DeleteRecord(userNotification);
         }
 
         [HttpPost]

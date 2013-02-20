@@ -39,12 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Enterprise.DAL.Core">
-      <HintPath>..\..\ThirdParty\SharedBin\Enterprise.DAL.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Enterprise.DAL.Framework">
-      <HintPath>..\..\ThirdParty\SharedBin\Enterprise.DAL.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -309,6 +303,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DAL\Enterprise.DAL.Core\Enterprise.DAL.Core.csproj">
+      <Project>{e420cd35-096a-4159-9b57-5735e9375287}</Project>
+      <Name>Enterprise.DAL.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DAL\Enterprise.DAL.Framework\Enterprise.DAL.Framework.csproj">
+      <Project>{caca9b92-dc2a-4751-9266-0f9544b308be}</Project>
+      <Name>Enterprise.DAL.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

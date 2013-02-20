@@ -26,9 +26,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetLocationsByOrganizationIdandTypeId(orgId, typeId);
         }
 
-        public void DeleteRecord(Location location)
+        public bool DeleteRecord(Location location)
         {
-            new dbSvc().DeleteRecord(location);
+            return new dbSvc().DeleteRecord(location);
         }
 
         public int SaveRecord(Location location)

@@ -21,9 +21,9 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetOrganizationsByTypeId(typeId);
         }
 
-        public void DeleteRecord(Organization organization)
+        public bool DeleteRecord(Organization organization)
         {
-            new dbSvc().DeleteRecord(organization);
+            return new dbSvc().DeleteRecord(organization);
         }
 
         public int SaveRecord(Organization organization)

@@ -58,7 +58,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
         }
 
         [HttpDelete]
-        public void DeleteRecord(UserAreaCoverage userAreaCoverage)
+        public bool DeleteRecord(UserAreaCoverage userAreaCoverage)
         {
             if (userAreaCoverage == null)
             {
@@ -68,7 +68,7 @@ namespace Enterprise.ApiServices.DALServices.Controllers
                                                              "Negative Value Not Allowed"));
             }
 
-            _repository.DeleteRecord(userAreaCoverage);
+            return _repository.DeleteRecord(userAreaCoverage);
         }
 
         [HttpPost]
