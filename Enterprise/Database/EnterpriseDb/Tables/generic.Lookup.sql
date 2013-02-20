@@ -1,7 +1,7 @@
 CREATE TABLE [generic].[Lookup]
 (
 [LookupID] [int] NOT NULL IDENTITY(1, 1),
-[LookupGroupID] [smallint] NOT NULL,
+[LookupGroupID] [int] NOT NULL,
 [Value] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [OldID] [int] NULL
 ) ON [PRIMARY]

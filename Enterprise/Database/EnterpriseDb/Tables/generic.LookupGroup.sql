@@ -1,6 +1,6 @@
 CREATE TABLE [generic].[LookupGroup]
 (
-[LookupGroupID] [smallint] NOT NULL IDENTITY(1, 1),
+[LookupGroupID] [int] NOT NULL IDENTITY(1, 1),
 [Name] [varchar] (75) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [OldID] [int] NULL
 ) ON [PRIMARY]

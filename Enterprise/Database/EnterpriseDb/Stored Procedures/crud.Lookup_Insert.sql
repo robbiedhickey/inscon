@@ -1,10 +1,11 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
 
 CREATE PROC [crud].[Lookup_Insert]
-  @LookupGroupID SMALLINT,
+  @LookupGroupID INT,
   @Value         VARCHAR(50)
 AS
     SET NOCOUNT ON
