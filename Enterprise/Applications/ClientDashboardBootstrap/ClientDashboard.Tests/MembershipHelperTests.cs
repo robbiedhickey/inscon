@@ -35,9 +35,9 @@ namespace ClientDashboard.Tests
         [TestMethod]
         public void RecentPasswords_ShouldDetectPreviouslyUsed()
         {
-            var result = _helper.PasswordHasBeenUsedRecently("robert.hickey", "P@ssword", 6); //used
-            var result2 = _helper.PasswordHasBeenUsedRecently("robert.hickey", "P@ssword1", 6); //used
-            var result3 = _helper.PasswordHasBeenUsedRecently("robert.hickey", "131lkjdkjkj1", 6); //never used
+            var result = _helper.PasswordHasBeenUsedRecently("robert.hickey", "P@ssword", 40); //used
+            var result2 = _helper.PasswordHasBeenUsedRecently("robert.hickey", "P@ssword1", 40); //used
+            var result3 = _helper.PasswordHasBeenUsedRecently("robert.hickey", "131lkjdkjkj1", 40); //never used
 
             Assert.IsTrue(result);
             Assert.IsTrue(result2);
