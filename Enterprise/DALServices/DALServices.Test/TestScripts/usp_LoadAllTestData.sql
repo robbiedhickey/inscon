@@ -43,6 +43,7 @@ DBCC CHECKIDENT('[generic].[Event]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[File]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[LookupGroup]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[Lookup]', RESEED, 0)
+DBCC CHECKIDENT('[generic].[Event]', RESEED, 0)
 
 -- Insert the test data
 INSERT INTO [dbo].[Organization]([Name] ,[Code] ,[TypeID] ,[StatusID])VALUES('Bank of the Outer Galactic Empire', 'BOGE', 3, 1)
@@ -297,5 +298,11 @@ INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Si
 INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(8, 24, '\\Resources\2012\12\01', 'picture08.jpg', 150.50, 35, 'Missing Outer Shel Seam Seal')
 INSERT INTO [generic].[File]([ParentID] ,[EntityID] ,[ParentFolder] ,[Name] ,[Size] ,[TypeID] ,[Caption])VALUES(9, 24, '\\Resources\2012\12\01', 'picture09.jpg', 150.50, 35, 'Ruptured Power Core')
 
+INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[EventDate]) VALUES (1 ,20 ,30 ,40 ,'02/01/2013') 
+INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[EventDate]) VALUES (2 ,21 ,31 ,41 ,'02/02/2013') 
+INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[EventDate]) VALUES (3 ,22 ,32 ,42 ,'02/03/2013') 
+INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[EventDate]) VALUES (4 ,23 ,33 ,43 ,'02/04/2013') 
+INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[EventDate]) VALUES (5 ,24 ,34 ,44 ,'02/05/2013') 
+INSERT INTO [generic].[Event] ([ParentID] ,[EntityID] ,[TypeID] ,[UserID] ,[EventDate]) VALUES (6 ,25 ,35 ,45 ,'02/06/2013') 
 -- Enable all constraints
 EXEC sp_msforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT all'

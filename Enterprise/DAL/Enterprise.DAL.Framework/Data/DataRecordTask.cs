@@ -133,7 +133,7 @@ namespace Enterprise.DAL.Framework.Data
             _isChanged = (bool) type.GetMethod("IsChanged").Invoke(_model, null);
             _dbConnectionString = (string) type.GetProperty("SqlDatabase").GetValue(_model);
             _commit = type.GetMethod("CommitChanges");
-            _recordId = (Int32) type.GetProperty(_modelName + @"ID").GetValue(_model);
+            _recordId = Convert.ToInt32(type.GetProperty(_modelName + @"ID").GetValue(_model));
         }
 
         /// <summary>

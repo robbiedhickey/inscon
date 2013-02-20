@@ -11,10 +11,10 @@ namespace Enterprise.ApiServices.DALServices.Repository
             return new dbSvc().GetAllAddressUseRecords();
         }
 
-        public AddressUse GetAddressUseById(int id)
-        {
-            return new dbSvc().GetAddressUseById(id);
-        }
+        //public AddressUse GetAddressUseById(int id)
+        //{
+        //    return new dbSvc().GetAddressUseById(id);
+        //}
 
         public List<AddressUse> GetAddressUseByAddressId(int addressId)
         {

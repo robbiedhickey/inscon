@@ -54,8 +54,7 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="AuthenticationService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="AuthenticationService">
       <HintPath>..\..\..\ThirdParty\SharedBin\AuthenticationService.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

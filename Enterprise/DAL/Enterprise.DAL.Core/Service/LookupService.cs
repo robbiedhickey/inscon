@@ -14,6 +14,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using Enterprise.DAL.Core.Model;
 using Enterprise.DAL.Core.Types;
 using Enterprise.DAL.Framework.Data;
@@ -35,7 +37,7 @@ namespace Enterprise.DAL.Core.Service
             var record = new Lookup
                 {
                     LookupID = reader.GetInt32("LookupID"),
-                    LookupGroupID = reader.GetInt32("LookupGroupID"),
+                    LookupGroupID = reader.GetInt16("LookupGroupID"),
                     Value = reader.GetString("Value")
                 };
 

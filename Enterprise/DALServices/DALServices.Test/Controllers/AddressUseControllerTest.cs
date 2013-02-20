@@ -75,15 +75,6 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         }
 
         [TestMethod]
-        public void GetAddressUseByIdPass()
-        {
-            AddressUseController controller = new AddressUseController();
-            var adds = controller.GetAddressUseById(1);
-
-            Assert.IsNotNull(controller);
-        }
-
-        [TestMethod]
         public void GetAddressUseByIdFail()
         {
             AddressUseController controller = new AddressUseController();

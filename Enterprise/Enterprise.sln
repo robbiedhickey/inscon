@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{D0F00668-7145-4454-B45C-48A377D30685}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientDashboard", "Applications\ClientDashboardBootstrap\ClientDashboard\ClientDashboard.csproj", "{1083BEE7-0B49-49A7-AF8A-AF1352299E56}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E420CD35-096A-4159-9B57-5735E9375287} = {E420CD35-096A-4159-9B57-5735E9375287}
+		{DEF58C44-1BC5-4B6F-B420-5BE8252585DC} = {DEF58C44-1BC5-4B6F-B420-5BE8252585DC}
+		{CACA9B92-DC2A-4751-9266-0F9544B308BE} = {CACA9B92-DC2A-4751-9266-0F9544B308BE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientDashboard.Tests", "Applications\ClientDashboardBootstrap\ClientDashboard.Tests\ClientDashboard.Tests.csproj", "{46584A20-0A84-4A8E-8A91-394FE969B86C}"
 EndProject

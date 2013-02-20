@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Text;
 using System.Collections.Generic;
+using Enterprise.ApiServices.DALServices.Controllers;
 using Enterprise.DAL.Core.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -9,14 +11,16 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
     /// <summary>
     /// Summary description for FileControllerTest
     /// </summary>
+    /// 
+    /// CRUD fails because reflection assumes ID postfix and we use Id
     [TestClass]
     public class FileControllerTest
     {
+        private readonly FileController _controller;
+
         public FileControllerTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            _controller = new FileController();
         }
 
         private TestContext testContextInstance;
@@ -65,67 +69,132 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         [TestMethod]
         public void GetAllFiles()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetAllFiles();
+
+            Assert.AreEqual(9, actual.Count);
         }
 
         [TestMethod]
         public void GetFileByIdPass()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetFileById(1);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(1, actual.FileID);
+            Assert.AreEqual(24, actual.EntityID);
+            Assert.AreEqual(1, actual.ParentID);
+            Assert.AreEqual(150.50M, actual.Size);
+            Assert.AreEqual(@"\\Resources\2012\12\01", actual.ParentFolder);
+            Assert.AreEqual(@"picture01.jpg", actual.Name);
         }
 
         [TestMethod]
         public void GetFileByIdFail()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetFileById(100);
+
+            Assert.IsNull(actual);
         }
 
         [TestMethod]
         public void GetFileByParentIdAndEntityIDPass()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetFileByParentIdAndEntityID(2, 24);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(2, actual.FileID);
+            Assert.AreEqual(24, actual.EntityID);
+            Assert.AreEqual(2, actual.ParentID);
+            Assert.AreEqual(150.50M, actual.Size);
+            Assert.AreEqual(@"\\Resources\2012\12\01", actual.ParentFolder);
+            Assert.AreEqual(@"picture02.jpg", actual.Name);
         }
 
         [TestMethod]
         public void GetFileByParentIdAndEntityIDFail()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetFileByParentIdAndEntityID(1, 20);//invalid entityId
+            var actual1 = _controller.GetFileByParentIdAndEntityID(100, 24);//invalid parentId
+
+            Assert.IsNull(actual);
+            Assert.IsNull(actual1);
         }
 
         [TestMethod]
         public void DeleteFilePass()
         {
-            Assert.Inconclusive();
+            var fileToDelete = new File { FileID = 1 };
+            _controller.DeleteRecord(fileToDelete);
+            var recordAfterDelete = _controller.GetFileById(1);
+            Assert.IsNull(recordAfterDelete);
         }
 
         [TestMethod]
         public void DeleteFileFail()
         {
-            Assert.Inconclusive();
+            var fileToDelete = new File() { FileID = 100 }; //file does not exist
+
+            _controller.DeleteRecord(fileToDelete);
+            var recordAfterDelete = _controller.GetFileById(100);
+            Assert.IsNull(recordAfterDelete);
         }
+
 
         [TestMethod]
         public void InsertFilePass()
         {
-            Assert.Inconclusive();
+            var fileToInsert = new File
+            {
+                Caption = "asdf",
+                EntityID = 24,
+                Name = "picture.jpeg",
+                ParentFolder = @"C:\Files",
+                Size = 10M,
+                TypeID = 35,
+            };
+
+            var result = _controller.SaveRecord(fileToInsert);
+
+            Assert.AreEqual(result, 10);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException))]
         public void InsertFileFail()
         {
-            Assert.Inconclusive();
+            var fileToInsert = new File
+            {
+                EntityID = 5,
+                TypeID = 1,
+            };
+
+            var result = _controller.SaveRecord(fileToInsert);
         }
 
         [TestMethod]
         public void UpdateFilePass()
         {
-            Assert.Inconclusive();
+            var before = _controller.GetFileById(1);
+
+            before.EntityID = 30;
+
+            _controller.SaveRecord(before);
+
+            var after = _controller.GetFileById(1);
+
+            Assert.AreEqual(after.EntityID, 30);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(NullReferenceException))]
         public void UpdateFileFail()
         {
-            Assert.Inconclusive();
+            var before = _controller.GetFileById(1);
+
+            before.ParentFolder = null;
+            before.Name = null;
+
+            var after = _controller.SaveRecord(before);
         }
     }
 }

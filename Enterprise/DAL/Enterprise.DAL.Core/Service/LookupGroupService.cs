@@ -34,7 +34,7 @@ namespace Enterprise.DAL.Core.Service
         {
             var record = new LookupGroup
                 {
-                    LookupGroupID = reader.GetInt32("LookupGroupID"),
+                    LookupGroupID = reader.GetInt16("LookupGroupID"),
                     Name = reader.GetString("Name")
                 };
 
@@ -69,7 +69,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<LookupGroup> h = h2 => h2.LookupGroupID == id;
-                return GetAllLookupGroups().Find(h) ?? new LookupGroup();
+                return GetAllLookupGroups().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.LookupGroup_SelectById, Build, id);

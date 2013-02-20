@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using System.Collections.Generic;
+using Enterprise.ApiServices.DALServices.Controllers;
 using Enterprise.DAL.Core.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -12,11 +15,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
     [TestClass]
     public class LookupControllerTest
     {
+
+        private LookupController _controller;
+
         public LookupControllerTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            _controller = new LookupController();
         }
 
         private TestContext testContextInstance;
@@ -65,67 +69,144 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         [TestMethod]
         public void GetAllLookups()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetAllLookups();
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(43, actual.Count);
         }
 
         [TestMethod]
         public void GetLookupByIdPass()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetLookupById(1);
+
+            //LookupID	LookupGroupID	Value	OldID
+            //1	1	Active	NULL
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(actual.LookupID, 1);
+            Assert.AreEqual(actual.LookupGroupID, 1);
+            Assert.AreEqual(actual.Value, "Active");
+
         }
 
         [TestMethod]
         public void GetLookupByIdFail()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetLookupById(100);
+
+            Assert.IsNull(actual);
         }
 
         [TestMethod]
         public void GetLookupValuesByGroupIdPass()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetLookupValuesByGroupId(2);
+
+            Assert.IsTrue(actual.Count == 5);
+            Assert.IsTrue(actual.Any(l => l.Value == "Customer"));
+            Assert.IsTrue(actual.Any(l => l.Value == "Contractor"));
+            Assert.IsTrue(actual.Any(l => l.Value == "Employee"));
+            Assert.IsTrue(actual.Any(l => l.Value == "Auditor"));
+            Assert.IsTrue(actual.Any(l => l.Value == "Investor"));
         }
 
         [TestMethod]
         public void GetLookupValuesByGroupIdFail()
         {
-            Assert.Inconclusive();
+            var actual = _controller.GetLookupValuesByGroupId(100);
+
+            Assert.IsTrue(actual.Count == 0);
         }
 
         [TestMethod]
         public void DeleteLookupPass()
         {
-            Assert.Inconclusive();
+            var lookupToDelete = new Lookup { LookupID = 1 };
+
+            _controller.DeleteRecord(lookupToDelete);
+
+            var result = _controller.GetLookupById(1);
+            Assert.IsNull(result);
         }
 
         [TestMethod]
         public void DeleteLookupFail()
         {
-            Assert.Inconclusive();
+            var lookupToDelete = new Lookup { LookupID = 100 };
+
+            _controller.DeleteRecord(lookupToDelete);
+
+            var result = _controller.GetLookupById(100);
+
+            Assert.IsNull(result);
         }
 
         [TestMethod]
         public void InsertLookupPass()
         {
-            Assert.Inconclusive();
+            var lookupToInsert = new Lookup
+            {
+                Value = "BlahBlah",
+                LookupGroupID = 12
+            };
+
+            var result = _controller.SaveRecord(lookupToInsert);
+
+            var record = _controller.GetLookupById(result);
+
+            Assert.IsNotNull(record);
+            Assert.IsTrue(record.Value == "BlahBlah");
+            Assert.IsTrue(record.LookupGroupID == 12);
         }
 
+        //need to add constraint for lookup group
         [TestMethod]
+        [ExpectedException(typeof(SqlException))]
         public void InsertLookupFail()
         {
-            Assert.Inconclusive();
+            var lookupToInsert = new Lookup
+            {
+                Value = "BlahBlah",
+                LookupGroupID = 120 //lookup group does not exist
+            };
+
+            var result = _controller.SaveRecord(lookupToInsert);
+
+            var record = _controller.GetLookupById(result);
+
+            Assert.IsNull(record);
         }
 
         [TestMethod]
         public void UpdateLookupPass()
         {
-            Assert.Inconclusive();
+            var lookupToUpdate = _controller.GetLookupById(2);
+
+            lookupToUpdate.Value = "Something else";
+
+            _controller.SaveRecord(lookupToUpdate);
+
+            var postUpdate = _controller.GetLookupById(2);
+
+            Assert.IsNotNull(postUpdate);
+            Assert.IsTrue(postUpdate.Value == "Something else");
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException))]
         public void UpdateLookupFail()
         {
-            Assert.Inconclusive();
+            var lookupToUpdate = _controller.GetLookupById(2);
+
+            lookupToUpdate.Value = "Active"; //duplicate value for a lookupgroup, should be a constraint
+
+            _controller.SaveRecord(lookupToUpdate);
+
+            var postUpdate = _controller.GetLookupById(2);
+
+            Assert.IsNotNull(postUpdate);
+            Assert.IsTrue(postUpdate.Value == "Inactive"); //value should not have changed
+
         }
     }
 }
