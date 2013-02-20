@@ -24,7 +24,7 @@ namespace Enterprise.DAL.Core.Model
         /// <summary>
         /// The _entity
         /// </summary>
-        private short _entity;
+        private Int16 _entity;
         /// <summary>
         /// The _name
         /// </summary>
