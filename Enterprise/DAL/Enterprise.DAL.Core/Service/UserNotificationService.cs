@@ -63,7 +63,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<UserNotification> h = h2 => h2.UserNotificationID == id;
-                return GetAllUserNotifications().Find(h) ?? new UserNotification();
+                return GetAllUserNotifications().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.UserNotification_SelectById, Build, id);

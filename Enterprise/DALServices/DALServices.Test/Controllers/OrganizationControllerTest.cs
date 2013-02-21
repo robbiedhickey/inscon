@@ -93,11 +93,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             OrganizationController controller = new OrganizationController();
             var actual = controller.GetOrganizationById(5);
 
-            Assert.IsNotNull(actual);
-            Assert.IsNull(actual.Name);
-            Assert.IsNull(actual.Code);
-            Assert.AreEqual(actual.TypeID, 0);
-            Assert.AreEqual(actual.StatusID, 0);
+            Assert.IsNull(actual);
         }
 
         [TestMethod]

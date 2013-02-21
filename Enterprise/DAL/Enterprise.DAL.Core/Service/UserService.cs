@@ -65,7 +65,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<User> h = h2 => h2.UserID == idUser;
-                return GetAllUsers().Find(h) ?? new User();
+                return GetAllUsers().Find(h);
             }
             return Query(SqlDatabase, Procedure.User_SelectById, Build, idUser);
         }

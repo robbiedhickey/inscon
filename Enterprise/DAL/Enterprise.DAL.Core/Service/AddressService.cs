@@ -66,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Address> h = h2 => h2.AddressID == id;
-                return GetAllAddressRecords().Find(h) ?? new Address();
+                return GetAllAddressRecords().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Address_SelectById, Build, id);

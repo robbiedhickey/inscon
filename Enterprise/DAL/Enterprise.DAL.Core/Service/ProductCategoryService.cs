@@ -63,7 +63,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<ProductCategory> h = h2 => h2.ProductCategoryID == id;
-                return GetAllProductCategories().Find(h) ?? new ProductCategory();
+                return GetAllProductCategories().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.ProductCategory_SelectById, Build, id);

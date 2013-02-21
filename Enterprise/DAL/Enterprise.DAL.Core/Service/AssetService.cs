@@ -57,7 +57,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Asset> h = h2 => h2.AssetID == id;
-                return GetAllAssets().Find(h) ?? new Asset();
+                return GetAllAssets().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Asset_SelectById, Build, id);

@@ -77,7 +77,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<AddressUse> h = h2 => h2.AddressID == addressID && h2.TypeID == typeID;
-                return GetAllAddressUseRecords().Find(h) ?? new AddressUse();
+                return GetAllAddressUseRecords().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.AddressUse_SelectByAddressIdAndTypeId, Build, addressID,

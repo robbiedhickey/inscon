@@ -63,7 +63,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Location> h = h2 => h2.LocationID == id;
-                return GetAllLocations().Find(h) ?? new Location();
+                return GetAllLocations().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Location_SelectById, Build, id);

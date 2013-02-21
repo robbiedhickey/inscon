@@ -68,7 +68,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<AddressLocation> h = h2 => h2.AddressID == id;
-                return GetAllAddressesLocationRecords().Find(h) ?? new AddressLocation();
+                return GetAllAddressesLocationRecords().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.AddressLocation_SelectById, Build, CacheMinutesToExpire,

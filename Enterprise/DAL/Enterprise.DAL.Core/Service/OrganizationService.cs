@@ -72,7 +72,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Organization> h = h2 => h2.OrganizationID == id;
-                return GetAllOrganizations().Find(h) ?? new Organization();
+                return GetAllOrganizations().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Organization_SelectById, Build, id);

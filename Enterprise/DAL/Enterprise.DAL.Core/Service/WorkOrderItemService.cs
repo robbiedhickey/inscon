@@ -66,7 +66,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<WorkOrderItem> h = h2 => h2.WorkOrderItemID == id;
-                return GetAllWorkOrderItems().Find(h) ?? new WorkOrderItem();
+                return GetAllWorkOrderItems().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.WorkOrderItem_SelectById, Build, id);

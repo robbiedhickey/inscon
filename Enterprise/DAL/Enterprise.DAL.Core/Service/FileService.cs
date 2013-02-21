@@ -67,7 +67,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<File> h = h2 => h2.FileID == id;
-                return GetAllFiles().Find(h) ?? new File();
+                return GetAllFiles().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.File_SelectById, Build, id);
@@ -84,7 +84,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<File> h = h2 => h2.ParentID == parentID && h2.EntityID == entityID;
-                return GetAllFiles().Find(h) ?? new File();
+                return GetAllFiles().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.File_SelectByParentIdAndEntityId, Build, parentID, entityID);

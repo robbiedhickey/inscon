@@ -62,7 +62,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<UserAreaCoverage> h = h2 => h2.UserAreaCoverageID == id;
-                return GetAllUserAreaCoverages().Find(h) ?? new UserAreaCoverage();
+                return GetAllUserAreaCoverages().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.UserAreaCoverage_SelectById, Build, id);

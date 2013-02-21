@@ -57,7 +57,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Entity> h = h2 => h2.Name == name;
-                return GetAllEntities().Find(h) ?? new Entity();
+                return GetAllEntities().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Entity_SelectByName, Build, CacheMinutesToExpire,
@@ -74,7 +74,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Entity> h = h2 => h2.EntityID == id;
-                return GetAllEntities().Find(h) ?? new Entity();
+                return GetAllEntities().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Entity_SelectById, Build, CacheMinutesToExpire,

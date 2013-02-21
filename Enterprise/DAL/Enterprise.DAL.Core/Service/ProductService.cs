@@ -65,7 +65,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Product> h = h2 => h2.ProductID == id;
-                return GetAllProducts().Find(h) ?? new Product();
+                return GetAllProducts().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Product_SelectById, Build, id);

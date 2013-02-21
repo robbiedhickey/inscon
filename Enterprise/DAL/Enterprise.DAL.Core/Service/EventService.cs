@@ -65,7 +65,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Event> h = h2 => h2.EventID == id;
-                return GetAllEvents().Find(h) ?? new Event();
+                return GetAllEvents().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Event_SelectById, Build, id);
@@ -82,7 +82,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Event> h = h2 => h2.ParentID == parentID && h2.EntityID == entityID;
-                return GetAllEvents().Find(h) ?? new Event();
+                return GetAllEvents().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Event_SelectByParentIdAndEntityId, Build, parentID, entityID);

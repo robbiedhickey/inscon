@@ -64,7 +64,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Comment> h = h2 => h2.CommentID == id;
-                return GetAllComments().Find(h) ?? new Comment();
+                return GetAllComments().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Comment_SelectById, Build, id);
@@ -81,7 +81,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Comment> h = h2 => h2.ParentID == parentID && h2.EntityID == entityID;
-                return GetAllComments().Find(h) ?? new Comment();
+                return GetAllComments().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Comment_SelectByParentIdAndEntityId, Build, parentID, entityID);

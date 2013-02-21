@@ -61,7 +61,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<Request> h = h2 => h2.RequestID == id;
-                return GetAllRequests().Find(h) ?? new Request();
+                return GetAllRequests().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.Request_SelectById, Build, id);

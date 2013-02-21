@@ -63,7 +63,7 @@ namespace Enterprise.DAL.Core.Service
             if (IsCached)
             {
                 Predicate<UserContact> h = h2 => h2.UserContactID == id;
-                return GetAllUserContacts().Find(h) ?? new UserContact();
+                return GetAllUserContacts().Find(h);
             }
 
             return Query(SqlDatabase, Procedure.UserContact_SelectById, Build, id);

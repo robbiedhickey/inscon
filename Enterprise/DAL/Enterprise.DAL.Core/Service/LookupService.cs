@@ -37,7 +37,7 @@ namespace Enterprise.DAL.Core.Service
             var record = new Lookup
                 {
                     LookupID = reader.GetInt32("LookupID"),
-                    LookupGroupID = reader.GetInt16("LookupGroupID"),
+                    LookupGroupID = reader.GetInt32("LookupGroupID"),
                     Value = reader.GetString("Value")
                 };
 
