@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
@@ -68,8 +70,9 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var result = controller.GetAllWorkOrderItems();
+
+            Assert.AreEqual(27, result.Count);
         }
 
         [TestMethod]
@@ -77,8 +80,16 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var result = controller.GetWorkOrderItemById(1);
+
+            //WorkOrderItemID	WorkOrderID	ProductID	Quantity	Rate	DateInserted
+            //1	1	1	1.00	150.00	2013-02-19 11:56:13.480
+            Assert.AreEqual(1, result.WorkOrderItemID);
+            Assert.AreEqual(1, result.WorkOrderID);
+            Assert.AreEqual(1, result.ProductID);
+            Assert.AreEqual(1.00M, result.Quantity);
+            Assert.AreEqual(150.00M, result.Rate);
+            Assert.IsNotNull(result.DateInserted);
         }
 
         [TestMethod]
@@ -86,8 +97,9 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var result = controller.GetWorkOrderItemById(100);
+
+            Assert.IsNull(result);
         }
 
         [TestMethod]
@@ -95,8 +107,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var result = controller.GetWorkOrderItemsByWorkOrderId(1);
+
+            Assert.AreEqual(3, result.Count);
+            Assert.IsTrue(result.Any(w => w.ProductID == 1));
+            Assert.IsTrue(result.Any(w => w.ProductID == 2));
+            Assert.IsTrue(result.Any(w => w.ProductID == 4));
         }
 
         [TestMethod]
@@ -104,8 +120,9 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var result = controller.GetWorkOrderItemsByWorkOrderId(100);
+
+            Assert.AreEqual(0, result.Count);
         }
 
         [TestMethod]
@@ -113,8 +130,11 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woToDelete = new WorkOrderItem {WorkOrderItemID = 1};
+
+            var result = controller.DeleteRecord(woToDelete);
+
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -122,8 +142,13 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woToDelete = new WorkOrderItem {WorkOrderItemID = 100};
+
+            controller.DeleteRecord(woToDelete);
+
+            var count = controller.GetAllWorkOrderItems();
+
+            Assert.AreEqual(27, count.Count);
         }
 
         [TestMethod]
@@ -131,17 +156,39 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woToInsert = new WorkOrderItem
+                {
+                    WorkOrderID = 1,
+                    ProductID = 3,
+                    Quantity = 5.0M,
+                    Rate = 400.00M,
+                    DateInserted = DateTime.Now
+                };
+
+            var resultId = controller.SaveRecord(woToInsert);
+
+            var result = controller.GetWorkOrderItemById(resultId);
+
+            Assert.AreEqual(1, result.WorkOrderID);
+            Assert.AreEqual(3, result.ProductID);
+            Assert.AreEqual(5.0M, result.Quantity);
+            Assert.AreEqual(400.00M, result.Rate);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException), "Should violate foreign key and not null constraints")]
         public void InsertWorkOrderItemFail()
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woToInsert = new WorkOrderItem
+                {
+                    WorkOrderID = 100,
+                    ProductID = 300,
+                    DateInserted = DateTime.Now
+                };
+
+            controller.SaveRecord(woToInsert);
         }
 
         [TestMethod]
@@ -149,17 +196,35 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woToUpdate = controller.GetWorkOrderItemById(1);
+
+            woToUpdate.WorkOrderID = 4;
+            woToUpdate.ProductID = 5;
+            woToUpdate.Quantity = 15.0M;
+            woToUpdate.Rate = 1000.40M;
+
+            var resultId = controller.SaveRecord(woToUpdate);
+
+            var result = controller.GetWorkOrderItemById(resultId);
+
+            Assert.AreEqual(4, result.WorkOrderID);
+            Assert.AreEqual(5, result.ProductID);
+            Assert.AreEqual(15.0M, result.Quantity);
+            Assert.AreEqual(1000.40M, result.Rate);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException), "Should violate foreign key constraints")]
         public void UpdateWorkOrderItemFail()
         {
             WorkOrderItemController controller = new WorkOrderItemController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woToUpdate = controller.GetWorkOrderItemById(1);
+
+            woToUpdate.ProductID = 500;
+            woToUpdate.WorkOrderID = 400;
+
+            controller.SaveRecord(woToUpdate);
         }
     }
 }
