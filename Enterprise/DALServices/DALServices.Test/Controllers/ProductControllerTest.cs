@@ -179,7 +179,7 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             var result = controller.GetProductById(resultId);
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(11, result.ProductID);
+            Assert.AreEqual(12, result.ProductID);
             Assert.AreEqual(2, result.ProductCategoryID);
             Assert.AreEqual("Hitchhiker's Guide To The Galaxy", result.Caption);
             Assert.AreEqual("ERHM01", result.Code);
