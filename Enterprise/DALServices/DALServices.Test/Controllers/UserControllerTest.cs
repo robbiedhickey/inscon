@@ -198,10 +198,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             UserController controller = new UserController();
             goodUser.UserID = 10;
-            var result = controller.DeleteRecord(goodUser);
+            controller.DeleteRecord(goodUser);
 
+            var count = controller.GetAllUsers();
+
+            Assert.AreEqual(userCount, count.Count);
             Assert.IsNotNull(controller);
-            Assert.IsFalse(result);
         }
 
         [TestMethod]

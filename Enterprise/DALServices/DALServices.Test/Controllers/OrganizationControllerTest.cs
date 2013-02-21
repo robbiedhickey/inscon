@@ -152,10 +152,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
                     StatusID = 1
                 };
 
-            var res = controller.DeleteRecord(org);
+            controller.DeleteRecord(org);
 
+            var count = controller.GetAllOrganizations();
+
+            Assert.AreEqual(3, count.Count);
             Assert.IsNotNull(controller);
-            Assert.IsFalse(res);
         }
 
         [TestMethod]

@@ -156,11 +156,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             UserContactController controller = new UserContactController();
             var usr = controller.GetUserContactById(1);
             usr.UserContactID = 100;
-            var result = controller.DeleteRecord(usr);
+            controller.DeleteRecord(usr);
+            var count = controller.GetAllUserContacts();
 
+            Assert.AreEqual(27, count.Count);
             Assert.IsNotNull(controller);
             Assert.IsNotNull(usr);
-            Assert.IsFalse(result);
         }
 
         [TestMethod]

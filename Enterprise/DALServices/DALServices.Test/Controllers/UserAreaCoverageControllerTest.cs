@@ -157,10 +157,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             UserAreaCoverageController controller = new UserAreaCoverageController();
             delObj.UserAreaCoverageID = 100;
-            var result = controller.DeleteRecord(delObj);
+            controller.DeleteRecord(delObj);
 
+            var count = controller.GetAllUserAreaCoverages();
+            
+            Assert.AreEqual(recCount, count.Count);
             Assert.IsNotNull(controller);
-            Assert.IsFalse(result);
         }
 
         [TestMethod]

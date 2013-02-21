@@ -123,11 +123,12 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
             ProductCategoryController controller = new ProductCategoryController();
             var cat = controller.GetProductCategoryById(1);
             cat.ProductCategoryID = 100;
-            var res = controller.DeleteRecord(cat);
+            controller.DeleteRecord(cat);
+            var count = controller.GetAllProductCategories();
 
+            Assert.AreEqual(2, count.Count);
             Assert.IsNotNull(controller);
             Assert.IsNotNull(cat);
-            Assert.IsFalse(res);
         }
 
         [TestMethod]
