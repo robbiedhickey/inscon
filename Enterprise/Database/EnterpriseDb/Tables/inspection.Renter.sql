@@ -1,11 +1,11 @@
 CREATE TABLE [inspection].[Renter]
 (
 [WorkOrderID] [int] NOT NULL,
-[RenterName] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[RenterPhone] [varchar] (12) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[RenterName] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[RenterPhone] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [RentPaidTo] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [RentPaidToAddress] [varchar] (65) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-[RentCurrent] [tinyint] NULL,
+[RentCurrent] [bit] NULL,
 [RentAmountMonthly] [decimal] (15, 2) NULL
 ) ON [PRIMARY]
 ALTER TABLE [inspection].[Renter] ADD

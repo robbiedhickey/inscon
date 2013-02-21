@@ -1,20 +1,20 @@
 CREATE TABLE [inspection].[PropertyDamage]
 (
 [WorkOrderID] [int] NOT NULL,
-[Vandalized] [int] NULL,
-[FireDamage] [int] NULL,
-[LiabilityHazard] [int] NULL,
-[StormDamage] [int] NULL,
-[FloodDamage] [int] NULL,
-[FreezeDamage] [int] NULL,
-[RoofLeak] [int] NULL,
-[Neglected] [int] NULL,
-[EarthquakeDamage] [int] NULL,
-[CityViolation] [int] NULL,
-[Mold] [int] NULL,
-[BrokenWindows] [int] NULL,
-[BurstPipes] [int] NULL,
-[StructuralDamage] [int] NULL
+[Vandalized] [bit] NULL,
+[FireDamage] [bit] NULL,
+[LiabilityHazard] [bit] NULL,
+[StormDamage] [bit] NULL,
+[FloodDamage] [bit] NULL,
+[FreezeDamage] [bit] NULL,
+[RoofLeak] [bit] NULL,
+[Neglected] [bit] NULL,
+[EarthquakeDamage] [bit] NULL,
+[CityViolation] [bit] NULL,
+[Mold] [bit] NULL,
+[BrokenWindows] [bit] NULL,
+[BurstPipes] [bit] NULL,
+[StructuralDamage] [bit] NULL
 ) ON [PRIMARY]
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Broken Windows', 'SCHEMA', N'inspection', 'TABLE', N'PropertyDamage', 'COLUMN', N'BrokenWindows'

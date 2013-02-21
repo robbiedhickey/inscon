@@ -6,7 +6,7 @@ CREATE TABLE [inspection].[Maintenance]
 [BoardSecure] [bit] NULL,
 [Winterize] [bit] NULL,
 [CutGrass] [bit] NULL,
-[GrassHeightInches] [int] NULL,
+[GrassHeightInches] [tinyint] NULL,
 [DrainPool] [bit] NULL,
 [RemoveDebris] [bit] NULL,
 [RecommendedOther] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
