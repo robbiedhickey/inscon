@@ -12,6 +12,7 @@ DELETE FROM [dbo].[Asset]
 DELETE FROM [dbo].[Request]
 DELETE FROM [dbo].[WorkOrder]
 DELETE FROM [dbo].[WorkOrderItem]
+DELETE FROM [dbo].[WorkOrderAssignment]
 DELETE FROM [dbo].[ProductCategory]
 DELETE FROM [dbo].[Product]
 DELETE FROM [generic].[Address]
@@ -42,6 +43,7 @@ DBCC CHECKIDENT('[dbo].[Asset]', RESEED, 0)
 DBCC CHECKIDENT('[dbo].[Request]', RESEED, 0)
 DBCC CHECKIDENT('[dbo].[WorkOrder]', RESEED, 0)
 DBCC CHECKIDENT('[dbo].[WorkOrderItem]', RESEED, 0)
+DBCC CHECKIDENT('[dbo].[WorkOrderAssignment]', RESEED, 0)
 DBCC CHECKIDENT('[dbo].[ProductCategory]', RESEED, 0)
 DBCC CHECKIDENT('[dbo].[Product]', RESEED, 0)
 DBCC CHECKIDENT('[generic].[Address]', RESEED, 0)
@@ -206,6 +208,12 @@ INSERT INTO [dbo].[WorkOrderItem]([WorkOrderID] ,[ProductID] ,[Quantity] ,[Rate]
 INSERT INTO [dbo].[WorkOrderItem]([WorkOrderID] ,[ProductID] ,[Quantity] ,[Rate] ,[DateInserted])VALUES(9,  3, 1, 15000.00, DATEADD(DAY, -10, GETDATE()))
 INSERT INTO [dbo].[WorkOrderItem]([WorkOrderID] ,[ProductID] ,[Quantity] ,[Rate] ,[DateInserted])VALUES(9,  4, 1,   250.00, DATEADD(DAY, -10, GETDATE()))
 INSERT INTO [dbo].[WorkOrderItem]([WorkOrderID] ,[ProductID] ,[Quantity] ,[Rate] ,[DateInserted])VALUES(9,  9, 1,   400.00, DATEADD(DAY, -10, GETDATE()))
+
+INSERT INTO [dbo].[WorkOrderAssignment] ([WorkOrderID] ,[UserID] ,[EventDate] ,[StatusID]) VALUES(1, 1, '02/03/2013', 1)
+INSERT INTO [dbo].[WorkOrderAssignment] ([WorkOrderID] ,[UserID] ,[EventDate] ,[StatusID]) VALUES(1, 2, '02/04/2013', 2)
+INSERT INTO [dbo].[WorkOrderAssignment] ([WorkOrderID] ,[UserID] ,[EventDate] ,[StatusID]) VALUES(2, 3, '02/05/2013', 3)
+INSERT INTO [dbo].[WorkOrderAssignment] ([WorkOrderID] ,[UserID] ,[EventDate] ,[StatusID]) VALUES(4, 4, '02/06/2013', 4)
+INSERT INTO [dbo].[WorkOrderAssignment] ([WorkOrderID] ,[UserID] ,[EventDate] ,[StatusID]) VALUES(5, 5, '02/07/2013', 5)
 
 INSERT INTO [generic].[LookupGroup]([Name])VALUES ('OrganizationStatus')
 INSERT INTO [generic].[LookupGroup]([Name])VALUES ('OrganizationType')

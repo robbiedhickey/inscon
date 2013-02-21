@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using System.Collections.Generic;
 using Enterprise.DAL.Core.Model;
@@ -68,8 +70,9 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var actual = controller.GetAllWorkOrderAssignments();
+
+            Assert.AreEqual(5, actual.Count);
         }
 
         [TestMethod]
@@ -77,8 +80,15 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var actual = controller.GetWorkOrderAssignmentById(1);
+
+            //WorkOrderAssignmentID	WorkOrderID	UserID	EventDate	StatusID
+            //1	1	1	2013-02-03 00:00:00.000	1
+            Assert.AreEqual(1, actual.WorkOrderAssignmentID);
+            Assert.AreEqual(1, actual.WorkOrderID);
+            Assert.AreEqual(1, actual.UserID);
+            Assert.AreEqual(new DateTime(2013, 2, 3), actual.EventDate);
+            Assert.AreEqual(1, actual.StatusID);
         }
 
         [TestMethod]
@@ -86,8 +96,9 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var actual = controller.GetWorkOrderAssignmentById(100);
+
+            Assert.IsNull(actual);
         }
 
         [TestMethod]
@@ -95,8 +106,11 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var actual = controller.GetAllWorkOrderAssignmentsByWorkOrderId(1);
+
+            Assert.AreEqual(2, actual.Count);
+            Assert.IsTrue(actual.Any(w => w.UserID == 1));
+            Assert.IsTrue(actual.Any(w => w.UserID == 2));
         }
 
         [TestMethod]
@@ -104,8 +118,9 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var actual = controller.GetAllWorkOrderAssignmentsByWorkOrderId(100);
+
+            Assert.AreEqual(0, actual.Count);
         }
 
         [TestMethod]
@@ -113,8 +128,11 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woaToDelete = new WorkOrderAssignment {WorkOrderAssignmentID = 1};
+
+            var result = controller.DeleteRecord(woaToDelete);
+
+            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -122,8 +140,13 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woaToDelete = new WorkOrderAssignment {WorkOrderAssignmentID = 100};
+
+            controller.DeleteRecord(woaToDelete);
+
+            var count = controller.GetAllWorkOrderAssignments();
+
+            Assert.AreEqual(5, count.Count);
         }
 
         [TestMethod]
@@ -131,17 +154,39 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woaToInsert = new WorkOrderAssignment
+                {
+                    WorkOrderID = 5,
+                    UserID = 5,
+                    EventDate = new DateTime(2013, 2, 4),
+                    StatusID = 6
+                };
+
+            var resultId = controller.SaveRecord(woaToInsert);
+
+            var result = controller.GetWorkOrderAssignmentById(resultId);
+
+            Assert.AreEqual(5, result.WorkOrderID);
+            Assert.AreEqual(5, result.UserID);
+            Assert.AreEqual(new DateTime(2013,2,4), result.EventDate);
+            Assert.AreEqual(6, result.StatusID);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException), "Should violate foreign key constraints")]
         public void InsertWorkOrderAssignmentFail()
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woaToInsert = new WorkOrderAssignment
+                {
+                    WorkOrderID = 100,
+                    UserID = 100,
+                    EventDate = new DateTime(2013, 2, 4),
+                    StatusID = 600
+                };
+
+            controller.SaveRecord(woaToInsert);
         }
 
         [TestMethod]
@@ -149,17 +194,34 @@ namespace Enterprise.ApiServices.DALServices.Test.Controllers
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woaToUpdate = controller.GetWorkOrderAssignmentById(1);
+
+            woaToUpdate.WorkOrderID = 5;
+            woaToUpdate.UserID = 4;
+            woaToUpdate.StatusID = 6;
+
+            var resultId = controller.SaveRecord(woaToUpdate);
+
+            var result = controller.GetWorkOrderAssignmentById(resultId);
+
+            Assert.AreEqual(5, result.WorkOrderID);
+            Assert.AreEqual(4, result.UserID);
+            Assert.AreEqual(6, result.StatusID);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(SqlException), "Should violate foreign key constraints")]
         public void UpdateWorkOrderAssignmentFail()
         {
             WorkOrderAssignmentController controller = new WorkOrderAssignmentController();
 
-            Assert.IsNotNull(controller);
-            Assert.Inconclusive();
+            var woaToUpdate = controller.GetWorkOrderAssignmentById(1);
+
+            woaToUpdate.WorkOrderID = 100;
+            woaToUpdate.UserID = 400;
+            woaToUpdate.StatusID = 600;
+
+            controller.SaveRecord(woaToUpdate);
         }
     }
 }
