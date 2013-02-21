@@ -124,7 +124,7 @@ namespace Enterprise.DAL.Core.Model
         public DateTime DateInserted
         {
             get { return _dateInserted; }
-            set { _dateInserted = value; }
+            set { SetProperty(ref _dateInserted, value); }
         }
     }
 }

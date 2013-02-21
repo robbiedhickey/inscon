@@ -141,7 +141,7 @@ namespace Enterprise.DAL.Core.Model
         public Int32? LoanTypeID
         {
             get { return _loanTypeId; }
-            set { _loanTypeId = value; }
+            set { SetProperty(ref _loanTypeId, value); }
         }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace Enterprise.DAL.Core.Model
         public String MortgagorName
         {
             get { return _mortgagorName; }
-            set { _mortgagorName = value; }
+            set { SetProperty(ref _mortgagorName, value); }
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace Enterprise.DAL.Core.Model
         public String MortgagorPhone
         {
             get { return _mortgagorPhone; }
-            set { _mortgagorPhone = value; }
+            set { SetProperty(ref _mortgagorPhone, value); }
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace Enterprise.DAL.Core.Model
         public String HudCaseNumber
         {
             get { return _hudCaseNumber; }
-            set { _hudCaseNumber = value; }
+            set { SetProperty(ref _hudCaseNumber, value); }
         }
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace Enterprise.DAL.Core.Model
         public DateTime? ConveyanceDate
         {
             get { return _conveyanceDate; }
-            set { _conveyanceDate = value; }
+            set { SetProperty(ref _conveyanceDate, value); }
         }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace Enterprise.DAL.Core.Model
         public DateTime? FirstTimeVacantDate
         {
             get { return _firstTimeVacantDate; }
-            set { _firstTimeVacantDate = value; }
+            set { SetProperty(ref _firstTimeVacantDate, value); }
         }
 
         /// <summary>
