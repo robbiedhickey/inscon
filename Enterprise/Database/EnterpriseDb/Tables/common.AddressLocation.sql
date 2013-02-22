@@ -10,6 +10,8 @@ CREATE TABLE [common].[AddressLocation]
 [Lattitude] [float] NOT NULL,
 [Longitude] [float] NOT NULL
 ) ON [PRIMARY]
+ALTER TABLE [common].[AddressLocation] ADD
+CONSTRAINT [FK_AddressLocation_Address] FOREIGN KEY ([AddressID]) REFERENCES [common].[Address] ([AddressID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [common].[AddressLocation] ADD CONSTRAINT [PK_AddressLocation_1] PRIMARY KEY CLUSTERED  ([AddressID]) ON [PRIMARY]
 GO

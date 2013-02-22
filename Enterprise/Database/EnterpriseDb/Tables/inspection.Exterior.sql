@@ -28,6 +28,8 @@ CREATE TABLE [inspection].[Exterior]
 [PersonInterviewed] [varchar] (30) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [ManagingCompany] [varchar] (36) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
 ) ON [PRIMARY]
+ALTER TABLE [inspection].[Exterior] ADD
+CONSTRAINT [FK_Exterior_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [request].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is the property winterized?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'IsWinterizedID'
 GO

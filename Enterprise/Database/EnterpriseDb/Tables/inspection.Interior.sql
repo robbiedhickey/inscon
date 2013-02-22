@@ -8,6 +8,8 @@ CREATE TABLE [inspection].[Interior]
 [ContactNumber] [varchar] (10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [MaintainedID] [int] NULL
 ) ON [PRIMARY]
+ALTER TABLE [inspection].[Interior] ADD
+CONSTRAINT [FK_Interior_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [request].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Heat Source', 'SCHEMA', N'inspection', 'TABLE', N'Interior', 'COLUMN', N'HeatSourceID'
 GO

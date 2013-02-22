@@ -5,6 +5,8 @@ CREATE TABLE [common].[Lookup]
 [Value] [varchar] (50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 [OldID] [int] NULL
 ) ON [PRIMARY]
+ALTER TABLE [common].[Lookup] ADD
+CONSTRAINT [FK_Lookup_LookupGroup] FOREIGN KEY ([LookupGroupID]) REFERENCES [common].[LookupGroup] ([LookupGroupID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [common].[Lookup] ADD CONSTRAINT [PK_Lookup] PRIMARY KEY CLUSTERED  ([LookupID]) ON [PRIMARY]
 GO

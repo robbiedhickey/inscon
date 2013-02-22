@@ -8,6 +8,8 @@ CREATE TABLE [inspection].[ForSale]
 [ListPrice] [decimal] (18, 2) NULL,
 [DaysOnMarket] [smallint] NULL
 ) ON [PRIMARY]
+ALTER TABLE [inspection].[ForSale] ADD
+CONSTRAINT [FK_ForSale_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [request].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Does the property have an active listing?', 'SCHEMA', N'inspection', 'TABLE', N'ForSale', 'COLUMN', N'ActiveListingID'
 GO

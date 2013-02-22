@@ -8,6 +8,8 @@ CREATE TABLE [inventory].[Product]
 [Rate] [decimal] (18, 2) NOT NULL CONSTRAINT [DF_Product_Rate] DEFAULT ((0)),
 [Cost] [decimal] (18, 2) NOT NULL CONSTRAINT [DF_Product_Cost] DEFAULT ((0))
 ) ON [PRIMARY]
+ALTER TABLE [inventory].[Product] ADD
+CONSTRAINT [FK_Product_ProductCategory] FOREIGN KEY ([ProductCategoryID]) REFERENCES [inventory].[ProductCategory] ([ProductCategoryID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [inventory].[Product] ADD CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED  ([ProductID]) ON [PRIMARY]
 GO

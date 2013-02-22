@@ -8,6 +8,12 @@ CREATE TABLE [request].[WorkOrderItem]
 [DateInserted] [datetime] NULL CONSTRAINT [DF_WorkOrderItem_DateInserted] DEFAULT (getdate())
 ) ON [PRIMARY]
 GO
+EXEC sp_addextendedproperty N'MS_Description', N'Quantity', 'SCHEMA', N'request', 'TABLE', N'WorkOrderItem', 'COLUMN', N'Quantity'
+GO
+
+ALTER TABLE [request].[WorkOrderItem] ADD
+CONSTRAINT [FK_WorkOrderItem_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [request].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
+GO
 ALTER TABLE [request].[WorkOrderItem] ADD CONSTRAINT [PK_WorkOrderItem] PRIMARY KEY CLUSTERED  ([WorkOrderItemID]) ON [PRIMARY]
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Date Inserted', 'SCHEMA', N'request', 'TABLE', N'WorkOrderItem', 'COLUMN', N'DateInserted'

@@ -16,6 +16,8 @@ CREATE TABLE [inspection].[PropertyDamage]
 [BurstPipes] [bit] NULL,
 [StructuralDamage] [bit] NULL
 ) ON [PRIMARY]
+ALTER TABLE [inspection].[PropertyDamage] ADD
+CONSTRAINT [FK_PropertyDamage_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [request].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Broken Windows', 'SCHEMA', N'inspection', 'TABLE', N'PropertyDamage', 'COLUMN', N'BrokenWindows'
 GO

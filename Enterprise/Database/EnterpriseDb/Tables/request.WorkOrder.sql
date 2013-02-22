@@ -5,6 +5,10 @@ CREATE TABLE [request].[WorkOrder]
 [AssetID] [int] NOT NULL,
 [DateInserted] [datetime] NULL CONSTRAINT [DF_WorkOrder_DateInserted] DEFAULT (getdate())
 ) ON [PRIMARY]
+ALTER TABLE [request].[WorkOrder] ADD
+CONSTRAINT [FK_WorkOrder_Asset] FOREIGN KEY ([AssetID]) REFERENCES [organization].[Asset] ([AssetID])
+ALTER TABLE [request].[WorkOrder] ADD
+CONSTRAINT [FK_WorkOrder_Request] FOREIGN KEY ([RequestID]) REFERENCES [request].[Request] ([RequestID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [request].[WorkOrder] ADD CONSTRAINT [PK_WorkOrder] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO

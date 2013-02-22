@@ -3,6 +3,8 @@ CREATE TABLE [common].[AddressUse_XREF]
 [AddressID] [int] NOT NULL,
 [TypeID] [int] NOT NULL
 ) ON [PRIMARY]
+ALTER TABLE [common].[AddressUse_XREF] ADD
+CONSTRAINT [FK_AddressUse_XREF_Address] FOREIGN KEY ([AddressID]) REFERENCES [common].[Address] ([AddressID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [common].[AddressUse_XREF] ADD CONSTRAINT [PK_AddressUse_1] PRIMARY KEY CLUSTERED  ([AddressID], [TypeID]) ON [PRIMARY]
 GO

@@ -6,11 +6,12 @@ CREATE TABLE [organization].[Location]
 [Code] [varchar] (8) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [TypeID] [int] NOT NULL
 ) ON [PRIMARY]
+ALTER TABLE [organization].[Location] ADD
+CONSTRAINT [FK_Location_Organization1] FOREIGN KEY ([OrganizationID]) REFERENCES [organization].[Organization] ([OrganizationID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [organization].[Location] ADD CONSTRAINT [PK_Location] PRIMARY KEY CLUSTERED  ([LocationID]) ON [PRIMARY]
 GO
-ALTER TABLE [organization].[Location] ADD CONSTRAINT [FK_Location_Organization] FOREIGN KEY ([OrganizationID]) REFERENCES [organization].[Organization] ([OrganizationID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Location Code', 'SCHEMA', N'organization', 'TABLE', N'Location', 'COLUMN', N'Code'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'RecordID', 'SCHEMA', N'organization', 'TABLE', N'Location', 'COLUMN', N'LocationID'

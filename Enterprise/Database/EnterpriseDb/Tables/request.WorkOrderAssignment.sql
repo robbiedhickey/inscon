@@ -6,6 +6,8 @@ CREATE TABLE [request].[WorkOrderAssignment]
 [EventDate] [datetime] NULL CONSTRAINT [DF_WorkOrderAssignment_WhenAssigned] DEFAULT (getdate()),
 [StatusID] [int] NOT NULL
 ) ON [PRIMARY]
+ALTER TABLE [request].[WorkOrderAssignment] ADD
+CONSTRAINT [FK_WorkOrderAssignment_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [request].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 ALTER TABLE [request].[WorkOrderAssignment] ADD CONSTRAINT [PK_WorkOrderAssignment] PRIMARY KEY CLUSTERED  ([WorkOrderAssignmentID]) ON [PRIMARY]
 GO

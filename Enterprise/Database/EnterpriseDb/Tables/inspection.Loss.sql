@@ -8,6 +8,8 @@ CREATE TABLE [inspection].[Loss]
 [AdditionalRepairsNeeded] [varchar] (max) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [EstimatedCompletionDate] [datetime] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+ALTER TABLE [inspection].[Loss] ADD
+CONSTRAINT [FK_Loss_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [request].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Is Owner satisfied with repairs?', 'SCHEMA', N'inspection', 'TABLE', N'Loss', 'COLUMN', N'OwnerSatisfactionID'
 GO
