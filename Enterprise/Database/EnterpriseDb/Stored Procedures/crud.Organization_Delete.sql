@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -9,7 +10,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    DELETE FROM [dbo].[Organization]
+    DELETE FROM [organization].[Organization]
     WHERE  [OrganizationID] = @OrganizationID
 
 GO

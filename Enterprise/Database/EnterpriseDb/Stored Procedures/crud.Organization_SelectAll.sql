@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -14,7 +15,7 @@ AS
            [Code],
            [TypeID],
            [StatusID]
-    FROM   [dbo].[Organization]
+    FROM   [organization].[Organization]
    
 
 GO

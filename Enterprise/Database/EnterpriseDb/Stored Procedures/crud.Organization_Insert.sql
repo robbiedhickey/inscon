@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -12,7 +13,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [dbo].[Organization]
+    INSERT INTO [organization].[Organization]
     (
       [Name],
       [Code],
@@ -32,7 +33,7 @@ AS
            [Code],
            [TypeID],
            [StatusID]
-    FROM   [dbo].[Organization]
+    FROM   [organization].[Organization]
     WHERE  [OrganizationID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove

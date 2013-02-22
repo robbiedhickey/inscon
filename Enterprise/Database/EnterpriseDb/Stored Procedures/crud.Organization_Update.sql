@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -13,7 +14,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [dbo].[Organization]
+    UPDATE [organization].[Organization]
     SET    [Name] = @Name,
            [Code] = @Code,
            [TypeID] = @TypeID,
