@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Entity_SelectAll]
 
 AS
@@ -11,6 +11,5 @@ AS
 
     SELECT [EntityID],
            [Name]
-    FROM   [dbo].[Entity]   
-
+    FROM   [common].[Entity]
 GO

@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Entity_SelectById]
   @EntityID TINYINT
 AS
@@ -11,7 +11,6 @@ AS
 
     SELECT [EntityID],
            [Name]
-    FROM   [dbo].[Entity]
+    FROM   [common].[Entity]
     WHERE  [EntityID] = @EntityID
-
 GO
