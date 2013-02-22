@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[ProductCategory_Insert]
   @Name VARCHAR(50),
   @Code VARCHAR(8)
@@ -10,7 +10,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [dbo].[ProductCategory]
+    INSERT INTO [inventory].[ProductCategory]
     (
       [Name],
       [Code]
@@ -24,9 +24,8 @@ AS
     SELECT [ProductCategoryID],
            [Name],
            [Code]
-    FROM   [dbo].[ProductCategory]
+    FROM   [inventory].[ProductCategory]
     WHERE  [ProductCategoryID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

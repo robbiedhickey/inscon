@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Product_Update]
   @ProductID         INT,
   @ProductCategoryID INT,
@@ -15,7 +15,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [dbo].[Product]
+    UPDATE [inventory].[Product]
     SET    [ProductCategoryID] = @ProductCategoryID,
            [Caption] = @Caption,
            [Code] = @Code,
@@ -23,5 +23,4 @@ AS
            [Rate] = @Rate,
            [Cost] = @Cost
     WHERE  [ProductID] = @ProductID
-
 GO

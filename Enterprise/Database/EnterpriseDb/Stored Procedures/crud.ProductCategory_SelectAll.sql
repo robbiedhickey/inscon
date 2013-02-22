@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[ProductCategory_SelectAll]
 
 AS
@@ -12,7 +12,5 @@ AS
     SELECT [ProductCategoryID],
            [Name],
            [Code]
-    FROM   [dbo].[ProductCategory]
-   
-
+    FROM   [inventory].[ProductCategory]
 GO
