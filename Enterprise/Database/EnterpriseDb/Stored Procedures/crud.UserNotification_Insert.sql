@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[UserNotification_Insert]
   @UserID     INT,
   @DatePosted DATETIME,
@@ -11,7 +11,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [dbo].[UserNotification]
+    INSERT INTO [organization].[UserNotification]
     (
       [UserID],
       [DatePosted],
@@ -28,9 +28,8 @@ AS
            [UserID],
            [DatePosted],
            [DateRead]
-    FROM   [dbo].[UserNotification]
+    FROM   [organization].[UserNotification]
     WHERE  [UserNotificationID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[UserContact_SelectAll]
 
 AS
@@ -14,7 +14,5 @@ AS
            [Value],
            [TypeID],
            [IsPrimary]
-    FROM   [dbo].[UserContact]
-    
-
+    FROM   [organization].[UserContact]
 GO

@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Asset_Update]
   @AssetID             INT,
   @OrganizationID      INT,
@@ -20,7 +19,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [dbo].[Asset]
+    UPDATE [organization].[Asset]
     SET    [OrganizationID] = @OrganizationID,
            [TypeID] = @TypeID,
            [AssetNumber] = @AssetNumber,
@@ -32,5 +31,4 @@ AS
            [ConveyanceDate] = @ConveyanceDate,
            [FirstTimeVacantDate] = @FirstTimeVacantDate
     WHERE  [AssetID] = @AssetID
-
 GO

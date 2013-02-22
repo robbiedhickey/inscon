@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[User_SelectByOrganizationId]
   @OrganizationID INT
 AS
@@ -17,7 +16,6 @@ AS
            [Title],
            [StatusID],
            [AuthenticationID]
-    FROM   [dbo].[User]
+    FROM   [organization].[User]
     WHERE  [OrganizationID] = @OrganizationID
-
 GO

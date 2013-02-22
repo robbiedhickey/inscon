@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[UserAreaCoverage_Insert]
   @UserID    INT,
   @ZipCode   VARCHAR(10),
@@ -11,7 +11,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [dbo].[UserAreaCoverage]
+    INSERT INTO [organization].[UserAreaCoverage]
     (
       [UserID],
       [ZipCode],
@@ -28,9 +28,8 @@ AS
            [UserID],
            [ZipCode],
            [ServiceID]
-    FROM   [dbo].[UserAreaCoverage]
+    FROM   [organization].[UserAreaCoverage]
     WHERE  [UserAreaCoverageID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

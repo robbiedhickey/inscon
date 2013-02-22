@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[UserNotification_SelectById]
   @UserNotificationID INT
 AS
@@ -13,7 +13,6 @@ AS
            [UserID],
            [DatePosted],
            [DateRead]
-    FROM   [dbo].[UserNotification]
+    FROM   [organization].[UserNotification]
     WHERE  [UserNotificationID] = @UserNotificationID
-
 GO

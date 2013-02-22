@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Asset_SelectByOrganizationId]
   @OrganizationID INT
 AS
@@ -21,7 +20,6 @@ AS
            [HudCaseNumber],
            [ConveyanceDate],
            [FirstTimeVacantDate]
-    FROM   [dbo].[Asset]
+    FROM   [organization].[Asset]
     WHERE  [OrganizationID] = @OrganizationID
-
 GO

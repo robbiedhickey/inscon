@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[User_Insert]
   @OrganizationID   INT,
   @FirstName        VARCHAR(28),
@@ -15,7 +14,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [dbo].[User]
+    INSERT INTO [organization].[User]
     (
       [OrganizationID],
       [FirstName],
@@ -41,9 +40,8 @@ AS
            [Title],
            [StatusID],
            [AuthenticationID]
-    FROM   [dbo].[User]
+    FROM   [organization].[User]
     WHERE  [UserID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

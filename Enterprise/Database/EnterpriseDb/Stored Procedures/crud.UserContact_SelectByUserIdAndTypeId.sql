@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[UserContact_SelectByUserIdAndTypeId]
   @UserID INT,
   @TypeID INT
@@ -15,7 +15,6 @@ AS
            [Value],
            [TypeID],
            [IsPrimary]
-    FROM   [dbo].[UserContact]
+    FROM   [organization].[UserContact]
     WHERE  [UserID] = @UserID AND[TypeID] = @TypeID
-
 GO

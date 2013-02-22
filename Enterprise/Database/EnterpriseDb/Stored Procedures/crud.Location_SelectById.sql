@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Location_SelectById]
   @LocationID INT
 AS
@@ -14,7 +14,6 @@ AS
            [Name],
            [Code],
            [TypeID]
-    FROM   [dbo].[Location]
+    FROM   [organization].[Location]
     WHERE  [LocationID] = @LocationID
-
 GO

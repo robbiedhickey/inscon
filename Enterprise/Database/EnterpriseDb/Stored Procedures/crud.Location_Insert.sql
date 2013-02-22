@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Location_Insert]
   @OrganizationID INT,
   @Name           VARCHAR(75),
@@ -12,7 +12,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [dbo].[Location]
+    INSERT INTO [organization].[Location]
     (
       [OrganizationID],
       [Name],
@@ -32,9 +32,8 @@ AS
            [Name],
            [Code],
            [TypeID]
-    FROM   [dbo].[Location]
+    FROM   [organization].[Location]
     WHERE  [LocationID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

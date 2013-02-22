@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[UserContact_Update]
   @UserContactID INT,
   @UserID        INT,
@@ -13,11 +13,10 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [dbo].[UserContact]
+    UPDATE [organization].[UserContact]
     SET    [UserID] = @UserID,
            [Value] = @Value,
            [TypeID] = @TypeID,
            [IsPrimary] = @IsPrimary
     WHERE  [UserContactID] = @UserContactID
-
 GO

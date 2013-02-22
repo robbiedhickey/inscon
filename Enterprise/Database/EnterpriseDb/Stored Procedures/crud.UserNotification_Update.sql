@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[UserNotification_Update]
   @UserNotificationID INT,
   @UserID             INT,
@@ -12,10 +12,9 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [dbo].[UserNotification]
+    UPDATE [organization].[UserNotification]
     SET    [UserID] = @UserID,
            [DatePosted] = @DatePosted,
            [DateRead] = @DateRead
     WHERE  [UserNotificationID] = @UserNotificationID
-
 GO

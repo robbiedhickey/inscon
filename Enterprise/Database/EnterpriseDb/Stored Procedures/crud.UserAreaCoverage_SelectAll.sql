@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[UserAreaCoverage_SelectAll]
 
 AS
@@ -13,7 +13,5 @@ AS
            [UserID],
            [ZipCode],
            [ServiceID]
-    FROM   [dbo].[UserAreaCoverage]
-   
-
+    FROM   [organization].[UserAreaCoverage]
 GO

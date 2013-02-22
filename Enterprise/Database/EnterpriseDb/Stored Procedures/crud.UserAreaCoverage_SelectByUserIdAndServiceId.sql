@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[UserAreaCoverage_SelectByUserIdAndServiceId]
   @UserID INT, 
   @ServiceID INT
@@ -14,7 +14,6 @@ AS
            [UserID],
            [ZipCode],
            [ServiceID]
-    FROM   [dbo].[UserAreaCoverage]
+    FROM   [organization].[UserAreaCoverage]
     WHERE  [UserID] = @UserID AND [ServiceID] = @ServiceID
-
 GO
