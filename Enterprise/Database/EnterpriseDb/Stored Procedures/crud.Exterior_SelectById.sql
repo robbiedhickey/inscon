@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -15,9 +16,9 @@ AS
            [StoriesID],
            [PrimaryColorID],
            [RoofTypeID],
-           [PoolOnSite],
-           [PoolSecured],
-           [PoolDrained],
+           [PoolOnSiteID],
+           [PoolSecuredID],
+           [PoolDrainedID],
            [DoorTagStatusID],
            [ContactMade],
            [OccupancyID],
@@ -28,9 +29,9 @@ AS
            [ElectricID],
            [WaterID],
            [GasID],
-           [PersonalPropertyOnSite],
-           [IsWinterized],
-           [idWinterizedByType],
+           [PersonalPropertyOnSiteID],
+           [IsWinterizedID],
+           [WinterizedByID],
            [WinterizedDate],
            [HowLongVacant],
            [HazardsExist],

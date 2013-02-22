@@ -10,7 +10,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [common].[AddressUse]
+    UPDATE [common].[AddressUse_XREF]
     SET    [AddressID] = @AddressID,
            [TypeID] = @TypeID
     WHERE  [AddressID] = @AddressID AND [TypeID] = @TypeID
