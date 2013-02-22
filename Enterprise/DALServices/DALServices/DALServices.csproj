@@ -129,15 +129,22 @@
     <Compile Include="Controllers\AssetController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\ExteriorController.cs" />
     <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\ForSaleController.cs" />
     <Compile Include="Controllers\GenericController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InteriorController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\LookupController.cs" />
     <Compile Include="Controllers\LookupGroupController.cs" />
+    <Compile Include="Controllers\LossController.cs" />
+    <Compile Include="Controllers\MaintenanceController.cs" />
     <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\PropertyDamageController.cs" />
+    <Compile Include="Controllers\RenterController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\UserAreaCoverageController.cs" />
     <Compile Include="Controllers\UserContactController.cs" />
@@ -157,7 +164,9 @@
     <Compile Include="Repository\AssetRepository.cs" />
     <Compile Include="Repository\CommentRepository.cs" />
     <Compile Include="Repository\EventRepository.cs" />
+    <Compile Include="Repository\ExteriorRepository.cs" />
     <Compile Include="Repository\FileRepository.cs" />
+    <Compile Include="Repository\ForSaleRepository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IAddressLocationRepository.cs" />
     <Compile Include="Repository\IAddressRepository.cs" />
@@ -165,14 +174,22 @@
     <Compile Include="Repository\IAssetRepository.cs" />
     <Compile Include="Repository\ICommentRepository.cs" />
     <Compile Include="Repository\IEventRepository.cs" />
+    <Compile Include="Repository\IExteriorRepository.cs" />
     <Compile Include="Repository\IFileRepository.cs" />
+    <Compile Include="Repository\IForSaleRepository.cs" />
     <Compile Include="Repository\IGenericRepository.cs" />
+    <Compile Include="Repository\IInteriorRepository.cs" />
     <Compile Include="Repository\ILocationRepository.cs" />
     <Compile Include="Repository\ILookupGroupRepository.cs" />
     <Compile Include="Repository\ILookupRepository.cs" />
+    <Compile Include="Repository\ILossRepository.cs" />
+    <Compile Include="Repository\IMaintenanceRepository.cs" />
+    <Compile Include="Repository\InteriorRepository.cs" />
     <Compile Include="Repository\IOrganizationRepository.cs" />
     <Compile Include="Repository\IProductCategoryRepository.cs" />
     <Compile Include="Repository\IProductRepository.cs" />
+    <Compile Include="Repository\IPropertyDamageRepository.cs" />
+    <Compile Include="Repository\IRenterRepository.cs" />
     <Compile Include="Repository\IRequestRepository.cs" />
     <Compile Include="Repository\IUserAreaCoverageRepository.cs" />
     <Compile Include="Repository\IUserContactRepository.cs" />
@@ -184,9 +201,13 @@
     <Compile Include="Repository\LocationRepository.cs" />
     <Compile Include="Repository\LookupGroupRepository.cs" />
     <Compile Include="Repository\LookupRepository.cs" />
+    <Compile Include="Repository\LossRepository.cs" />
+    <Compile Include="Repository\MaintenanceRepository.cs" />
     <Compile Include="Repository\OrganizationRepository.cs" />
     <Compile Include="Repository\ProductCategoryRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\PropertyDamageRepository.cs" />
+    <Compile Include="Repository\RenterRepository.cs" />
     <Compile Include="Repository\RequestRepository.cs" />
     <Compile Include="Repository\UserAreaCoverageRepository.cs" />
     <Compile Include="Repository\UserContactRepository.cs" />
@@ -319,6 +340,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(STYLECOPTOOLS)\StyleCop.Current.Targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
