@@ -11,8 +11,7 @@ CREATE TABLE [dbo].[Product]
 GO
 ALTER TABLE [dbo].[Product] ADD CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED  ([ProductID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Product] ADD CONSTRAINT [FK_Product_ProductCategory] FOREIGN KEY ([ProductCategoryID]) REFERENCES [dbo].[ProductCategory] ([ProductCategoryID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Product Caption', 'SCHEMA', N'dbo', 'TABLE', N'Product', 'COLUMN', N'Caption'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product Code', 'SCHEMA', N'dbo', 'TABLE', N'Product', 'COLUMN', N'Code'

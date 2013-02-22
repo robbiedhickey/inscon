@@ -10,10 +10,7 @@ CREATE TABLE [dbo].[WorkOrderItem]
 GO
 ALTER TABLE [dbo].[WorkOrderItem] ADD CONSTRAINT [PK_WorkOrderItem] PRIMARY KEY CLUSTERED  ([WorkOrderItemID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WorkOrderItem] ADD CONSTRAINT [FK_WorkOrderItem_Product] FOREIGN KEY ([ProductID]) REFERENCES [dbo].[Product] ([ProductID])
-GO
-ALTER TABLE [dbo].[WorkOrderItem] ADD CONSTRAINT [FK_WorkOrderItem_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Date Inserted', 'SCHEMA', N'dbo', 'TABLE', N'WorkOrderItem', 'COLUMN', N'DateInserted'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Product RecordID', 'SCHEMA', N'dbo', 'TABLE', N'WorkOrderItem', 'COLUMN', N'ProductID'

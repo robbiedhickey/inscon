@@ -15,8 +15,6 @@ GO
 ALTER TABLE [dbo].[WorkOrder] ADD CONSTRAINT [PK_WorkOrder] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[WorkOrder] ADD CONSTRAINT [FK_WorkOrder_Request] FOREIGN KEY ([RequestID]) REFERENCES [dbo].[Request] ([RequestID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
 EXEC sp_addextendedproperty N'MS_Description', N'Date Inserted', 'SCHEMA', N'dbo', 'TABLE', N'WorkOrder', 'COLUMN', N'DateInserted'
 GO
 

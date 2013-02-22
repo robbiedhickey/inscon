@@ -9,8 +9,7 @@ CREATE TABLE [dbo].[WorkOrderAssignment]
 GO
 ALTER TABLE [dbo].[WorkOrderAssignment] ADD CONSTRAINT [PK_WorkOrderAssignment] PRIMARY KEY CLUSTERED  ([WorkOrderAssignmentID]) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[WorkOrderAssignment] ADD CONSTRAINT [FK_WorkOrderAssignment_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'DateTime of Change', 'SCHEMA', N'dbo', 'TABLE', N'WorkOrderAssignment', 'COLUMN', N'EventDate'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Assigend, Unassigned', 'SCHEMA', N'dbo', 'TABLE', N'WorkOrderAssignment', 'COLUMN', N'StatusID'

@@ -13,8 +13,7 @@ CREATE TABLE [common].[AddressLocation]
 GO
 ALTER TABLE [common].[AddressLocation] ADD CONSTRAINT [PK_AddressLocation_1] PRIMARY KEY CLUSTERED  ([AddressID]) ON [PRIMARY]
 GO
-ALTER TABLE [common].[AddressLocation] ADD CONSTRAINT [FK_AddressLocation_Address1] FOREIGN KEY ([AddressID]) REFERENCES [common].[Address] ([AddressID])
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'City', 'SCHEMA', N'common', 'TABLE', N'AddressLocation', 'COLUMN', N'City'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Geography Infomration', 'SCHEMA', N'common', 'TABLE', N'AddressLocation', 'COLUMN', N'GeoCode'

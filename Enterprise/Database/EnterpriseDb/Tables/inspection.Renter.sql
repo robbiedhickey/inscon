@@ -8,8 +8,7 @@ CREATE TABLE [inspection].[Renter]
 [RentCurrent] [bit] NULL,
 [RentAmountMonthly] [decimal] (15, 2) NULL
 ) ON [PRIMARY]
-ALTER TABLE [inspection].[Renter] ADD
-CONSTRAINT [FK_Renter_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
+
 GO
 ALTER TABLE [inspection].[Renter] ADD CONSTRAINT [pk_renter] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO
