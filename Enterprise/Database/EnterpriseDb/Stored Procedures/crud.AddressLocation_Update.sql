@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[AddressLocation_Update]
   @AddressID      INT,
   @BuildingNumber VARCHAR(20),
@@ -17,7 +17,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [generic].[AddressLocation]
+    UPDATE [common].[AddressLocation]
     SET    [AddressID] = @AddressID,
            [BuildingNumber] = @BuildingNumber,
            [StreetName] = @StreetName,
@@ -28,5 +28,4 @@ AS
            [Lattitude] = @Lattitude,
            [Longitude] = @Longitude
     WHERE  [AddressID] = @AddressID
-
 GO

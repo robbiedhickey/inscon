@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -14,7 +15,7 @@ BEGIN
 	-- Declare the return variable here
 	DECLARE @retval INT
 
-	SET @retval = (SELECT LookupID FROM [generic].[Lookup] WHERE OldID = @OldId)
+	SET @retval = (SELECT LookupID FROM [common].[Lookup] WHERE OldID = @OldId)
 	-- Return the result of the function
 	return @retval
 

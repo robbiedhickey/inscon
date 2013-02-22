@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Address_SelectByParentIdAndEntityId]
   @ParentID INT,
   @EntityID SMALLINT
@@ -18,7 +18,6 @@ AS
            [City],
            [State],
            [Zip]
-    FROM   [generic].[Address]
+    FROM   [common].[Address]
     WHERE  [ParentID] = @ParentID AND [EntityID] = @EntityID
-
 GO

@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Event_Insert]
   @ParentID  INT,
   @EntityID  SMALLINT,
@@ -13,7 +13,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [generic].[Event]
+    INSERT INTO [common].[Event]
     (
       [ParentID],
       [EntityID],
@@ -36,9 +36,8 @@ AS
            [TypeID],
            [UserID],
            [EventDate]
-    FROM   [generic].[Event]
+    FROM   [common].[Event]
     WHERE  [EventID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

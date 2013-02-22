@@ -2,7 +2,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-CREATE FUNCTION [dbo].[GetDateTimeStart] 
+CREATE FUNCTION [dbo].[GetDateTimeStartOfDay] 
 
 (@Start datetime) 
 

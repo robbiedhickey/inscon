@@ -6,11 +6,11 @@ CREATE TABLE [inspection].[Exterior]
 [StoriesID] [int] NULL,
 [PrimaryColorID] [int] NULL,
 [RoofTypeID] [int] NULL,
-[PoolOnSite] [tinyint] NULL,
-[PoolSecured] [tinyint] NULL,
-[PoolDrained] [tinyint] NULL,
+[PoolOnSiteID] [int] NULL,
+[PoolSecuredID] [int] NULL,
+[PoolDrainedID] [int] NULL,
 [DoorTagStatusID] [int] NULL,
-[ContactMade] [tinyint] NULL,
+[ContactMade] [bit] NULL,
 [OccupancyID] [int] NULL,
 [OccupancyVerifiedByID] [int] NULL,
 [PropertyConditionID] [int] NULL,
@@ -19,9 +19,9 @@ CREATE TABLE [inspection].[Exterior]
 [ElectricID] [int] NULL,
 [WaterID] [int] NULL,
 [GasID] [int] NULL,
-[PersonalPropertyOnSite] [tinyint] NULL,
-[IsWinterized] [tinyint] NULL,
-[idWinterizedByType] [int] NULL,
+[PersonalPropertyOnSiteID] [int] NULL,
+[IsWinterizedID] [int] NULL,
+[WinterizedByID] [int] NULL,
 [WinterizedDate] [datetime] NULL,
 [HowLongVacant] [varchar] (15) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 [HazardsExist] [int] NULL,
@@ -29,6 +29,24 @@ CREATE TABLE [inspection].[Exterior]
 [ManagingCompany] [varchar] (36) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
 ) ON [PRIMARY]
 GO
+EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is the property winterized?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'IsWinterizedID'
+GO
+
+EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is there personal property at the property?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'PersonalPropertyOnSiteID'
+GO
+
+EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is the pool drained?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'PoolDrainedID'
+GO
+
+EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is there a pool on site?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'PoolOnSiteID'
+GO
+
+EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is the pool secure?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'PoolSecuredID'
+GO
+
+EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Winterization Type', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'WinterizedByID'
+GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Building Type', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'BuildingTypeID'
 GO
 
@@ -83,23 +101,13 @@ EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Do hazards exist
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'How long has the property been vacant?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'HowLongVacant'
 GO
-EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Winterization Type', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'idWinterizedByType'
-GO
-EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is the property winterized?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'IsWinterized'
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'If Security Gate: Who is the Managing company?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'ManagingCompany'
 GO
 
-EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is there personal property at the property?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'PersonalPropertyOnSite'
-GO
 EXEC sp_addextendedproperty N'MS_Description', N'Name of the person that contact was made with', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'PersonInterviewed'
 GO
-EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is the pool drained?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'PoolDrained'
-GO
-EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is there a pool on site?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'PoolOnSite'
-GO
-EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Is the pool secure?', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'PoolSecured'
-GO
+
 
 EXEC sp_addextendedproperty N'MS_Description', N'Winterization Date', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'WinterizedDate'
 GO

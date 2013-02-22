@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Comment_SelectById]
   @CommentID INT
 AS
@@ -17,7 +16,6 @@ AS
            [TypeID],
            [Value],
            [DateInserted]
-    FROM   [generic].[Comment]
+    FROM   [common].[Comment]
     WHERE  [CommentID] = @CommentID
-
 GO

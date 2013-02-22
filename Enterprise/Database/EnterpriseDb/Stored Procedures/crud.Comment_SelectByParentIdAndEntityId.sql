@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Comment_SelectByParentIdAndEntityId]
   @ParentID INT,
   @EntityID SMALLINT
@@ -18,7 +17,7 @@ AS
            [TypeID],
            [Value],
            [DateInserted]
-    FROM   [generic].[Comment]
+    FROM   [common].[Comment]
     WHERE  [ParentID] = @ParentID
-           AND [EntityID] = @EntityID 
+           AND [EntityID] = @EntityID
 GO

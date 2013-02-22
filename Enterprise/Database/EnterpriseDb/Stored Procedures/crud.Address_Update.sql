@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Address_Update]
   @AddressID INT,
   @ParentID  INT,
@@ -16,7 +16,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [generic].[Address]
+    UPDATE [common].[Address]
     SET    [ParentID] = @ParentID,
            [EntityID] = @EntityID,
            [Street] = @Street,
@@ -25,5 +25,4 @@ AS
            [State] = @State,
            [Zip] = @Zip
     WHERE  [AddressID] = @AddressID
-
 GO

@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Lookup_SelectAll]
  
 AS
@@ -12,7 +12,5 @@ AS
     SELECT [LookupID],
            [LookupGroupID],
            [Value]
-    FROM   [generic].[Lookup]
-  
-
+    FROM   [common].[Lookup]
 GO

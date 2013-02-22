@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[File_Insert]
   @ParentID     INT,
   @EntityID     SMALLINT,
@@ -16,7 +15,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [generic].[File]
+    INSERT INTO [common].[File]
     (
       [ParentID],
       [EntityID],
@@ -46,9 +45,8 @@ AS
            [TypeID],
            [Caption],
            [DateInserted]
-    FROM   [generic].[File]
+    FROM   [common].[File]
     WHERE  [FileID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

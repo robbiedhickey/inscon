@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Comment_Insert]
   @ParentID INT,
   @EntityID SMALLINT,
@@ -14,7 +13,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [generic].[Comment]
+    INSERT INTO [common].[Comment]
     (
       [ParentID],
       [EntityID],
@@ -38,9 +37,8 @@ AS
            [TypeID],
            [Value],
            [DateInserted]
-    FROM   [generic].[Comment]
+    FROM   [common].[Comment]
     WHERE  [CommentID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

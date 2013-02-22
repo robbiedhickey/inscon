@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[File_SelectAll]
 
 AS
@@ -19,7 +18,5 @@ AS
            [TypeID],
            [Caption],
            [DateInserted]
-    FROM   [generic].[File]
-    
-
+    FROM   [common].[File]
 GO

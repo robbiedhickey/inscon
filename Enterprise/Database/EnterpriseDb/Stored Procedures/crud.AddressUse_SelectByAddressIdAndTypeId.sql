@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[AddressUse_SelectByAddressIdAndTypeId]
   @AddressID INT,
   @TypeID INT
@@ -13,7 +12,6 @@ AS
 
     SELECT [AddressID],
            [TypeID]
-    FROM   [generic].[AddressUse_XREF]
+    FROM   [common].[AddressUse_XREF]
     WHERE  [AddressID] = @AddressID AND [TypeID] = @TypeID
-
 GO

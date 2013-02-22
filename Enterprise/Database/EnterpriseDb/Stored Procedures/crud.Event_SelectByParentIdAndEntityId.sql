@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Event_SelectByParentIdAndEntityId]
   @ParentID INT,
   @EntityID SmallInt
@@ -16,7 +16,6 @@ AS
            [TypeID],
            [UserID],
            [EventDate]
-    FROM   [generic].[Event]
+    FROM   [common].[Event]
     WHERE  [ParentID] = @ParentID AND [EntityID] = @EntityID
-
 GO

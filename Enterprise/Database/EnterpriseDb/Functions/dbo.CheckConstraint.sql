@@ -1,3 +1,4 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
@@ -15,7 +16,7 @@ AS
 
       BEGIN
           IF ( EXISTS(SELECT LookupID
-                      FROM   [generic].[Lookup]
+                      FROM   [common].[Lookup]
                       WHERE  ( LookupID = @LookupID )
                              AND LookupGroupID = @LookupGroupID) )
             BEGIN

@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Lookup_Insert]
   @LookupGroupID INT,
   @Value         VARCHAR(50)
@@ -11,7 +10,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [generic].[Lookup]
+    INSERT INTO [common].[Lookup]
     (
       [LookupGroupID],
       [Value]
@@ -25,9 +24,8 @@ AS
     SELECT [LookupID],
            [LookupGroupID],
            [Value]
-    FROM   [generic].[Lookup]
+    FROM   [common].[Lookup]
     WHERE  [LookupID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[File_SelectByParentIdAndEntityId]
   @ParentID INT,
   @EntityID SmallINT
@@ -20,7 +19,6 @@ AS
            [TypeID],
            [Caption],
            [DateInserted]
-    FROM   [generic].[File]
+    FROM   [common].[File]
     WHERE  [ParentID] = @ParentID AND [EntityID] = @EntityID
-
 GO

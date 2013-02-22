@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[File_Update]
   @FileID       INT,
   @ParentID     INT,
@@ -16,7 +16,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [generic].[File]
+    UPDATE [common].[File]
     SET    [ParentID] = @ParentID,
            [EntityID] = @EntityID,
            [ParentFolder] = @ParentFolder,
@@ -25,5 +25,4 @@ AS
            [TypeID] = @TypeID,
            [Caption] = @Caption
     WHERE  [FileID] = @FileID
-
 GO

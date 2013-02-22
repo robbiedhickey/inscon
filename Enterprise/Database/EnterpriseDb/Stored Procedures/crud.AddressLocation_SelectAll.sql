@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[AddressLocation_SelectAll]
 
 AS
@@ -18,7 +18,5 @@ AS
            [GeoCode],
            [Lattitude],
            [Longitude]
-    FROM   [generic].[AddressLocation]
-   
-
+    FROM   [common].[AddressLocation]
 GO

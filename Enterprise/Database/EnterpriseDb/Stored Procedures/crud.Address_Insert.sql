@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Address_Insert]
   @ParentID INT,
   @EntityID SMALLINT,
@@ -15,7 +15,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [generic].[Address]
+    INSERT INTO [common].[Address]
     (
       [ParentID],
       [EntityID],
@@ -44,9 +44,8 @@ AS
            [City],
            [State],
            [Zip]
-    FROM   [generic].[Address]
+    FROM   [common].[Address]
     WHERE  [AddressID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

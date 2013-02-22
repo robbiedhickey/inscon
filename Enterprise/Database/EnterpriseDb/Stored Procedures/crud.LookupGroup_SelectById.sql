@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[LookupGroup_SelectById]
   @LookupGroupID INT
 AS
@@ -12,7 +11,6 @@ AS
 
     SELECT [LookupGroupID],
            [Name]
-    FROM   [generic].[LookupGroup]
+    FROM   [common].[LookupGroup]
     WHERE  [LookupGroupID] = @LookupGroupID
-
 GO

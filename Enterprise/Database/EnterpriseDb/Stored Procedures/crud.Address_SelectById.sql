@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Address_SelectById]
   @AddressID INT
 AS
@@ -17,7 +17,6 @@ AS
            [City],
            [State],
            [Zip]
-    FROM   [generic].[Address]
+    FROM   [common].[Address]
     WHERE  [AddressID] = @AddressID
-
 GO

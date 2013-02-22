@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[AddressLocation_Insert]
   @AddressID      INT,
   @BuildingNumber VARCHAR(20),
@@ -17,7 +17,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [generic].[AddressLocation]
+    INSERT INTO [common].[AddressLocation]
     (
       [AddressID],
       [BuildingNumber],
@@ -51,9 +51,8 @@ AS
            [GeoCode],
            [Lattitude],
            [Longitude]
-    FROM   [generic].[AddressLocation]
+    FROM   [common].[AddressLocation]
     WHERE  [AddressID] = @AddressID
 
 -- End Return Select <- do not remove
-
 GO

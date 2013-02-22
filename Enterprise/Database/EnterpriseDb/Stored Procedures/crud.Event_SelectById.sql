@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Event_SelectById]
   @EventID INT
 AS
@@ -15,7 +15,6 @@ AS
            [TypeID],
            [UserID],
            [EventDate]
-    FROM   [generic].[Event]
+    FROM   [common].[Event]
     WHERE  [EventID] = @EventID
-
 GO
