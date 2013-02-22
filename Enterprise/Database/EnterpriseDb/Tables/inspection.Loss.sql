@@ -17,8 +17,7 @@ GO
 
 ALTER TABLE [inspection].[Loss] ADD CONSTRAINT [PK_Loss] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO
-ALTER TABLE [inspection].[Loss] ADD CONSTRAINT [FK_Loss_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Describe all additional repairs that are needed', 'SCHEMA', N'inspection', 'TABLE', N'Loss', 'COLUMN', N'AdditionalRepairsNeeded'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Type of Loss', 'SCHEMA', N'inspection', 'TABLE', N'Loss', 'COLUMN', N'LossType'

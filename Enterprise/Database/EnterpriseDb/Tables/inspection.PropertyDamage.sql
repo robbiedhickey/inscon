@@ -59,8 +59,5 @@ GO
 EXEC sp_addextendedproperty N'MS_Description', N'Lookup Value - Vandalized', 'SCHEMA', N'inspection', 'TABLE', N'PropertyDamage', 'COLUMN', N'Vandalized'
 GO
 
-ALTER TABLE [inspection].[PropertyDamage] ADD
-CONSTRAINT [FK_PropertyDamage_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
 ALTER TABLE [inspection].[PropertyDamage] ADD CONSTRAINT [pk_propertydamage] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO

@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[WorkOrder_SelectByAssetId]
   @AssetID INT
 AS
@@ -14,7 +14,6 @@ AS
            [AssetID],
            [DateInserted]
           
-    FROM   [dbo].[WorkOrder]
+    FROM   [request].[WorkOrder]
     WHERE  [AssetID] = @AssetID
-
 GO

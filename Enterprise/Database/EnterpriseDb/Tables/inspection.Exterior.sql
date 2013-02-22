@@ -91,8 +91,7 @@ GO
 
 ALTER TABLE [inspection].[Exterior] ADD CONSTRAINT [PK_Exterior] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO
-ALTER TABLE [inspection].[Exterior] ADD CONSTRAINT [FK_Exterior_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 
 EXEC sp_addextendedproperty N'MS_Description', N'Y/N - Was contact made', 'SCHEMA', N'inspection', 'TABLE', N'Exterior', 'COLUMN', N'ContactMade'
 GO

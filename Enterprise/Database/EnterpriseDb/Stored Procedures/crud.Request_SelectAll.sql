@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[Request_SelectAll]
 
 AS
@@ -13,7 +12,5 @@ AS
     SELECT [RequestID],          
            [DateInserted],
            [CustomerRequestID]
-    FROM   [dbo].[Request]
-  
-
+    FROM   [request].[Request]
 GO

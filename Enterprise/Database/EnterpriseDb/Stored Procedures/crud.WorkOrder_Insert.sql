@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[WorkOrder_Insert]
   @RequestID    INT,
   @AssetID       INT,
@@ -20,13 +19,13 @@ AS
     -- IF REQUESTID IS NULL GET A NEW REQUESTID
     If(@RequestID = null)
     BEGIN
-		INSERT INTO [dbo].[Request]([DateInserted], [CustomerRequestID])VALUES(null,null)
+		INSERT INTO [request].[Request]([DateInserted], [CustomerRequestID])VALUES(null,null)
 		SET @RequestID = SCOPE_IDENTITY()
     END
    
     
     -- INSERT WORK ORDER RECORD
-    INSERT INTO [dbo].[WorkOrder]
+    INSERT INTO [request].[WorkOrder]
     (
       [RequestID],
       [AssetID],
@@ -42,7 +41,7 @@ AS
     )
     -- Begin Return Select <- do not remove
     SELECT *           
-    FROM   [dbo].[WorkOrder]
+    FROM   [request].[WorkOrder]
     WHERE  [WorkOrderID] = SCOPE_IDENTITY()
     
    
@@ -55,5 +54,4 @@ AS
 	ERR_HANDLER:	
 	ROLLBACK TRAN
 	RETURN 1
-
 GO

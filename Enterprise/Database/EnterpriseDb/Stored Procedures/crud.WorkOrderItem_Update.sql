@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[WorkOrderItem_Update]
   @WorkOrderItemID INT,
   @WorkOrderID     INT,
@@ -14,12 +14,11 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    UPDATE [dbo].[WorkOrderItem]
+    UPDATE [request].[WorkOrderItem]
     SET    [WorkOrderID] = @WorkOrderID,
            [ProductID] = @ProductID,
            [Quantity] = @Quantity,
            [Rate] = @Rate,
            [DateInserted] = @DateInserted
     WHERE  [WorkOrderItemID] = @WorkOrderItemID
-
 GO

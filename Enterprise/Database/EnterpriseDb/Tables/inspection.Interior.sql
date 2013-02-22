@@ -23,8 +23,7 @@ GO
 
 ALTER TABLE [inspection].[Interior] ADD CONSTRAINT [PK_Interior] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO
-ALTER TABLE [inspection].[Interior] ADD CONSTRAINT [FK_Interior_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Contact Name - Primary Contact for completing an interior inspection', 'SCHEMA', N'inspection', 'TABLE', N'Interior', 'COLUMN', N'ContactName'
 GO
 EXEC sp_addextendedproperty N'MS_Description', N'Contact Number - Primary Contact Number for completing an interior inspection', 'SCHEMA', N'inspection', 'TABLE', N'Interior', 'COLUMN', N'ContactNumber'

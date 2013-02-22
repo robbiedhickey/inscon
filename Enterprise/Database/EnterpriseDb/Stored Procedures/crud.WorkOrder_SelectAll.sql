@@ -3,7 +3,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[WorkOrder_SelectAll]
 
 AS
@@ -15,7 +14,5 @@ AS
            [AssetID],
            [DateInserted]
           
-    FROM   [dbo].[WorkOrder]
-   
-
+    FROM   [request].[WorkOrder]
 GO

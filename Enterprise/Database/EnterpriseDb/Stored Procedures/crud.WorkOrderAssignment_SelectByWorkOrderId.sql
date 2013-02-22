@@ -14,6 +14,6 @@ AS
            [UserID],
            [EventDate],
            [StatusID]
-    FROM   [dbo].[WorkOrderAssignment]
+    FROM   [request].[WorkOrderAssignment]
     WHERE  [WorkOrderID] = @WorkOrderID
 GO

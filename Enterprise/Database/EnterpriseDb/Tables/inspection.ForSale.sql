@@ -17,8 +17,7 @@ GO
 
 ALTER TABLE [inspection].[ForSale] ADD CONSTRAINT [PK_ForSale] PRIMARY KEY CLUSTERED  ([WorkOrderID]) ON [PRIMARY]
 GO
-ALTER TABLE [inspection].[ForSale] ADD CONSTRAINT [FK_ForSale_WorkOrder] FOREIGN KEY ([WorkOrderID]) REFERENCES [dbo].[WorkOrder] ([WorkOrderID]) ON DELETE CASCADE ON UPDATE CASCADE
-GO
+
 EXEC sp_addextendedproperty N'MS_Description', N'Number of Days On Market', 'SCHEMA', N'inspection', 'TABLE', N'ForSale', 'COLUMN', N'DaysOnMarket'
 GO
 

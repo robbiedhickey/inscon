@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[WorkOrderItem_Insert]
   @WorkOrderID  INT,
   @ProductID    INT,
@@ -13,7 +13,7 @@ AS
     SET NOCOUNT ON
     SET XACT_ABORT ON
 
-    INSERT INTO [dbo].[WorkOrderItem]
+    INSERT INTO [request].[WorkOrderItem]
     (
       [WorkOrderID],
       [ProductID],
@@ -36,9 +36,8 @@ AS
            [Quantity],
            [Rate],
            [DateInserted]
-    FROM   [dbo].[WorkOrderItem]
+    FROM   [request].[WorkOrderItem]
     WHERE  [WorkOrderItemID] = SCOPE_IDENTITY()
 
 -- End Return Select <- do not remove
-
 GO

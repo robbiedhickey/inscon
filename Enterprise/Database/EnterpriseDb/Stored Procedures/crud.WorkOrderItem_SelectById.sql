@@ -1,8 +1,8 @@
+
 SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
-
 CREATE PROC [crud].[WorkOrderItem_SelectById]
   @WorkOrderItemID INT
 AS
@@ -15,7 +15,6 @@ AS
            [Quantity],
            [Rate],
            [DateInserted]
-    FROM   [dbo].[WorkOrderItem]
+    FROM   [request].[WorkOrderItem]
     WHERE  [WorkOrderItemID] = @WorkOrderItemID
-
 GO
