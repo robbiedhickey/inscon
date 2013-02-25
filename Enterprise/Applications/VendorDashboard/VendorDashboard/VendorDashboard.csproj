@@ -231,6 +231,8 @@
     <Content Include="scripts\jquery-1.9.1.min.js" />
     <Content Include="scripts\jquery-migrate-1.1.0.js" />
     <Content Include="scripts\jquery-migrate-1.1.0.min.js" />
+    <Content Include="scripts\jquery-ui-1.10.0.js" />
+    <Content Include="scripts\jquery-ui-1.10.0.min.js" />
     <Content Include="scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="scripts\jquery.unobtrusive-ajax.min.js" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
@@ -239,6 +241,7 @@
     <Content Include="scripts\jquery.validate.unobtrusive-custom-for-bootstrap.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\main.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
