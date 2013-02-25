@@ -3,11 +3,14 @@
   <project key="1122809411">
     <configuration>DEBUG;TRACE</configuration>
   </project>
+  <project key="-1736621654">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="CacheItem.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.390</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.263</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -72,8 +75,8 @@
   <sourcecode name="ConfigurationUtils.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.406</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.314</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -233,8 +236,8 @@
   <sourcecode name="Converter.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:20.061</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.205</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -1494,8 +1497,8 @@
   <sourcecode name="DataAccessor.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.702</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.568</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -2336,8 +2339,8 @@
   <sourcecode name="DataFormat.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.608</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.465</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -2452,8 +2455,8 @@
   <sourcecode name="DataRecord.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.796</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.393</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -2780,8 +2783,8 @@
   <sourcecode name="DataRecordTask.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/02/20 15:05:26.159</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.539</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -3042,8 +3045,8 @@
   <sourcecode name="IDataAccessor.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.749</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.365</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -3331,8 +3334,8 @@
   <sourcecode name="IDataContext.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.624</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.482</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -3573,8 +3576,8 @@
   <sourcecode name="IDataModifier.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.718</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.612</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -3741,8 +3744,8 @@
   <sourcecode name="IDataRecord.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.562</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.457</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -3768,11 +3771,6 @@
       <violation namespace="StyleCop.CSharp.DocumentationRules" rule="FileHeaderCompanyNameTextMustMatch" ruleCheckId="SA1641">
         <context>The company attribute in the file header must contain the following company name: Mortgage Specialist International</context>
         <line>1</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The interface must have a documentation header.</context>
-        <line>16</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="SingleLineCommentsMustBeginWithSingleSpace" ruleCheckId="SA1005">
@@ -3824,8 +3822,8 @@
   <sourcecode name="ITypeReader.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.936</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.446</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -4884,8 +4882,8 @@
   <sourcecode name="ListMapReader.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.686</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.550</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -6850,8 +6848,8 @@
   <sourcecode name="MemoryCommand.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.749</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.382</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -6989,8 +6987,8 @@
   <sourcecode name="MemoryContext.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.936</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.433</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -7281,8 +7279,8 @@
   <sourcecode name="ModelHelper.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.718</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.604</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -7325,11 +7323,6 @@
         <line>4</line>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The class must have a documentation header.</context>
-        <line>8</line>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
         <context>The code must not contain multiple blank lines in a row.</context>
         <line>31</line>
@@ -7338,11 +7331,6 @@
       <violation namespace="StyleCop.CSharp.LayoutRules" rule="CodeMustNotContainMultipleBlankLinesInARow" ruleCheckId="SA1507">
         <context>The code must not contain multiple blank lines in a row.</context>
         <line>54</line>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>10</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.LayoutRules" rule="CurlyBracketsMustNotBeOmitted" ruleCheckId="SA1503">
@@ -7372,11 +7360,6 @@
         <endColumn>33</endColumn>
         <warning>False</warning>
       </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>18</line>
-        <warning>False</warning>
-      </violation>
       <violation namespace="StyleCop.CSharp.LayoutRules" rule="OpeningCurlyBracketsMustNotBePrecededByBlankLine" ruleCheckId="SA1509">
         <context>An opening curly bracket must not be preceded by a blank line.</context>
         <line>20</line>
@@ -7397,11 +7380,6 @@
         <startColumn>20</startColumn>
         <endLine>28</endLine>
         <endColumn>33</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>32</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.LayoutRules" rule="OpeningCurlyBracketsMustNotBePrecededByBlankLine" ruleCheckId="SA1509">
@@ -7435,11 +7413,6 @@
         <startColumn>28</startColumn>
         <endLine>42</endLine>
         <endColumn>45</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>47</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.SpacingRules" rule="OpeningParenthesisMustBeSpacedCorrectly" ruleCheckId="SA1008">
@@ -7495,11 +7468,6 @@
         <startColumn>69</startColumn>
         <endLine>51</endLine>
         <endColumn>69</endColumn>
-        <warning>False</warning>
-      </violation>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The method must have a documentation header.</context>
-        <line>55</line>
         <warning>False</warning>
       </violation>
       <violation namespace="StyleCop.CSharp.LayoutRules" rule="OpeningCurlyBracketsMustNotBePrecededByBlankLine" ruleCheckId="SA1509">
@@ -7578,8 +7546,8 @@
   <sourcecode name="SqlDataAccessor.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.920</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.422</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -8920,8 +8888,8 @@
   <sourcecode name="SqlDataContext.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.718</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.594</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -10001,8 +9969,8 @@
   <sourcecode name="SqlDataExecutor.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.842</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.403</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -10715,8 +10683,8 @@
   <sourcecode name="SqlDataRecord.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.671</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.530</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -10804,8 +10772,8 @@
   <sourcecode name="TypeConvertingReader.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.733</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.338</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -13507,8 +13475,8 @@
   <sourcecode name="ITypeConverter.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.390</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.284</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -14566,8 +14534,8 @@
   <sourcecode name="StandardTypeConverter.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:20.076</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.237</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -17250,8 +17218,8 @@
   <sourcecode name="ValidationError.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:19.562</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.324</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -17819,8 +17787,8 @@
   <sourcecode name="ValidationException.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/01/31 10:37:20.076</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/22 14:59:18.219</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -19024,8 +18992,8 @@
   <sourcecode name=".NETFramework,Version=v4.5.AssemblyAttributes.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2012/11/30 09:39:54.264</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2012/11/05 10:44:55.096</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -19047,8 +19015,8 @@
   <sourcecode name="TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/02/15 14:42:38.343</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/25 08:51:16.639</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -19076,8 +19044,8 @@
   <sourcecode name="TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/02/15 14:42:38.327</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/25 08:51:16.639</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -19105,8 +19073,8 @@
   <sourcecode name="TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/01/11 11:37:58.000</styleCop>
-      <settingsFile>2013/02/21 15:04:27.143</settingsFile>
-      <sourceFile>2013/02/15 14:42:38.327</sourceFile>
+      <settingsFile>2013/02/25 07:44:15.562</settingsFile>
+      <sourceFile>2013/02/25 08:51:16.640</sourceFile>
       <parser>2013/01/11 11:37:58.000</parser>
       <StyleCop.CSharp.DocumentationRules>2013/01/11 11:37:58.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
