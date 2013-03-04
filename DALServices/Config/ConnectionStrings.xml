@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<connectionStrings>
+	<add name="EnterpriseDbContext"
+		 connectionString="Data Source=INSCON1;Initial Catalog=EnterpriseDbTest_Patrick;Integrated Security=True;MultipleActiveResultSets=True"
+		 providerName="System.Data.SqlClient" />
+</connectionStrings>
