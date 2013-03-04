@@ -8,9 +8,10 @@ namespace Enterprise.DALServices.DAL.Repositories.Interfaces
         IList<Location> Get();
         IList<Location> Get(int organizationID);
         IList<Location> Get(int organizationID, int typeID);
-        IList<Location> GetByID(int id);
-        bool Insert(Location location);
-        bool Update(Location location);
-        bool Delete(Location location);
+        Location GetByID(int id);
+        void Insert(Location location);
+        void Update(Location location);
+        void Delete(Location location);
+        void Save();
     }
 }

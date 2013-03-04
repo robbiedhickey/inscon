@@ -8,8 +8,9 @@ namespace Enterprise.DALServices.DAL.Repositories.Interfaces
         IList<Asset> Get();
         IList<Asset> Get(int organizationID);
         Asset GetByID(int id);
-        bool Insert(Asset asset);
-        bool Update(Asset asset);
-        bool Delete(Asset asset);
+        void Insert(Asset asset);
+        void Update(Asset asset);
+        void Delete(Asset asset);
+        void Save();
     }
 }

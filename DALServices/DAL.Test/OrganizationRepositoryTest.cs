@@ -1,25 +1,33 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Enterprise.DALServices.DAL.Test
+﻿namespace Enterprise.DALServices.DAL.Test
 {
+    using Enterprise.DALServices.DAL.Models;
+    using Enterprise.DALServices.DAL.Repositories;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     /// <summary>
     /// Summary description for OrganizationRepositoryTest
     /// </summary>
     [TestClass]
     public class OrganizationRepositoryTest
     {
-        public OrganizationRepositoryTest()
-        {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
+        #region Variables
 
         private TestContext testContextInstance;
+        private EnterpriseDbContext context;
 
+        #endregion
+
+        #region Constructors
+        
+        public OrganizationRepositoryTest()
+        {
+            context = new EnterpriseDbContext();
+        }
+
+        #endregion
+
+        #region Properties
+        
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
@@ -35,6 +43,8 @@ namespace Enterprise.DALServices.DAL.Test
                 testContextInstance = value;
             }
         }
+
+        #endregion
 
         #region Additional test attributes
         //
@@ -61,10 +71,150 @@ namespace Enterprise.DALServices.DAL.Test
         //
         #endregion
 
+        #region Tests
+
         [TestMethod]
-        public void TestMethod1()
+        public void OrganizatonRepositoryConstructor()
         {
-            int z = 1;
+            OrganizationRepository target = new OrganizationRepository(context);
+
+            Assert.IsNotNull(target);
         }
+
+        [TestMethod]
+        public void OrganizatonRepositoryGetAll()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+
+            var orgs = target.Get();
+
+            Assert.AreEqual(3, orgs.Count);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryGetByTypeIDPass()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+
+            var orgs = target.Get(3);
+
+            Assert.AreEqual(3,orgs.Count);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryGetByTypeIDFail()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+
+            var orgs = target.Get(0);
+
+            Assert.AreEqual(0,orgs.Count);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryGetByIDPass()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+
+            var org = target.GetByID(1);
+
+            Assert.AreEqual("BOGE",org.Code);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryGetByIDFail()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+
+            var org = target.GetByID(0);
+
+            Assert.AreEqual("", org.Code);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryInsertPass()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+
+            Organization newOrg = new Organization()
+                                      {
+                                          Code = "XXXX", 
+                                          Name = "Test Insert", 
+                                          TypeID = 3, 
+                                          StatusID = 1
+                                      };
+
+            target.Insert(newOrg);
+            target.Save();
+
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryInsertFailDuplicateOrg()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryInsertFailNullOrg()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryUpdatePass()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryUpdateFailBadID()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryUpdateFailBadNullOrg()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryDeletePass()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryDeleteFailBadID()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryDeleteFailNullOrg()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositoryDeleteFailAttachedOrg()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositorySavePass()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        [TestMethod]
+        public void OrganizatonRepositorySaveFail()
+        {
+            OrganizationRepository target = new OrganizationRepository(context);
+        }
+
+        #endregion
     }
 }

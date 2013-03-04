@@ -8,8 +8,9 @@ namespace Enterprise.DALServices.DAL.Repositories.Interfaces
         IList<Organization> Get();
         IList<Organization> Get(int typeID);
         Organization GetByID(int id);
-        bool Insert(Organization organization);
-        bool Update(Organization organization);
-        bool Delete(Organization organization);
+        void Insert(Organization organization);
+        void Update(Organization organization);
+        void Delete(Organization organization);
+        void Save();
     }
 }

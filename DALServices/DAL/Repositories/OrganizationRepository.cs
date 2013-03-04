@@ -8,39 +8,87 @@ using Enterprise.DALServices.DAL.Models;
 
 namespace Enterprise.DALServices.DAL.Repositories
 {
+    using System.Data.Entity;
+    using System.Data.SqlClient;
+
     public class OrganizationRepository : IOrganizationRepository, IDisposable
     {
-        private EnterpriseDbContext context;
+        private EnterpriseDbContext db;
         private bool disposed = false;
+
+        public OrganizationRepository(EnterpriseDbContext context)
+        {
+            db = context;
+        }
 
         public IList<Models.Organization> Get()
         {
-            throw new NotImplementedException();
+            return (from o in db.Organizations 
+                    select o).ToList();
         }
 
         public IList<Models.Organization> Get(int typeID)
         {
-            throw new NotImplementedException();
+            if (typeID < 0)
+            {
+                return new List<Models.Organization>();
+            }
+            else
+            {
+                return (from o in db.Organizations
+                        where o.TypeID.Equals(typeID)
+                        select o).ToList();
+            }
         }
 
         public Models.Organization GetByID(int id)
         {
-            throw new NotImplementedException();
+            if (id < 0)
+            {
+                return new Organization();
+            }
+            else
+            {
+                return (from o in db.Organizations
+                        where o.OrganizationID.Equals(id)
+                        select o).FirstOrDefault();
+            }
         }
 
-        public bool Insert(Models.Organization organization)
+        public void Insert(Models.Organization organization)
         {
-            throw new NotImplementedException();
+            if (organization == null)
+            {
+                throw new ArgumentNullException("organization", "Parameter may not be null.");
+            }
+
+            db.Organizations.Add(organization);
         }
 
-        public bool Update(Models.Organization organization)
+        public void Update(Models.Organization organization)
         {
-            throw new NotImplementedException();
+            if (organization == null)
+            {
+                throw new ArgumentNullException("organization", "Parameter may not be null.");
+            }
+
+            db.Entry(organization).State = EntityState.Modified;
         }
 
-        public bool Delete(Models.Organization organization)
+        public void Delete(Models.Organization organization)
         {
-            throw new NotImplementedException();
+            if (organization == null)
+            {
+                throw new ArgumentNullException("organization", "Parameter may not be null.");
+            }
+
+            Organization org = db.Organizations.Find(organization.OrganizationID);
+            db.Organizations.Remove(org);
+        }
+
+        public void Save()
+        {
+            db.SaveChanges();
         }
 
         protected virtual void Dispose(bool disposing)
@@ -49,7 +97,7 @@ namespace Enterprise.DALServices.DAL.Repositories
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    db.Dispose();
                 }
             }
 

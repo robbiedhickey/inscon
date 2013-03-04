@@ -52,9 +52,6 @@
     <Compile Include="Models\Asset.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\EnterpriseDbContext.cs" />
-    <Compile Include="Models\EnterpriseDbContext.MSI.cs">
-      <DependentUpon>EnterpriseDbContext.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Exterior.cs" />

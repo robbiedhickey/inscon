@@ -79,10 +79,6 @@ namespace Enterprise.DALServices.DAL.Models
             modelBuilder.Configurations.Add(new WorkOrderMap());
             modelBuilder.Configurations.Add(new WorkOrderAssignmentMap());
             modelBuilder.Configurations.Add(new WorkOrderItemMap());
-
-            // If model is updated using the Reverse Engineer Tool this line 
-            // must be replaced if Insert, Update and Delete mapping is to work.
-            this.MapStoredProcs(modelBuilder);
         }
     }
 }

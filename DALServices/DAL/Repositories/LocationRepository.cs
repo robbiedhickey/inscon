@@ -8,44 +8,106 @@ using Enterprise.DALServices.DAL.Models;
 
 namespace Enterprise.DALServices.DAL.Repositories
 {
+    using System.Data.Entity;
+
     public class LocationRepository : ILocationRepository, IDisposable
     {
-        private EnterpriseDbContext context;
+        private EnterpriseDbContext db;
         private bool disposed = false;
+
+        public LocationRepository(EnterpriseDbContext context)
+        {
+            db = context;
+        }
 
         public IList<Models.Location> Get()
         {
-            throw new NotImplementedException();
+            return (from x in db.Locations 
+                select x).ToList();
         }
 
         public IList<Models.Location> Get(int organizationID)
         {
-            throw new NotImplementedException();
+            if (organizationID < 0)
+            {
+                return new List<Models.Location>();
+            }
+            else
+            {
+                return (from x in db.Locations
+                        where x.OrganizationID.Equals(organizationID)
+                        select x).ToList();
+            }
         }
 
         public IList<Models.Location> Get(int organizationID, int typeID)
         {
-            throw new NotImplementedException();
+            if (organizationID < 0)
+            {
+                return new List<Models.Location>();
+            }
+            else if (typeID < 0)
+            {
+                return new List<Models.Location>();
+            }
+            else
+            {
+                return (from x in db.Locations
+                        where x.OrganizationID.Equals(organizationID) && 
+                              x.TypeID.Equals(typeID)
+                        select x).ToList();
+            }
         }
 
-        public IList<Models.Location> GetByID(int id)
+        public Models.Location GetByID(int id)
         {
-            throw new NotImplementedException();
+            if (id < 0)
+            {
+                return new Location();
+            }
+            else
+            {
+                return (from x in db.Locations 
+                        where x.LocationID.Equals(id) 
+                        select x).FirstOrDefault();
+            }
         }
 
-        public bool Insert(Models.Location location)
+        public void Insert(Models.Location location)
         {
-            throw new NotImplementedException();
+            if (location == null)
+            {
+                throw new ArgumentNullException("location", "Parameter may not be null.");
+            }
+
+            db.Locations.Add(location);
         }
 
-        public bool Update(Models.Location location)
+        public void Update(Models.Location location)
         {
-            throw new NotImplementedException();
+            if (location == null)
+            {
+                throw new ArgumentNullException("location", "Parameter may not be null.");
+            }
+
+            db.Entry(location).State = EntityState.Modified;
         }
 
-        public bool Delete(Models.Location location)
+        public void Delete(Models.Location location)
         {
-            throw new NotImplementedException();
+            if (location == null)
+            {
+                throw new ArgumentNullException("location", "Parameter may not be null.");
+            }
+
+            Location loc = db.Locations.Find(location.LocationID);
+            db.Locations.Remove(loc);
+
+        }
+
+        public void Save()
+        {
+            db.SaveChanges();
         }
 
         protected virtual void Dispose(bool disposing)
@@ -54,7 +116,7 @@ namespace Enterprise.DALServices.DAL.Repositories
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    db.Dispose();
                 }
             }
 

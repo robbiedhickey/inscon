@@ -8,39 +8,86 @@ using Enterprise.DALServices.DAL.Models;
 
 namespace Enterprise.DALServices.DAL.Repositories
 {
+    using System.Data.Entity;
+
     public class AssetRepository : IAssetRepository, IDisposable
     {
-        private EnterpriseDbContext context;
+        private EnterpriseDbContext db;
         private bool disposed = false;
+
+        public AssetRepository(EnterpriseDbContext context)
+        {
+            db = context;
+        }
 
         public IList<Models.Asset> Get()
         {
-            throw new NotImplementedException();
+            return (from x in db.Assets 
+                    select x).ToList();
         }
 
         public IList<Models.Asset> Get(int organizationID)
         {
-            throw new NotImplementedException();
+            if (organizationID < 0)
+            {
+                return new List<Models.Asset>();
+            }
+            else
+            {
+                return (from x in db.Assets 
+                        where x.OrganizationID.Equals(organizationID)
+                        select x).ToList();
+            }
         }
 
         public Models.Asset GetByID(int id)
         {
-            throw new NotImplementedException();
+            if (id < 0)
+            {
+                return new Asset();
+            }
+            else
+            {
+                return (from x in db.Assets
+                        where x.AssetID.Equals(id)
+                        select x).FirstOrDefault();
+            }
         }
 
-        public bool Insert(Models.Asset asset)
+        public void Insert(Models.Asset asset)
         {
-            throw new NotImplementedException();
+            if (asset == null)
+            {
+                throw new ArgumentNullException("asset", "Parameter may not be null.");
+            }
+
+            db.Assets.Add(asset);
         }
 
-        public bool Update(Models.Asset asset)
+        public void Update(Models.Asset asset)
         {
-            throw new NotImplementedException();
+            if (asset == null)
+            {
+                throw new ArgumentNullException("asset", "Parameter may not be null.");
+            }
+
+            db.Entry(asset).State = EntityState.Modified;
         }
 
-        public bool Delete(Models.Asset asset)
+        public void Delete(Models.Asset asset)
         {
-            throw new NotImplementedException();
+            if (asset == null)
+            {
+                throw new ArgumentNullException("asset", "Parameter may not be null.");
+            }
+
+            Asset ast = db.Assets.Find(asset.AssetID);
+            db.Assets.Remove(ast);
+        }
+
+        public void Save()
+        {
+            db.SaveChanges();
         }
 
         protected virtual void Dispose(bool disposing)
@@ -49,7 +96,7 @@ namespace Enterprise.DALServices.DAL.Repositories
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    db.Dispose();
                 }
             }
 
