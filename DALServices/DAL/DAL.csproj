@@ -108,6 +108,12 @@
     <Compile Include="Models\WorkOrderAssignment.cs" />
     <Compile Include="Models\WorkOrderItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AssetRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAssetRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILocationRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IOrganizationRepository.cs" />
+    <Compile Include="Repositories\LocationRepository.cs" />
+    <Compile Include="Repositories\OrganizationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
