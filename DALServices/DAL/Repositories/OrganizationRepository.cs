@@ -23,8 +23,17 @@ namespace Enterprise.DALServices.DAL.Repositories
 
         public IList<Models.Organization> Get()
         {
-            return (from o in db.Organizations 
-                    select o).ToList();
+            var orgs = (from o in db.Organizations 
+                        select o).ToList();
+
+            if (orgs.Count.Equals(0))
+            {
+                return null;
+            }
+            else
+            {
+                return orgs;
+            }
         }
 
         public IList<Models.Organization> Get(int typeID)
@@ -35,9 +44,18 @@ namespace Enterprise.DALServices.DAL.Repositories
             }
             else
             {
-                return (from o in db.Organizations
-                        where o.TypeID.Equals(typeID)
-                        select o).ToList();
+                var orgs = (from o in db.Organizations 
+                            where o.TypeID.Equals(typeID) 
+                            select o).ToList();
+
+                if (orgs.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    return orgs;
+                }
             }
         }
 
@@ -49,8 +67,8 @@ namespace Enterprise.DALServices.DAL.Repositories
             }
             else
             {
-                return (from o in db.Organizations
-                        where o.OrganizationID.Equals(id)
+                return (from o in db.Organizations 
+                        where o.OrganizationID.Equals(id) 
                         select o).FirstOrDefault();
             }
         }
