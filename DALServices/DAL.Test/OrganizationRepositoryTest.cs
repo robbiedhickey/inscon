@@ -1,7 +1,11 @@
 ﻿namespace Enterprise.DALServices.DAL.Test
 {
+    using System.Linq;
+
     using Enterprise.DALServices.DAL.Models;
     using Enterprise.DALServices.DAL.Repositories;
+    using Enterprise.DALServices.DAL.Repositories.Interfaces;
+
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Data.Entity.Infrastructure;
@@ -15,7 +19,7 @@
         #region Variables
 
         private TestContext testContextInstance;
-        private EnterpriseDbContext context;
+        private IUnitOfWork<EnterpriseDbContext> uow;
 
         #endregion
 
@@ -23,7 +27,7 @@
         
         public OrganizationRepositoryTest()
         {
-            context = new EnterpriseDbContext();
+            uow = new EfUnitOfWork();
         }
 
         #endregion
@@ -78,7 +82,7 @@
         [TestMethod]
         public void OrganizatonRepositoryConstructor()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             Assert.IsNotNull(target);
         }
@@ -86,19 +90,19 @@
         [TestMethod]
         public void OrganizatonRepositoryGetAll()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
-            var orgs = target.Get();
+            var orgs = target.GetAll();
 
-            Assert.AreEqual(3, orgs.Count);
+            Assert.AreEqual(3, orgs.Count());
         }
 
         [TestMethod]
         public void OrganizatonRepositoryGetByTypeIDPass()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
-            var orgs = target.Get(3);
+            var orgs = target.GetBy(3);
 
             Assert.AreEqual(3,orgs.Count);
         }
@@ -106,9 +110,9 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByTypeIDFailBadTypeID()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
-            var orgs = target.Get(0);
+            var orgs = target.GetBy(0);
 
             Assert.IsNull(orgs);
         }
@@ -116,9 +120,9 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByTypeIDFailNegativeTypeID()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
-            var orgs = target.Get(-1);
+            var orgs = target.GetBy(-1);
 
             Assert.IsNull(orgs);
         }
@@ -126,7 +130,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByIDPass()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             var org = target.GetByID(1);
 
@@ -136,7 +140,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByIDFailNegativeID()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             var org = target.GetByID(-1);
 
@@ -146,7 +150,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByIDFailInvalidID()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             var org = target.GetByID(0);
 
@@ -156,7 +160,7 @@
         [TestMethod]
         public void OrganizatonRepositoryInsertPass()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             Organization newOrg = new Organization()
                                       {
@@ -166,8 +170,8 @@
                                           StatusID = 1
                                       };
 
-            target.Insert(newOrg);
-            target.Save();
+            target.Add(newOrg);
+            uow.Commit();
 
             Assert.AreEqual(4, newOrg.OrganizationID);
         }
@@ -176,7 +180,7 @@
         [ExpectedException(typeof(DbUpdateException))]
         public void OrganizatonRepositoryInsertFailDuplicateOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             Organization newOrg = new Organization()
             {
@@ -186,26 +190,26 @@
                 StatusID = 1
             };
 
-            target.Insert(newOrg);
-            target.Save();
+            target.Add(newOrg);
+            uow.Commit();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void OrganizatonRepositoryInsertFailNullOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             Organization newOrg = null;
 
-            target.Insert(newOrg);
-            target.Save();
+            target.Add(newOrg);
+            uow.Commit();
         }
 
         [TestMethod]
         public void OrganizatonRepositoryUpdatePass()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             var org = target.GetByID(1);
             org.Name = "Update Test";
@@ -220,7 +224,7 @@
         [ExpectedException(typeof(DbUpdateConcurrencyException))]
         public void OrganizatonRepositoryUpdateFailBadID()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             Organization org = new Organization()
             {
@@ -232,25 +236,25 @@
             };
 
             target.Update(org);
-            target.Save();
+            uow.Commit();
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void OrganizatonRepositoryUpdateFailBadNullOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             Organization org = null;
 
             target.Update(org);
-            target.Save();
+            uow.Commit();
         }
 
         [TestMethod]
         public void OrganizatonRepositoryDeletePass()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             Organization org = new Organization()
             {
@@ -260,12 +264,12 @@
                 StatusID = 1
             };
 
-            target.Insert(org);
-            target.Save();
+            target.Add(org);
+            uow.Commit();
 
             var savedOrg = target.GetByID(org.OrganizationID);
-            target.Delete(savedOrg);
-            target.Save();
+            target.Remove(savedOrg);
+            uow.Commit();
 
             var chkOrg = target.GetByID(org.OrganizationID);
 
@@ -276,7 +280,7 @@
         [ExpectedException(typeof(InvalidOperationException))]
         public void OrganizatonRepositoryDeleteFailBadID()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             Organization org = new Organization()
             {
@@ -286,13 +290,13 @@
                 StatusID = 1
             };
 
-            target.Insert(org);
-            target.Save();
+            target.Add(org);
+            uow.Commit();
 
             var savedOrg = target.GetByID(org.OrganizationID);
             savedOrg.OrganizationID = 100;
-            target.Delete(savedOrg);
-            target.Save();
+            target.Remove(savedOrg);
+            uow.Commit();
 
             var chkOrg = target.GetByID(org.OrganizationID);
         }
@@ -301,26 +305,20 @@
         [ExpectedException(typeof(ArgumentNullException))]
         public void OrganizatonRepositoryDeleteFailNullOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
             Organization org = null;
 
-            target.Delete(org);
-            target.Save();
+            target.Remove(org);
+            uow.Commit();
         }
 
         [TestMethod]
         [ExpectedException(typeof(DbUpdateException))]
         public void OrganizatonRepositoryDeleteFailAttachedOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(context);
+            OrganizationRepository target = new OrganizationRepository(uow);
 
-            var org = target.GetByID(1);
-
-            target.Delete(org);
-            target.Save();
-
-            Assert.Inconclusive();
         }
 
         #endregion

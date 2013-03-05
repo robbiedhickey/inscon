@@ -3,14 +3,8 @@ using System.Collections.Generic;
 
 namespace Enterprise.DALServices.DAL.Repositories.Interfaces
 {
-    public interface IAssetRepository
+    public interface IAssetRepository : IBaseCrudRepository<Asset>
     {
-        IList<Asset> Get();
-        IList<Asset> Get(int organizationID);
-        Asset GetByID(int id);
-        void Insert(Asset asset);
-        void Update(Asset asset);
-        void Delete(Asset asset);
-        void Save();
+        IList<Asset> GetBy(int organizationID);
     }
 }

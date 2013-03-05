@@ -3,14 +3,8 @@ using System.Collections.Generic;
 
 namespace Enterprise.DALServices.DAL.Repositories.Interfaces
 {
-    public interface IOrganizationRepository
+    public interface IOrganizationRepository : IBaseCrudRepository<Organization>
     {
-        IList<Organization> Get();
-        IList<Organization> Get(int typeID);
-        Organization GetByID(int id);
-        void Insert(Organization organization);
-        void Update(Organization organization);
-        void Delete(Organization organization);
-        void Save();
+        IList<Organization> GetBy(int typeID);
     }
 }

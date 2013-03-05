@@ -3,15 +3,9 @@ using System.Collections.Generic;
 
 namespace Enterprise.DALServices.DAL.Repositories.Interfaces
 {
-    public interface ILocationRepository
+    public interface ILocationRepository : IBaseCrudRepository<Location>
     {
-        IList<Location> Get();
-        IList<Location> Get(int organizationID);
-        IList<Location> Get(int organizationID, int typeID);
-        Location GetByID(int id);
-        void Insert(Location location);
-        void Update(Location location);
-        void Delete(Location location);
-        void Save();
+        IList<Location> GetBy(int organizationID);
+        IList<Location> GetBy(int organizationID, int typeID);
     }
 }
