@@ -4,7 +4,7 @@
 
     using Enterprise.DALServices.DAL.Models;
     using Enterprise.DALServices.DAL.Repositories;
-    using Enterprise.DALServices.DAL.Repositories.Interfaces;
+    using Enterprise.DALServices.DAL.Test.Helpers;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
@@ -14,12 +14,11 @@
     /// Summary description for OrganizationRepositoryTest
     /// </summary>
     [TestClass]
-    public class OrganizationRepositoryTest
+    public class OrganizationRepositoryTest : TestBase
     {
         #region Variables
 
         private TestContext testContextInstance;
-        private IUnitOfWork<EnterpriseDbContext> uow;
 
         #endregion
 
@@ -27,7 +26,7 @@
         
         public OrganizationRepositoryTest()
         {
-            uow = new EfUnitOfWork();
+            UnitOfWork = new EfUnitOfWork();
         }
 
         #endregion
@@ -65,11 +64,8 @@
         // public static void MyClassCleanup() { }
         //
         // Use TestInitialize to run code before running each test 
-        [TestInitialize()]
-        public void MyTestInitialize()
-        {
-            DataHelper.LoadData("usp_LoadAllTestData.sql");
-        }
+        // [TestInitialize()]
+        // public void MyTestInitialize() { }
 
         // Use TestCleanup to run code after each test has run
         // [TestCleanup()]
@@ -82,7 +78,7 @@
         [TestMethod]
         public void OrganizatonRepositoryConstructor()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
             Assert.IsNotNull(target);
         }
@@ -90,7 +86,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetAll()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
             var orgs = target.GetAll();
 
@@ -100,7 +96,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByTypeIDPass()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
             var orgs = target.GetBy(3);
 
@@ -110,7 +106,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByTypeIDFailBadTypeID()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
             var orgs = target.GetBy(0);
 
@@ -120,7 +116,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByTypeIDFailNegativeTypeID()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
             var orgs = target.GetBy(-1);
 
@@ -130,7 +126,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByIDPass()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
             var org = target.GetByID(1);
 
@@ -140,7 +136,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByIDFailNegativeID()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
             var org = target.GetByID(-1);
 
@@ -150,7 +146,7 @@
         [TestMethod]
         public void OrganizatonRepositoryGetByIDFailInvalidID()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
             var org = target.GetByID(0);
 
@@ -160,170 +156,199 @@
         [TestMethod]
         public void OrganizatonRepositoryInsertPass()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            Organization newOrg = new Organization()
-                                      {
-                                          Code = "XXXX", 
-                                          Name = "Insert Test", 
-                                          TypeID = 3, 
-                                          StatusID = 1
-                                      };
+                    Organization newOrg = new Organization()
+                    {
+                        Code = "XXXX",
+                        Name = "Insert Test",
+                        TypeID = 3,
+                        StatusID = 1
+                    };
 
-            target.Add(newOrg);
-            uow.Commit();
+                    target.Add(newOrg);
+                    UnitOfWork.Commit();
 
-            Assert.AreEqual(4, newOrg.OrganizationID);
+                    Assert.AreEqual(4, newOrg.OrganizationID);
+                });
         }
 
         [TestMethod]
         [ExpectedException(typeof(DbUpdateException))]
         public void OrganizatonRepositoryInsertFailDuplicateOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            Organization newOrg = new Organization()
-            {
-                Code = "BOGE",
-                Name = "Bank of the Outer Galactic Empire",
-                TypeID = 3,
-                StatusID = 1
-            };
+                    Organization newOrg = new Organization()
+                    {
+                        Code = "BOGE",
+                        Name = "Bank of the Outer Galactic Empire",
+                        TypeID = 3,
+                        StatusID = 1
+                    };
 
-            target.Add(newOrg);
-            uow.Commit();
+                    target.Add(newOrg);
+                    UnitOfWork.Commit();
+                });
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void OrganizatonRepositoryInsertFailNullOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            Organization newOrg = null;
+                    Organization newOrg = null;
 
-            target.Add(newOrg);
-            uow.Commit();
+                    target.Add(newOrg);
+                    UnitOfWork.Commit();
+                });
         }
 
         [TestMethod]
         public void OrganizatonRepositoryUpdatePass()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            var org = target.GetByID(1);
-            org.Name = "Update Test";
-            target.Update(org);
+                    var org = target.GetByID(1);
+                    org.Name = "Update Test";
+                    target.Update(org);
 
-            var savedOrg = target.GetByID(1);
+                    var savedOrg = target.GetByID(1);
 
-            Assert.AreEqual(org.Name, savedOrg.Name);
+                    Assert.AreEqual(org.Name, savedOrg.Name);
+                });
         }
 
         [TestMethod]
         [ExpectedException(typeof(DbUpdateConcurrencyException))]
         public void OrganizatonRepositoryUpdateFailBadID()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            Organization org = new Organization()
-            {
-                OrganizationID = 100,
-                Code = "BOGE",
-                Name = "Bank of the Outer Galactic Empire",
-                TypeID = 3,
-                StatusID = 1
-            };
+                    Organization org = new Organization()
+                    {
+                        OrganizationID = 100,
+                        Code = "BOGE",
+                        Name = "Bank of the Outer Galactic Empire",
+                        TypeID = 3,
+                        StatusID = 1
+                    };
 
-            target.Update(org);
-            uow.Commit();
+                    target.Update(org);
+                    UnitOfWork.Commit();
+                });
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void OrganizatonRepositoryUpdateFailBadNullOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            Organization org = null;
+                    Organization org = null;
 
-            target.Update(org);
-            uow.Commit();
+                    target.Update(org);
+                    UnitOfWork.Commit();
+                });
         }
 
         [TestMethod]
         public void OrganizatonRepositoryDeletePass()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            Organization org = new Organization()
-            {
-                Code = "XXXX",
-                Name = "Delete Test",
-                TypeID = 3,
-                StatusID = 1
-            };
+                    Organization org = new Organization()
+                    {
+                        Code = "XXXX",
+                        Name = "Delete Test",
+                        TypeID = 3,
+                        StatusID = 1
+                    };
 
-            target.Add(org);
-            uow.Commit();
+                    target.Add(org);
+                    UnitOfWork.Commit();
 
-            var savedOrg = target.GetByID(org.OrganizationID);
-            target.Remove(savedOrg);
-            uow.Commit();
+                    var savedOrg = target.GetByID(org.OrganizationID);
+                    target.Remove(savedOrg);
+                    UnitOfWork.Commit();
 
-            var chkOrg = target.GetByID(org.OrganizationID);
+                    var chkOrg = target.GetByID(org.OrganizationID);
 
-            Assert.IsNull(chkOrg);
+                    Assert.IsNull(chkOrg);
+                });
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void OrganizatonRepositoryDeleteFailBadID()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            Organization org = new Organization()
-            {
-                Code = "XXXX",
-                Name = "Delete Test",
-                TypeID = 3,
-                StatusID = 1
-            };
+                    Organization org = new Organization()
+                    {
+                        Code = "XXXX",
+                        Name = "Delete Test",
+                        TypeID = 3,
+                        StatusID = 1
+                    };
 
-            target.Add(org);
-            uow.Commit();
+                    target.Add(org);
+                    UnitOfWork.Commit();
 
-            var savedOrg = target.GetByID(org.OrganizationID);
-            savedOrg.OrganizationID = 100;
-            target.Remove(savedOrg);
-            uow.Commit();
+                    var savedOrg = target.GetByID(org.OrganizationID);
+                    savedOrg.OrganizationID = 100;
+                    target.Remove(savedOrg);
+                    UnitOfWork.Commit();
 
-            var chkOrg = target.GetByID(org.OrganizationID);
+                    var chkOrg = target.GetByID(org.OrganizationID);
+                });
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void OrganizatonRepositoryDeleteFailNullOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            Organization org = null;
+                    Organization org = null;
 
-            target.Remove(org);
-            uow.Commit();
+                    target.Remove(org);
+                    UnitOfWork.Commit();
+                });
         }
 
         [TestMethod]
         [ExpectedException(typeof(DbUpdateException))]
         public void OrganizatonRepositoryDeleteFailAttachedOrg()
         {
-            OrganizationRepository target = new OrganizationRepository(uow);
+            TransactionHelper.Rollback(() =>
+                {
+                    OrganizationRepository target = new OrganizationRepository(UnitOfWork);
 
-            var org = target.GetByID(1);
+                    var org = target.GetByID(1);
 
-            target.Remove(org);
-            uow.Commit();
-
+                    target.Remove(org);
+                    UnitOfWork.Commit();
+                });
         }
 
         #endregion
