@@ -319,6 +319,11 @@
         {
             OrganizationRepository target = new OrganizationRepository(uow);
 
+            var org = target.GetByID(1);
+
+            target.Remove(org);
+            uow.Commit();
+
         }
 
         #endregion

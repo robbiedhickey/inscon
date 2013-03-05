@@ -27,9 +27,18 @@ namespace Enterprise.DALServices.DAL.Repositories
             }
             else
             {
-                return (from o in Context.Organizations
-                        where o.TypeID.Equals(typeID)
-                        select o).ToList();
+                var orgs = (from o in Context.Organizations 
+                            where o.TypeID.Equals(typeID) 
+                            select o).ToList();
+
+                if (orgs.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    return orgs;
+                }
             }
         }
 

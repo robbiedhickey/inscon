@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <connectionStrings>
+	<!--
+	Change the Initial Catalog to match your database then, from Tortoise, 
+	add the file to your ignore list.  
+	
+	DO NOT CHECK THIS FILE INTO SOURCE CONTROL.  
+	
+	You will mess the other developer up.
+	-->
 	<add name="EnterpriseDbContext"
 		 connectionString="Data Source=INSCON1;Initial Catalog=EnterpriseDbTest_Patrick;Integrated Security=True;MultipleActiveResultSets=True"
 		 providerName="System.Data.SqlClient" />

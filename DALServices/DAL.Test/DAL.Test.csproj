@@ -85,6 +85,7 @@
   <ItemGroup>
     <None Include="..\DAL\App.config">
       <Link>App.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

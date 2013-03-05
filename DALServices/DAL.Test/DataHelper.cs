@@ -2,9 +2,12 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Enterprise.DALServices.DAL.Test
 {
+    using System;
+
     public static class DataHelper
     {
         public static void LoadData(string dataFileName)
@@ -18,6 +21,17 @@ namespace Enterprise.DALServices.DAL.Test
             Database database = new Database(server, builder.InitialCatalog);
             server.ConnectionContext.Connect();
             database.ExecuteNonQuery(script);
+        }
+
+    }
+
+    [TestClass()]
+    public class DatabaseSetup
+    {
+        [AssemblyInitialize()]
+        public static void Initializer(TestContext ctx)
+        {
+            DataHelper.LoadData("usp_LoadAllTestData.sql");
         }
     }
 }
