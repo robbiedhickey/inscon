@@ -63,9 +63,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AssetRepositoryTest.cs" />
     <Compile Include="DataHelper.cs" />
-    <Compile Include="LocationRepositoryTest.cs" />
     <Compile Include="OrganizationRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

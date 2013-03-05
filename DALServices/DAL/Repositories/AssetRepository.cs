@@ -30,7 +30,7 @@ namespace Enterprise.DALServices.DAL.Repositories
         {
             if (organizationID < 0)
             {
-                return new List<Models.Asset>();
+                return null;
             }
             else
             {
@@ -44,7 +44,7 @@ namespace Enterprise.DALServices.DAL.Repositories
         {
             if (id < 0)
             {
-                return new Asset();
+                return null;
             }
             else
             {

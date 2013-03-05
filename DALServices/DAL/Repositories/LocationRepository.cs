@@ -30,7 +30,7 @@ namespace Enterprise.DALServices.DAL.Repositories
         {
             if (organizationID < 0)
             {
-                return new List<Models.Location>();
+                return null;
             }
             else
             {
@@ -44,11 +44,11 @@ namespace Enterprise.DALServices.DAL.Repositories
         {
             if (organizationID < 0)
             {
-                return new List<Models.Location>();
+                return null;
             }
             else if (typeID < 0)
             {
-                return new List<Models.Location>();
+                return null;
             }
             else
             {
@@ -63,7 +63,7 @@ namespace Enterprise.DALServices.DAL.Repositories
         {
             if (id < 0)
             {
-                return new Location();
+                return null;
             }
             else
             {

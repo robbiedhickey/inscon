@@ -31,7 +31,7 @@ namespace Enterprise.DALServices.DAL.Repositories
         {
             if (typeID < 0)
             {
-                return new List<Models.Organization>();
+                return null;
             }
             else
             {
@@ -45,7 +45,7 @@ namespace Enterprise.DALServices.DAL.Repositories
         {
             if (id < 0)
             {
-                return new Organization();
+                return null;
             }
             else
             {
