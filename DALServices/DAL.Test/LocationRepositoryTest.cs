@@ -1,28 +1,38 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Enterprise.DALServices.DAL.Test
+﻿namespace Enterprise.DALServices.DAL.Test
 {
+    using System.Linq;
+
     using Enterprise.DALServices.DAL.Models;
     using Enterprise.DALServices.DAL.Repositories;
+    using Enterprise.DALServices.DAL.Test.Helpers;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Data.Entity.Infrastructure;
 
     /// <summary>
     /// Summary description for LocationRepositoryTest
     /// </summary>
     [TestClass]
-    public class LocationRepositoryTest
+    public class LocationRepositoryTest : TestBase
     {
-        private EnterpriseDbContext context;
-
-        public LocationRepositoryTest()
-        {
-            context = new EnterpriseDbContext();
-        }
-
+        #region Variables
+        
         private TestContext testContextInstance;
 
+        #endregion
+
+        #region Constructors
+        
+        public LocationRepositoryTest()
+        {
+            UnitOfWork = new EfUnitOfWork();
+        }
+
+        #endregion
+
+        #region Properties
+        
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
@@ -39,6 +49,8 @@ namespace Enterprise.DALServices.DAL.Test
             }
         }
 
+        #endregion
+
         #region Additional test attributes
         //
         // You can use the following additional attributes as you write your tests:
@@ -52,106 +64,62 @@ namespace Enterprise.DALServices.DAL.Test
         // public static void MyClassCleanup() { }
         //
         // Use TestInitialize to run code before running each test 
-        [TestInitialize()]
-        public void MyTestInitialize()
-        {
-            DataHelper.LoadData("usp_LoadAllTestData.sql");
-        }
-
+        // [TestInitialize()]
+        // public void MyTestInitialize() { }
+        //
         // Use TestCleanup to run code after each test has run
         // [TestCleanup()]
         // public void MyTestCleanup() { }
         //
         #endregion
 
+        #region Tests
+
         [TestMethod]
-        public void Get()
+        public void LocationRepositoryConstructorTest()
         {
-            LocationRepository target = new LocationRepository(context);
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            Assert.IsNotNull(target);
         }
 
         [TestMethod]
-        public void GetByOrgIDPass()
+        public void LocationRepositoryGetAll()
         {
-            LocationRepository target = new LocationRepository(context);
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetAll();
+
+            Assert.AreEqual(9, locs.Count());
         }
 
-        [TestMethod]
-        public void GetByOrgIDFail()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
+        //public void LocationRepositoryGetByIDPass()
+        //public void LocationRepositoryGetByIDFail()
+        //public void LocationRepositoryGetByIDFail()
+
 
         [TestMethod]
-        public void GetOrgIDTypeIDPass()
+        public void LocationRepositoryInsertPass()
         {
-            LocationRepository target = new LocationRepository(context);
+            TransactionHelper.Rollback(() =>
+                {
+                    LocationRepository target = new LocationRepository(UnitOfWork);
+
+                    Location loc = new Location()
+                    {
+                        OrganizationID = 1,
+                        Name = "Home Office",
+                        Code = "BOGE01",
+                        TypeID = 11
+                    };
+
+                    target.Add(loc);
+                    UnitOfWork.Commit();
+
+                    Assert.AreEqual(10,loc.LocationID);
+                });
         }
 
-        [TestMethod]
-        public void GetOrgIDTypeIDFail()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void GetByIDPass()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void GetByIDFail()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void InsertPass()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void InsertFail()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void UpdatePass()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void UpdateFail()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void DeletePass()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void DeleteFail()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void SavePass()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
-
-        [TestMethod]
-        public void SaveFail()
-        {
-            LocationRepository target = new LocationRepository(context);
-        }
+        #endregion
     }
 }

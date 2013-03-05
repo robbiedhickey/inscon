@@ -64,8 +64,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AssetRepositoryTest.cs" />
     <Compile Include="Helpers\DataHelper.cs" />
     <Compile Include="Helpers\TransactionHelper.cs" />
+    <Compile Include="LocationRepositoryTest.cs" />
     <Compile Include="OrganizationRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />

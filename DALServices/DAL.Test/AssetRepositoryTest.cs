@@ -5,20 +5,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Enterprise.DALServices.DAL.Test
 {
-    using Enterprise.DALServices.DAL.Models;
-    using Enterprise.DALServices.DAL.Repositories;
-
     /// <summary>
     /// Summary description for AssetRepositoryTest
     /// </summary>
     [TestClass]
     public class AssetRepositoryTest
     {
-        private EnterpriseDbContext context;
-
         public AssetRepositoryTest()
         {
-            context = new EnterpriseDbContext();
+            //
+            // TODO: Add constructor logic here
+            //
         }
 
         private TestContext testContextInstance;
@@ -52,12 +49,9 @@ namespace Enterprise.DALServices.DAL.Test
         // public static void MyClassCleanup() { }
         //
         // Use TestInitialize to run code before running each test 
-        [TestInitialize()]
-        public void MyTestInitialize()
-        {
-            DataHelper.LoadData("usp_LoadAllTestData.sql");
-        }
-
+        // [TestInitialize()]
+        // public void MyTestInitialize() { }
+        //
         // Use TestCleanup to run code after each test has run
         // [TestCleanup()]
         // public void MyTestCleanup() { }
@@ -65,56 +59,11 @@ namespace Enterprise.DALServices.DAL.Test
         #endregion
 
         [TestMethod]
-        public void Get()
+        public void TestMethod1()
         {
-        }
-
-        public void GetByOrgIDPass()
-        {
-        }
-
-        public void GetByOrgIDFail()
-        {
-        }
-
-        public void GetByIDPass()
-        {
-        }
-
-        public void GetByIDFail()
-        {
-        }
-
-        public void InsertPass()
-        {
-        }
-
-        public void InsertFail()
-        {
-        }
-
-        public void UpdatePass()
-        {
-        }
-
-        public void UpdateFail()
-        {
-        }
-
-        public void DeletePass()
-        {
-        }
-
-        public void DeleteFail()
-        {
-        }
-
-        public void SavePass()
-        {
-        }
-
-        public void SaveFail()
-        {
+            //
+            // TODO: Add test logic here
+            //
         }
     }
 }
