@@ -26,9 +26,18 @@ namespace Enterprise.DALServices.DAL.Repositories
             }
             else
             {
-                return (from x in Context.Assets
-                        where x.OrganizationID.Equals(organizationID)
-                        select x).ToList();
+                var asts = (from x in Context.Assets
+                            where x.OrganizationID.Equals(organizationID)
+                            select x).ToList();
+
+                if (asts.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    return asts;
+                }
             }
         }
     }

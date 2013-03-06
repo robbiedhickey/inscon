@@ -93,10 +93,135 @@
             Assert.AreEqual(9, locs.Count());
         }
 
-        //public void LocationRepositoryGetByIDPass()
-        //public void LocationRepositoryGetByIDFail()
-        //public void LocationRepositoryGetByIDFail()
+        [TestMethod]
+        public void LocationRepositoryGetByIDPass()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
 
+            var loc = target.GetByID(1);
+
+            Assert.AreEqual("BOGE01", loc.Code);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByIDFailInvaidID()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var loc = target.GetByID(0);
+
+            Assert.IsNull(loc);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByIDFailNegativeID()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var loc = target.GetByID(-1);
+
+            Assert.IsNull(loc);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDPass()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(1);
+
+            Assert.AreEqual(3, locs.Count);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDFailBadOrgID()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(0);
+
+            Assert.IsNull(locs);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDFailNegativeOrgID()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(-1);
+
+            Assert.IsNull(locs);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDTypeIDPass()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(1, 11);
+
+            Assert.AreEqual(1, locs.Count);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDTypeIDFailBadOrgID()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(0, 11);
+
+            Assert.IsNull(locs);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDTypeIDFailNegativeOrgID()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(-1, 11);
+
+            Assert.IsNull(locs);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDTypeIDFailBadTypeID()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(1, 0);
+
+            Assert.IsNull(locs);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDTypeIDFailNegativeTypeID()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(1, -1);
+
+            Assert.IsNull(locs);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDTypeIDFailBadIDs()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(0, 0);
+
+            Assert.IsNull(locs);
+        }
+
+        [TestMethod]
+        public void LocationRepositoryGetByOrgIDTypeIDFailNegativeIDs()
+        {
+            LocationRepository target = new LocationRepository(UnitOfWork);
+
+            var locs = target.GetBy(-1, -1);
+
+            Assert.IsNull(locs);
+        }
 
         [TestMethod]
         public void LocationRepositoryInsertPass()
@@ -118,6 +243,186 @@
 
                     Assert.AreEqual(10,loc.LocationID);
                 });
+        }
+
+        [TestMethod]
+        public void LocationRepositoryInsertFailDuplicateLocation()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                LocationRepository target = new LocationRepository(UnitOfWork);
+
+                Location loc = new Location()
+                {
+                    OrganizationID = 1,
+                    Name = "Bank of the Outer Galactic Empire",
+                    Code = "BOGE01",
+                    TypeID = 11
+                };
+
+                target.Add(loc);
+                UnitOfWork.Commit();
+            });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void LocationRepositoryInsertFailNullLocation()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                LocationRepository target = new LocationRepository(UnitOfWork);
+
+                Location loc = null;
+
+                target.Add(loc);
+                UnitOfWork.Commit();
+            });
+        }
+
+        [TestMethod]
+        public void LocationRepositoryUpdatePass()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                LocationRepository target = new LocationRepository(UnitOfWork);
+
+                var loc = target.GetByID(1);
+                loc.Name = "Update Test";
+
+                target.Update(loc);
+                UnitOfWork.Commit();
+
+                var savedLoc = target.GetByID(1);
+
+                Assert.AreEqual(loc.Name, savedLoc.Name);
+            });
+        }
+
+        [TestMethod]
+        public void LocationRepositoryUpdateFailDuplicateLocation()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                LocationRepository target = new LocationRepository(UnitOfWork);
+
+                var loc = target.GetByID(1);
+
+                loc.Code = "BOGE02";
+                loc.Name = "Greater Helium Branch";
+                loc.TypeID = 12;
+
+                target.Update(loc);
+                UnitOfWork.Commit();
+            });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DbUpdateConcurrencyException))]
+        public void LocationRepositoryUpdateFailBadID()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                LocationRepository target = new LocationRepository(UnitOfWork);
+
+                Location loc = new Location()
+                {
+                    LocationID = 100,
+                    OrganizationID = 1,
+                    Name = "Bank of the Outer Galactic Empire",
+                    Code = "BOGE01",
+                    TypeID = 11
+                };
+
+                target.Update(loc);
+                UnitOfWork.Commit();
+            });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void LocationRepositoryUpdateFailNullLocation()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                LocationRepository target = new LocationRepository(UnitOfWork);
+
+                Location loc = null;
+
+                target.Update(loc);
+                UnitOfWork.Commit();
+            });
+        }
+
+        [TestMethod]
+        public void LocationRepositoryDeletePass()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                LocationRepository target = new LocationRepository(UnitOfWork);
+
+                Location loc = new Location()
+                {
+                    OrganizationID = 1,
+                    Name = "Delete Pass",
+                    Code = "BOGE04",
+                    TypeID = 12
+                };
+
+                target.Add(loc);
+                UnitOfWork.Commit();
+
+                var savedLoc = target.GetByID(loc.LocationID);
+                target.Remove(savedLoc);
+                UnitOfWork.Commit();
+
+                var chkLoc = target.GetByID(loc.LocationID);
+
+                Assert.IsNull(chkLoc);
+            });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void LocationRepositoryDeleteFailBadID()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                LocationRepository target = new LocationRepository(UnitOfWork);
+
+                Location loc = new Location()
+                {
+                    OrganizationID = 1,
+                    Name = "Delete Pass",
+                    Code = "BOGE04",
+                    TypeID = 12
+                };
+
+                target.Add(loc);
+                UnitOfWork.Commit();
+
+                var savedLoc = target.GetByID(loc.LocationID);
+                savedLoc.LocationID = 100;
+                target.Remove(savedLoc);
+                UnitOfWork.Commit();
+
+                var chkLoc = target.GetByID(loc.LocationID);
+            });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void LocationRepositoryDeleteFailNullLocation()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                LocationRepository target = new LocationRepository(UnitOfWork);
+
+                Location loc = null;
+
+                target.Remove(loc);
+                UnitOfWork.Commit();
+            });
         }
 
         #endregion

@@ -1,24 +1,37 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Enterprise.DALServices.DAL.Test
+﻿namespace Enterprise.DALServices.DAL.Test
 {
+    using System.Linq;
+
+    using Enterprise.DALServices.DAL.Models;
+    using Enterprise.DALServices.DAL.Repositories;
+    using Enterprise.DALServices.DAL.Test.Helpers;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Data.Entity.Infrastructure;
+
     /// <summary>
     /// Summary description for AssetRepositoryTest
     /// </summary>
     [TestClass]
-    public class AssetRepositoryTest
+    public class AssetRepositoryTest : TestBase
     {
+        #region Variables
+        
+        private TestContext testContextInstance;
+
+        #endregion
+
+        #region Constructors
+        
         public AssetRepositoryTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            UnitOfWork = new EfUnitOfWork();
         }
 
-        private TestContext testContextInstance;
+        #endregion
+
+        #region Properties
 
         /// <summary>
         ///Gets or sets the test context which provides
@@ -35,6 +48,8 @@ namespace Enterprise.DALServices.DAL.Test
                 testContextInstance = value;
             }
         }
+        
+        #endregion
 
         #region Additional test attributes
         //
@@ -58,12 +73,175 @@ namespace Enterprise.DALServices.DAL.Test
         //
         #endregion
 
+        #region Tests
+
         [TestMethod]
-        public void TestMethod1()
+        public void AssetRepositoryConstructor()
         {
-            //
-            // TODO: Add test logic here
-            //
+            AssetRepository target = new AssetRepository();
+
+            Assert.IsNotNull(target);
         }
+
+        [TestMethod]
+        public void AssetRepositoryGetAll()
+        {
+            AssetRepository target = new AssetRepository();
+
+            var asts = target.GetAll();
+
+            Assert.AreEqual(9, asts.Count());
+        }
+
+        [TestMethod]
+        public void AssetRepositoryGetByIDPass()
+        {
+            AssetRepository target = new AssetRepository();
+
+            var ast = target.GetByID(1);
+
+            Assert.Inconclusive();
+        }
+
+        [TestMethod]
+        public void AssetRepositoryGetByIDFailNegativeID()
+        {
+            AssetRepository target = new AssetRepository();
+
+            Assert.Inconclusive();
+        }
+
+        [TestMethod]
+        public void AssetRepositoryGetByIDFailInvalidID()
+        {
+            AssetRepository target = new AssetRepository();
+
+            Assert.Inconclusive();
+        }
+
+        [TestMethod]
+        public void AssetRepositoryGetByOrgIDPass()
+        {
+            AssetRepository target = new AssetRepository();
+
+            Assert.Inconclusive();
+        }
+
+        [TestMethod]
+        public void AssetRepositoryGetByOrgIDFailInvalidOrgID()
+        {
+            AssetRepository target = new AssetRepository();
+
+            Assert.Inconclusive();
+        }
+
+        [TestMethod]
+        public void AssetRepositoryGetByOrgIDFailNegativeOrgID()
+        {
+            AssetRepository target = new AssetRepository();
+
+            Assert.Inconclusive();
+        }
+
+        [TestMethod]
+        public void AssetRepositoryInsertPass()
+        {
+            TransactionHelper.Rollback(() =>
+                {
+                    AssetRepository target = new AssetRepository();
+
+                    Assert.Inconclusive();
+                });
+        }
+
+        [TestMethod]
+        public void AssetRepositoryInsertFailDuplicateAsset()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                AssetRepository target = new AssetRepository();
+
+                Assert.Inconclusive();
+            });
+        }
+
+        [TestMethod]
+        public void AssetRepositoryInsertFailNullAsset()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                AssetRepository target = new AssetRepository();
+
+                Assert.Inconclusive();
+            });
+        }
+
+        [TestMethod]
+        public void AssetRepositoryUpdatePass()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                AssetRepository target = new AssetRepository();
+
+                Assert.Inconclusive();
+            });
+        }
+
+        [TestMethod]
+        public void AssetRepositoryUpdateFailBadID()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                AssetRepository target = new AssetRepository();
+
+                Assert.Inconclusive();
+            });
+        }
+
+        [TestMethod]
+        public void AssetRepositoryUpdateFailNullAsset()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                AssetRepository target = new AssetRepository();
+
+                Assert.Inconclusive();
+            });
+        }
+
+        [TestMethod]
+        public void AssetRepositoryDeletePass()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                AssetRepository target = new AssetRepository();
+
+                Assert.Inconclusive();
+            });
+        }
+
+        [TestMethod]
+        public void AssetRepositoryDeleteFailBadID()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                AssetRepository target = new AssetRepository();
+
+                Assert.Inconclusive();
+            });
+        }
+
+        [TestMethod]
+        public void AssetRepositoryDeleteFailNullAsset()
+        {
+            TransactionHelper.Rollback(() =>
+            {
+                AssetRepository target = new AssetRepository();
+
+                Assert.Inconclusive();
+            });
+        }
+
+        #endregion
     }
 }

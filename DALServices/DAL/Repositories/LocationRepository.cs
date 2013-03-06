@@ -27,9 +27,18 @@ namespace Enterprise.DALServices.DAL.Repositories
             }
             else
             {
-                return (from x in Context.Locations
-                        where x.OrganizationID.Equals(organizationID)
-                        select x).ToList();
+                var locs = (from x in Context.Locations
+                            where x.OrganizationID.Equals(organizationID)
+                            select x).ToList();
+
+                if (locs.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    return locs;
+                }
             }
         }
 
@@ -45,10 +54,19 @@ namespace Enterprise.DALServices.DAL.Repositories
             }
             else
             {
-                return (from x in Context.Locations
-                        where x.OrganizationID.Equals(organizationID) && 
-                              x.TypeID.Equals(typeID)
-                        select x).ToList();
+                var locs = (from x in Context.Locations
+                            where x.OrganizationID.Equals(organizationID) && 
+                                  x.TypeID.Equals(typeID)
+                            select x).ToList();
+
+                if (locs.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    return locs;
+                }
             }
         }
     }
