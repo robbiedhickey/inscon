@@ -24,21 +24,4 @@ namespace Enterprise.DALServices.DAL.Test
         }
 
     }
-
-    [TestClass()]
-    public class DatabaseSetup
-    {
-        [AssemblyInitialize()]
-        public static void Initializer(TestContext ctx)
-        {
-            DataHelper.LoadData("usp_LoadAllTestData.sql");
-        }
-
-        [AssemblyCleanup]
-        public static void Initializer()
-        {
-            // Puts the database in a known state.
-            DataHelper.LoadData("usp_LoadAllTestData.sql");
-        }
-    }
 }

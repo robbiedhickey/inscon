@@ -9,6 +9,6 @@
 	You will mess the other developer up.
 	-->
 	<add name="EnterpriseDbContext"
-		 connectionString="Data Source=INSCON1;Initial Catalog=EnterpriseDbTest_Patrick;Integrated Security=True;MultipleActiveResultSets=True"
+		 connectionString="Data Source=INSCON1;Initial Catalog=EnterpriseDbTest_Patrick;Integrated Security=True;MultipleActiveResultSets=True;Application Name=TestProject"
 		 providerName="System.Data.SqlClient" />
 </connectionStrings>

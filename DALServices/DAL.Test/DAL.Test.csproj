@@ -65,7 +65,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AssetRepositoryTest.cs" />
+    <Compile Include="DataLoaders\AssetLoader.cs" />
+    <Compile Include="DataLoaders\ITestDataLoader.cs" />
+    <Compile Include="DataLoaders\OrganizationLoader.cs" />
+    <Compile Include="DataLoaders\LocationLoader.cs" />
     <Compile Include="Helpers\DataHelper.cs" />
+    <Compile Include="DataLoaders\TestInitializer.cs" />
     <Compile Include="Helpers\TransactionHelper.cs" />
     <Compile Include="LocationRepositoryTest.cs" />
     <Compile Include="OrganizationRepositoryTest.cs" />
@@ -86,6 +91,7 @@
     <Content Include="..\Config\ConnectionStrings.xml">
       <Link>ConnectionStrings.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="usp_LoadAllTestData.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
