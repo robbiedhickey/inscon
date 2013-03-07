@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Enterprise.DALServices.DAL.Repositories.Interfaces
 {
-    public interface IAssetRepository : IBaseCrudRepository<Asset>
+    public interface IAssetRepository : ICrudRepository<Asset>
     {
         IList<Asset> GetBy(int organizationID);
     }

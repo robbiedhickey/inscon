@@ -6,7 +6,7 @@ using Enterprise.DALServices.DAL.Models;
 
 namespace Enterprise.DALServices.DAL.Repositories
 {
-    public class LocationRepository : BaseCrudRepository<Location>, ILocationRepository
+    public class LocationRepository : CrudRepository<Location>, ILocationRepository
     {
         public LocationRepository()
             : this(new EfUnitOfWork())

@@ -6,7 +6,7 @@ using Enterprise.DALServices.DAL.Models;
 
 namespace Enterprise.DALServices.DAL.Repositories
 {
-    public class AssetRepository : BaseCrudRepository<Asset>, IAssetRepository
+    public class AssetRepository : CrudRepository<Asset>, IAssetRepository
     {
         public AssetRepository()
             : this(new EfUnitOfWork())

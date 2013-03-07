@@ -6,7 +6,7 @@ using Enterprise.DALServices.DAL.Models;
 
 namespace Enterprise.DALServices.DAL.Repositories
 {
-    public class OrganizationRepository : BaseCrudRepository<Organization>, IOrganizationRepository
+    public class OrganizationRepository : CrudRepository<Organization>, IOrganizationRepository
     {
         public OrganizationRepository()
             : this(new EfUnitOfWork())

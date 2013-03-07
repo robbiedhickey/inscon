@@ -15,13 +15,13 @@
     /// for special use cases. 
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public abstract class BaseCrudRepository<TEntity> : IBaseCrudRepository<TEntity> where TEntity : class
+    public abstract class CrudRepository<TEntity> : ICrudRepository<TEntity> where TEntity : class
     {
         protected IUnitOfWork<EnterpriseDbContext> UnitOfWork { get; private set; }
         protected IDbSet<TEntity> EntitySet { get; private set; }
         protected EnterpriseDbContext Context { get; private set; }
 
-        protected BaseCrudRepository(IUnitOfWork<EnterpriseDbContext> unitOfWork)
+        protected CrudRepository(IUnitOfWork<EnterpriseDbContext> unitOfWork)
         {
             UnitOfWork = unitOfWork;
             EntitySet = unitOfWork.Context.Set<TEntity>();
@@ -33,14 +33,9 @@
             return EntitySet.Find(id);
         }
 
-        public virtual IEnumerable<TEntity> GetAll()
+        public virtual IQueryable<TEntity> GetAll()
         {
-            return EntitySet.AsEnumerable();
-        }
-
-        public virtual IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
-        {
-            return EntitySet.Where(predicate);
+            return EntitySet;
         }
 
         public virtual void Add(TEntity entity)
