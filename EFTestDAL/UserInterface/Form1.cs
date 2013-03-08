@@ -150,8 +150,9 @@ namespace UserInterface
                 if (dr == DialogResult.Yes)
                 {
                     locRep.Delete(loc.LocationID);
-                    orgBindingList.Clear();
-                    orgRep = new OrganizationRepository(context);
+                    //orgBindingList.Clear();
+                    //orgRep = new OrganizationRepository(context);
+                    context.Entry<Organization>(org).Reload();
                     orgBindingList = orgRep.Get();
                     organizationBindingSource.DataSource = orgBindingList;
                 }
