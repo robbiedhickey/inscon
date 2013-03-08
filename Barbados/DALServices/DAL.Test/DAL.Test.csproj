@@ -82,7 +82,7 @@
       <Project>{df347b61-1098-4d75-9d5a-c169e6c002d6}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DomainModels\DomainModels.csproj">
+    <ProjectReference Include="..\..\Core\DomainModels\DomainModels.csproj">
       <Project>{589f75c7-6938-4997-881a-3080df470e5a}</Project>
       <Name>DomainModels</Name>
     </ProjectReference>

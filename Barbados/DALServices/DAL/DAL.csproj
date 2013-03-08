@@ -100,7 +100,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DomainModels\DomainModels.csproj">
+    <ProjectReference Include="..\..\Core\DomainModels\DomainModels.csproj">
       <Project>{589f75c7-6938-4997-881a-3080df470e5a}</Project>
       <Name>DomainModels</Name>
     </ProjectReference>
