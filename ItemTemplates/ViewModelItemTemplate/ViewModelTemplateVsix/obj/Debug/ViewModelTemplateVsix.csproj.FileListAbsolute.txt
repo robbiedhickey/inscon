@@ -1,5 +1,0 @@
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelTemplateVsix\bin\Debug\ViewModelTemplateVsix.vsix
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelTemplateVsix\bin\Debug\extension.vsixmanifest
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelTemplateVsix\obj\Debug\ViewModelTemplateVsix.dll
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelTemplateVsix\obj\Debug\ViewModelTemplateVsix.pdb
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelTemplateVsix\obj\Debug\extension.vsixmanifest

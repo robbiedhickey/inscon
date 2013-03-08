@@ -1,5 +1,0 @@
-C:\Users\patrick.wimberly\AppData\Local\Microsoft\VisualStudio\11.0Exp\Extensions\MSI\EnterpriseTemplatePack\1.0\\extension.vsixmanifest
-C:\Users\patrick.wimberly\AppData\Local\Microsoft\VisualStudio\11.0Exp\Extensions\MSI\EnterpriseTemplatePack\1.0\\Enterprise.jpg
-C:\Users\patrick.wimberly\AppData\Local\Microsoft\VisualStudio\11.0Exp\Extensions\MSI\EnterpriseTemplatePack\1.0\\License.txt
-C:\Users\patrick.wimberly\AppData\Local\Microsoft\VisualStudio\11.0Exp\Extensions\MSI\EnterpriseTemplatePack\1.0\\ReleaseNotes.txt
-C:\Users\patrick.wimberly\AppData\Local\Microsoft\VisualStudio\11.0Exp\Extensions\MSI\EnterpriseTemplatePack\1.0\ItemTemplates\CSharp\\1033\EnterpriseClass.zip

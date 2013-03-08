@@ -1,8 +1,0 @@
-C:\Work\MSISystem2\ItemTemplates\EnterpriseTemplatePack\bin\Debug\Enterprise.jpg
-C:\Work\MSISystem2\ItemTemplates\EnterpriseTemplatePack\bin\Debug\License.txt
-C:\Work\MSISystem2\ItemTemplates\EnterpriseTemplatePack\bin\Debug\ReleaseNotes.txt
-C:\Work\MSISystem2\ItemTemplates\EnterpriseTemplatePack\obj\Debug\EnterpriseTemplatePack.dll
-C:\Work\MSISystem2\ItemTemplates\EnterpriseTemplatePack\obj\Debug\EnterpriseTemplatePack.pdb
-C:\Work\MSISystem2\ItemTemplates\EnterpriseTemplatePack\bin\Debug\EnterpriseTemplatePack.vsix
-C:\Work\MSISystem2\ItemTemplates\EnterpriseTemplatePack\bin\Debug\extension.vsixmanifest
-C:\Work\MSISystem2\ItemTemplates\EnterpriseTemplatePack\obj\Debug\extension.vsixmanifest

@@ -1,4 +1,0 @@
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelItemTemplate\bin\Release\ItemTemplates\CSharp\1033\ViewModelItemTemplate.zip
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelItemTemplate\obj\Release\CSharp\1033\ViewModelItemTemplate.zip
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelItemTemplate\obj\Release\ViewModelItemTemplate.dll
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelItemTemplate\obj\Release\ViewModelItemTemplate.pdb

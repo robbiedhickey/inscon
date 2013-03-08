@@ -1,5 +1,0 @@
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelItemTemplate\obj\Debug\ViewModelItemTemplate.csprojResolveAssemblyReference.cache
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelItemTemplate\obj\Debug\CSharp\1033\ViewModelItemTemplate.zip
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelItemTemplate\obj\Debug\ViewModelItemTemplate.dll
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelItemTemplate\obj\Debug\ViewModelItemTemplate.pdb
-C:\Users\robert.hickey\Dropbox\Projects\ItemTemplates\ViewModelItemTemplate\ViewModelItemTemplate\bin\Debug\ItemTemplates\CSharp\1033\ViewModelItemTemplate.zip
