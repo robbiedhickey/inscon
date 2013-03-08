@@ -125,7 +125,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Web.UI\Web.UI.csproj">
       <Project>{CF810E22-B7EC-40A3-AA01-E9DBE5C38712}</Project>
-      <Name>Web.UI %28VendorDashboard\Web.UI%29</Name>
+      <Name>Web.UI %28Applications\VendorDashboard\Web.UI%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
