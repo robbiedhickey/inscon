@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF347B61-1098-4D75-9D5A-C169E6C002D6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Enterprise.DALServices.DAL</RootNamespace>
+    <AssemblyName>Enterprise.DALServices.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0-alpha3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0-alpha3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\EnterpriseDbContext.cs" />
+    <Compile Include="Models\Mapping\AddressLocationMap.cs" />
+    <Compile Include="Models\Mapping\AddressMap.cs" />
+    <Compile Include="Models\Mapping\AddressUse_XREFMap.cs" />
+    <Compile Include="Models\Mapping\AssetMap.cs" />
+    <Compile Include="Models\Mapping\CommentMap.cs" />
+    <Compile Include="Models\Mapping\EntityMap.cs" />
+    <Compile Include="Models\Mapping\EventMap.cs" />
+    <Compile Include="Models\Mapping\ExteriorMap.cs" />
+    <Compile Include="Models\Mapping\FileMap.cs" />
+    <Compile Include="Models\Mapping\ForSaleMap.cs" />
+    <Compile Include="Models\Mapping\InteriorMap.cs" />
+    <Compile Include="Models\Mapping\LocationMap.cs" />
+    <Compile Include="Models\Mapping\LookupGroupMap.cs" />
+    <Compile Include="Models\Mapping\LookupMap.cs" />
+    <Compile Include="Models\Mapping\LossMap.cs" />
+    <Compile Include="Models\Mapping\MaintenanceMap.cs" />
+    <Compile Include="Models\Mapping\OrganizationMap.cs" />
+    <Compile Include="Models\Mapping\ProductCategoryMap.cs" />
+    <Compile Include="Models\Mapping\ProductMap.cs" />
+    <Compile Include="Models\Mapping\PropertyDamageMap.cs" />
+    <Compile Include="Models\Mapping\RenterMap.cs" />
+    <Compile Include="Models\Mapping\RequestMap.cs" />
+    <Compile Include="Models\Mapping\sysdiagramMap.cs" />
+    <Compile Include="Models\Mapping\UserAreaCoverageMap.cs" />
+    <Compile Include="Models\Mapping\UserContactMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\Mapping\UserNotificationMap.cs" />
+    <Compile Include="Models\Mapping\WorkOrderAssignmentMap.cs" />
+    <Compile Include="Models\Mapping\WorkOrderItemMap.cs" />
+    <Compile Include="Models\Mapping\WorkOrderMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AssetRepository.cs" />
+    <Compile Include="Repositories\BaseCrudRepository.cs" />
+    <Compile Include="Repositories\EfUnitOfWork.cs" />
+    <Compile Include="Repositories\Interfaces\IAssetRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILocationRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IOrganizationRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IBaseCrudRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Repositories\LocationRepository.cs" />
+    <Compile Include="Repositories\OrganizationRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Config\ConnectionStrings.xml">
+      <Link>ConnectionStrings.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainModels\DomainModels.csproj">
+      <Project>{589f75c7-6938-4997-881a-3080df470e5a}</Project>
+      <Name>DomainModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
