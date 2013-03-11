@@ -124,7 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClientServices\ClientServices.csproj">
-      <Project>{262D14B0-E475-482D-99BD-867E38E69771}</Project>
+      <Project>{d5bd07bf-b83b-4624-88db-db9a19689dd7}</Project>
       <Name>ClientServices</Name>
     </ProjectReference>
   </ItemGroup>
