@@ -1,7 +1,6 @@
 ﻿namespace Enterprise.DALServices.DAL.Repositories
 {
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
     using System.Linq.Expressions;
@@ -33,12 +32,12 @@
             return EntitySet.Find(id);
         }
 
-        public virtual IEnumerable<TEntity> GetAll()
+        public virtual IQueryable<TEntity> GetAll()
         {
-            return EntitySet.AsEnumerable();
+            return EntitySet;
         }
 
-        public virtual IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
+        public virtual IQueryable<TEntity> GetWhere(Expression<Func<TEntity, bool>> predicate)
         {
             return EntitySet.Where(predicate);
         }
