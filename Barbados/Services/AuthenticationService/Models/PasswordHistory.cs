@@ -1,4 +1,4 @@
-﻿namespace AuthenticationService.Models
+﻿namespace Enterprise.Services.Authentication.Models
 {
     public class PasswordHistory
     {

@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web.Security;
 
-namespace AuthenticationService
+namespace Enterprise.Services.Authentication
 {
     /// <summary>
     /// Derivation of the SqlMembershipProvider customized to meet MSI's audit needs

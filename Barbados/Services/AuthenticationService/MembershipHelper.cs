@@ -8,10 +8,11 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
-using AuthenticationService.Models;
 
-namespace AuthenticationService
+namespace Enterprise.Services.Authentication
 {
+    using Enterprise.Services.Authentication.Models;
+
     /// <summary>
     /// 
     /// </summary>

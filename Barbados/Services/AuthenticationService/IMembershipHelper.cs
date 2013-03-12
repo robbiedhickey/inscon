@@ -1,6 +1,6 @@
 ﻿using System.Web.Security;
 
-namespace AuthenticationService
+namespace Enterprise.Services.Authentication
 {
     public interface IMembershipHelper
     {
