@@ -265,6 +265,9 @@
     <Content Include="Views\Claims\ReadOnly.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\shared\_default.cshtml" />
+    <Content Include="Views\shared\_BootstrapLayout.basic.cshtml" />
+    <Content Include="Views\shared\_BootstrapLayout.empty.cshtml" />
+    <Content Include="Views\shared\_BootstrapLayout.narrow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
