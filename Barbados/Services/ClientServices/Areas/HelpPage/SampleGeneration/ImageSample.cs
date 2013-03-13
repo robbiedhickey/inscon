@@ -1,6 +1,6 @@
 using System;
 
-namespace ClientServices.Areas.HelpPage
+namespace Enterprise.ApplicationServices.ClientServices.Areas.HelpPage
 {
     /// <summary>
     /// This represents an image sample on the help page. There's a display template named ImageSample associated with this class.

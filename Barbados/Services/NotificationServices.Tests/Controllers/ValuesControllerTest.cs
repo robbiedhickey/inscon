@@ -5,10 +5,10 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NotificationServices;
-using NotificationServices.Controllers;
+using Enterprise.ApplicationServices.NotificationServices;
+using Enterprise.ApplicationServices.NotificationServices.Controllers;
 
-namespace NotificationServices.Tests.Controllers
+namespace Enterprise.ApplicationServices.NotificationServices.Tests.Controllers
 {
     [TestClass]
     public class ValuesControllerTest

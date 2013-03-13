@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace NotificationServices
+namespace Enterprise.ApplicationServices.NotificationServices
 {
     public class BundleConfig
     {

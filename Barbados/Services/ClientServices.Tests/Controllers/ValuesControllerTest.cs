@@ -5,11 +5,13 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ClientServices;
-using ClientServices.Controllers;
+using Enterprise.ApplicationServices.ClientServices;
+using Enterprise.ApplicationServices.ClientServices.Controllers;
 
-namespace ClientServices.Tests.Controllers
+namespace Enterprise.ApplicationServices.ClientServices.Tests.Controllers
 {
+    using global::Enterprise.ApplicationServices.ClientServices.Controllers;
+
     [TestClass]
     public class ValuesControllerTest
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enterprise.DALServices.ViewModels.Common
+namespace Enterprise.Core.ViewModels.Common
 {
     public class AdditionalPropertyInfo
     {
@@ -14,12 +14,5 @@ namespace Enterprise.DALServices.ViewModels.Common
         public int LotSize { get; set; }
         public int LawnSize { get; set; }
         public int DaysInInventory { get; set; }
-
-        public string HOAInfoLabel { get; set; }
-        public string ElevationLabel { get; set; }
-        public string PlumbingSystemLabel { get; set; }
-        public string LotSizeLabel { get; set; }
-        public string LawnSizeLabel { get; set; }
-        public string DaysInInventoryLabel { get; set; }
     }
 }

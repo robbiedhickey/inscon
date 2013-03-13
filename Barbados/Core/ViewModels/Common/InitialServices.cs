@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enterprise.DALServices.ViewModels.Common
+namespace Enterprise.Core.ViewModels.Common
 {
     public class InitialServices
     {
@@ -13,11 +13,5 @@ namespace Enterprise.DALServices.ViewModels.Common
         public DateTime? SalesClean { get; set; }
         public DateTime? Winterization { get; set; }
         public DateTime? InitialGrassCut { get; set; }
-
-        public string RekeyLabel { get; set; }
-        public string TrashoutLabel { get; set; }
-        public string SalesCleanLabel { get; set; }
-        public string WinterizationLabel { get; set; }
-        public string InitialGrassCutLabel { get; set; }
     }
 }

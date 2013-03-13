@@ -1,9 +1,9 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using NotificationServices.Areas.HelpPage.Models;
+using Enterprise.ApplicationServices.NotificationServices.Areas.HelpPage.Models;
 
-namespace NotificationServices.Areas.HelpPage.Controllers
+namespace Enterprise.ApplicationServices.NotificationServices.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

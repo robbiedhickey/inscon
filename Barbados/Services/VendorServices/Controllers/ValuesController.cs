@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace VendorServices.Controllers
+namespace Enterprise.ApplicationServices.VendorServices.Controllers
 {
     public class ValuesController : ApiController
     {

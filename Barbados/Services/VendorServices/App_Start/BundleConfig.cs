@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace VendorServices
+namespace Enterprise.ApplicationServices.VendorServices
 {
     public class BundleConfig
     {

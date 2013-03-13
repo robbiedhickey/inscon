@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace NotificationServices.Controllers
+namespace Enterprise.ApplicationServices.NotificationServices.Controllers
 {
     public class ValuesController : ApiController
     {

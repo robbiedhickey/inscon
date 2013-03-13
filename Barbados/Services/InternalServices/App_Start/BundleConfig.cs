@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace InternalServices
+namespace Enterprise.ApplicationServices.InternalServices
 {
     public class BundleConfig
     {

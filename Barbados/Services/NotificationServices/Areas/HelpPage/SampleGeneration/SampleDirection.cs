@@ -1,4 +1,4 @@
-namespace NotificationServices.Areas.HelpPage
+namespace Enterprise.ApplicationServices.NotificationServices.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

@@ -5,10 +5,10 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VendorServices;
-using VendorServices.Controllers;
+using Enterprise.ApplicationServices.VendorServices;
+using Enterprise.ApplicationServices.VendorServices.Controllers;
 
-namespace VendorServices.Tests.Controllers
+namespace Enterprise.ApplicationServices.VendorServices.Tests.Controllers
 {
     [TestClass]
     public class ValuesControllerTest

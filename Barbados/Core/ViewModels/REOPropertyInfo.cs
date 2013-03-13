@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enterprise.DALServices.ViewModels
+namespace Enterprise.Core.ViewModels
 {
-    using Enterprise.DALServices.ViewModels.Common;
+    using Enterprise.Core.ViewModels.Common;
 
     public class REOPropertyInfo
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace NotificationServices
+namespace Enterprise.ApplicationServices.NotificationServices
 {
     public static class WebApiConfig
     {

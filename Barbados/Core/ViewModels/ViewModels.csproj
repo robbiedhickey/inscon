@@ -7,8 +7,8 @@
     <ProjectGuid>{34149F62-B115-4614-9A49-27882053A807}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Enterprise.DALServices.ViewModels</RootNamespace>
-    <AssemblyName>Enterprise.DALServices.ViewModels</AssemblyName>
+    <RootNamespace>Enterprise.Core.ViewModels</RootNamespace>
+    <AssemblyName>Enterprise.Core.ViewModels</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,7 +49,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="REOPropertyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DomainModels\DomainModels.csproj">
+      <Project>{589f75c7-6938-4997-881a-3080df470e5a}</Project>
+      <Name>DomainModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

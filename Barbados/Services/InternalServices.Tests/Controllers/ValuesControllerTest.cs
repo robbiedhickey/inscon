@@ -5,10 +5,10 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using InternalServices;
-using InternalServices.Controllers;
+using Enterprise.ApplicationServices.InternalServices;
+using Enterprise.ApplicationServices.InternalServices.Controllers;
 
-namespace InternalServices.Tests.Controllers
+namespace Enterprise.ApplicationServices.InternalServices.Tests.Controllers
 {
     [TestClass]
     public class ValuesControllerTest

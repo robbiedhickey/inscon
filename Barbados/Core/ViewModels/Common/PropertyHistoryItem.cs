@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enterprise.DALServices.ViewModels.Common
+namespace Enterprise.Core.ViewModels.Common
 {
     public class PropertyHistoryItem
     {
@@ -20,18 +20,5 @@ namespace Enterprise.DALServices.ViewModels.Common
         public string InvoiceNumber { get; set; }
         public int ClientInvoiceAmount { get; set; }
         public int NumberOfPhotos { get; set; }
-
-        public string LoanNumberLabel { get; set; }
-        public string WorkOrderNumberLabel { get; set; }
-        public string WorkOrderTypeLabel { get; set; }
-        public string OrderDateLabel { get; set; }
-        public string JobCompletionDateLabel { get; set; }
-        public string CompletionUploadDateLabel { get; set; }
-        public string BidDateLabel { get; set; }
-        public string BillDateLabel { get; set; }
-        public string BidNumberLabel { get; set; }
-        public string InvoiceNumberLabel { get; set; }
-        public string ClientInvoiceAmountLabel { get; set; }
-        public string NumberOfPhotosLabel { get; set; }
     }
 }

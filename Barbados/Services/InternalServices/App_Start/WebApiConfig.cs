@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace InternalServices
+namespace Enterprise.ApplicationServices.InternalServices
 {
     public static class WebApiConfig
     {

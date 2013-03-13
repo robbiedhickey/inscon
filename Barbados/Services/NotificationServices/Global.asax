@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Enterprise.DALServices.NotificationServices.WebApiApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Enterprise.ApplicationServices.NotificationServices.WebApiApplication" Language="C#" %>

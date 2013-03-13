@@ -7,9 +7,9 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Description;
-using ClientServices.Areas.HelpPage.Models;
+using Enterprise.ApplicationServices.ClientServices.Areas.HelpPage.Models;
 
-namespace ClientServices.Areas.HelpPage
+namespace Enterprise.ApplicationServices.ClientServices.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

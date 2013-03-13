@@ -1,6 +1,6 @@
 using System;
 
-namespace InternalServices.Areas.HelpPage
+namespace Enterprise.ApplicationServices.InternalServices.Areas.HelpPage
 {
     /// <summary>
     /// This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enterprise.DALServices.ViewModels.Common
+namespace Enterprise.Core.ViewModels.Common
 {
     public class UtilityStatus
     {

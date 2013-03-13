@@ -40,5 +40,20 @@ namespace Enterprise.DALServices.DAL.Repositories
                 }
             }
         }
+
+        public Models.Asset GetBy(string loanNumber)
+        {
+            if (loanNumber.Trim().Length.Equals(0))
+            {
+                return null;
+            }
+            else
+            {
+                var ast = (from x in Context.Assets
+                           where x.LoanNumber.Equals(loanNumber)
+                           select x).FirstOrDefault();
+                return ast;
+            }
+        }
     }
 }

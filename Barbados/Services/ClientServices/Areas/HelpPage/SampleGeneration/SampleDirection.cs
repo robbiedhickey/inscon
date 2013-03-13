@@ -1,4 +1,4 @@
-namespace ClientServices.Areas.HelpPage
+namespace Enterprise.ApplicationServices.ClientServices.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response
