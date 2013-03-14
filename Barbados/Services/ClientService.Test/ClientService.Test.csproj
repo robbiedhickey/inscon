@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3D8CD92F-2AE0-496A-BAF1-4732A3921B2F}</ProjectGuid>
+    <ProjectGuid>{F016DCF5-8E9F-4CF8-8E42-EF29F631D5DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Enterprise.DALServices.ViewModelMapper.Tests</RootNamespace>
-    <AssemblyName>Enterprise.DALServices.ViewModelMapper.Tests</AssemblyName>
+    <RootNamespace>Enterprise.ApplicationServices.ClientService.Test</RootNamespace>
+    <AssemblyName>Enterprise.ApplicationServices.ClientService.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -72,6 +72,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClientService\ClientService.csproj">
+      <Project>{1022cfb5-7e14-4bdb-823f-20cc8a1c3694}</Project>
+      <Name>ClientService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

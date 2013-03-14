@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Enterprise.ApplicationServices.ClientService.dll">
+      <publishTime>03/14/2013 12:05:49</publishTime>
+    </File>
+    <File Include="bin/Enterprise.ApplicationServices.ClientService.pdb">
+      <publishTime>03/14/2013 12:05:49</publishTime>
+    </File>
+    <File Include="bin/Enterprise.Core.ViewModelMapper.dll">
+      <publishTime>03/14/2013 11:59:47</publishTime>
+    </File>
+    <File Include="bin/Enterprise.Core.ViewModelMapper.pdb">
+      <publishTime>03/14/2013 11:59:47</publishTime>
+    </File>
+    <File Include="bin/Enterprise.Core.ViewModels.dll">
+      <publishTime>03/14/2013 11:59:47</publishTime>
+    </File>
+    <File Include="bin/Enterprise.Core.ViewModels.pdb">
+      <publishTime>03/14/2013 11:59:47</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DALServices.DAL.dll">
+      <publishTime>03/14/2013 11:59:47</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DALServices.DAL.pdb">
+      <publishTime>03/14/2013 11:59:47</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DALServices.DomainModels.dll">
+      <publishTime>03/14/2013 11:59:46</publishTime>
+    </File>
+    <File Include="bin/Enterprise.DALServices.DomainModels.pdb">
+      <publishTime>03/14/2013 11:59:46</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>03/13/2013 13:57:38</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>03/13/2013 13:57:38</publishTime>
+    </File>
+    <File Include="bin/Web.config">
+      <publishTime>03/14/2013 12:05:47</publishTime>
+    </File>
+    <File Include="bin/Web.Debug.config">
+      <publishTime>03/14/2013 09:52:40</publishTime>
+    </File>
+    <File Include="bin/Web.Release.config">
+      <publishTime>03/14/2013 09:52:40</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>03/14/2013 10:57:15</publishTime>
+    </File>
+    <File Include="REOService.svc">
+      <publishTime>03/14/2013 10:09:07</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>03/14/2013 12:06:09</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

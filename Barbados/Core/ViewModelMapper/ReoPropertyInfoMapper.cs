@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enterprise.DALServices.ViewModelMapper
+namespace Enterprise.Core.ViewModelMapper
 {
     using Enterprise.Core.ViewModels;
     using Enterprise.Core.ViewModels.Common;
