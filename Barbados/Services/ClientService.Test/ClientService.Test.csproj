@@ -73,12 +73,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClientService\ClientService.csproj">
-      <Project>{1022cfb5-7e14-4bdb-823f-20cc8a1c3694}</Project>
-      <Name>ClientService</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

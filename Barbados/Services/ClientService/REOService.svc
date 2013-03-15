@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="Enterprise.ApplicationServices.ClientService.REOService" CodeBehind="REOService.svc.cs" %>
