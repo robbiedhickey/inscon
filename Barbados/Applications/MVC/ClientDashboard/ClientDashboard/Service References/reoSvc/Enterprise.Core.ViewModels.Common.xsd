@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Enterprise.Core.ViewModels.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Enterprise.Core.ViewModels.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AccessInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="KeyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LockboxCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccessInfo" nillable="true" type="tns:AccessInfo" />
+  <xs:complexType name="AdditionalPropertyInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DaysInInventory" type="xs:int" />
+      <xs:element minOccurs="0" name="Elevation" type="xs:int" />
+      <xs:element minOccurs="0" name="HOAInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LawnSize" type="xs:int" />
+      <xs:element minOccurs="0" name="LotSize" type="xs:int" />
+      <xs:element minOccurs="0" name="PlumbingSystem" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdditionalPropertyInfo" nillable="true" type="tns:AdditionalPropertyInfo" />
+  <xs:complexType name="AssetInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Client" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InVPRArea" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LoanNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MultipleUnits" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PropertyStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitQuantity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssetInfo" nillable="true" type="tns:AssetInfo" />
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EMail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="InitialServices">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InitialGrassCut" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Rekey" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SalesClean" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Trashout" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Winterization" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InitialServices" nillable="true" type="tns:InitialServices" />
+  <xs:complexType name="ArrayOfPropertyHistoryItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyHistoryItem" nillable="true" type="tns:PropertyHistoryItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPropertyHistoryItem" nillable="true" type="tns:ArrayOfPropertyHistoryItem" />
+  <xs:complexType name="PropertyHistoryItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BidDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="BidNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClientInvoiceAmount" type="xs:int" />
+      <xs:element minOccurs="0" name="CompletionUploadDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobCompletionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LoanNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfPhotos" type="xs:int" />
+      <xs:element minOccurs="0" name="OrderDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WorkOrderNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkOrderType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyHistoryItem" nillable="true" type="tns:PropertyHistoryItem" />
+  <xs:complexType name="ArrayOfUtilityStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UtilityStatus" nillable="true" type="tns:UtilityStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUtilityStatus" nillable="true" type="tns:ArrayOfUtilityStatus" />
+  <xs:complexType name="UtilityStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UtilStatus" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UtilType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UtilityStatus" nillable="true" type="tns:UtilityStatus" />
+</xs:schema>

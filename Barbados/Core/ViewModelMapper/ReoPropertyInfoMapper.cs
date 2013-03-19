@@ -181,5 +181,10 @@ namespace Enterprise.Core.ViewModelMapper
             
             return retValue;
         }
+
+        public void UnMap(REOPropertyInfo item)
+        {
+            
+        }
     }
 }

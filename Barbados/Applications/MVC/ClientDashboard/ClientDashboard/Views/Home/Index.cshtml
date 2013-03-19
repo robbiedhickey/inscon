@@ -1,6 +1,22 @@
-﻿@{
+﻿@model ClientDashboard.reoSvc.REOPropertyInfo
+
+@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/shared/_default.cshtml";
 }
 
 <h2>Index</h2>
+
+<fieldset>
+    <legend>REOPropertyInfo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AssetInfo.Client)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AssetInfo.Client)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

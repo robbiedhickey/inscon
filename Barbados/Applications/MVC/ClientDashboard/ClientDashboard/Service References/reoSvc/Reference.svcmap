@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a5a60949-e709-4a11-8eb1-1f791ef436bc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8090/REOService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="d3f97a69-98bd-4699-8381-017dfe695d31" SourceId="1" SourceUrl="http://localhost:8090/REOService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="3302b90a-cc24-4a70-8648-9b82f75ce06a" SourceId="1" SourceUrl="http://localhost:8090/REOService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="f8543611-61d1-4341-9487-b5e9898e183c" SourceId="1" SourceUrl="http://localhost:8090/REOService/mex" />
+    <MetadataFile FileName="Enterprise.Core.ViewModels.xsd" MetadataType="Schema" ID="d15ee85d-1754-4230-807a-1c3284279eaa" SourceId="1" SourceUrl="http://localhost:8090/REOService/mex" />
+    <MetadataFile FileName="Enterprise.Core.ViewModels.Common.xsd" MetadataType="Schema" ID="bc4b0c16-1dab-4e1c-a41f-545ea0c6ac23" SourceId="1" SourceUrl="http://localhost:8090/REOService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
